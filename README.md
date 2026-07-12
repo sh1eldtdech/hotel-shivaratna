@@ -1,6 +1,8 @@
 # Shivaratna Hotel
 
-A luxurious, modern web application for Shivaratna Hotel. Built with React, Tailwind CSS, and Framer Motion, this project showcases a premium user interface with dynamic animations, interactive mega menus, and an integrated travel guide to the beautiful districts of Sikkim.
+This project is a proprietary website built for Shivaratna Hotel by SH1LD TECH. It is developed as a client project and is not open source.
+
+The website features a premium user interface with modern animations, interactive navigation, and an integrated travel guide for the beautiful districts of Sikkim.
 
 ## 🌟 Features
 
@@ -27,29 +29,35 @@ Follow these instructions to get a copy of the project up and running on your lo
 ### Prerequisites
 
 Ensure you have Node.js installed on your machine.
+
 - [Node.js](https://nodejs.org/en/) (v16.0.0 or higher recommended)
 
 ### Installation
 
 1. **Clone the repository** (if applicable) or download the source code:
+
    ```bash
    git clone https://github.com/yourusername/hotel-shivaratna.git
    cd hotel-shivaratna
    ```
 
 2. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 3. **Environment Setup:**
    Create a `.env` file in the root directory (if not already present) to configure the contact form.
+
    ```env
    VITE_WEB3FORMS_KEY=YOUR_ACCESS_KEY_HERE
    ```
-   *Note: If you don't have a key, the form will run in simulation mode.*
+
+   _Note: If you don't have a key, the form will run in simulation mode._
 
 4. **Run the development server:**
+
    ```bash
    npm run dev
    ```
@@ -64,6 +72,6 @@ Ensure you have Node.js installed on your machine.
 - `src/data/` - Hardcoded data files for rooms, districts, and travel routes.
 - `src/pages/` - Main route components (Home, About, Rooms, Travel, Contact).
 
-## 📝 License
+## 📝 Ownership
 
-This project is open-source and available under the [MIT License](LICENSE).
+This project is the property of SH1LD TECH and the client for whom it was developed. Redistribution, copying, or reuse outside the agreed scope is not permitted without written authorization.
