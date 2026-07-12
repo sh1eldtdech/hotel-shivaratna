@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Calendar, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ROOMS_DATA } from '../data/hotelData';
 import { districtLinks } from '../data/districtRoutes';
 import { districtsData } from '../data/districtsData';
 
@@ -72,7 +71,7 @@ const Navbar = () => {
                   {({ isActive }) => (
                     <>
                       {link.name}
-                      {(link.name === 'Rooms' || link.name === 'Travel') && (
+                      {link.name === 'Travel' && (
                         <ChevronDown className="w-3.5 h-3.5 opacity-70 group-hover:rotate-180 transition-transform duration-300" />
                       )}
                       {isActive && (
@@ -85,33 +84,6 @@ const Navbar = () => {
                     </>
                   )}
                 </NavLink>
-
-                {/* Rooms Mega Menu */}
-                {link.name === 'Rooms' && (
-                  <div className="absolute top-[100%] left-1/2 -translate-x-1/2 w-[700px] bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-2xl border-t-2 border-gold p-8 flex gap-8 z-50 cursor-default">
-                    <div className="w-1/3 flex flex-col space-y-4 border-r border-neutral-100 pr-4">
-                      <h4 className="font-serif text-2xl text-neutral-900 mb-2">Rooms</h4>
-                      {ROOMS_DATA.map(room => (
-                        <Link key={room.id} to="/rooms" className="text-neutral-500 hover:text-gold text-sm font-sans transition-colors block">
-                          {room.title}
-                        </Link>
-                      ))}
-                    </div>
-                    <div className="w-2/3 grid grid-cols-2 gap-4">
-                      {ROOMS_DATA.slice(0, 4).map((room, idx) => (
-                        <Link key={room.id} to="/rooms" className="relative group/card overflow-hidden rounded bg-neutral-50 block shadow-sm hover:shadow-md transition-shadow">
-                          <img src={room.image} alt={room.title} className="w-full h-28 object-cover group-hover/card:scale-105 transition-transform duration-500" />
-                          <div className="absolute top-2 left-2 bg-gold/90 text-neutral-950 text-[10px] uppercase font-bold px-2 py-1">
-                            {idx < 2 ? 'Best Seller' : 'Featured'}
-                          </div>
-                          <div className="p-2 text-center border-t border-neutral-100">
-                            <h5 className="font-serif text-sm font-medium text-neutral-900">{room.title}</h5>
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
 
                 {/* Travel Mega Menu */}
                 {link.name === 'Travel' && (
