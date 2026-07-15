@@ -11,6 +11,9 @@ import About from './pages/About';
 import Rooms from './pages/Rooms';
 import Contact from './pages/Contact';
 import Travel from './pages/Travel';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
+import BackToTop from './components/BackToTop';
 
 // Scroll to top helper on route navigation
 const ScrollToTop = () => {
@@ -41,11 +44,14 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/travel" element={<Travel />} />
             <Route path="/travel/:slug" element={<Travel />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
           </Routes>
         </div>
 
         {/* Global Footer */}
         <Footer />
+        <BackToTop />
         
       </div>
     </BrowserRouter>

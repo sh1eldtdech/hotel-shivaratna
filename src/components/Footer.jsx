@@ -1,16 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUp } from 'lucide-react';
 
 const Footer = () => {
-  
-  const handleScrollTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
-
   return (
     <footer className="bg-neutral-950 text-neutral-400 font-sans border-t border-gold/10">
       
@@ -100,18 +91,19 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Footer: Copyright and Scroll Top */}
+      {/* Bottom Footer: Copyright */}
       <div className="border-t border-neutral-900 bg-neutral-950/50 py-6 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-light text-neutral-500 select-none">
-          <p>© 2026 Shivaratna Hotel. Developed for Shivaratna Hotel Theme.</p>
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-4 text-xs font-light text-neutral-500 select-none text-center lg:text-left">
+          <p>© 2026 Shivaratna Hotel. All Rights Reserved.</p>
           
-          <button
-            onClick={handleScrollTop}
-            className="flex items-center text-neutral-500 hover:text-gold transition-colors duration-300 group"
-          >
-            Back to Top
-            <ArrowUp className="w-3.5 h-3.5 ml-1.5 transform group-hover:-translate-y-0.5 transition-transform" />
-          </button>
+          <div className="flex items-center gap-6">
+            <Link to="/privacy" className="hover:text-gold transition-colors duration-300">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-gold transition-colors duration-300">Terms & Conditions</Link>
+          </div>
+          
+          <p className="flex items-center justify-center gap-1">
+            Made with <span className="text-green-500 text-sm">💚</span> in Sikkim. Powered by <a href="https://sh1eldtech.com/" target="_blank" rel="noopener noreferrer" className="text-gold font-medium ml-1 hover:text-gold-light transition-colors">SH1ELD Tech</a>.
+          </p>
         </div>
       </div>
 
