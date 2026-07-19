@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { motion, AnimatePresence, useInView, useReducedMotion } from 'framer-motion';
 import { Star, ArrowRight, Play, Utensils, Waves, Dumbbell, Sparkles, Briefcase, Shirt, X } from 'lucide-react';
 import Hero from '../components/Hero';
 import { ROOMS_DATA, GALLERY_IMAGES, CORE_FACILITIES } from '../data/hotelData';
@@ -55,6 +55,56 @@ const Home = () => {
 
   // Highlights only first 3 rooms for Homepage preview
   const featuredRooms = ROOMS_DATA.slice(0, 3);
+  const shouldReduceMotion = useReducedMotion(); // ADDED: Respect prefers-reduced-motion
+
+  // ADDED: Reusable motion variants for About section
+  const imageGroupVariant = {
+    hidden: { 
+      opacity: 0, 
+      x: shouldReduceMotion ? 0 : -120, 
+      scale: shouldReduceMotion ? 1 : 0.9, 
+      rotateY: shouldReduceMotion ? 0 : -12 
+    },
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      scale: 1, 
+      rotateY: 0,
+      transition: { 
+        duration: 1, 
+        ease: [0.22, 1, 0.36, 1] 
+      }
+    }
+  };
+
+  const contentContainerVariant = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.8,
+        staggerChildren: 0.25
+      }
+    }
+  };
+
+  const contentItemVariant = {
+    hidden: { opacity: 0, x: shouldReduceMotion ? 0 : 60 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { duration: 1, ease: [0.22, 1, 0.36, 1] }
+    }
+  };
+
+  const imageHoverVariant = {
+    hover: {
+      scale: 1.04,
+      filter: "brightness(105%)",
+      boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+      transition: { duration: 0.5 }
+    }
+  };
 
   return (
     <div>
@@ -66,49 +116,62 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           
           {/* Welcome Intro row */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* ADDED: Wrapped existing row with motion.div for 25% viewport trigger */}
+          <motion.div 
+            className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.25 }}
+          >
             
             {/* Curved Arches (Left) */}
-            <div className="lg:col-span-6 grid grid-cols-2 gap-4 md:gap-6 relative">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-gold/15 rounded-full -z-10 pointer-events-none hidden md:block" />
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="arch-frame shadow-premium border border-gold/10"
+            {/* ADDED: Animated Image Container with perspective */}
+            <motion.div 
+              className="lg:col-span-6"
+              variants={imageGroupVariant}
+              style={{ perspective: 1000 }}
+            >
+              {/* ADDED: Inner div for infinite floating animation after reveal */}
+              <motion.div 
+                animate={{ y: shouldReduceMotion ? 0 : [0, -6, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="grid grid-cols-2 gap-4 md:gap-6 relative"
               >
-                <img
-                  src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=600&q=80"
-                  alt="Shivaratna Lobby"
-                  className="w-full h-[280px] md:h-[400px] object-cover hover:scale-105 transition-transform duration-700"
-                />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-gold/15 rounded-full -z-10 pointer-events-none hidden md:block" />
+                <div className="arch-frame shadow-premium border border-gold/10">
+                  <motion.img
+                    src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=600&q=80"
+                    alt="Shivaratna Lobby"
+                    className="w-full h-[280px] md:h-[400px] object-cover"
+                    variants={imageHoverVariant}
+                    whileHover="hover"
+                  />
+                </div>
+                <div className="arch-frame shadow-premium border border-gold/10 mt-12 md:mt-20">
+                  <motion.img
+                    src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80"
+                    alt="Shivaratna Gourmet Dining"
+                    className="w-full h-[280px] md:h-[400px] object-cover"
+                    variants={imageHoverVariant}
+                    whileHover="hover"
+                  />
+                </div>
               </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 80 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="arch-frame shadow-premium border border-gold/10 mt-12 md:mt-20"
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80"
-                  alt="Shivaratna Gourmet Dining"
-                  className="w-full h-[280px] md:h-[400px] object-cover hover:scale-105 transition-transform duration-700"
-                />
-              </motion.div>
-            </div>
+            </motion.div>
 
             {/* Intro Copy (Right) */}
-            <div className="lg:col-span-6 text-left space-y-6">
-              <span className="text-xs md:text-sm font-semibold tracking-[0.25em] text-gold uppercase block font-sans">
+            <motion.div 
+              className="lg:col-span-6 text-left space-y-6"
+              variants={contentContainerVariant}
+            >
+              <motion.span variants={contentItemVariant} className="text-xs md:text-sm font-semibold tracking-[0.25em] text-gold uppercase block font-sans">
                 Welcome to Shivaratna
-              </span>
-              <h2 className="text-3xl md:text-5xl font-medium leading-tight text-neutral-900 font-serif">
+              </motion.span>
+              <motion.h2 variants={contentItemVariant} className="text-3xl md:text-5xl font-medium leading-tight text-neutral-900 font-serif">
                 Exceptional Hospitality and Unmatched Relaxation
-              </h2>
+              </motion.h2>
               
-              <div className="flex items-center space-x-3 bg-gold/5 border border-gold/20 px-4 py-2 w-fit">
+              <motion.div variants={contentItemVariant} className="flex items-center space-x-3 bg-gold/5 border border-gold/20 px-4 py-2 w-fit">
                 <div className="flex text-gold">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-current" />
@@ -117,21 +180,23 @@ const Home = () => {
                 <span className="text-xs font-semibold text-neutral-800 tracking-wider font-sans">
                   4.9 out of 5 (1,200+ Reviews)
                 </span>
-              </div>
+              </motion.div>
 
-              <p className="text-neutral-600 text-sm md:text-base font-sans font-light leading-relaxed">
+              <motion.p variants={contentItemVariant} className="text-neutral-600 text-sm md:text-base font-sans font-light leading-relaxed">
                 Nestled at the crossroads of cultural grandeur and modern luxury, Shivaratna Hotel offers an oasis of calm. Our premium accommodations, custom curated spaces, and signature cuisines are tailored to provide a home away from home.
-              </p>
+              </motion.p>
 
-              <Link
-                to="/about"
-                className="inline-flex items-center text-xs text-gold hover:text-gold-dark uppercase tracking-widest font-sans font-semibold group pt-2 transition-colors"
-              >
-                Learn More About Us
-                <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-          </div>
+              <motion.div variants={contentItemVariant} className="inline-block pt-2">
+                <Link
+                  to="/about"
+                  className="inline-flex items-center text-xs text-gold hover:text-gold-dark uppercase tracking-widest font-sans font-semibold group transition-colors"
+                >
+                  Learn More About Us
+                  <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </motion.div>
+            </motion.div>
+          </motion.div>
 
           {/* 6 Facilities Cards (Replicating Section 2 details) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-28">
@@ -140,15 +205,34 @@ const Home = () => {
               return (
                 <motion.div
                   key={facility.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-50px' }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -8 }}
-                  className="bg-white border border-gold/10 hover:border-gold/30 p-8 text-center md:text-left transition-all duration-300 shadow-premium flex flex-col items-center md:items-start group"
+                  initial={{ 
+                    opacity: 0, 
+                    y: shouldReduceMotion ? 0 : 50, 
+                    scale: shouldReduceMotion ? 1 : 0.9 
+                  }}
+                  whileInView={{ 
+                    opacity: 1, 
+                    y: 0, 
+                    scale: 1,
+                  }}
+                  transition={{ 
+                    duration: 0.8, 
+                    ease: [0.22, 1, 0.36, 1],
+                    delay: (index % 3) * 0.15 
+                  }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  whileHover={{ 
+                    y: -10, 
+                    scale: 1.02,
+                    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.08)",
+                    transition: { duration: 0.4, ease: "easeOut" }
+                  }}
+                  className="bg-white border border-gold/10 hover:border-gold/30 p-8 text-center md:text-left transition-colors duration-500 shadow-premium flex flex-col items-center md:items-start group"
                 >
-                  <div className="bg-gold/5 p-4 rounded-full border border-gold/10 group-hover:bg-gold group-hover:text-neutral-950 transition-colors duration-500 mb-6 text-gold">
-                    <IconComponent className="w-6 h-6" />
+                  <div className="bg-gold/5 p-4 rounded-full border border-gold/10 group-hover:bg-gold group-hover:text-neutral-950 transition-colors duration-500 mb-6 text-gold relative overflow-hidden">
+                    {/* Add a subtle shine effect on hover for the icon background */}
+                    <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
+                    <IconComponent className="w-6 h-6 relative z-10" />
                   </div>
                   <h3 className="text-lg font-medium tracking-wide text-neutral-900 font-serif mb-3">
                     {facility.title}
@@ -190,7 +274,13 @@ const Home = () => {
       <section className="py-24 bg-luxury-cream">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
           
-          <div className="max-w-2xl mx-auto mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="max-w-2xl mx-auto mb-16"
+          >
             <span className="text-xs font-semibold tracking-[0.25em] text-gold uppercase block font-sans">
               Rooms & Suites
             </span>
@@ -198,16 +288,16 @@ const Home = () => {
               Accommodation
             </h2>
             <div className="w-16 h-[1.5px] bg-gold mx-auto mt-4" />
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {featuredRooms.map((room, index) => (
               <motion.div
                 key={room.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
+                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 80, scale: shouldReduceMotion ? 1 : 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: index * 0.3 }}
                 className="flex flex-col items-center group cursor-pointer"
                 onClick={() => navigate('/rooms')}
               >
@@ -260,7 +350,13 @@ const Home = () => {
       <section className="py-24 bg-white border-t border-neutral-100">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="text-center max-w-2xl mx-auto mb-16"
+          >
             <span className="text-xs font-semibold tracking-[0.25em] text-gold uppercase block font-sans">
               Exclusive Statistics
             </span>
@@ -268,16 +364,16 @@ const Home = () => {
               Our Facilities
             </h2>
             <div className="w-16 h-[1.5px] bg-gold mx-auto mt-4" />
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             
             {/* Rooms Available Card */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: shouldReduceMotion ? 0 : -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
               className="relative h-[320px] md:h-[400px] overflow-hidden group shadow-premium border border-gold/15"
             >
               {/* Background */}
@@ -304,10 +400,10 @@ const Home = () => {
 
             {/* Menu Selection Card */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: shouldReduceMotion ? 0 : 50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
               className="relative h-[320px] md:h-[400px] overflow-hidden group shadow-premium border border-gold/15"
             >
               {/* Background */}
@@ -373,7 +469,13 @@ const Home = () => {
       <section className="py-24 bg-luxury-cream border-t border-neutral-100">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           
-          <div className="text-center max-w-2xl mx-auto mb-12">
+          <motion.div 
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="text-center max-w-2xl mx-auto mb-12"
+          >
             <span className="text-xs font-semibold tracking-[0.25em] text-gold uppercase block font-sans">
               Stories & Moments
             </span>
@@ -381,17 +483,17 @@ const Home = () => {
               @shivaratna_hotel_theme
             </h2>
             <div className="w-12 h-[1px] bg-gold mx-auto mt-3" />
-          </div>
+          </motion.div>
 
           {/* 8 Images Grid layout */}
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
             {GALLERY_IMAGES.map((img, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: '-20px' }}
-                transition={{ duration: 0.5, delay: idx * 0.05 }}
+                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40, scale: shouldReduceMotion ? 1 : 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: idx * 0.1 }}
                 className="relative overflow-hidden aspect-square border border-gold/10 group cursor-pointer"
               >
                 <div className="absolute inset-0 bg-neutral-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center">
