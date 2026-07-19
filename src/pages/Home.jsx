@@ -282,7 +282,7 @@ const Home = () => {
             className="max-w-2xl mx-auto mb-16"
           >
             <span className="text-xs font-semibold tracking-[0.25em] text-gold uppercase block font-sans">
-              Rooms & Suites
+              Rooms & Suite
             </span>
             <h2 className="text-3xl md:text-5xl font-medium text-neutral-900 font-serif mt-2">
               Accommodation
