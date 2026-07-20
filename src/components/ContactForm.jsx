@@ -110,7 +110,7 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-luxury-black text-white relative overflow-hidden">
+    <section id="contact" className="py-24 bg-luxury-cream text-neutral-900 relative overflow-hidden">
       
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-gold/5 rounded-full filter blur-3xl -z-10" />
@@ -125,11 +125,11 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
               <span className="text-xs font-semibold tracking-[0.25em] text-gold uppercase block font-sans">
                 Contact Us
               </span>
-              <h2 className="text-3xl md:text-5xl font-medium text-white font-serif leading-tight">
+              <h2 className="text-3xl md:text-5xl font-medium text-neutral-900 font-serif leading-tight">
                 Connect With Our Concierge
               </h2>
               <div className="w-16 h-[1.5px] bg-gold mt-4" />
-              <p className="text-neutral-400 text-xs md:text-sm font-sans font-light leading-relaxed mt-4">
+              <p className="text-neutral-600 text-xs md:text-sm font-sans font-light leading-relaxed mt-4">
                 Have questions about room choices, special requests, or airport pickup? Let us assist you in planning your unforgettable stay at Shivaratna.
               </p>
             </div>
@@ -138,12 +138,12 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
             <div className="space-y-6">
               {/* Address */}
               <div className="flex items-start space-x-4">
-                <div className="bg-neutral-900 border border-gold/20 p-3 rounded-full text-gold shrink-0">
+                <div className="bg-white border border-gold/20 p-3 rounded-full text-gold shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
                   <h4 className="font-serif text-sm font-semibold tracking-wider text-gold">Location</h4>
-                  <p className="text-neutral-400 text-xs md:text-sm font-sans font-light mt-1">
+                  <p className="text-neutral-600 text-xs md:text-sm font-sans font-light mt-1">
                     742 Evergreen Terrace, Shivaratna Hotel Lane,<br />
                     Bangalore, Karnataka, India - 560001
                   </p>
@@ -152,12 +152,12 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
 
               {/* Phone */}
               <div className="flex items-start space-x-4">
-                <div className="bg-neutral-900 border border-gold/20 p-3 rounded-full text-gold shrink-0">
+                <div className="bg-white border border-gold/20 p-3 rounded-full text-gold shrink-0">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
                   <h4 className="font-serif text-sm font-semibold tracking-wider text-gold">Reservations</h4>
-                  <p className="text-neutral-400 text-xs md:text-sm font-sans font-light mt-1">
+                  <p className="text-neutral-600 text-xs md:text-sm font-sans font-light mt-1">
                     <a href="tel:+919999999999" className="hover:text-gold transition-colors">+91 99999 99999</a><br />
                     <a href="tel:+918888888888" className="hover:text-gold transition-colors">+91 88888 88888</a>
                   </p>
@@ -166,12 +166,12 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
 
               {/* Email */}
               <div className="flex items-start space-x-4">
-                <div className="bg-neutral-900 border border-gold/20 p-3 rounded-full text-gold shrink-0">
+                <div className="bg-white border border-gold/20 p-3 rounded-full text-gold shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
                   <h4 className="font-serif text-sm font-semibold tracking-wider text-gold">Enquiries</h4>
-                  <p className="text-neutral-400 text-xs md:text-sm font-sans font-light mt-1">
+                  <p className="text-neutral-600 text-xs md:text-sm font-sans font-light mt-1">
                     <a href="mailto:info@shivaratnahotel.com" className="hover:text-gold transition-colors">info@shivaratnahotel.com</a><br />
                     <a href="mailto:booking@shivaratnahotel.com" className="hover:text-gold transition-colors">booking@shivaratnahotel.com</a>
                   </p>
@@ -180,12 +180,12 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
 
               {/* Timing */}
               <div className="flex items-start space-x-4">
-                <div className="bg-neutral-900 border border-gold/20 p-3 rounded-full text-gold shrink-0">
+                <div className="bg-white border border-gold/20 p-3 rounded-full text-gold shrink-0">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
                   <h4 className="font-serif text-sm font-semibold tracking-wider text-gold">Working Hours</h4>
-                  <p className="text-neutral-400 text-xs md:text-sm font-sans font-light mt-1">
+                  <p className="text-neutral-600 text-xs md:text-sm font-sans font-light mt-1">
                     Front Desk: 24 / 7 Available<br />
                     Spa & Pools: 06:00 AM - 10:00 PM
                   </p>
@@ -194,14 +194,14 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
             </div>
 
             {/* Simulated Google Map (Premium placeholder) */}
-            <div className="relative h-[180px] md:h-[220px] bg-neutral-900 border border-gold/20 flex items-center justify-center overflow-hidden">
+            <div className="relative h-[180px] md:h-[220px] bg-white border border-gold/20 flex items-center justify-center overflow-hidden">
               <div className="absolute inset-0 bg-cover bg-center opacity-40 grayscale"
                    style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=600&q=80")' }} />
-              <div className="absolute inset-0 bg-neutral-950/60" />
+              <div className="absolute inset-0 bg-white/40" />
               <div className="z-10 text-center space-y-2.5 p-4">
                 <MapPin className="w-8 h-8 text-gold mx-auto animate-bounce" />
                 <h5 className="font-serif text-sm font-medium">Shivaratna Bangalore</h5>
-                <p className="text-[10px] text-neutral-400 font-sans">Click below to open on Google Maps</p>
+                <p className="text-[10px] text-neutral-600 font-sans">Click below to open on Google Maps</p>
                 <a
                   href="https://maps.google.com"
                   target="_blank"
@@ -215,19 +215,19 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
           </div>
 
           {/* Right Column - Booking & Contact Form */}
-          <div className="lg:col-span-7 bg-neutral-900/60 backdrop-blur-md border border-gold/15 p-8 md:p-10 shadow-gold-glow">
+          <div className="lg:col-span-7 bg-white/80 backdrop-blur-md border border-gold/15 p-8 md:p-10 shadow-gold-glow">
             
             {/* Environment warning reminder if default key is used */}
             {import.meta.env.VITE_WEB3FORMS_KEY ? null : (
               <div className="mb-6 bg-gold/5 border border-gold/20 p-3 flex items-start space-x-2 text-left">
                 <AlertCircle className="w-4 h-4 text-gold shrink-0 mt-0.5" />
-                <span className="text-[10px] text-neutral-300 font-sans leading-normal">
+                <span className="text-[10px] text-neutral-700 font-sans leading-normal">
                   <span className="text-gold font-semibold">Demo Mode:</span> A Web3Forms access key is not set. Submissions will simulate successful requests locally. Set VITE_WEB3FORMS_KEY in your env to send real emails.
                 </span>
               </div>
             )}
 
-            <h3 className="text-xl md:text-2xl font-serif text-white font-medium text-left mb-6">
+            <h3 className="text-xl md:text-2xl font-serif text-neutral-900 font-medium text-left mb-6">
               Reservation & Inquiry Form
             </h3>
 
@@ -236,7 +236,7 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
                 
                 {/* Name */}
                 <div className="space-y-1.5">
-                  <label className="text-[10px] text-neutral-400 uppercase tracking-widest font-sans font-semibold">Full Name</label>
+                  <label className="text-[10px] text-neutral-600 uppercase tracking-widest font-sans font-semibold">Full Name</label>
                   <input
                     type="text"
                     name="name"
@@ -244,13 +244,13 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Enter your name"
-                    className="w-full bg-neutral-950 border border-neutral-800 text-neutral-200 text-xs px-4 py-3 outline-none focus:border-gold transition-colors font-sans"
+                    className="w-full bg-white border border-neutral-200 text-neutral-800 text-xs px-4 py-3 outline-none focus:border-gold transition-colors font-sans"
                   />
                 </div>
 
                 {/* Email */}
                 <div className="space-y-1.5">
-                  <label className="text-[10px] text-neutral-400 uppercase tracking-widest font-sans font-semibold">Email Address</label>
+                  <label className="text-[10px] text-neutral-600 uppercase tracking-widest font-sans font-semibold">Email Address</label>
                   <input
                     type="email"
                     name="email"
@@ -258,13 +258,13 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Enter your email"
-                    className="w-full bg-neutral-950 border border-neutral-800 text-neutral-200 text-xs px-4 py-3 outline-none focus:border-gold transition-colors font-sans"
+                    className="w-full bg-white border border-neutral-200 text-neutral-800 text-xs px-4 py-3 outline-none focus:border-gold transition-colors font-sans"
                   />
                 </div>
 
                 {/* Phone */}
                 <div className="space-y-1.5">
-                  <label className="text-[10px] text-neutral-400 uppercase tracking-widest font-sans font-semibold">Phone Number</label>
+                  <label className="text-[10px] text-neutral-600 uppercase tracking-widest font-sans font-semibold">Phone Number</label>
                   <input
                     type="tel"
                     name="phone"
@@ -272,18 +272,18 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="Enter your number"
-                    className="w-full bg-neutral-950 border border-neutral-800 text-neutral-200 text-xs px-4 py-3 outline-none focus:border-gold transition-colors font-sans"
+                    className="w-full bg-white border border-neutral-200 text-neutral-800 text-xs px-4 py-3 outline-none focus:border-gold transition-colors font-sans"
                   />
                 </div>
 
                 {/* Room Selection */}
                 <div className="space-y-1.5">
-                  <label className="text-[10px] text-neutral-400 uppercase tracking-widest font-sans font-semibold">Room Type</label>
+                  <label className="text-[10px] text-neutral-600 uppercase tracking-widest font-sans font-semibold">Room Type</label>
                   <select
                     name="roomType"
                     value={formData.roomType}
                     onChange={handleChange}
-                    className="w-full bg-neutral-950 border border-neutral-800 text-neutral-200 text-xs px-4 py-3 outline-none focus:border-gold transition-colors font-sans cursor-pointer"
+                    className="w-full bg-white border border-neutral-200 text-neutral-800 text-xs px-4 py-3 outline-none focus:border-gold transition-colors font-sans cursor-pointer"
                   >
                     <option value="standard-room">Standard Room</option>
                     <option value="deluxe-room">Deluxe Room</option>
@@ -296,25 +296,25 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
 
                 {/* Check In */}
                 <div className="space-y-1.5">
-                  <label className="text-[10px] text-neutral-400 uppercase tracking-widest font-sans font-semibold">Check In</label>
+                  <label className="text-[10px] text-neutral-600 uppercase tracking-widest font-sans font-semibold">Check In</label>
                   <input
                     type="date"
                     name="checkIn"
                     value={formData.checkIn}
                     onChange={handleChange}
-                    className="w-full bg-neutral-950 border border-neutral-800 text-neutral-200 text-xs px-4 py-3 outline-none focus:border-gold transition-colors font-sans cursor-pointer"
+                    className="w-full bg-white border border-neutral-200 text-neutral-800 text-xs px-4 py-3 outline-none focus:border-gold transition-colors font-sans cursor-pointer"
                   />
                 </div>
 
                 {/* Check Out */}
                 <div className="space-y-1.5">
-                  <label className="text-[10px] text-neutral-400 uppercase tracking-widest font-sans font-semibold">Check Out</label>
+                  <label className="text-[10px] text-neutral-600 uppercase tracking-widest font-sans font-semibold">Check Out</label>
                   <input
                     type="date"
                     name="checkOut"
                     value={formData.checkOut}
                     onChange={handleChange}
-                    className="w-full bg-neutral-950 border border-neutral-800 text-neutral-200 text-xs px-4 py-3 outline-none focus:border-gold transition-colors font-sans cursor-pointer"
+                    className="w-full bg-white border border-neutral-200 text-neutral-800 text-xs px-4 py-3 outline-none focus:border-gold transition-colors font-sans cursor-pointer"
                   />
                 </div>
 
@@ -322,12 +322,12 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
 
               {/* Guest Count */}
               <div className="space-y-1.5">
-                <label className="text-[10px] text-neutral-400 uppercase tracking-widest font-sans font-semibold">Number of Guests</label>
+                <label className="text-[10px] text-neutral-600 uppercase tracking-widest font-sans font-semibold">Number of Guests</label>
                 <select
                   name="guests"
                   value={formData.guests}
                   onChange={handleChange}
-                  className="w-full bg-neutral-950 border border-neutral-800 text-neutral-200 text-xs px-4 py-3 outline-none focus:border-gold transition-colors font-sans cursor-pointer"
+                  className="w-full bg-white border border-neutral-200 text-neutral-800 text-xs px-4 py-3 outline-none focus:border-gold transition-colors font-sans cursor-pointer"
                 >
                   <option value="1">1 Guest</option>
                   <option value="2">2 Guests</option>
@@ -339,14 +339,14 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
 
               {/* Special message */}
               <div className="space-y-1.5">
-                <label className="text-[10px] text-neutral-400 uppercase tracking-widest font-sans font-semibold">Special Requests / Message</label>
+                <label className="text-[10px] text-neutral-600 uppercase tracking-widest font-sans font-semibold">Special Requests / Message</label>
                 <textarea
                   name="message"
                   rows="4"
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Tell us about special dietary needs, bed setups, airport transfer timing..."
-                  className="w-full bg-neutral-950 border border-neutral-800 text-neutral-200 text-xs px-4 py-3 outline-none focus:border-gold transition-colors font-sans resize-none"
+                  className="w-full bg-white border border-neutral-200 text-neutral-800 text-xs px-4 py-3 outline-none focus:border-gold transition-colors font-sans resize-none"
                 />
               </div>
 
@@ -374,10 +374,10 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
-                  className="mt-6 bg-emerald-500/10 border border-emerald-500/30 p-4 flex items-center space-x-3"
+                  className="mt-6 bg-emerald-50 border border-emerald-200 p-4 flex items-center space-x-3"
                 >
                   <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
-                  <span className="text-xs text-neutral-200 font-sans text-left">
+                  <span className="text-xs text-neutral-800 font-sans text-left">
                     Thank you! Your booking request was sent successfully. Our guest concierge team will email/call you within 2 hours.
                   </span>
                 </motion.div>
@@ -388,10 +388,10 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
-                  className="mt-6 bg-rose-500/10 border border-rose-500/30 p-4 flex items-center space-x-3"
+                  className="mt-6 bg-rose-50 border border-rose-200 p-4 flex items-center space-x-3"
                 >
                   <AlertCircle className="w-5 h-5 text-rose-400 shrink-0" />
-                  <span className="text-xs text-neutral-200 font-sans text-left">
+                  <span className="text-xs text-neutral-800 font-sans text-left">
                     Error: {status.error}
                   </span>
                 </motion.div>

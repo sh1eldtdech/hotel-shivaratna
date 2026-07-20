@@ -70,7 +70,7 @@ export const ROOMS_DATA = [
     size: "30 sqm",
     bed: "1 Queen Bed",
     view: "City View",
-    image: "https://images.unsplash.com/photo-1611891404724-5e9924db36f7?auto=format&fit=crop&w=800&q=80",
+    image: "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/room-imgs/201806211726437264-2312-0def80540b4e11ecb14a0a58a9feac02.jpg",
     description: "Our Standard Room offers the perfect balance of luxury and affordability, featuring a cozy setting with a queen-sized bed, high-speed Wi-Fi, work desk, and beautiful views of the city skyline.",
     amenities: ["Free Wi-Fi", "Air Conditioning", "Cable TV", "Coffee Maker", "Hair Dryer", "Safe Box"]
   },
