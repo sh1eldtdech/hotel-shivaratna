@@ -72,13 +72,8 @@ const Hero = () => {
 
           {/* Hero Content (Arched Panel) */}
           <div className="absolute inset-0 flex flex-col justify-center items-center px-6 md:px-12 text-center z-10 pt-20">
-            <div className="border border-gold/30 rounded-t-[14rem] md:rounded-t-[22rem] max-w-2xl w-full px-6 md:px-16 pt-20 md:pt-28 pb-12 md:pb-16 backdrop-blur-md bg-neutral-950/40 shadow-2xl flex flex-col items-center border-b border-gold/15 transition-all duration-300">
-              {/* Rating stars */}
-              <div className="flex justify-center items-center space-x-1.5 mb-6">
-                {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-gold text-lg">★</span>
-                ))}
-              </div>
+            <div className="max-w-2xl w-full px-6 md:px-16 py-12 flex flex-col items-center transition-all duration-300">
+
 
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-normal text-white mb-6 leading-tight tracking-wider uppercase font-serif">
                 {HERO_SLIDES[currentSlide].title}

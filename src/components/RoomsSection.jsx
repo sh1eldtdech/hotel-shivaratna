@@ -49,7 +49,7 @@ const RoomsSection = ({ onSelectRoomForBooking }) => {
             Rooms & Suites
           </h2>
           <div className="w-16 h-[1.5px] bg-gold mx-auto mt-4" />
-          <p className="text-neutral-500 text-xs md:text-sm font-sans font-light mt-4 leading-relaxed">
+          <p className="text-neutral-950 text-medium font-normal text-xs md:text-[18px] font-sans font-light mt-4 leading-relaxed">
             Indulge in the ultimate blend of elegance and comfort in our meticulously designed rooms. Choose your perfect sanctuary.
           </p>
         </div>

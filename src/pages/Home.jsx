@@ -131,27 +131,14 @@ const Home = () => {
               variants={imageGroupVariant}
               style={{ perspective: 1000 }}
             >
-              {/* ADDED: Inner div for infinite floating animation after reveal */}
               <motion.div 
-                animate={{ y: shouldReduceMotion ? 0 : [0, -6, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="grid grid-cols-2 gap-4 md:gap-6 relative"
+                className="relative"
               >
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-gold/15 rounded-full -z-10 pointer-events-none hidden md:block" />
-                <div className="arch-frame shadow-premium border border-gold/10">
+                <div className="rounded-xl overflow-hidden shadow-2xl border border-gold/10">
                   <motion.img
-                    src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=600&q=80"
+                    src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&q=80"
                     alt="Shivaratna Lobby"
-                    className="w-full h-[280px] md:h-[400px] object-cover"
-                    variants={imageHoverVariant}
-                    whileHover="hover"
-                  />
-                </div>
-                <div className="arch-frame shadow-premium border border-gold/10 mt-12 md:mt-20">
-                  <motion.img
-                    src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80"
-                    alt="Shivaratna Gourmet Dining"
-                    className="w-full h-[280px] md:h-[400px] object-cover"
+                    className="w-full h-[350px] md:h-[500px] object-cover"
                     variants={imageHoverVariant}
                     whileHover="hover"
                   />
@@ -234,10 +221,10 @@ const Home = () => {
                     <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
                     <IconComponent className="w-6 h-6 relative z-10" />
                   </div>
-                  <h3 className="text-lg font-medium tracking-wide text-neutral-900 font-serif mb-3">
+                  <h3 className="text-lg md:text-[21px] font-medium tracking-wide text-neutral-900 font-serif mb-3">
                     {facility.title}
                   </h3>
-                  <p className="text-neutral-500 text-xs md:text-sm leading-relaxed font-sans font-light">
+                  <p className="text-neutral-950 text-medium font-normal text-xs md:text-[18px] leading-relaxed font-sans font-light">
                     {facility.description}
                   </p>
                 </motion.div>

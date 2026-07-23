@@ -149,10 +149,10 @@ const Travel = () => {
                     </span>
                   </div>
                   <div className="p-6 flex flex-col flex-grow text-left">
-                    <h3 className="text-lg font-serif font-medium text-neutral-950 tracking-wider mb-2">
+                    <h3 className="text-lg md:text-[21px] font-serif font-medium text-neutral-950 tracking-wider mb-2">
                       {attraction.title}
                     </h3>
-                    <p className="text-neutral-500 text-xs md:text-sm leading-relaxed font-sans font-light flex-grow">
+                    <p className="text-neutral-950 text-medium font-normal text-xs md:text-[18px] leading-relaxed font-sans font-light flex-grow">
                       {attraction.desc}
                     </p>
                   </div>
@@ -201,7 +201,7 @@ const Travel = () => {
                     <h3 className="text-xl font-serif font-medium text-neutral-950 tracking-wider mb-2">
                       {fest.name}
                     </h3>
-                    <p className="text-neutral-500 text-xs md:text-sm leading-relaxed font-sans font-light mb-6">
+                    <p className="text-neutral-950 text-medium font-normal text-xs md:text-[18px] leading-relaxed font-sans font-light mb-6">
                       {fest.note}
                     </p>
                   </div>
@@ -233,7 +233,7 @@ const Travel = () => {
               <div className="bg-white border border-neutral-100 p-8 shadow-premium rounded-lg">
                 <div className="flex items-center space-x-3 text-gold mb-6">
                   <Hotel className="w-6 h-6" />
-                  <h3 className="text-lg font-serif font-medium text-neutral-950 tracking-wide">
+                  <h3 className="text-lg md:text-[21px] font-serif font-medium text-neutral-950 tracking-wide">
                     Accommodation Options
                   </h3>
                 </div>
@@ -253,7 +253,7 @@ const Travel = () => {
               <div className="bg-white border border-neutral-100 p-8 shadow-premium rounded-lg">
                 <div className="flex items-center space-x-3 text-gold mb-6">
                   <Car className="w-6 h-6" />
-                  <h3 className="text-lg font-serif font-medium text-neutral-950 tracking-wide">
+                  <h3 className="text-lg md:text-[21px] font-serif font-medium text-neutral-950 tracking-wide">
                     Transportation & Getting Around
                   </h3>
                 </div>
@@ -402,7 +402,7 @@ const Travel = () => {
             Explore the Six Beautiful Districts of Sikkim
           </h2>
           <div className="w-16 h-[1.5px] bg-gold mx-auto" />
-          <p className="text-neutral-500 text-sm md:text-base leading-relaxed font-sans font-light max-w-2xl mx-auto">
+          <p className="text-neutral-950 text-medium font-normal text-sm md:text-[19px] leading-relaxed font-sans font-light max-w-2xl mx-auto">
             From the bustling colorful lanes of Gangtok to the quiet snow-capped high summits of Mangan, Sikkim is a land of unmatched geographical variety and deep cultural heritage. Choose a district below to plan your exploration.
           </p>
         </div>
@@ -442,7 +442,7 @@ const Travel = () => {
                       {district.name}
                     </h3>
                     
-                    <p className="text-neutral-500 text-xs md:text-sm font-sans font-light leading-relaxed flex-grow">
+                    <p className="text-neutral-950 text-medium font-normal text-xs md:text-[18px] font-sans font-light leading-relaxed flex-grow">
                       {district.description}
                     </p>
 

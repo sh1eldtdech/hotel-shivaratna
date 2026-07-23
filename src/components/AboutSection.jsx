@@ -13,102 +13,43 @@ const iconMap = {
 };
 
 const AboutSection = () => {
-  const containerRef = useRef(null);
-  const [scrollMid, setScrollMid] = useState(0);
-
-  // Setup scroll progress and scroll position tracking on the intro section
-  const { scrollYProgress, scrollY } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  // Float offsets for the arched boxes (containers):
-  // Left box floats upward (starts at 50, ends at -50)
-  // Right box floats downward (starts at -50, ends at 50)
-  const yLeftContainer = useTransform(scrollYProgress, [0, 1], [50, -50]);
-  const yRightContainer = useTransform(scrollYProgress, [0, 1], [-50, 50]);
-
-  // Image translations to counteract scroll and float movement, keeping images screen-fixed
-  const yImageLeft = useTransform(
-    [scrollY, yLeftContainer],
-    ([latestScrollY, latestYContainer]) => {
-      return (latestScrollY - scrollMid) - latestYContainer;
-    }
-  );
-
-  const yImageRight = useTransform(
-    [scrollY, yRightContainer],
-    ([latestScrollY, latestYContainer]) => {
-      return (latestScrollY - scrollMid) - latestYContainer;
-    }
-  );
-
-  useEffect(() => {
-    const calculateMidpoint = () => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const sectionTop = rect.top + scrollTop;
-        const sectionHeight = rect.height;
-        const viewportHeight = window.innerHeight;
-        // Scroll position where the section is centered vertically in the viewport
-        const mid = sectionTop + (sectionHeight - viewportHeight) / 2;
-        setScrollMid(mid);
-      }
-    };
-
-    calculateMidpoint();
-
-    // Add small delay to ensure page layout is fully rendered
-    const timer = setTimeout(calculateMidpoint, 150);
-
-    window.addEventListener('resize', calculateMidpoint);
-
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener('resize', calculateMidpoint);
-    };
-  }, []);
-
   return (
-    <section id="about" ref={containerRef} className="relative pt-28 pb-20 bg-white overflow-hidden">
+    <section id="about" className="relative pt-28 pb-20 bg-white overflow-hidden">
 
       {/* Introduction */}
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-          {/* Left Arch Image Frame */}
-          <div className="lg:col-span-4 flex justify-center w-full order-2 lg:order-1">
+          {/* Left Box Image Frame */}
+          <div className="flex justify-center w-full order-2 lg:order-1">
             <motion.div
-              style={{ y: yLeftContainer }}
-              className="w-full max-w-[340px] h-[450px] md:h-[550px] rounded-t-full overflow-hidden shadow-2xl border border-gold/20 relative"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.8 }}
+              className="w-full h-[400px] md:h-[550px] rounded-xl overflow-hidden shadow-2xl relative"
             >
-              <motion.div
-                style={{ y: yImageLeft }}
-                className="absolute -top-[450px] -bottom-[450px] left-0 right-0 w-full"
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80"
-                  alt="Shivaratna Lobby"
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
+              <img
+                src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&q=80"
+                alt="Shivaratna Luxury"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              />
             </motion.div>
           </div>
 
-          {/* Centered Content */}
-          <div className="lg:col-span-4 text-center flex flex-col items-center justify-center space-y-6 order-1 lg:order-2 px-4">
+          {/* Right Content */}
+          <div className="text-center lg:text-left flex flex-col items-center lg:items-start justify-center space-y-6 order-1 lg:order-2">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.6 }}
-              className="space-y-4 flex flex-col items-center"
+              className="space-y-4 flex flex-col items-center lg:items-start"
             >
               <span className="text-xs md:text-sm font-semibold tracking-[0.25em] text-gold uppercase block font-sans">
                 Welcome to Shivaratna
               </span>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight text-neutral-900 font-serif max-w-md">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight text-neutral-900 font-serif">
                 Exceptional Hospitality and Unmatched Relaxation
               </h2>
             </motion.div>
@@ -119,7 +60,7 @@ const AboutSection = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="flex flex-col items-center space-y-2 mt-4"
+              className="flex flex-col items-center lg:items-start space-y-2 mt-4"
             >
               <span className="text-sm font-medium text-neutral-800 tracking-wide font-sans">
                 4.9 out of 5
@@ -132,25 +73,6 @@ const AboutSection = () => {
               <span className="text-[10px] md:text-xs text-neutral-500 font-sans tracking-wide">
                 Based on 25000+ reviews
               </span>
-            </motion.div>
-          </div>
-
-          {/* Right Arch Image Frame */}
-          <div className="lg:col-span-4 flex justify-center w-full order-3">
-            <motion.div
-              style={{ y: yRightContainer }}
-              className="w-full max-w-[340px] h-[450px] md:h-[550px] rounded-t-full overflow-hidden shadow-2xl border border-gold/20 relative"
-            >
-              <motion.div
-                style={{ y: yImageRight }}
-                className="absolute -top-[450px] -bottom-[450px] left-0 right-0 w-full"
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
-                  alt="Shivaratna Gourmet Dining"
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
             </motion.div>
           </div>
 
@@ -186,10 +108,10 @@ const AboutSection = () => {
                 <div className="bg-gold/5 p-4 rounded-full border border-gold/10 group-hover:bg-gold group-hover:text-neutral-950 transition-colors duration-500 mb-6 text-gold">
                   <IconComponent className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-medium tracking-wide text-neutral-900 font-serif mb-3">
+                <h3 className="text-lg md:text-[21px] font-medium tracking-wide text-neutral-900 font-serif mb-3">
                   {facility.title}
                 </h3>
-                <p className="text-neutral-500 text-xs md:text-sm leading-relaxed font-sans font-light">
+                <p className="text-neutral-950 text-medium font-normal text-xs md:text-[18px] leading-relaxed font-sans font-light">
                   {facility.description}
                 </p>
               </motion.div>

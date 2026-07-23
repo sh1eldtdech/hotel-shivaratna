@@ -129,7 +129,7 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
                 Connect With Our Concierge
               </h2>
               <div className="w-16 h-[1.5px] bg-gold mt-4" />
-              <p className="text-neutral-600 text-xs md:text-sm font-sans font-light leading-relaxed mt-4">
+              <p className="text-neutral-950 text-medium font-normal text-xs md:text-[18px] font-sans font-light leading-relaxed mt-4">
                 Have questions about room choices, special requests, or airport pickup? Let us assist you in planning your unforgettable stay at Shivaratna.
               </p>
             </div>
@@ -143,7 +143,7 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
                 </div>
                 <div>
                   <h4 className="font-serif text-sm font-semibold tracking-wider text-gold">Location</h4>
-                  <p className="text-neutral-600 text-xs md:text-sm font-sans font-light mt-1">
+                  <p className="text-neutral-950 text-medium font-normal text-xs md:text-[18px] font-sans font-light mt-1">
                     742 Evergreen Terrace, Shivaratna Hotel Lane,<br />
                     Bangalore, Karnataka, India - 560001
                   </p>
@@ -157,7 +157,7 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
                 </div>
                 <div>
                   <h4 className="font-serif text-sm font-semibold tracking-wider text-gold">Reservations</h4>
-                  <p className="text-neutral-600 text-xs md:text-sm font-sans font-light mt-1">
+                  <p className="text-neutral-950 text-medium font-normal text-xs md:text-[18px] font-sans font-light mt-1">
                     <a href="tel:+919999999999" className="hover:text-gold transition-colors">+91 99999 99999</a><br />
                     <a href="tel:+918888888888" className="hover:text-gold transition-colors">+91 88888 88888</a>
                   </p>
@@ -171,7 +171,7 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
                 </div>
                 <div>
                   <h4 className="font-serif text-sm font-semibold tracking-wider text-gold">Enquiries</h4>
-                  <p className="text-neutral-600 text-xs md:text-sm font-sans font-light mt-1">
+                  <p className="text-neutral-950 text-medium font-normal text-xs md:text-[18px] font-sans font-light mt-1">
                     <a href="mailto:info@shivaratnahotel.com" className="hover:text-gold transition-colors">info@shivaratnahotel.com</a><br />
                     <a href="mailto:booking@shivaratnahotel.com" className="hover:text-gold transition-colors">booking@shivaratnahotel.com</a>
                   </p>
@@ -185,7 +185,7 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
                 </div>
                 <div>
                   <h4 className="font-serif text-sm font-semibold tracking-wider text-gold">Working Hours</h4>
-                  <p className="text-neutral-600 text-xs md:text-sm font-sans font-light mt-1">
+                  <p className="text-neutral-950 text-medium font-normal text-xs md:text-[18px] font-sans font-light mt-1">
                     Front Desk: 24 / 7 Available<br />
                     Spa & Pools: 06:00 AM - 10:00 PM
                   </p>

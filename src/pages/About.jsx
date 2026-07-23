@@ -40,35 +40,19 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            {/* Curved Arches (Left) */}
-            <div className="lg:col-span-6 grid grid-cols-2 gap-4 md:gap-6 relative">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-gold/15 rounded-full -z-10 pointer-events-none hidden md:block" />
-              
+            {/* Box Image (Left) */}
+            <div className="lg:col-span-6 relative">
               <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="arch-frame shadow-premium border border-gold/10"
+                className="rounded-xl overflow-hidden shadow-2xl border border-gold/10"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=600&q=80"
+                  src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&q=80"
                   alt="Shivaratna Lobby"
-                  className="w-full h-[280px] md:h-[400px] object-cover hover:scale-105 transition-transform duration-700"
-                />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 80 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="arch-frame shadow-premium border border-gold/10 mt-12 md:mt-20"
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80"
-                  alt="Shivaratna Gourmet Dining"
-                  className="w-full h-[280px] md:h-[400px] object-cover hover:scale-105 transition-transform duration-700"
+                  className="w-full h-[350px] md:h-[500px] object-cover hover:scale-105 transition-transform duration-700"
                 />
               </motion.div>
             </div>
@@ -131,10 +115,10 @@ const About = () => {
                   <div className="bg-gold/5 p-4 rounded-full border border-gold/10 group-hover:bg-gold group-hover:text-neutral-950 transition-colors duration-500 mb-6 text-gold">
                     <IconComponent className="w-6 h-6" />
                   </div>
-                  <h3 className="text-lg font-medium tracking-wide text-neutral-900 font-serif mb-3">
+                  <h3 className="text-lg md:text-[21px] font-medium tracking-wide text-neutral-900 font-serif mb-3">
                     {facility.title}
                   </h3>
-                  <p className="text-neutral-500 text-xs md:text-sm leading-relaxed font-sans font-light">
+                  <p className="text-neutral-950 text-medium font-normal text-xs md:text-[18px] leading-relaxed font-sans font-light">
                     {facility.description}
                   </p>
                 </div>
