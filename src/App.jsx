@@ -14,6 +14,8 @@ import Travel from './pages/Travel';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import BackToTop from './components/BackToTop';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
+import FloatingContact from './components/FloatingContact';
 
 // Scroll to top helper on route navigation
 const ScrollToTop = () => {
@@ -52,6 +54,8 @@ function App() {
         {/* Global Footer */}
         <Footer />
         <BackToTop />
+        <FloatingWhatsApp />
+        <FloatingContact />
         
       </div>
     </BrowserRouter>
