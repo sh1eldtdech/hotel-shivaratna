@@ -90,6 +90,12 @@ const Navbar = () => {
                   <div className="absolute top-[100%] left-1/2 -translate-x-1/2 w-[700px] bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-2xl border-t-2 border-gold p-8 flex gap-8 z-50 cursor-default">
                     <div className="w-1/3 flex flex-col space-y-4 border-r border-neutral-100 pr-4">
                       <h4 className="font-serif text-2xl text-neutral-900 mb-2">Districts</h4>
+                      <Link 
+                        to="/explore-rinchenpong" 
+                        className="text-gold font-medium hover:text-gold-dark text-sm font-sans transition-colors block mb-2 bg-gold/10 px-3 py-2 rounded-sm"
+                      >
+                        Explore Rinchenpong
+                      </Link>
                       {districtLinks.map(dLink => (
                         <Link key={dLink.id} to={dLink.to} className="text-neutral-500 hover:text-gold text-sm font-sans transition-colors block">
                           {dLink.name}

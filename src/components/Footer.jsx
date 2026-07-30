@@ -60,7 +60,9 @@ const Footer = () => {
             <div className="flex flex-col space-y-2.5 text-xs font-light">
               <Link to="/" className="hover:text-gold text-left transition-colors duration-300">Home</Link>
               <Link to="/about" className="hover:text-gold text-left transition-colors duration-300">About Us</Link>
-              <Link to="/rooms" className="hover:text-gold text-left transition-colors duration-300">Rooms & Suites</Link>
+              <Link to="/rooms" className="hover:text-gold text-left transition-colors duration-300">Rooms &amp; Suites</Link>
+              <Link to="/explore-rinchenpong" className="hover:text-gold text-left transition-colors duration-300">Explore Rinchenpong</Link>
+              <Link to="/travel" className="hover:text-gold text-left transition-colors duration-300">Travel Guide</Link>
               <Link to="/contact" className="hover:text-gold text-left transition-colors duration-300">Contact</Link>
             </div>
           </div>
@@ -70,11 +72,11 @@ const Footer = () => {
             <h4 className="font-serif text-sm font-semibold tracking-wider text-white">Contact Info</h4>
             <div className="space-y-3 text-xs font-light text-neutral-300">
               <p className="leading-relaxed">
-                742 Evergreen Terrace, Shivaratna Hotel Lane, Bangalore, Karnataka - 560001
+                Rinchenpong, West Sikkim — 737121, India
               </p>
               <p>
                 T. +91 99999 99999<br />
-                M. info@shivaratnahotel.com
+                M. info@hotelshivaratna.com
               </p>
             </div>
           </div>

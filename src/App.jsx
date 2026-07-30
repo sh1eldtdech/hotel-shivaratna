@@ -13,6 +13,7 @@ import Contact from './pages/Contact';
 import Travel from './pages/Travel';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
+import ExploreRinchenpong from './pages/ExploreRinchenpong';
 import BackToTop from './components/BackToTop';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 import FloatingContact from './components/FloatingContact';
@@ -46,6 +47,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/travel" element={<Travel />} />
             <Route path="/travel/:slug" element={<Travel />} />
+            <Route path="/explore-rinchenpong" element={<ExploreRinchenpong />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
           </Routes>
