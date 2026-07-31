@@ -3,6 +3,19 @@ import { motion } from 'framer-motion';
 import { Utensils, Waves, Dumbbell, Sparkles, Briefcase, Shirt, Star, MapPin, Clock } from 'lucide-react';
 import { CORE_FACILITIES } from '../data/hotelData';
 
+// Local assets for places to explore around the hotel
+import ngagyur from '../assets/aroundhotel/Ngagyur.jpg';
+import rabindranath from '../assets/aroundhotel/Rabindranath.jpg';
+import rinchenpongMonastery from '../assets/aroundhotel/Rinchenpong_Monastery.jpg';
+import poisonLake from '../assets/aroundhotel/Poison_Lake.jpg';
+import dakBungalow from '../assets/aroundhotel/Dak_Bungalow.jpg';
+import reshiMonastery from '../assets/aroundhotel/Reshi_Monastery.jpg';
+import ajingFarm from '../assets/aroundhotel/Ajing_Farm.jpg';
+import sribadamWaterfall from '../assets/aroundhotel/Sribadam_Waterfall.jpg';
+import bombhir from '../assets/aroundhotel/Bombhir.jpg';
+import chaayatalLake from '../assets/aroundhotel/Chaayatal_Lake.jpg';
+import bermiokShiva from '../assets/aroundhotel/Bermiok_Shiva.jpg';
+
 const iconMap = {
   Utensils: Utensils,
   Waves: Waves,
@@ -20,7 +33,7 @@ const exploreData = [
     time: "1-min walk",
     description: "One of the most significant landmarks of Rinchenpong, located just opposite the hotel. Experience traditional Himalayan architecture, colourful prayer flags, and serene Buddhist heritage.",
     category: "Spiritual",
-    image: "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=800&q=80",
+    image: ngagyur,
   },
   {
     id: 2,
@@ -29,7 +42,7 @@ const exploreData = [
     time: "1-min walk",
     description: "A peaceful natural retreat directly opposite the hotel, dedicated to Nobel Laureate Rabindranath Tagore — perfect for relaxation and photography amidst mountain views.",
     category: "Nature",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80",
+    image: rabindranath,
   },
   {
     id: 3,
@@ -38,7 +51,7 @@ const exploreData = [
     time: "6 min drive",
     description: "Established in 1730, the third oldest monastery in Sikkim. Houses a globally rare Ati Buddha statue with breathtaking panoramic views of Mount Kanchenjunga.",
     category: "Spiritual",
-    image: "https://images.unsplash.com/photo-1626014903706-53818e117498?auto=format&fit=crop&w=800&q=80",
+    image: rinchenpongMonastery,
   },
   {
     id: 4,
@@ -47,7 +60,7 @@ const exploreData = [
     time: "25–30 min walk",
     description: "A mysterious lake hidden within peaceful forests, steeped in local folklore of ancient conflicts. A beautiful forest trail leads to this unique natural wonder.",
     category: "Nature",
-    image: "https://images.unsplash.com/photo-1499678329028-101435549a4e?auto=format&fit=crop&w=800&q=80",
+    image: poisonLake,
   },
   {
     id: 5,
@@ -56,7 +69,7 @@ const exploreData = [
     time: "12–15 min walk",
     description: "A historic heritage site with spectacular views of the Himalayan ranges. Ideal for sunrise and sunset viewing, with old-world charm and mountain panoramas.",
     category: "Viewpoint",
-    image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80",
+    image: dakBungalow,
   },
   {
     id: 6,
@@ -65,7 +78,7 @@ const exploreData = [
     time: "45–60 min walk",
     description: "A peaceful spiritual destination nestled amidst beautiful forests. The scenic forest route offers fresh mountain air and the deep tranquillity of the Himalayan landscape.",
     category: "Spiritual",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+    image: reshiMonastery,
   },
   {
     id: 7,
@@ -74,7 +87,7 @@ const exploreData = [
     time: "20–25 min drive",
     description: "Famous for locally produced fruit wines and traditional winemaking. Explore the farm, discover unique local flavours, and enjoy scenic countryside views.",
     category: "Day Trip",
-    image: "https://images.unsplash.com/photo-1490750967868-88df5691cc9b?auto=format&fit=crop&w=800&q=80",
+    image: ajingFarm,
   },
   {
     id: 8,
@@ -83,7 +96,7 @@ const exploreData = [
     time: "25–30 min drive",
     description: "A hidden gem surrounded by pine forests and lush greenery — perfect for photography, relaxation, and quality time with loved ones in nature.",
     category: "Nature",
-    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80",
+    image: sribadamWaterfall,
   },
   {
     id: 9,
@@ -92,7 +105,7 @@ const exploreData = [
     time: "35–40 min drive",
     description: "Naturally flowing mineral-rich spring water from the mountains. Famous as a natural 'free car wash' and a refreshing stop — the spring water is safe to drink, rich in minerals.",
     category: "Nature",
-    image: "https://images.unsplash.com/photo-1544258888-2fc838ee8278?auto=format&fit=crop&w=800&q=80",
+    image: bombhir,
   },
   {
     id: 10,
@@ -101,7 +114,7 @@ const exploreData = [
     time: "60–70 min drive",
     description: "A beautiful high-altitude lake surrounded by forests, connected with local legends of the Subba King. Ideal for nature walks, birdwatching, and photography.",
     category: "Adventure",
-    image: "https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=800&q=80",
+    image: chaayatalLake,
   },
   {
     id: 11,
@@ -110,9 +123,10 @@ const exploreData = [
     time: "60–70 min drive",
     description: "A sacred pilgrimage destination dedicated to Lord Shiva. The cave offers a unique blend of faith, nature, and rich local traditions, attracting devotees and travellers alike.",
     category: "Spiritual",
-    image: "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=800&q=80",
+    image: bermiokShiva,
   },
 ];
+
 
 const categoryColors = {
   Spiritual: "bg-amber-50 text-amber-700 border-amber-200",
