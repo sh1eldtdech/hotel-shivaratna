@@ -50,7 +50,13 @@ const RoomsSection = ({ onSelectRoomForBooking }) => {
           </h2>
           <div className="w-16 h-[1.5px] bg-gold mx-auto mt-4" />
           <p className="text-neutral-950 text-medium font-normal text-xs md:text-[18px] font-sans font-light mt-4 leading-relaxed">
-            Indulge in the ultimate blend of elegance and comfort in our meticulously designed rooms. Choose your perfect sanctuary.
+            Experience comfort, warmth, and tranquillity in our thoughtfully designed rooms at Hotel Shivaratna. Whether you're travelling with family, friends, your partner, or on a business trip, our spacious and well-maintained accommodations provide the perfect place to relax after a day of exploring West Sikkim.
+          </p>
+          <p className="text-neutral-950 text-medium font-normal text-xs md:text-[18px] font-sans font-light mt-3 leading-relaxed">
+            Each room is designed to offer a peaceful stay with comfortable bedding, modern amenities, clean interiors, free high-speed Wi-Fi, and beautiful views of the surrounding mountains and greenery. Wake up to the fresh Himalayan breeze, enjoy the serenity of nature, and unwind in a cosy atmosphere that feels just like home.
+          </p>
+          <p className="text-neutral-950 text-medium font-normal text-xs md:text-[18px] font-sans font-light mt-3 leading-relaxed">
+            From short weekend escapes to extended holidays and work-from-the-mountains stays, our comfortable rooms and suites ensure a memorable and refreshing experience for every guest.
           </p>
         </div>
 

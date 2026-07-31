@@ -2,15 +2,20 @@ import { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { RINCHENPONG_DESTINATIONS } from '../../data/exploreRinchenpong';
+import MistRinchenpong from '../../assets/westSikkimPhoto/Rinchenpong.avif';
 
 const CATEGORY_LABELS = [
-  'Spiritual Retreat',
-  'Hilltop Sanctuary',
-  'Alpine Valley',
-  'Nature Bloom',
-  'Ancient Heritage',
-  'Sacred Waters',
-  'Village Life',
+  'Spiritual Heritage',
+  'Nature Park',
+  'Sacred Monastery',
+  'Mysterious Lake',
+  'Heritage Viewpoint',
+  'Forest Sanctuary',
+  'Fruit Winery',
+  'Hidden Waterfall',
+  'Mineral Spring',
+  'Alpine Lake',
+  'Sacred Cave',
 ];
 
 const panelVariants = {
@@ -129,7 +134,7 @@ export default function ExperiencesNearby() {
                 <div ref={(el) => (sectionRefs.current[0] = el)}>
                   <div className="relative h-[70vh] w-full overflow-hidden bg-neutral-100 shadow-[0_10px_35px_rgba(0,0,0,0.09)]">
                     <img
-                      src="https://images.unsplash.com/photo-1544258888-2fc838ee8278?auto=format&fit=crop&q=80&w=1600"
+                      src={MistRinchenpong}
                       alt="Mist over Rinchenpong"
                       loading="lazy"
                       className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-[1.02]"
@@ -188,7 +193,7 @@ export default function ExperiencesNearby() {
 
         <div className="relative h-[56vw] min-h-[240px] w-full overflow-hidden mb-16 shadow-[0_8px_28px_rgba(0,0,0,0.09)]">
           <img
-            src="https://images.unsplash.com/photo-1544258888-2fc838ee8278?auto=format&fit=crop&q=80&w=900"
+            src={MistRinchenpong}
             alt="Mist over Rinchenpong"
             loading="lazy"
             className="absolute inset-0 h-full w-full object-cover"

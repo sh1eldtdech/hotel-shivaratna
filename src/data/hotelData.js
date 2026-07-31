@@ -1,22 +1,25 @@
-// High-quality data for Shivaratna Hotel
+// High-quality data for Hotel Shivaratna
 
 export const HERO_SLIDES = [
   {
     id: 1,
-    title: "Where Every Stay is Extraordinary",
-    subtitle: "Discover the perfect blend of luxury, comfort, and convenience at Shivaratna. Nestled in the heart of the city, our hotel is your gateway to an unforgettable experience.",
+    title: "Welcome to Hotel Shivaratna",
+    tagline: "Live Your Paradise",
+    subtitle: "Your peaceful mountain retreat in the heart of Rinchenpong, West Sikkim, surrounded by breathtaking Himalayan views and authentic Sikkimese hospitality.",
     image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1920&q=80",
   },
   {
     id: 2,
-    title: "A Haven of Luxury & Refined Elegance",
-    subtitle: "Indulge in our beautifully curated rooms, customized spa treatments, and premium dining experiences tailored for the discerning traveler.",
+    title: "Where Himalayas Meet Hospitality",
+    tagline: "",
+    subtitle: "Wake up to the majestic Kanchenjunga, breathe the fresh mountain air, and experience the warmth of a team dedicated to making every stay unforgettable.",
     image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1920&q=80",
   },
   {
     id: 3,
-    title: "Where Modern Comfort Meets Heritage",
-    subtitle: "Enjoy world-class amenities, stunning rooftop pool access, and exceptional Indian hospitality in the heart of the city.",
+    title: "Your Gateway to West Sikkim",
+    tagline: "",
+    subtitle: "Explore pristine forest trails, ancient monasteries, hidden lakes, and vibrant local culture — all from the perfect central base at Hotel Shivaratna.",
     image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=80",
   }
 ];
@@ -24,38 +27,38 @@ export const HERO_SLIDES = [
 export const CORE_FACILITIES = [
   {
     id: "restaurant",
-    title: "Fine Dining",
-    description: "Savor a fusion of local and international cuisines prepared by our award-winning master chefs.",
+    title: "Restaurant & Bar",
+    description: "Savour delicious home-style Sikkimese and multi-cuisine food at our restaurant, paired with your choice from our fully stocked bar.",
     icon: "Utensils",
   },
   {
-    id: "pool",
-    title: "Swimming Pool",
-    description: "Unwind at our temperature-controlled rooftop infinity pool with breathtaking city vistas.",
-    icon: "Waves",
-  },
-  {
-    id: "gym",
-    title: "Fitness Center",
-    description: "Stay active in our state-of-the-art gym equipped with premium cardio and strength gear.",
-    icon: "Dumbbell",
-  },
-  {
-    id: "spa",
-    title: "Spa & Massage",
-    description: "Rejuvenate your body and spirit with organic wellness therapies and classic Ayurvedic massages.",
-    icon: "Flower",
-  },
-  {
-    id: "meeting",
-    title: "Meeting Room",
-    description: "Host seamless board meetings, conferences, or VIP events in our fully equipped executive spaces.",
+    id: "conference",
+    title: "Conference Hall",
+    description: "Host corporate events, family gatherings, or group meetings in our spacious and well-equipped meeting and conference room.",
     icon: "Briefcase",
   },
   {
-    id: "laundry",
-    title: "Laundry Service",
-    description: "Enjoy prompt same-day laundry, dry cleaning, and pressing services from our meticulous staff.",
+    id: "wifi",
+    title: "Free High-Speed Wi-Fi",
+    description: "Stay connected with complimentary high-speed Wi-Fi throughout the hotel — perfect for remote workers and digital nomads.",
+    icon: "Waves",
+  },
+  {
+    id: "butterfly",
+    title: "Butterfly Stage",
+    description: "Unwind at our vibrant Butterfly Stage with karaoke, dancing, live performances, and memorable evenings with family and friends.",
+    icon: "Flower",
+  },
+  {
+    id: "trekking",
+    title: "Trekking & Nature",
+    description: "Scenic trekking trails begin right behind the hotel, weaving through pristine forests with stunning Himalayan views at every turn.",
+    icon: "Dumbbell",
+  },
+  {
+    id: "fooding",
+    title: "Fooding & Lodging",
+    description: "Enjoy complete fooding and lodging facilities with our dedicated team ensuring every guest feels warmly at home.",
     icon: "Shirt",
   }
 ];
@@ -64,92 +67,66 @@ export const ROOMS_DATA = [
   {
     id: "standard-room",
     title: "Standard Room",
-    price: 99,
+    price: 999,
     rating: 4.6,
     guests: 2,
-    size: "30 sqm",
-    bed: "1 Queen Bed",
-    view: "City View",
+    size: "Comfortable",
+    bed: "Double Bed",
+    view: "Mountain View",
     image: "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/room-imgs/201806211726437264-2312-0def80540b4e11ecb14a0a58a9feac02.jpg",
-    description: "Our Standard Room offers the perfect balance of luxury and affordability, featuring a cozy setting with a queen-sized bed, high-speed Wi-Fi, work desk, and beautiful views of the city skyline.",
-    amenities: ["Free Wi-Fi", "Air Conditioning", "Cable TV", "Coffee Maker", "Hair Dryer", "Safe Box"]
+    description: "Our Standard Room offers the perfect balance of comfort and value. Thoughtfully designed with cozy bedding, clean interiors, free high-speed Wi-Fi, and beautiful views of the surrounding mountains and greenery — everything you need for a peaceful Himalayan retreat.",
+    amenities: ["Free Wi-Fi", "Mountain View", "Comfortable Bedding", "Clean Interiors", "Daily Housekeeping", "Hot Water"]
   },
   {
     id: "deluxe-room",
     title: "Deluxe Room",
-    price: 149,
+    price: 1499,
     rating: 4.8,
     guests: 2,
-    size: "35 sqm",
-    bed: "1 King Bed",
-    view: "Garden View",
+    size: "Spacious",
+    bed: "King Bed",
+    view: "Himalayan View",
     image: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80",
-    description: "Elevate your stay in our Deluxe Room. Complete with a spacious king bed, ambient lighting, soundproof glass windows, and premium bath products, it provides a quiet sanctuary from the hustle and bustle.",
-    amenities: ["Free Wi-Fi", "Air Conditioning", "50\" Smart TV", "Mini Bar", "Coffee Maker", "Bathtub", "Safe Box"]
+    description: "Elevate your stay in our Deluxe Room with a spacious layout, premium bedding, and stunning Himalayan views. Wake up to the fresh mountain breeze and enjoy modern amenities that make your stay both comfortable and memorable.",
+    amenities: ["Free Wi-Fi", "Himalayan View", "King Bed", "Modern Amenities", "Daily Housekeeping", "Hot Water", "Room Service"]
   },
   {
-    id: "premier-room",
-    title: "Premier Room",
-    price: 199,
+    id: "super-deluxe-room",
+    title: "Super Deluxe Room",
+    price: 1999,
     rating: 4.9,
-    guests: 2,
-    size: "38 sqm",
-    bed: "1 King Bed",
-    view: "Pool View",
+    guests: 3,
+    size: "Premium",
+    bed: "King Bed",
+    view: "Panoramic View",
     image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80",
-    description: "Designed for premium relaxation, the Premier Room boasts private balcony access overlooking the infinity pool, luxurious linens, a walk-in shower, and dedicated concierge assistance for a personalized experience.",
-    amenities: ["Free Wi-Fi", "Air Conditioning", "Private Balcony", "Smart TV", "Mini Bar", "Espresso Machine", "Bathtub", "Luxury Bathrobes"]
+    description: "Our Super Deluxe Room offers a premium mountain retreat experience with panoramic views, superior furnishings, and extra space for a truly indulgent stay. The perfect choice for those who want a little more luxury amidst the Himalayan beauty.",
+    amenities: ["Free Wi-Fi", "Panoramic Mountain View", "Premium Bedding", "Superior Furnishings", "Daily Housekeeping", "Hot Water", "Room Service", "Sitting Area"]
   },
   {
-    id: "family-suite",
-    title: "Family Suite",
-    price: 249,
-    rating: 4.8,
-    guests: 4,
-    size: "60 sqm",
-    bed: "2 King Beds",
-    view: "City View",
-    image: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80",
-    description: "Perfect for family getaways, this spacious suite features two separate bedrooms, a common living lounge area, modern entertainment setups, and child-safe amenities to make everyone feel right at home.",
-    amenities: ["Free Wi-Fi", "Air Conditioning", "Separate Living Area", "2 Smart TVs", "Kid-friendly Utilities", "Mini Bar", "Bathtub", "Microwave"]
-  },
-  {
-    id: "luxury-suite",
-    title: "Luxury Suite",
-    price: 299,
-    rating: 4.9,
-    guests: 4,
-    size: "70 sqm",
-    bed: "2 King Beds",
-    view: "Skyline View",
-    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80",
-    description: "A statement of luxury, our Luxury Suite offers expansive living layouts, high-end design furnishings, private bar setup, automated climate controls, and high-floor panoramic views of the city.",
-    amenities: ["Free Wi-Fi", "Central AC", "Separate Living Room", "Home Theater System", "Bar Table", "Bathtub & Jacuzzi", "Dedicated Butler", "Pillow Menu"]
-  },
-  {
-    id: "presidential-suite",
-    title: "Presidential Suite",
-    price: 499,
+    id: "suite",
+    title: "Suite",
+    price: 2999,
     rating: 5.0,
     guests: 4,
-    size: "90 sqm",
-    bed: "2 King Beds",
-    view: "Panoramic View",
+    size: "Luxurious",
+    bed: "2 Beds",
+    view: "Kanchenjunga View",
     image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80",
-    description: "The crown jewel of Shivaratna Hotel. Experience ultimate grandeur with a double-master suite, formal dining room, private office space, outdoor terrace lounge, private hot tub, and round-the-clock butler service.",
-    amenities: ["Free Wi-Fi", "Central AC", "Formal Dining Room", "Kitchenette", "Private Jacuzzi", "Terrace Lounge", "Private Office", "24/7 Butler", "Airport Luxury Transfer"]
+    description: "The crown jewel of Hotel Shivaratna. Our Suite offers a spacious, luxurious experience with breathtaking Kanchenjunga views, a separate living area, premium amenities, and personalised service — perfect for families, couples, and special occasions.",
+    amenities: ["Free Wi-Fi", "Kanchenjunga View", "Separate Living Area", "Premium Bedding", "Daily Housekeeping", "Hot Water", "Priority Room Service", "Complimentary Breakfast"]
   }
 ];
 
 export const GALLERY_IMAGES = [
-  "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=400&q=80", // Lobby
-  "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=400&q=80", // Spa
-  "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=400&q=80", // Restaurant
-  "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=400&q=80", // Drink/Lounge
-  "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=400&q=80", // Food platter
-  "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=400&q=80", // Pool deck
-  "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=400&q=80", // Bed details
-  "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400&q=80"  // Hotel exterior
+  "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400&q=80"
 ];
 
 export const TEAM_MEMBERS = [

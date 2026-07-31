@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { MapPin, ArrowRight } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 
 export default function NearbyPlaceCard({ place }) {
   return (
@@ -34,17 +34,9 @@ export default function NearbyPlaceCard({ place }) {
         <p className="text-sm text-neutral-600 font-sans font-light mb-4 line-clamp-2">
           {place.description}
         </p>
-        
-        <div className="flex items-center justify-between mt-auto">
-          <div className="flex items-center gap-1.5 text-xs text-neutral-500 font-sans uppercase tracking-widest">
-            <MapPin size={12} className="text-gold" />
-            {place.distance}
-          </div>
-          
-          <div className="flex items-center gap-2 text-xs font-sans uppercase tracking-widest text-gold opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-            <span>Explore</span>
-            <ArrowRight size={14} />
-          </div>
+        <div className="flex items-center gap-1.5 text-xs text-neutral-500 font-sans uppercase tracking-widest">
+          <MapPin size={12} className="text-gold" />
+          {place.distance}
         </div>
       </div>
     </motion.div>

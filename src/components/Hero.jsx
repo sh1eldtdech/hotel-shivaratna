@@ -75,9 +75,15 @@ const Hero = () => {
             <div className="max-w-2xl w-full px-6 md:px-16 py-12 flex flex-col items-center transition-all duration-300">
 
 
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-normal text-white mb-6 leading-tight tracking-wider uppercase font-serif">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-normal text-white mb-4 leading-tight tracking-wider uppercase font-serif">
                 {HERO_SLIDES[currentSlide].title}
               </h1>
+
+              {HERO_SLIDES[currentSlide].tagline && (
+                <p className="text-gold font-serif text-xl md:text-3xl lg:text-4xl italic tracking-wide mb-4">
+                  {HERO_SLIDES[currentSlide].tagline}
+                </p>
+              )}
 
               <p className="text-xs md:text-sm text-neutral-300 font-sans tracking-wide max-w-lg mx-auto leading-relaxed font-light mb-8">
                 {HERO_SLIDES[currentSlide].subtitle}

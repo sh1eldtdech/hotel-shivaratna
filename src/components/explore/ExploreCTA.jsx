@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import CtaBg from '../../assets/aroundhotel/Rinchenpong_Monastery2.jpg';
 
 export default function ExploreCTA() {
   return (
@@ -7,11 +8,11 @@ export default function ExploreCTA() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1542289659-19aa01f56608?auto=format&fit=crop&q=80"
-          alt="Book your stay at Hotel Shivratna"
+          src={CtaBg}
+          alt="Experience Rinchenpong at Hotel Shivaratna"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-neutral-950/80" />
+        <div className="absolute inset-0 bg-neutral-950/75" />
       </div>
 
       <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">

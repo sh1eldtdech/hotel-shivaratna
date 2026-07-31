@@ -47,10 +47,10 @@ const AboutSection = () => {
               className="space-y-4 flex flex-col items-center lg:items-start"
             >
               <span className="text-xs md:text-sm font-semibold tracking-[0.25em] text-gold uppercase block font-sans">
-                Welcome to Shivaratna
+                Rinchenpong, West Sikkim
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight text-neutral-900 font-serif">
-                Exceptional Hospitality and Unmatched Relaxation
+                About Hotel Shivaratna
               </h2>
             </motion.div>
 
@@ -136,11 +136,11 @@ const AboutSection = () => {
             transition={{ duration: 0.8 }}
             className="text-xl md:text-2xl lg:text-3xl font-serif text-neutral-200 leading-relaxed font-light italic"
           >
-            Experience unparalleled luxury and personalized service at Shivaratna Hotel, where every stay is a journey into sophistication, comfort, and unforgettable memories.
+            Welcome to Hotel Shivaratna — your peaceful mountain retreat in Rinchenpong, West Sikkim, where breathtaking Himalayan views, fresh mountain air, and warm Sikkimese hospitality create an unforgettable stay.
           </motion.h3>
           <div className="w-12 h-[1px] bg-gold mx-auto" />
           <span className="text-[10px] md:text-xs text-gold uppercase tracking-[0.3em] font-sans block">
-            Shivaratna Hospitality
+            Hotel Shivaratna · Rinchenpong, West Sikkim
           </span>
         </div>
       </div>

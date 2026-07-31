@@ -1,120 +1,161 @@
+import Ngagyur from '../assets/aroundhotel/Ngagyur.jpg';
+import Rabindranath from '../assets/aroundhotel/Rabindranath1.jpg';
+import RinchenpongMonastery from '../assets/aroundhotel/Rinchenpong_Monastery.jpg';
+import PoisonLake from '../assets/aroundhotel/Poison_Lake.jpg';
+import DakBungalow from '../assets/aroundhotel/Dak_Bungalow.jpg';
+import ReshiMonastery from '../assets/aroundhotel/Reshi_Monastery.jpg';
+import AjingFarm from '../assets/aroundhotel/Ajing_Farm.jpg';
+import SribadamWaterfall from '../assets/aroundhotel/Sribadam_Waterfall.jpg';
+import Bombhir from '../assets/aroundhotel/Bombhir.jpg';
+import ChaayatalLake from '../assets/aroundhotel/Chaayatal_Lake.jpg';
+import BermiokShiva from '../assets/aroundhotel/Bermiok_Shiva.jpg';
+import SingshoreImg from '../assets/westSikkimPhoto/singshore-bridge.jpg';
+
 export const RINCHENPONG_DESTINATIONS = [
   {
     id: 1,
-    name: "Rinchenpong Monastery",
-    description: "Built in 1730, this ancient monastery holds profound historical significance. It houses the rare statue of Ati Buddha (Yum-Them), making it a spiritual cornerstone for locals and visitors alike.",
-    image: "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1200&q=80",
-    distance: "1.5 km from Hotel",
+    name: "Ngagyur Rinchen Chholing Monastery",
+    description: "One of the most significant landmarks of Rinchenpong, this monastery reflects the rich Buddhist heritage and spiritual traditions of West Sikkim. Located just opposite Hotel Shivaratna, it welcomes visitors with traditional Himalayan architecture, colourful prayer flags, and a serene atmosphere — ideal to experience local culture and spirituality.",
+    image: Ngagyur,
+    distance: "50–100 m | 1-min walk",
   },
   {
     id: 2,
-    name: "Reesum Monastery",
-    description: "Perched atop a forested hill, Reesum Monastery offers panoramic views of the Kanchenjunga range. A short nature walk leads you to this serene retreat, surrounded by vibrant prayer flags and ancient trees.",
-    image: "https://images.unsplash.com/photo-1626014903706-53818e117498?auto=format&fit=crop&w=1200&q=80",
-    distance: "2.5 km hike",
+    name: "Rabindranath Van",
+    description: "Located directly opposite Hotel Shivaratna, Rabindranath Van is a peaceful natural retreat dedicated to Nobel Laureate Rabindranath Tagore. Surrounded by greenery and beautiful mountain views, the park offers a relaxing environment for visitors to enjoy nature, capture photographs, and spend peaceful moments.",
+    image: Rabindranath,
+    distance: "50 m | 1-min walk",
   },
   {
     id: 3,
-    name: "Dentam Valley",
-    description: "A picturesque valley known for its lush green landscapes, terraced farms, and the Alpine Cheese Factory. The valley provides stunning vistas of the surrounding Himalayan foothills.",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=80",
-    distance: "20 km from Rinchenpong",
+    name: "Rinchenpong Monastery (Sang Ngag Yangtse)",
+    description: "Established in 1730, this revered Buddhist sanctuary — the third oldest in the region — is approached via a picturesque stone pathway through vibrant green lawns, framed by towering pine forests. It houses a globally rare, sacred statue of the Ati Buddha in meditative Yab-Yum posture, with breathtaking panoramic views of Mount Kanchenjunga.",
+    image: RinchenpongMonastery,
+    distance: "1.8 km | 6 min drive",
   },
   {
     id: 4,
-    name: "Varsey Rhododendron Sanctuary",
-    description: "A paradise for nature lovers, this sanctuary bursts into vibrant colors during spring when numerous species of rhododendrons bloom across the rolling hills.",
-    image: "https://images.unsplash.com/photo-1490750967868-88df5691cc9b?auto=format&fit=crop&w=1200&q=80",
-    distance: "30 km from Rinchenpong",
+    name: "Poison Lake (Bikh Pokhri)",
+    description: "Hidden within the peaceful forests of Rinchenpong, Poison Lake is one of the region's most mysterious attractions. According to local folklore, the lake was used to poison invading armies in ancient conflicts. A beautiful forest trail leads visitors to this quiet natural wonder, where legend blends with untouched wilderness.",
+    image: PoisonLake,
+    distance: "2 km | 25–30 min walk",
   },
   {
     id: 5,
-    name: "Pemayangtse Monastery",
-    description: "One of the oldest and premier monasteries of Sikkim. It is famous for its intricate wooden structure depicting the Guru Rinpoche's Heavenly Palace.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80",
-    distance: "35 km from Rinchenpong",
+    name: "Dak Bungalow Viewpoint",
+    description: "A historic heritage site of Rinchenpong, the Dak Bungalow offers spectacular views of the Himalayan ranges, surrounding valleys, and lush green landscapes. Its peaceful atmosphere and old-world charm make it a favourite destination for visitors looking to enjoy sunrise, sunset, and breathtaking mountain panoramas.",
+    image: DakBungalow,
+    distance: "1 km | 12–15 min walk",
   },
   {
     id: 6,
-    name: "Khecheopalri Lake",
-    description: "Considered highly sacred by both Buddhists and Hindus, this tranquil lake is famously known as the 'wish-fulfilling lake' and remains incredibly clean surrounded by dense forests.",
-    image: "https://images.unsplash.com/photo-1499678329028-101435549a4e?auto=format&fit=crop&w=1200&q=80",
-    distance: "45 km from Rinchenpong",
+    name: "Reshi Monastery",
+    description: "Nestled amidst beautiful forests, Reshi Monastery is a peaceful spiritual destination known for its calm surroundings and natural beauty. The scenic forest route to the monastery allows visitors to experience fresh mountain air, lush greenery, and the deep tranquillity of the Himalayan landscape.",
+    image: ReshiMonastery,
+    distance: "4 km | 45–60 min walk",
   },
   {
     id: 7,
-    name: "Local Villages & Nature Trails",
-    description: "Experience the authentic Sikkimese way of life by wandering through the local villages. The trails are dotted with traditional homes, cardamom plantations, and welcoming locals.",
-    image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80",
-    distance: "Walking distance",
-  }
+    name: "Ajing Farm & Winery",
+    description: "Ajing Farm is a unique attraction in West Sikkim, famous for its locally produced fruit wines and traditional winemaking practices. Visitors can explore the farm, discover local flavours, and enjoy scenic countryside views surrounded by the natural beauty of the Himalayan hills.",
+    image: AjingFarm,
+    distance: "8 km | 20–25 min drive",
+  },
+  {
+    id: 8,
+    name: "Sribadam Waterfall",
+    description: "Surrounded by pine forests and lush greenery, Sribadam Waterfall is a hidden gem offering a refreshing escape into nature. The peaceful environment, flowing waters, and scenic surroundings make it perfect for photography, relaxation, and spending quality time with loved ones.",
+    image: SribadamWaterfall,
+    distance: "12 km | 25–30 min drive",
+  },
+  {
+    id: 9,
+    name: "Bombhir Natural Mineral Spring",
+    description: "Bombhir is famous for its naturally flowing mineral-rich spring water emerging directly from the mountains. Travellers stop here to drink fresh spring water, refill bottles, and experience this unique natural attraction. The continuously flowing stream has also become popular as a natural 'free car wash' for passing vehicles.",
+    image: Bombhir,
+    distance: "18 km | 35–40 min drive",
+  },
+  {
+    id: 10,
+    name: "Chaayatal Lake",
+    description: "A beautiful high-altitude lake surrounded by forests and mountains, Chaayatal is a peaceful destination connected with local legends of the Subba King. Visitors can enjoy nature walks, photography, birdwatching, and the untouched beauty of the Himalayan surroundings.",
+    image: ChaayatalLake,
+    distance: "30 km | 60–70 min drive",
+  },
+  {
+    id: 11,
+    name: "Bermiok Shiva Cave",
+    description: "A sacred pilgrimage destination dedicated to Lord Shiva, Bermiok Shiva Cave attracts devotees and travellers seeking spiritual experiences. Surrounded by peaceful forests and mountain landscapes, the cave offers a unique blend of faith, nature, and rich local traditions.",
+    image: BermiokShiva,
+    distance: "30 km | 60–70 min drive",
+  },
 ];
 
-export const NEARBY_PLACES_CATEGORIES = ["All", "Nature", "Monasteries", "Viewpoints", "Heritage"];
+export const NEARBY_PLACES_CATEGORIES = ["All", "Spiritual", "Nature", "Viewpoints", "Adventure"];
 
 export const NEARBY_PLACES = [
   {
     id: 1,
-    name: "Khecheopalri Lake",
-    description: "A sacred lake hidden in the rich forest cover.",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80",
-    distance: "45 km",
-    category: "Nature"
+    name: "Ngagyur Rinchen Chholing Monastery",
+    description: "Ancient monastery opposite the hotel with stunning architecture and prayer flags.",
+    image: Ngagyur,
+    distance: "50–100 m",
+    category: "Spiritual"
   },
   {
     id: 2,
-    name: "Pemayangtse Monastery",
-    description: "A magnificent 17th-century Buddhist monastery.",
-    image: "https://images.unsplash.com/photo-1626014903706-53818e117498?auto=format&fit=crop&w=800&q=80",
-    distance: "35 km",
-    category: "Monasteries"
+    name: "Rabindranath Van",
+    description: "Peaceful nature park dedicated to Nobel Laureate Rabindranath Tagore.",
+    image: Rabindranath,
+    distance: "50 m",
+    category: "Nature"
   },
   {
     id: 3,
-    name: "Rabdentse Ruins",
-    description: "The archaeological ruins of the second capital of Sikkim.",
-    image: "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=800&q=80",
-    distance: "36 km",
-    category: "Heritage"
+    name: "Rinchenpong Monastery",
+    description: "Third oldest monastery in Sikkim, established in 1730, housing a rare Ati Buddha statue.",
+    image: RinchenpongMonastery,
+    distance: "1.8 km",
+    category: "Spiritual"
   },
   {
     id: 4,
-    name: "Varsey Rhododendron Sanctuary",
-    description: "A vibrant floral sanctuary in the Singalila Range.",
-    image: "https://images.unsplash.com/photo-1490750967868-88df5691cc9b?auto=format&fit=crop&w=800&q=80",
-    distance: "30 km",
+    name: "Poison Lake (Bikh Pokhri)",
+    description: "Mysterious forest lake steeped in ancient local legend and natural beauty.",
+    image: PoisonLake,
+    distance: "2 km",
     category: "Nature"
   },
   {
     id: 5,
-    name: "Dentam Valley",
-    description: "Scenic valley known for its alpine beauty and cheese.",
-    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80",
-    distance: "20 km",
-    category: "Nature"
+    name: "Dak Bungalow Viewpoint",
+    description: "Historic heritage site with spectacular views of the Himalayan ranges.",
+    image: DakBungalow,
+    distance: "1 km",
+    category: "Viewpoints"
   },
   {
     id: 6,
     name: "Singshore Bridge",
-    description: "The highest suspension bridge in Sikkim.",
-    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80",
-    distance: "25 km",
-    category: "Viewpoints"
+    description: "One of the highest suspension bridges in Asia — a must-visit for adventure seekers.",
+    image: SingshoreImg,
+    distance: "~25 km",
+    category: "Adventure"
   },
   {
     id: 7,
-    name: "Pelling Skywalk",
-    description: "Glass bottom skywalk near Chenrezig statue.",
-    image: "https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=800&q=80",
-    distance: "40 km",
-    category: "Viewpoints"
+    name: "Sribadam Waterfall",
+    description: "Hidden waterfall surrounded by beautiful pine forests — perfect for photography.",
+    image: SribadamWaterfall,
+    distance: "12 km",
+    category: "Nature"
   },
   {
     id: 8,
-    name: "Kanchenjunga View Point",
-    description: "Stunning vantage point for the Himalayan ranges.",
-    image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80",
-    distance: "Various",
-    category: "Viewpoints"
-  }
+    name: "Chaayatal Lake",
+    description: "High-altitude lake connected with legends of the Subba King, ideal for birdwatching.",
+    image: ChaayatalLake,
+    distance: "30 km",
+    category: "Nature"
+  },
 ];

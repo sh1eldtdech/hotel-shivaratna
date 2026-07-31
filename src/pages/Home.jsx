@@ -152,10 +152,10 @@ const Home = () => {
               variants={contentContainerVariant}
             >
               <motion.span variants={contentItemVariant} className="text-xs md:text-sm font-semibold tracking-[0.25em] text-gold uppercase block font-sans">
-                Welcome to Shivaratna
+                Rinchenpong, West Sikkim
               </motion.span>
               <motion.h2 variants={contentItemVariant} className="text-3xl md:text-5xl font-medium leading-tight text-neutral-900 font-serif">
-                Exceptional Hospitality and Unmatched Relaxation
+                About Hotel Shivaratna
               </motion.h2>
               
               <motion.div variants={contentItemVariant} className="flex items-center space-x-3 bg-gold/5 border border-gold/20 px-4 py-2 w-fit">
@@ -170,7 +170,15 @@ const Home = () => {
               </motion.div>
 
               <motion.p variants={contentItemVariant} className="text-neutral-600 text-sm md:text-base font-sans font-light leading-relaxed">
-                Nestled at the crossroads of cultural grandeur and modern luxury, Shivaratna Hotel offers an oasis of calm. Our premium accommodations, custom curated spaces, and signature cuisines are tailored to provide a home away from home.
+                Welcome to Hotel Shivaratna, your peaceful mountain retreat in Rinchenpong, West Sikkim, where breathtaking Himalayan views, fresh mountain air, and warm Sikkimese hospitality come together to create an unforgettable stay.
+              </motion.p>
+
+              <motion.p variants={contentItemVariant} className="text-neutral-600 text-sm md:text-base font-sans font-light leading-relaxed">
+                Our hotel offers 14 comfortable and affordable rooms, a multi-cuisine restaurant, fully stocked bar, meeting &amp; conference hall, free high-speed Wi-Fi, and complete fooding and lodging facilities. Whether you're a leisure traveller, pilgrim, nature enthusiast, adventure seeker, business guest, or remote worker, our dedicated team ensures every guest feels at home.
+              </motion.p>
+
+              <motion.p variants={contentItemVariant} className="text-neutral-600 text-sm md:text-base font-sans font-light leading-relaxed">
+                Ideally located opposite the historic Rinchen Cholang Monastery and near Rabindranath Van, Hotel Shivaratna is the perfect base for exploring the hidden gems of West Sikkim. Popular nearby attractions include Poison Lake, Dak Bungalow, Reshi Monastery, Ajing Farm, Sribadam Waterfall, Singshore Bridge, Chaayatal, Bermiok Shiva Cave, and Bombhir Natural Mineral Spring.
               </motion.p>
 
               <motion.div variants={contentItemVariant} className="inline-block pt-2">
@@ -248,11 +256,11 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             className="text-xl md:text-2xl lg:text-3xl font-serif text-neutral-200 leading-relaxed font-light italic"
           >
-            Experience unparalleled luxury and personalized service at Shivaratna Hotel, where every stay is a journey into sophistication, comfort, and unforgettable memories.
+            Every sunrise brings Himalayan beauty, every breeze carries the freshness of the mountains, and every stay at Hotel Shivaratna becomes a cherished memory.
           </motion.h3>
           <div className="w-12 h-[1px] bg-gold mx-auto" />
           <span className="text-[10px] md:text-xs text-gold uppercase tracking-[0.3em] font-sans block">
-            Shivaratna Hospitality
+            Hotel Shivaratna · Rinchenpong, West Sikkim
           </span>
         </div>
       </div>

@@ -19,6 +19,7 @@ export default function ExploreRinchenpong() {
       className="bg-luxury-cream min-h-screen text-neutral-950 w-full"
     >
       <ExploreHero />
+      
 
       {/* Unified sticky-scroll: intro + experiences nearby */}
       <ExperiencesNearby />
