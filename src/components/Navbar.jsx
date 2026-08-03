@@ -4,6 +4,7 @@ import { Menu, X, Phone, Calendar, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { districtLinks } from '../data/districtRoutes';
 import { districtsData } from '../data/districtsData';
+import logo from '../assets/logo.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,6 +16,7 @@ const Navbar = () => {
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Rooms', path: '/rooms' },
+    { name: 'Gallery', path: '/gallery' },
     { name: 'Travel', path: '/travel' },
     { name: 'Contact', path: '/contact' },
   ];
@@ -42,17 +44,16 @@ const Navbar = () => {
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
           {/* Logo */}
-          <Link 
-            to="/" 
-            className="flex flex-col items-center group cursor-pointer"
-          >
-            <span className="font-serif text-2xl md:text-3xl text-gold tracking-[0.2em] font-medium transition-colors duration-300 group-hover:text-gold-light">
-              SHIVARATNA
-            </span>
-            <span className="text-[10px] text-neutral-400 tracking-[0.5em] -mt-1 font-sans">
-              HOTEL
-            </span>
-          </Link>
+<Link
+  to="/"
+  className="flex items-center group"
+>
+  <img
+    src={logo}
+    alt="Hotel Shivaratna Logo"
+    className="h-16 md:h-20 w-auto object-contain transition-all duration-300 group-hover:scale-105"
+  />
+</Link>
 
           {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center space-x-10">
@@ -125,21 +126,14 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Reservation Button & Phone */}
-          <div className="hidden lg:flex items-center space-x-6">
-            <a
-              href="tel:+919999999999"
-              className="flex items-center text-neutral-300 hover:text-gold text-xs tracking-wider font-sans transition-colors duration-300"
-            >
-              <Phone className="w-3.5 h-3.5 text-gold mr-2" />
-              +91 99999 99999
-            </a>
+          {/* Book Now Button */}
+          <div className="hidden lg:flex items-center">
             <Link
               to="/contact"
               className="flex items-center bg-transparent border border-gold text-gold hover:bg-gold hover:text-neutral-950 px-5 py-2 text-xs uppercase tracking-widest transition-all duration-300 font-sans font-medium"
             >
               <Calendar className="w-3.5 h-3.5 mr-2" />
-              Reservation
+              Book Now
             </Link>
           </div>
 
@@ -183,19 +177,12 @@ const Navbar = () => {
                 </NavLink>
               ))}
               <div className="pt-4 flex flex-col space-y-4">
-                <a
-                  href="tel:+919999999999"
-                  className="flex items-center text-neutral-400 hover:text-gold text-sm tracking-wider font-sans"
-                >
-                  <Phone className="w-4 h-4 text-gold mr-3" />
-                  +91 99999 99999
-                </a>
                 <Link
                   to="/contact"
                   onClick={() => setIsOpen(false)}
                   className="w-full text-center bg-gold text-neutral-950 py-3 text-xs uppercase tracking-widest font-sans font-medium hover:bg-gold-light transition-all duration-300 block"
                 >
-                  Book Reservation
+                  Book Now
                 </Link>
               </div>
             </div>

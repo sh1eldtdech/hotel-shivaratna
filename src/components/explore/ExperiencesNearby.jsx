@@ -16,6 +16,7 @@ const CATEGORY_LABELS = [
   'Mineral Spring',
   'Alpine Lake',
   'Sacred Cave',
+  'Limbu Cultural Heritage',
 ];
 
 const panelVariants = {

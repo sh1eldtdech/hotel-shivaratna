@@ -318,6 +318,36 @@ export const districtsData = {
         desc: "A highly sacred monastery known for the Bhumchu festival.",
         img: west_sikkim_assets.Tashiding,
       },
+      {
+        title: "Hilley",
+        tag: "Viewpoint",
+        desc: "A peaceful mountain village famed for sunrise panoramas over Kanchenjunga and rhododendron trails.",
+        img: west_sikkim_assets.Pelling,
+      },
+      {
+        title: "Okhrey",
+        tag: "Nature",
+        desc: "A scenic hamlet and gateway to forest walks, Himalayan views, and quiet village charm.",
+        img: west_sikkim_assets.Pelling,
+      },
+      {
+        title: "Rimbi Waterfall",
+        tag: "Nature",
+        desc: "A refreshing waterfall and forest stop known for its calm setting and photogenic surroundings.",
+        img: west_sikkim_assets.Changey_Waterfalls,
+      },
+      {
+        title: "Bakhim",
+        tag: "Village",
+        desc: "A hidden village retreat that offers dramatic mountain scenery, rural hospitality, and quiet nature walks.",
+        img: west_sikkim_assets.Darap_village,
+      },
+      {
+        title: "Barsey Rhododendron Sanctuary",
+        tag: "Wildlife",
+        desc: "A flower-rich sanctuary that bursts into colour during the rhododendron season and offers birding trails.",
+        img: west_sikkim_assets.Varsey_Sanctuary,
+      },
     ],
   },
   mangan: {
@@ -865,6 +895,42 @@ export const districtsData = {
         tag: "Nature",
         desc: "Offers some of the clearest views of the Himalayas.",
         img: west_sikkim_assets.kaluk,
+      },
+      {
+        title: "Melli",
+        tag: "Rural",
+        desc: "A scenic town and stopover belt known for river valleys, village life, and local market charm.",
+        img: west_sikkim_assets.melli,
+      },
+      {
+        title: "Rimbi Waterfall",
+        tag: "Nature",
+        desc: "A tranquil waterfall experience that adds serenity to the Soreng–Rinchenpong circuit.",
+        img: west_sikkim_assets.Changey_Waterfalls,
+      },
+      {
+        title: "Bakhim",
+        tag: "Village",
+        desc: "A lesser-known mountain village that highlights the region's quiet countryside and panoramic vistas.",
+        img: west_sikkim_assets.Darap_village,
+      },
+      {
+        title: "Hilley",
+        tag: "Viewpoint",
+        desc: "A high-altitude village famous for sunrise, cloud-covered ridges, and picture-perfect Himalayan views.",
+        img: west_sikkim_assets.Pelling,
+      },
+      {
+        title: "Okhrey",
+        tag: "Nature",
+        desc: "A peaceful stop for nature lovers with easy walks, birdlife, and Himalayan ambience.",
+        img: west_sikkim_assets.Pelling,
+      },
+      {
+        title: "Barsey Rhododendron Sanctuary",
+        tag: "Wildlife",
+        desc: "A top-season floral haven with mountain trails, forest walks, and vibrant spring colours.",
+        img: west_sikkim_assets.Varsey_Sanctuary,
       },
     ]
   }

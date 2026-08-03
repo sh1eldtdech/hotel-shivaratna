@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, AlertCircle, MessageCircle } from 'lucide-react';
 
 const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
   const [formData, setFormData] = useState({
@@ -126,11 +126,11 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
                 Contact Us
               </span>
               <h2 className="text-3xl md:text-5xl font-medium text-neutral-900 font-serif leading-tight">
-                Connect With Our Concierge
+                Get In Touch Directly
               </h2>
               <div className="w-16 h-[1.5px] bg-gold mt-4" />
-              <p className="text-neutral-950 text-medium font-normal text-xs md:text-[18px] font-sans font-light leading-relaxed mt-4">
-                Have questions about room choices, special requests, or airport pickup? Let us assist you in planning your unforgettable stay at Shivaratna.
+              <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed mt-4">
+                Contact and get in touch directly with the hotel owner — no middleman, no extra commission, direct booking. We are here to make your stay affordable and hassle-free.
               </p>
             </div>
 
@@ -143,9 +143,9 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
                 </div>
                 <div>
                   <h4 className="font-serif text-sm font-semibold tracking-wider text-gold">Location</h4>
-                  <p className="text-neutral-950 text-medium font-normal text-xs md:text-[18px] font-sans font-light mt-1">
-                    742 Evergreen Terrace, Shivaratna Hotel Lane,<br />
-                    Bangalore, Karnataka, India - 560001
+                  <p className="text-neutral-700 text-sm font-sans font-light mt-1">
+                    Hotel Shivaratna, Rinchenpong,<br />
+                    West Sikkim — 737121, India
                   </p>
                 </div>
               </div>
@@ -157,9 +157,25 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
                 </div>
                 <div>
                   <h4 className="font-serif text-sm font-semibold tracking-wider text-gold">Reservations</h4>
-                  <p className="text-neutral-950 text-medium font-normal text-xs md:text-[18px] font-sans font-light mt-1">
-                    <a href="tel:+919999999999" className="hover:text-gold transition-colors">+91 99999 99999</a><br />
-                    <a href="tel:+918888888888" className="hover:text-gold transition-colors">+91 88888 88888</a>
+                  <p className="text-neutral-700 text-sm font-sans font-light mt-1">
+                    <a href="tel:+919733092426" className="hover:text-gold transition-colors">+91 97330 92426</a><br />
+                    <a href="tel:+917300643227" className="hover:text-gold transition-colors">+91 73006 43227</a>
+                  </p>
+                </div>
+              </div>
+
+              {/* WhatsApp */}
+              <div className="flex items-start space-x-4">
+                <div className="bg-white border border-gold/20 p-3 rounded-full text-emerald-500 shrink-0">
+                  <MessageCircle className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-serif text-sm font-semibold tracking-wider text-gold">WhatsApp</h4>
+                  <p className="text-neutral-700 text-sm font-sans font-light mt-1">
+                    <a href="https://wa.me/919733092426" target="_blank" rel="noreferrer" className="hover:text-gold transition-colors inline-flex items-center gap-1.5">
+                      Chat with us on WhatsApp
+                      <span className="text-emerald-500 text-xs">●</span>
+                    </a>
                   </p>
                 </div>
               </div>
@@ -170,47 +186,69 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-serif text-sm font-semibold tracking-wider text-gold">Enquiries</h4>
-                  <p className="text-neutral-950 text-medium font-normal text-xs md:text-[18px] font-sans font-light mt-1">
-                    <a href="mailto:info@shivaratnahotel.com" className="hover:text-gold transition-colors">info@shivaratnahotel.com</a><br />
-                    <a href="mailto:booking@shivaratnahotel.com" className="hover:text-gold transition-colors">booking@shivaratnahotel.com</a>
+                  <h4 className="font-serif text-sm font-semibold tracking-wider text-gold">Email</h4>
+                  <p className="text-neutral-700 text-sm font-sans font-light mt-1">
+                    <a href="mailto:hotelshivaratna@gmail.com" className="hover:text-gold transition-colors">hotelshivaratna@gmail.com</a>
                   </p>
                 </div>
               </div>
 
-              {/* Timing */}
+              {/* Working Hours */}
               <div className="flex items-start space-x-4">
                 <div className="bg-white border border-gold/20 p-3 rounded-full text-gold shrink-0">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
                   <h4 className="font-serif text-sm font-semibold tracking-wider text-gold">Working Hours</h4>
-                  <p className="text-neutral-950 text-medium font-normal text-xs md:text-[18px] font-sans font-light mt-1">
+                  <p className="text-neutral-700 text-sm font-sans font-light mt-1">
                     Front Desk: 24 / 7 Available<br />
-                    Spa & Pools: 06:00 AM - 10:00 PM
+                    Check-in: 12:00 PM · Check-out: 11:00 AM
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Simulated Google Map (Premium placeholder) */}
-            <div className="relative h-[180px] md:h-[220px] bg-white border border-gold/20 flex items-center justify-center overflow-hidden">
-              <div className="absolute inset-0 bg-cover bg-center opacity-40 grayscale"
-                   style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=600&q=80")' }} />
-              <div className="absolute inset-0 bg-white/40" />
-              <div className="z-10 text-center space-y-2.5 p-4">
-                <MapPin className="w-8 h-8 text-gold mx-auto animate-bounce" />
-                <h5 className="font-serif text-sm font-medium">Shivaratna Bangalore</h5>
-                <p className="text-[10px] text-neutral-600 font-sans">Click below to open on Google Maps</p>
-                <a
-                  href="https://maps.google.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-block text-[10px] text-neutral-950 bg-gold font-sans font-semibold uppercase tracking-widest px-4 py-1.5 hover:bg-gold-light transition-all duration-300"
-                >
-                  Get Directions
+            {/* Social Media Links */}
+            <div className="space-y-3">
+              <h4 className="font-serif text-sm font-semibold tracking-wider text-gold">Follow Us</h4>
+              <div className="flex items-center space-x-4">
+                {/* YouTube */}
+                <a href="https://www.youtube.com/@ShivaRatnaHotel" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-neutral-200 hover:border-gold flex items-center justify-center text-neutral-500 hover:text-gold transition-all duration-300">
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                  </svg>
+                </a>
+                {/* Facebook */}
+                <a href="https://www.facebook.com/share/1L2oRvPjtn/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-neutral-200 hover:border-gold flex items-center justify-center text-neutral-500 hover:text-gold transition-all duration-300">
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                  </svg>
+                </a>
+                {/* Instagram */}
+                <a href="https://www.instagram.com/hotel_shivaratna_official?igsh=MTZ3bDNxeGhlb2RsYQ==" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-neutral-200 hover:border-gold flex items-center justify-center text-neutral-500 hover:text-gold transition-all duration-300">
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
                 </a>
               </div>
+            </div>
+
+            {/* Google Map Embed */}
+            <div className="relative h-[220px] md:h-[260px] border border-gold/20 overflow-hidden rounded-lg shadow-premium">
+              <iframe
+                title="Hotel Shivaratna Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3545.7!2d88.2!3d27.25!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sRinchenpong%2C+West+Sikkim!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
+              />
             </div>
           </div>
 
@@ -228,7 +266,7 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
             )}
 
             <h3 className="text-xl md:text-2xl font-serif text-neutral-900 font-medium text-left mb-6">
-              Reservation & Inquiry Form
+              Reservation &amp; Inquiry Form
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-5 text-left">
@@ -367,6 +405,17 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
               </button>
             </form>
 
+            {/* WhatsApp Direct CTA */}
+            <a
+              href="https://wa.me/919733092426?text=Hi%2C%20I%20would%20like%20to%20book%20a%20room%20at%20Hotel%20Shivaratna."
+              target="_blank"
+              rel="noreferrer"
+              className="mt-5 w-full bg-emerald-600 hover:bg-emerald-700 text-white font-sans font-semibold text-xs uppercase tracking-widest py-4 px-6 flex items-center justify-center transition-all duration-300 rounded-sm"
+            >
+              <MessageCircle className="w-4 h-4 mr-2" />
+              Book via WhatsApp
+            </a>
+
             {/* Submission Status Alerts */}
             <AnimatePresence>
               {status.success && (
@@ -378,7 +427,7 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
                 >
                   <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
                   <span className="text-xs text-neutral-800 font-sans text-left">
-                    Thank you! Your booking request was sent successfully. Our guest concierge team will email/call you within 2 hours.
+                    Thank you! Your booking request was sent successfully. Our team will contact you within 2 hours via phone or email.
                   </span>
                 </motion.div>
               )}

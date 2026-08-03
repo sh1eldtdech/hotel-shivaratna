@@ -1,254 +1,214 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence, useInView, useReducedMotion } from 'framer-motion';
-import { Star, ArrowRight, Play, Utensils, Waves, Dumbbell, Sparkles, Briefcase, Shirt, X } from 'lucide-react';
+import { Star, ArrowRight, Play, X } from 'lucide-react';
 import Hero from '../components/Hero';
-import { ROOMS_DATA, GALLERY_IMAGES, CORE_FACILITIES } from '../data/hotelData';
+import { ROOMS_DATA, GALLERY_IMAGES, AMENITIES_LIST, CORE_FACILITIES } from '../data/hotelData';
+import slider3 from '../assets/slider3.png';
+import hotelVideo from '../assets/hotel video.mp4';
 
+// Animated counter
 const AnimatedCounter = ({ value, duration = 1.5 }) => {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!isInView) return;
-
-    let start = 0;
+    let startTime = null;
     const end = parseInt(value, 10);
     if (isNaN(end)) return;
-
-    let startTime = null;
-
     const animateCount = (timestamp) => {
       if (!startTime) startTime = timestamp;
       const elapsed = timestamp - startTime;
       const progress = Math.min(elapsed / (duration * 1000), 1);
-      
-      // easeOutQuad
       const easedProgress = progress * (2 - progress);
-      
       setCount(Math.floor(easedProgress * end));
-
-      if (progress < 1) {
-        requestAnimationFrame(animateCount);
-      }
+      if (progress < 1) requestAnimationFrame(animateCount);
     };
-
     requestAnimationFrame(animateCount);
   }, [isInView, value, duration]);
 
   return <span ref={ref}>{count}</span>;
 };
 
-const iconMap = {
-  Utensils: Utensils,
-  Waves: Waves,
-  Dumbbell: Dumbbell,
-  Flower: Sparkles,
-  Briefcase: Briefcase,
-  Shirt: Shirt,
-};
-
 const Home = () => {
   const navigate = useNavigate();
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
-  // Highlights only first 3 rooms for Homepage preview
   const featuredRooms = ROOMS_DATA.slice(0, 3);
-  const shouldReduceMotion = useReducedMotion(); // ADDED: Respect prefers-reduced-motion
 
-  // ADDED: Reusable motion variants for About section
-  const imageGroupVariant = {
-    hidden: { 
-      opacity: 0, 
-      x: shouldReduceMotion ? 0 : -120, 
-      scale: shouldReduceMotion ? 1 : 0.9, 
-      rotateY: shouldReduceMotion ? 0 : -12 
-    },
-    visible: { 
-      opacity: 1, 
-      x: 0, 
-      scale: 1, 
-      rotateY: 0,
-      transition: { 
-        duration: 1, 
-        ease: [0.22, 1, 0.36, 1] 
-      }
-    }
-  };
-
-  const contentContainerVariant = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.8,
-        staggerChildren: 0.25
-      }
-    }
-  };
-
-  const contentItemVariant = {
-    hidden: { opacity: 0, x: shouldReduceMotion ? 0 : 60 },
-    visible: { 
-      opacity: 1, 
-      x: 0,
-      transition: { duration: 1, ease: [0.22, 1, 0.36, 1] }
-    }
-  };
-
-  const imageHoverVariant = {
-    hover: {
-      scale: 1.04,
-      filter: "brightness(105%)",
-      boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
-      transition: { duration: 0.5 }
-    }
-  };
+  const fadeUp = (delay = 0) => ({
+    initial: { opacity: 0, y: shouldReduceMotion ? 0 : 40 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.2 },
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1], delay },
+  });
 
   return (
     <div>
       {/* Hero Carousel */}
       <Hero />
 
-      {/* Welcome & 6 Facilities Section (Section 2 of Almaris Mockup) */}
-      <section id="about-intro" className="pt-32 pb-24 bg-luxury-cream">
+      {/* Stats Bar */}
+      <div className="bg-neutral-950 border-b border-gold/20 py-5">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          
-          {/* Welcome Intro row */}
-          {/* ADDED: Wrapped existing row with motion.div for 25% viewport trigger */}
-          <motion.div 
+          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-12 text-center">
+            {[
+              { label: 'In the heart of town', value: null },
+              { label: 'Room Categories', value: '3+' },
+              { label: 'Dining Seats', value: '30+' },
+              { label: 'Amenities', value: '10+' },
+              { label: 'Guest Reviews', value: '1200+' },
+            ].map((stat, i) => (
+              <div key={i} className="flex items-center gap-3">
+                {i > 0 && <div className="hidden md:block w-px h-8 bg-gold/20" />}
+                <div className="text-center">
+                  {stat.value ? (
+                    <div className="text-xl md:text-2xl font-serif text-gold font-medium">{stat.value}</div>
+                  ) : (
+                    <div className="text-xs font-sans text-gold uppercase tracking-widest font-semibold">📍</div>
+                  )}
+                  <div className="text-[10px] md:text-xs text-neutral-400 font-sans tracking-wider mt-0.5">{stat.label}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* About Section */}
+      <section id="about-intro" className="pt-28 pb-20 bg-luxury-cream">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <motion.div
             className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.25 }}
+            viewport={{ once: true, amount: 0.2 }}
           >
-            
-            {/* Curved Arches (Left) */}
-            {/* ADDED: Animated Image Container with perspective */}
-            <motion.div 
+            {/* Image Left */}
+            <motion.div
               className="lg:col-span-6"
-              variants={imageGroupVariant}
-              style={{ perspective: 1000 }}
+              variants={{
+                hidden: { opacity: 0, x: shouldReduceMotion ? 0 : -80, scale: shouldReduceMotion ? 1 : 0.95 },
+                visible: { opacity: 1, x: 0, scale: 1, transition: { duration: 1, ease: [0.22, 1, 0.36, 1] } }
+              }}
             >
-              <motion.div 
-                className="relative"
-              >
-                <div className="rounded-xl overflow-hidden shadow-2xl border border-gold/10">
-                  <motion.img
-                    src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&q=80"
-                    alt="Shivaratna Lobby"
-                    className="w-full h-[350px] md:h-[500px] object-cover"
-                    variants={imageHoverVariant}
-                    whileHover="hover"
-                  />
-                </div>
-              </motion.div>
+              <div className="rounded-xl overflow-hidden shadow-2xl border border-gold/10">
+                <motion.img
+                  src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&q=80"
+                  alt="Hotel Shivaratna"
+                  className="w-full h-[350px] md:h-[500px] object-cover hover:scale-105 transition-transform duration-700"
+                />
+              </div>
             </motion.div>
 
-            {/* Intro Copy (Right) */}
-            <motion.div 
-              className="lg:col-span-6 text-left space-y-6"
-              variants={contentContainerVariant}
+            {/* Content Right */}
+            <motion.div
+              className="lg:col-span-6 text-left space-y-5"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1, transition: { staggerChildren: 0.2, delayChildren: 0.5 } }
+              }}
             >
-              <motion.span variants={contentItemVariant} className="text-xs md:text-sm font-semibold tracking-[0.25em] text-gold uppercase block font-sans">
+              <motion.span
+                variants={{ hidden: { opacity: 0, x: 50 }, visible: { opacity: 1, x: 0, transition: { duration: 0.8 } } }}
+                className="text-xs md:text-sm font-semibold tracking-[0.25em] text-gold uppercase block font-sans"
+              >
                 Rinchenpong, West Sikkim
               </motion.span>
-              <motion.h2 variants={contentItemVariant} className="text-3xl md:text-5xl font-medium leading-tight text-neutral-900 font-serif">
+              <motion.h2
+                variants={{ hidden: { opacity: 0, x: 50 }, visible: { opacity: 1, x: 0, transition: { duration: 0.8 } } }}
+                className="text-3xl md:text-5xl font-medium leading-tight text-neutral-900 font-serif"
+              >
                 About Hotel Shivaratna
               </motion.h2>
-              
-              <motion.div variants={contentItemVariant} className="flex items-center space-x-3 bg-gold/5 border border-gold/20 px-4 py-2 w-fit">
+
+              <motion.div
+                variants={{ hidden: { opacity: 0, x: 50 }, visible: { opacity: 1, x: 0, transition: { duration: 0.8 } } }}
+                className="flex items-center space-x-3 bg-gold/5 border border-gold/20 px-4 py-2 w-fit"
+              >
                 <div className="flex text-gold">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
-                  ))}
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
                 </div>
                 <span className="text-xs font-semibold text-neutral-800 tracking-wider font-sans">
-                  4.9 out of 5 (1,200+ Reviews)
+                  4.9 out of 5
                 </span>
               </motion.div>
 
-              <motion.p variants={contentItemVariant} className="text-neutral-600 text-sm md:text-base font-sans font-light leading-relaxed">
+              <motion.p
+                variants={{ hidden: { opacity: 0, x: 50 }, visible: { opacity: 1, x: 0, transition: { duration: 0.8 } } }}
+                className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify"
+              >
                 Welcome to Hotel Shivaratna, your peaceful mountain retreat in Rinchenpong, West Sikkim, where breathtaking Himalayan views, fresh mountain air, and warm Sikkimese hospitality come together to create an unforgettable stay.
               </motion.p>
 
-              <motion.p variants={contentItemVariant} className="text-neutral-600 text-sm md:text-base font-sans font-light leading-relaxed">
+              <motion.p
+                variants={{ hidden: { opacity: 0, x: 50 }, visible: { opacity: 1, x: 0, transition: { duration: 0.8 } } }}
+                className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify"
+              >
                 Our hotel offers 14 comfortable and affordable rooms, a multi-cuisine restaurant, fully stocked bar, meeting &amp; conference hall, free high-speed Wi-Fi, and complete fooding and lodging facilities. Whether you're a leisure traveller, pilgrim, nature enthusiast, adventure seeker, business guest, or remote worker, our dedicated team ensures every guest feels at home.
               </motion.p>
 
-              <motion.p variants={contentItemVariant} className="text-neutral-600 text-sm md:text-base font-sans font-light leading-relaxed">
-                Ideally located opposite the historic Rinchen Cholang Monastery and near Rabindranath Van, Hotel Shivaratna is the perfect base for exploring the hidden gems of West Sikkim. Popular nearby attractions include Poison Lake, Dak Bungalow, Reshi Monastery, Ajing Farm, Sribadam Waterfall, Singshore Bridge, Chaayatal, Bermiok Shiva Cave, and Bombhir Natural Mineral Spring.
-              </motion.p>
-
-              <motion.div variants={contentItemVariant} className="inline-block pt-2">
+              <motion.div
+                variants={{ hidden: { opacity: 0, x: 50 }, visible: { opacity: 1, x: 0, transition: { duration: 0.8 } } }}
+                className="flex flex-wrap gap-4 pt-2"
+              >
                 <Link
                   to="/about"
-                  className="inline-flex items-center text-xs text-gold hover:text-gold-dark uppercase tracking-widest font-sans font-semibold group transition-colors"
+                  className="inline-flex items-center text-xs text-gold hover:text-gold-dark uppercase tracking-widest font-sans font-semibold border border-gold/30 hover:border-gold px-6 py-3 transition-all duration-300"
                 >
-                  Learn More About Us
+                  Learn More
                   <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
                 </Link>
               </motion.div>
             </motion.div>
           </motion.div>
 
-          {/* 6 Facilities Cards (Replicating Section 2 details) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-28">
-            {CORE_FACILITIES.map((facility, index) => {
-              const IconComponent = iconMap[facility.icon] || Sparkles;
-              return (
+          {/* Amenities Strip — Centered Flex wrap layout to eliminate empty grid space */}
+          <motion.div
+            {...fadeUp(0)}
+            className="mt-24"
+          >
+            <div className="text-center mb-10">
+              <span className="text-xs font-semibold tracking-[0.25em] text-gold uppercase block font-sans">What We Offer</span>
+              <h2 className="text-3xl md:text-4xl font-medium text-neutral-900 font-serif mt-2">Premium Amenities</h2>
+              <div className="w-16 h-[1.5px] bg-gold mx-auto mt-4" />
+            </div>
+            <div className="flex flex-wrap justify-center gap-4">
+              {AMENITIES_LIST.map((amenity, i) => (
                 <motion.div
-                  key={facility.id}
-                  initial={{ 
-                    opacity: 0, 
-                    y: shouldReduceMotion ? 0 : 50, 
-                    scale: shouldReduceMotion ? 1 : 0.9 
-                  }}
-                  whileInView={{ 
-                    opacity: 1, 
-                    y: 0, 
-                    scale: 1,
-                  }}
-                  transition={{ 
-                    duration: 0.8, 
-                    ease: [0.22, 1, 0.36, 1],
-                    delay: (index % 3) * 0.15 
-                  }}
-                  viewport={{ once: true, amount: 0.2 }}
+                  key={amenity.id}
+                  initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 35, scale: shouldReduceMotion ? 1 : 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, amount: 0.1 }}
+                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: (i % 5) * 0.06 }}
                   whileHover={{ 
-                    y: -10, 
-                    scale: 1.02,
-                    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.08)",
-                    transition: { duration: 0.4, ease: "easeOut" }
+                    y: -6, 
+                    borderColor: '#c5a880', 
+                    boxShadow: '0 12px 24px -10px rgba(197, 168, 128, 0.25)',
+                    transition: { duration: 0.2 } 
                   }}
-                  className="bg-white border border-gold/10 hover:border-gold/30 p-8 text-center md:text-left transition-colors duration-500 shadow-premium flex flex-col items-center md:items-start group"
+                  className="bg-white border border-gold/10 p-5 flex flex-col items-center text-center gap-3 shadow-premium group transition-all duration-300 w-[calc(50%-8px)] sm:w-[calc(33.33%-11px)] md:w-[calc(25%-12px)] lg:w-[calc(14.28%-14px)] min-w-[140px] max-w-[200px]"
                 >
-                  <div className="bg-gold/5 p-4 rounded-full border border-gold/10 group-hover:bg-gold group-hover:text-neutral-950 transition-colors duration-500 mb-6 text-gold relative overflow-hidden">
-                    {/* Add a subtle shine effect on hover for the icon background */}
-                    <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
-                    <IconComponent className="w-6 h-6 relative z-10" />
-                  </div>
-                  <h3 className="text-lg md:text-[21px] font-medium tracking-wide text-neutral-900 font-serif mb-3">
-                    {facility.title}
-                  </h3>
-                  <p className="text-neutral-950 text-medium font-normal text-xs md:text-[18px] leading-relaxed font-sans font-light">
-                    {facility.description}
-                  </p>
+                  <span className="text-2xl md:text-3xl group-hover:scale-110 transition-transform duration-300">{amenity.emoji}</span>
+                  <span className="text-xs md:text-sm font-sans font-medium text-neutral-800 leading-snug group-hover:text-gold transition-colors duration-300">{amenity.name}</span>
                 </motion.div>
-              );
-            })}
-          </div>
-
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Quote Block Banner (Section 3 of Almaris Mockup) */}
-      <div className="relative w-full h-[320px] md:h-[450px] flex items-center justify-center bg-fixed bg-cover bg-center overflow-hidden"
-           style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1920&q=80")' }}>
+      {/* Quote Banner — "Every sunrise brings…" */}
+      <div
+        className="relative w-full h-[320px] md:h-[450px] flex items-center justify-center bg-fixed bg-cover bg-center overflow-hidden"
+        style={{ backgroundImage: `url(${slider3})` }}
+      >
         <div className="absolute inset-0 bg-neutral-950/70" />
         <div className="max-w-4xl mx-auto px-6 md:px-12 text-center z-10 space-y-6">
-          <span className="text-gold text-3xl font-serif">“</span>
+          <span className="text-gold text-3xl font-serif">"</span>
           <motion.h3
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -265,196 +225,258 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Accommodation Rooms Showcase with Curved Arches (Section 4 of Almaris Mockup) */}
+      {/* Accommodation — Rectangle shape with hover video effect */}
       <section className="py-24 bg-luxury-cream">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
-          
-          <motion.div 
-            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-2xl mx-auto mb-16"
-          >
-            <span className="text-xs font-semibold tracking-[0.25em] text-gold uppercase block font-sans">
-              Rooms & Suite
-            </span>
-            <h2 className="text-3xl md:text-5xl font-medium text-neutral-900 font-serif mt-2">
-              Accommodation
-            </h2>
+          <motion.div {...fadeUp()} className="max-w-2xl mx-auto mb-16">
+            <span className="text-xs font-semibold tracking-[0.25em] text-gold uppercase block font-sans">Rooms &amp; Suites</span>
+            <h2 className="text-3xl md:text-5xl font-medium text-neutral-900 font-serif mt-2">Accommodation</h2>
             <div className="w-16 h-[1.5px] bg-gold mx-auto mt-4" />
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
             {featuredRooms.map((room, index) => (
               <motion.div
                 key={room.id}
-                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 80, scale: shouldReduceMotion ? 1 : 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: index * 0.3 }}
+                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: index * 0.2 }}
                 className="flex flex-col items-center group cursor-pointer"
-                onClick={() => navigate('/rooms')}
+                onClick={() => navigate(`/rooms/${room.id}`)}
               >
-                {/* Curved Arch Image Container */}
-                <div className="arch-frame w-full aspect-[4/5] relative overflow-hidden border border-gold/15 shadow-premium">
-                  {/* Room Image */}
+                {/* Rectangle image container with video-like hover effect */}
+                <div className="w-full aspect-[4/3] relative overflow-hidden border border-gold/15 shadow-premium rounded-sm">
                   <img
                     src={room.image}
                     alt={room.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
-
-                  {/* Bottom gradient for text */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/60 via-transparent to-transparent transition-opacity duration-500 group-hover:opacity-0" />
-
-                  {/* Price Tag Overlay at the bottom (visible by default, hidden on hover) */}
-                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-neutral-950/85 backdrop-blur-md text-white font-sans text-xs px-4 py-2 border border-gold/30 z-20 whitespace-nowrap tracking-wider transition-opacity duration-500 group-hover:opacity-0">
-                    ${room.price} <span className="text-neutral-400 font-light text-[9.5px]">/ Night</span>
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/70 via-transparent to-transparent transition-opacity duration-500 group-hover:opacity-0" />
+                  {/* Price tag */}
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-neutral-950/85 backdrop-blur-md text-white font-sans text-xs px-4 py-2 border border-gold/30 z-20 whitespace-nowrap tracking-wider transition-opacity duration-500 group-hover:opacity-0">
+                    ₹{room.price.toLocaleString('en-IN')} <span className="text-neutral-400 font-light text-[9.5px]">/ Night</span>
                   </div>
-
-                  {/* Hover Overlay - Gold fill from bottom to top */}
-                  <div className="absolute inset-0 bg-[#b59473] flex flex-col items-center justify-center translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] z-30">
-                    <span className="text-white/80 text-sm font-sans font-light tracking-wider mb-1">
-                      From
-                    </span>
-                    <span className="text-white text-4xl md:text-5xl font-serif font-normal tracking-wide mb-6">
-                      ${room.price}
-                    </span>
-                    <span className="text-white text-[10px] md:text-xs font-sans font-medium uppercase tracking-[0.25em] border-b border-white/40 pb-1">
-                      View Details
+                  {/* Hover overlay — slides up like a video reveal */}
+                  <div className="absolute inset-0 bg-neutral-950/80 flex flex-col items-center justify-center translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] z-30">
+                    <span className="text-white/80 text-sm font-sans font-light tracking-wider mb-2">From</span>
+                    <span className="text-gold text-4xl md:text-5xl font-serif font-normal tracking-wide mb-4">₹{room.price.toLocaleString('en-IN')}</span>
+                    <span className="text-xs text-gold font-sans font-medium uppercase tracking-[0.25em] flex items-center gap-2">
+                      <Play className="w-3 h-3 fill-current" /> View Room Details
                     </span>
                   </div>
                 </div>
-
-                {/* Room Info Below Card */}
-                <h3 className="mt-6 text-xl font-serif text-neutral-950 font-medium group-hover:text-gold transition-colors duration-300">
-                  {room.title}
-                </h3>
-                <p className="text-neutral-400 text-[10px] font-sans uppercase tracking-widest mt-1.5">
-                  {room.size} | {room.guests} Guests
+                <h3 className="mt-5 text-xl font-serif text-neutral-950 font-medium group-hover:text-gold transition-colors duration-300">{room.title}</h3>
+                <p className="text-neutral-500 text-[11px] font-sans uppercase tracking-widest mt-1.5">
+                  {room.size} | {room.guests} Guests | {room.bed}
                 </p>
               </motion.div>
             ))}
           </div>
-
+          <motion.div {...fadeUp(0.2)} className="mt-12">
+            <Link
+              to="/rooms"
+              className="inline-flex items-center text-xs text-neutral-950 hover:text-gold border border-neutral-950 hover:border-gold uppercase tracking-widest font-sans font-semibold px-10 py-4 transition-all duration-300"
+            >
+              View All Rooms &amp; Suites
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Link>
+          </motion.div>
         </div>
       </section>
 
-      {/* Our Facilities Metrics Grid Section (Section 5 of Almaris Mockup) */}
+      {/* Our Facilities — All 12 amenities with logo + text */}
       <section className="py-24 bg-white border-t border-neutral-100">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          
-          <motion.div 
-            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="text-center max-w-2xl mx-auto mb-16"
-          >
-            <span className="text-xs font-semibold tracking-[0.25em] text-gold uppercase block font-sans">
-              Exclusive Statistics
-            </span>
-            <h2 className="text-3xl md:text-4xl font-medium text-neutral-900 font-serif mt-2">
-              Our Facilities
-            </h2>
+          <motion.div {...fadeUp()} className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-xs font-semibold tracking-[0.25em] text-gold uppercase block font-sans">Exclusive Services</span>
+            <h2 className="text-3xl md:text-4xl font-medium text-neutral-900 font-serif mt-2">Our Facilities</h2>
             <div className="w-16 h-[1.5px] bg-gold mx-auto mt-4" />
           </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-            
-            {/* Rooms Available Card */}
-            <motion.div
-              initial={{ opacity: 0, x: shouldReduceMotion ? 0 : -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-              className="relative h-[320px] md:h-[400px] overflow-hidden group shadow-premium border border-gold/15"
-            >
-              {/* Background */}
-              <div 
-                className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700"
-                style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80")' }}
-              />
-              <div className="absolute inset-0 bg-neutral-950/20" />
-              
-              {/* Bottom Gold Info Card */}
-              <div className="absolute bottom-6 left-6 right-6 bg-neutral-950/80 backdrop-blur-md border border-gold/20 p-5 flex items-center justify-between text-left">
-                <div className="flex items-center space-x-5">
-                  <span className="text-3xl md:text-4xl font-serif font-medium text-gold">
-                    <AnimatedCounter value="120" />+
-                  </span>
-                  <div className="w-[1px] h-10 bg-gold/30" />
-                  <div className="text-white">
-                    <span className="text-xs font-semibold tracking-widest uppercase block font-sans">Rooms Available</span>
-                    <span className="text-[10px] text-neutral-400 font-sans block mt-0.5">Luxurious spaces catalogued</span>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {CORE_FACILITIES.map((facility, index) => (
+              <motion.div
+                key={facility.id}
+                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40, scale: shouldReduceMotion ? 1 : 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: (index % 3) * 0.12 }}
+                whileHover={{ y: -8, boxShadow: '0 20px 40px -10px rgba(0,0,0,0.08)', transition: { duration: 0.3 } }}
+                className="bg-luxury-cream border border-gold/10 hover:border-gold/30 p-7 text-left transition-all duration-400 shadow-premium flex items-start gap-5 group"
+              >
+                <div className="text-3xl shrink-0 mt-1 group-hover:scale-110 transition-transform duration-300">
+                  {facility.emoji}
                 </div>
-              </div>
-            </motion.div>
-
-            {/* Menu Selection Card */}
-            <motion.div
-              initial={{ opacity: 0, x: shouldReduceMotion ? 0 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-              className="relative h-[320px] md:h-[400px] overflow-hidden group shadow-premium border border-gold/15"
-            >
-              {/* Background */}
-              <div 
-                className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700"
-                style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80")' }}
-              />
-              <div className="absolute inset-0 bg-neutral-950/20" />
-              
-              {/* Bottom Gold Info Card */}
-              <div className="absolute bottom-6 left-6 right-6 bg-neutral-950/80 backdrop-blur-md border border-gold/20 p-5 flex items-center justify-between text-left">
-                <div className="flex items-center space-x-5">
-                  <span className="text-3xl md:text-4xl font-serif font-medium text-gold">
-                    <AnimatedCounter value="105" />+
-                  </span>
-                  <div className="w-[1px] h-10 bg-gold/30" />
-                  <div className="text-white">
-                    <span className="text-xs font-semibold tracking-widest uppercase block font-sans">Menu Selection</span>
-                    <span className="text-[10px] text-neutral-400 font-sans block mt-0.5">Dishes prepared by master chefs</span>
-                  </div>
+                <div>
+                  <h3 className="text-base md:text-lg font-medium tracking-wide text-neutral-900 font-serif mb-2 group-hover:text-gold transition-colors duration-300">
+                    {facility.title}
+                  </h3>
+                  <p className="text-neutral-700 text-xs md:text-sm leading-relaxed font-sans font-light">
+                    {facility.description}
+                  </p>
                 </div>
-              </div>
-            </motion.div>
-
+              </motion.div>
+            ))}
           </div>
-
         </div>
       </section>
 
-      {/* Video Preview Banner Section (Section 6 of Almaris Mockup) */}
+      {/* Feature Section 1 — Organic Farm Fresh Cuisine */}
+      <section className="py-24 bg-luxury-cream border-t border-neutral-100">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <motion.div
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            {/* Image */}
+            <motion.div
+              variants={{ hidden: { opacity: 0, x: -60 }, visible: { opacity: 1, x: 0, transition: { duration: 1, ease: [0.22, 1, 0.36, 1] } } }}
+              className="rounded-xl overflow-hidden shadow-2xl border border-gold/10"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80"
+                alt="Organic Farm Fresh Cuisine at Hotel Shivaratna"
+                className="w-full h-[350px] md:h-[500px] object-cover hover:scale-105 transition-transform duration-700"
+              />
+            </motion.div>
+            {/* Content */}
+            <motion.div
+              variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.3 } } }}
+              className="text-left space-y-5"
+            >
+              <motion.span
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                className="text-xs font-semibold tracking-[0.25em] text-gold uppercase block font-sans"
+              >
+                Farm to Table
+              </motion.span>
+              <motion.h2
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                className="text-3xl md:text-4xl font-medium leading-tight text-neutral-900 font-serif"
+              >
+                Organic Farm Fresh Cuisine
+              </motion.h2>
+              <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="w-12 h-[1.5px] bg-gold" />
+              <motion.p
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify"
+              >
+                At Hotel Shivaratna, every meal is a celebration of the Himalayan harvest. We source the freshest seasonal vegetables, herbs, and produce from local organic farms nestled in the hills of West Sikkim, bringing nature's best flavours directly to your table.
+              </motion.p>
+              <motion.p
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify"
+              >
+                Our multi-cuisine restaurant serves authentic Sikkimese dishes, Indian comfort food, and continental favourites — all prepared with love by our kitchen team. Pair your meal with refreshing drinks or explore our fully stocked bar for the perfect mountain dining experience.
+              </motion.p>
+              <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center bg-gold text-neutral-950 hover:bg-gold-dark text-xs uppercase tracking-widest font-sans font-semibold px-6 py-3 transition-all duration-300"
+                >
+                  Reserve Your Table
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Feature Section 2 — Workstation & Lounge */}
+      <section className="py-24 bg-white border-t border-neutral-100">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <motion.div
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            {/* Content — Left */}
+            <motion.div
+              variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.3 } } }}
+              className="text-left space-y-5 order-2 lg:order-1"
+            >
+              <motion.span
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                className="text-xs font-semibold tracking-[0.25em] text-gold uppercase block font-sans"
+              >
+                Work & Unwind
+              </motion.span>
+              <motion.h2
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                className="text-3xl md:text-4xl font-medium leading-tight text-neutral-900 font-serif"
+              >
+                Workstation &amp; Lounge
+                <span className="block text-xl md:text-2xl text-neutral-600 font-sans font-light mt-2">Where Productivity Meets Comfort</span>
+              </motion.h2>
+              <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="w-12 h-[1.5px] bg-gold" />
+              <motion.p
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify"
+              >
+                Whether you're a remote worker, digital nomad, or a business traveller on the move, Hotel Shivaratna's dedicated workstation and lounge provides everything you need to stay productive — high-speed Wi-Fi, comfortable seating, and the inspiring backdrop of the Himalayas.
+              </motion.p>
+              <motion.p
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify"
+              >
+                When the workday is done, transition seamlessly to relaxation mode in our comfortable lounge — a serene space to unwind, connect with fellow travellers, or simply soak in the peaceful mountain atmosphere.
+              </motion.p>
+              <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+                <Link
+                  to="/rooms"
+                  className="inline-flex items-center bg-gold text-neutral-950 hover:bg-gold-dark text-xs uppercase tracking-widest font-sans font-semibold px-6 py-3 transition-all duration-300"
+                >
+                  Book Your Work Stay
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
+              </motion.div>
+            </motion.div>
+            {/* Image — Right */}
+            <motion.div
+              variants={{ hidden: { opacity: 0, x: 60 }, visible: { opacity: 1, x: 0, transition: { duration: 1, ease: [0.22, 1, 0.36, 1] } } }}
+              className="rounded-xl overflow-hidden shadow-2xl border border-gold/10 order-1 lg:order-2"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80"
+                alt="Workstation and Lounge at Hotel Shivaratna"
+                className="w-full h-[350px] md:h-[500px] object-cover hover:scale-105 transition-transform duration-700"
+              />
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Video Preview Section */}
       <section className="relative w-full h-[400px] md:h-[550px] flex items-center justify-center overflow-hidden">
-        {/* Background image */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=80")' }}
+          style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1920&q=80")' }}
         />
         <div className="absolute inset-0 bg-neutral-950/65" />
-        
-        {/* Play Circle Icon */}
         <div className="z-10 text-center space-y-6">
           <motion.button
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsVideoOpen(true)}
-            className="w-16 h-16 md:w-20 md:h-20 bg-gold text-neutral-950 rounded-full flex items-center justify-center shadow-gold-glow relative group cursor-pointer"
+            className="w-20 h-20 md:w-24 md:h-24 bg-gold text-neutral-950 rounded-full flex items-center justify-center shadow-gold-glow relative group cursor-pointer mx-auto"
           >
-            {/* Pulse rings */}
             <div className="absolute inset-0 bg-gold/30 rounded-full animate-ping group-hover:animate-none" />
-            <Play className="w-6 h-6 md:w-8 md:h-8 fill-current translate-x-0.5" />
+            <Play className="w-8 h-8 md:w-10 md:h-10 fill-current translate-x-0.5" />
           </motion.button>
-          <div className="space-y-1">
+          <div className="space-y-2">
             <span className="text-[9px] md:text-xs text-gold uppercase tracking-[0.35em] font-sans font-semibold block">
               Watch Preview Video
             </span>
-            <span className="text-white font-serif text-sm font-medium tracking-wide">
+            <span className="text-white font-serif text-base md:text-xl font-medium tracking-wide block">
               A Glimpse of Shivaratna Grandeur
+            </span>
+            <span className="text-neutral-400 font-sans text-xs font-light block">
+              Rinchenpong, West Sikkim · Landscape Experience
             </span>
           </div>
         </div>
@@ -480,68 +502,79 @@ const Home = () => {
             <div className="w-12 h-[1px] bg-gold mx-auto mt-3" />
           </motion.div>
 
-          {/* 8 Images Grid layout */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
-            {GALLERY_IMAGES.map((img, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40, scale: shouldReduceMotion ? 1 : 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: idx * 0.1 }}
-                className="relative overflow-hidden aspect-square border border-gold/10 group cursor-pointer"
-              >
-                <div className="absolute inset-0 bg-neutral-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                  </svg>
-                </div>
-                <img
-                  src={img}
-                  alt={`Gallery item ${idx + 1}`}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-              </motion.div>
-            ))}
+          {/* 3-image collage with quote accent */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 auto-rows-[180px] md:auto-rows-[220px]">
+            {GALLERY_IMAGES.slice(0, 3).map((img, idx) => {
+              const isQuoteTile = idx === 1;
+
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40, scale: shouldReduceMotion ? 1 : 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: idx * 0.1 }}
+                  className={`relative overflow-hidden rounded-[28px] border border-gold/10 group ${idx === 0 ? 'sm:row-span-2' : ''} ${idx === 1 ? 'sm:col-span-1' : ''}`}
+                >
+                  {isQuoteTile ? (
+                    <div className="w-full h-full bg-neutral-950 text-white flex flex-col items-center justify-center px-6 text-center">
+                      <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] text-gold font-sans mb-3">
+                        Our Promise
+                      </span>
+                      <p className="font-serif text-lg md:text-2xl leading-tight tracking-wide max-w-[15ch]">
+                        “Warm stays, mountain views, and moments worth returning for.”
+                      </p>
+                    </div>
+                  ) : (
+                    <>
+                      <div className="absolute inset-0 bg-neutral-950/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center">
+                        <svg className="w-5 h-5 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                      </div>
+                      <img
+                        src={img}
+                        alt={`Gallery item ${idx + 1}`}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                    </>
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
 
         </div>
       </section>
 
-      {/* Video Modal Overlay */}
+      {/* Video Modal */}
       <AnimatePresence>
         {isVideoOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 overflow-hidden bg-neutral-950/85 flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 overflow-hidden bg-neutral-950/90 flex items-center justify-center p-4"
           >
             <motion.div
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.9 }}
-              className="bg-black max-w-4xl w-full aspect-video border border-gold/30 relative flex items-center justify-center"
+              className="bg-black max-w-5xl w-full aspect-video border border-gold/30 relative flex items-center justify-center"
             >
               <button
                 onClick={() => setIsVideoOpen(false)}
-                className="absolute -top-12 right-0 text-white hover:text-gold flex items-center text-xs tracking-wider uppercase font-sans font-medium"
+                className="absolute -top-12 right-0 text-white hover:text-gold flex items-center text-xs tracking-wider uppercase font-sans font-medium z-10"
               >
                 Close <X className="w-4 h-4 ml-1.5" />
               </button>
-              
-              {/* Embedded simulated video player */}
-              <iframe
-                title="Shivaratna Hotel Preview"
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
+              <video
+                src={hotelVideo}
+                controls
+                autoPlay
+                className="w-full h-full object-contain"
               />
             </motion.div>
           </motion.div>
