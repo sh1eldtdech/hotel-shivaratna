@@ -1,4 +1,12 @@
 // High-quality data for Hotel Shivaratna
+import localGallery1 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.11.00 AM.jpeg';
+import localGallery2 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.13.03 AM.jpeg';
+import localGallery3 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.13.07 AM.jpeg';
+import localGallery4 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.13.12 AM.jpeg';
+import localGallery5 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.13.15 AM.jpeg';
+import localGallery6 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.13.17 AM.jpeg';
+import localGallery7 from '../assets/gallery/kanchenjunga view from Hotel.JPG (1).jpeg';
+import localGallery8 from '../assets/aroundhotel/Bombhir.jpg';
 
 export const HERO_SLIDES = [
   {
@@ -186,8 +194,12 @@ export const ROOMS_DATA = [
 ];
 
 export const GALLERY_IMAGES = [
-  "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=900&q=80"
+  localGallery1,
+  localGallery2,
+  localGallery3,
+  localGallery4,
+  localGallery5,
+  localGallery6,
+  localGallery7,
+  localGallery8
 ];

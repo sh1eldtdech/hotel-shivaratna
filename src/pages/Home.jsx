@@ -90,16 +90,19 @@ const Home = () => {
             {/* Image Left */}
             <motion.div
               className="lg:col-span-6"
+              style={{ transformPerspective: 1400 }}
               variants={{
-                hidden: { opacity: 0, x: shouldReduceMotion ? 0 : -80, scale: shouldReduceMotion ? 1 : 0.95 },
-                visible: { opacity: 1, x: 0, scale: 1, transition: { duration: 1, ease: [0.22, 1, 0.36, 1] } }
+                hidden: { opacity: 0, x: shouldReduceMotion ? 0 : -80, rotateY: shouldReduceMotion ? 0 : -18, scale: shouldReduceMotion ? 1 : 0.95 },
+                visible: { opacity: 1, x: 0, rotateY: 0, scale: 1, transition: { duration: 1, ease: [0.22, 1, 0.36, 1] } }
               }}
             >
-              <div className="rounded-xl overflow-hidden shadow-2xl border border-gold/10">
+              <div className="rounded-xl overflow-hidden shadow-[0_30px_80px_-30px_rgba(0,0,0,0.55)] border border-gold/10 [transform:rotateX(1deg)]">
                 <motion.img
                   src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&q=80"
                   alt="Hotel Shivaratna"
-                  className="w-full h-[350px] md:h-[500px] object-cover hover:scale-105 transition-transform duration-700"
+                  whileHover={{ scale: 1.04, rotateY: 6, rotateX: 2 }}
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  className="w-full h-[350px] md:h-[500px] object-cover"
                 />
               </div>
             </motion.div>
@@ -176,23 +179,25 @@ const Home = () => {
               <h2 className="text-3xl md:text-4xl font-medium text-neutral-900 font-serif mt-2">Premium Amenities</h2>
               <div className="w-16 h-[1.5px] bg-gold mx-auto mt-4" />
             </div>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-4 [perspective:1500px]">
               {AMENITIES_LIST.map((amenity, i) => (
                 <motion.div
                   key={amenity.id}
-                  initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 35, scale: shouldReduceMotion ? 1 : 0.95 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 35, rotateX: shouldReduceMotion ? 0 : 18, scale: shouldReduceMotion ? 1 : 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
                   viewport={{ once: true, amount: 0.1 }}
                   transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: (i % 5) * 0.06 }}
                   whileHover={{ 
-                    y: -6, 
-                    borderColor: '#c5a880', 
-                    boxShadow: '0 12px 24px -10px rgba(197, 168, 128, 0.25)',
-                    transition: { duration: 0.2 } 
+                    y: -8,
+                    rotateY: i % 2 === 0 ? 8 : -8,
+                    rotateX: 6,
+                    borderColor: '#c5a880',
+                    boxShadow: '0 18px 28px -14px rgba(197, 168, 128, 0.28)',
+                    transition: { duration: 0.25 } 
                   }}
                   className="bg-white border border-gold/10 p-5 flex flex-col items-center text-center gap-3 shadow-premium group transition-all duration-300 w-[calc(50%-8px)] sm:w-[calc(33.33%-11px)] md:w-[calc(25%-12px)] lg:w-[calc(14.28%-14px)] min-w-[140px] max-w-[200px]"
                 >
-                  <span className="text-2xl md:text-3xl group-hover:scale-110 transition-transform duration-300">{amenity.emoji}</span>
+                  <span className="text-2xl md:text-3xl group-hover:scale-110 group-hover:rotate-[10deg] transition-transform duration-300">{amenity.emoji}</span>
                   <span className="text-xs md:text-sm font-sans font-medium text-neutral-800 leading-snug group-hover:text-gold transition-colors duration-300">{amenity.name}</span>
                 </motion.div>
               ))}
@@ -207,11 +212,23 @@ const Home = () => {
         style={{ backgroundImage: `url(${slider3})` }}
       >
         <div className="absolute inset-0 bg-neutral-950/70" />
-        <div className="max-w-4xl mx-auto px-6 md:px-12 text-center z-10 space-y-6">
-          <span className="text-gold text-3xl font-serif">"</span>
+        <motion.div
+          initial={{ opacity: 0, rotateX: 18, y: 30 }}
+          whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-4xl mx-auto px-6 md:px-12 text-center z-10 space-y-6 [transform:perspective(1200px)]"
+        >
+          <motion.span
+            animate={{ rotate: [0, 8, -6, 0], y: [0, -5, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+            className="text-gold text-3xl font-serif inline-block"
+          >
+            "
+          </motion.span>
           <motion.h3
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.95, rotateX: 18 }}
+            whileInView={{ opacity: 1, scale: 1, rotateX: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="text-xl md:text-2xl lg:text-3xl font-serif text-neutral-200 leading-relaxed font-light italic"
@@ -222,7 +239,7 @@ const Home = () => {
           <span className="text-[10px] md:text-xs text-gold uppercase tracking-[0.3em] font-sans block">
             Hotel Shivaratna · Rinchenpong, West Sikkim
           </span>
-        </div>
+        </motion.div>
       </div>
 
       {/* Accommodation — Rectangle shape with hover video effect */}
@@ -238,15 +255,16 @@ const Home = () => {
             {featuredRooms.map((room, index) => (
               <motion.div
                 key={room.id}
-                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 60 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 60, rotateX: shouldReduceMotion ? 0 : 18 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: index * 0.2 }}
-                className="flex flex-col items-center group cursor-pointer"
+                whileHover={{ y: -10, rotateY: index % 2 === 0 ? 7 : -7, rotateX: 6, transition: { duration: 0.35 } }}
+                className="flex flex-col items-center group cursor-pointer [transform-style:preserve-3d]"
                 onClick={() => navigate(`/rooms/${room.id}`)}
               >
                 {/* Rectangle image container with video-like hover effect */}
-                <div className="w-full aspect-[4/3] relative overflow-hidden border border-gold/15 shadow-premium rounded-sm">
+                <div className="w-full aspect-[4/3] relative overflow-hidden border border-gold/15 shadow-premium rounded-sm [transform:translateZ(12px)]">
                   <img
                     src={room.image}
                     alt={room.title}
@@ -333,13 +351,15 @@ const Home = () => {
           >
             {/* Image */}
             <motion.div
-              variants={{ hidden: { opacity: 0, x: -60 }, visible: { opacity: 1, x: 0, transition: { duration: 1, ease: [0.22, 1, 0.36, 1] } } }}
-              className="rounded-xl overflow-hidden shadow-2xl border border-gold/10"
+              variants={{ hidden: { opacity: 0, x: -60, rotateY: -20 }, visible: { opacity: 1, x: 0, rotateY: 0, transition: { duration: 1, ease: [0.22, 1, 0.36, 1] } } }}
+              whileHover={{ rotateY: 8, rotateX: 4, scale: 1.02 }}
+              transition={{ duration: 0.5 }}
+              className="rounded-xl overflow-hidden shadow-[0_35px_80px_-30px_rgba(0,0,0,0.5)] border border-gold/10 [transform-style:preserve-3d]"
             >
               <img
                 src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80"
                 alt="Organic Farm Fresh Cuisine at Hotel Shivaratna"
-                className="w-full h-[350px] md:h-[500px] object-cover hover:scale-105 transition-transform duration-700"
+                className="w-full h-[350px] md:h-[500px] object-cover"
               />
             </motion.div>
             {/* Content */}
@@ -438,13 +458,15 @@ const Home = () => {
             </motion.div>
             {/* Image — Right */}
             <motion.div
-              variants={{ hidden: { opacity: 0, x: 60 }, visible: { opacity: 1, x: 0, transition: { duration: 1, ease: [0.22, 1, 0.36, 1] } } }}
-              className="rounded-xl overflow-hidden shadow-2xl border border-gold/10 order-1 lg:order-2"
+              variants={{ hidden: { opacity: 0, x: 60, rotateY: 20 }, visible: { opacity: 1, x: 0, rotateY: 0, transition: { duration: 1, ease: [0.22, 1, 0.36, 1] } } }}
+              whileHover={{ rotateY: -8, rotateX: 4, scale: 1.02 }}
+              transition={{ duration: 0.5 }}
+              className="rounded-xl overflow-hidden shadow-[0_35px_80px_-30px_rgba(0,0,0,0.5)] border border-gold/10 order-1 lg:order-2 [transform-style:preserve-3d]"
             >
               <img
                 src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80"
                 alt="Workstation and Lounge at Hotel Shivaratna"
-                className="w-full h-[350px] md:h-[500px] object-cover hover:scale-105 transition-transform duration-700"
+                className="w-full h-[350px] md:h-[500px] object-cover"
               />
             </motion.div>
           </motion.div>
@@ -455,15 +477,17 @@ const Home = () => {
       <section className="relative w-full h-[400px] md:h-[550px] flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1920&q=80")' }}
+          style={{ backgroundImage: `url(${slider3})` }}
         />
         <div className="absolute inset-0 bg-neutral-950/65" />
         <div className="z-10 text-center space-y-6">
           <motion.button
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.08, rotateY: 12, rotateX: 8 }}
+            whileTap={{ scale: 0.95, rotateY: 0 }}
+            animate={{ rotateZ: [0, 2, -2, 0] }}
+            transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
             onClick={() => setIsVideoOpen(true)}
-            className="w-20 h-20 md:w-24 md:h-24 bg-gold text-neutral-950 rounded-full flex items-center justify-center shadow-gold-glow relative group cursor-pointer mx-auto"
+            className="w-20 h-20 md:w-24 md:h-24 bg-gold text-neutral-950 rounded-full flex items-center justify-center shadow-gold-glow relative group cursor-pointer mx-auto [transform-style:preserve-3d]"
           >
             <div className="absolute inset-0 bg-gold/30 rounded-full animate-ping group-hover:animate-none" />
             <Play className="w-8 h-8 md:w-10 md:h-10 fill-current translate-x-0.5" />
@@ -502,48 +526,32 @@ const Home = () => {
             <div className="w-12 h-[1px] bg-gold mx-auto mt-3" />
           </motion.div>
 
-          {/* 3-image collage with quote accent */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 auto-rows-[180px] md:auto-rows-[220px]">
-            {GALLERY_IMAGES.slice(0, 3).map((img, idx) => {
-              const isQuoteTile = idx === 1;
-
-              return (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40, scale: shouldReduceMotion ? 1 : 0.9 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: idx * 0.1 }}
-                  className={`relative overflow-hidden rounded-[28px] border border-gold/10 group ${idx === 0 ? 'sm:row-span-2' : ''} ${idx === 1 ? 'sm:col-span-1' : ''}`}
-                >
-                  {isQuoteTile ? (
-                    <div className="w-full h-full bg-neutral-950 text-white flex flex-col items-center justify-center px-6 text-center">
-                      <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] text-gold font-sans mb-3">
-                        Our Promise
-                      </span>
-                      <p className="font-serif text-lg md:text-2xl leading-tight tracking-wide max-w-[15ch]">
-                        “Warm stays, mountain views, and moments worth returning for.”
-                      </p>
-                    </div>
-                  ) : (
-                    <>
-                      <div className="absolute inset-0 bg-neutral-950/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center">
-                        <svg className="w-5 h-5 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                        </svg>
-                      </div>
-                      <img
-                        src={img}
-                        alt={`Gallery item ${idx + 1}`}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                    </>
-                  )}
-                </motion.div>
-              );
-            })}
+          {/* 8 Images Grid layout */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
+            {GALLERY_IMAGES.map((img, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40, scale: shouldReduceMotion ? 1 : 0.9, rotateY: shouldReduceMotion ? 0 : (idx % 2 === 0 ? -14 : 14) }}
+                whileInView={{ opacity: 1, y: 0, scale: 1, rotateY: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: idx * 0.1 }}
+                whileHover={{ rotateY: idx % 2 === 0 ? 10 : -10, rotateX: 8, scale: 1.04 }}
+                className="relative overflow-hidden aspect-square border border-gold/10 group cursor-pointer [transform-style:preserve-3d]"
+              >
+                <div className="absolute inset-0 bg-neutral-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </div>
+                <img
+                  src={img}
+                  alt={`Gallery item ${idx + 1}`}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+              </motion.div>
+            ))}
           </div>
 
         </div>

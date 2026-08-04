@@ -151,7 +151,7 @@ const About = () => {
       {/* Page Header */}
       <div
         className="relative h-[300px] md:h-[400px] bg-cover bg-center flex items-center justify-center pt-16 md:pt-20"
-        style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1920&q=80")' }}
+        style={{ backgroundImage: `url("${kanchenjungaBg}")` }}
       >
         <div className="absolute inset-0 bg-neutral-950/75" />
         <div className="z-10 text-center space-y-3">
@@ -323,21 +323,21 @@ const About = () => {
       </section>
 
       {/* Restaurant & Bar Showcase Section */}
-      <section className="py-24 bg-white border-t border-neutral-100">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 xl:grid-cols-[0.78fr_1.22fr] gap-6 xl:gap-8 items-stretch">
+      <section className="py-16 bg-white border-t border-neutral-100">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-1 xl:grid-cols-[0.9fr_1.1fr] gap-6 items-stretch">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7 }}
-              className="bg-neutral-950 text-white rounded-[2rem] p-8 md:p-10 flex flex-col justify-between border border-gold/20 shadow-[0_30px_80px_-45px_rgba(0,0,0,0.85)]"
+              className="bg-neutral-950 text-white rounded-[2rem] p-6 md:p-8 flex flex-col justify-between border border-gold/20 shadow-[0_30px_80px_-45px_rgba(0,0,0,0.85)]"
             >
               <div className="space-y-5">
                 <span className="text-[10px] md:text-xs font-semibold tracking-[0.35em] text-gold uppercase block font-sans">
                   Restaurant · Fine Dining &amp; Bar
                 </span>
-                <h2 className="text-3xl md:text-4xl lg:text-[3rem] font-medium leading-tight text-white font-serif">
+                <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-medium leading-[0.9] text-white font-serif">
                   From farm to table.
                 </h2>
                 <div className="w-16 h-[1.5px] bg-gold" />
@@ -349,24 +349,24 @@ const About = () => {
                 </p>
               </div>
 
-              <div className="mt-8 flex flex-wrap items-center gap-4">
-                <span className="inline-flex items-center rounded-full border border-gold/30 bg-gold/10 px-4 py-2 text-[10px] md:text-xs font-sans uppercase tracking-[0.3em] text-gold">
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <span className="inline-flex items-center rounded-full border border-gold/30 bg-gold/10 px-3 py-2 text-[10px] md:text-xs font-sans uppercase tracking-[0.3em] text-gold">
                   Organic Cuisine
                 </span>
-                <span className="inline-flex items-center rounded-full border border-white/15 px-4 py-2 text-[10px] md:text-xs font-sans uppercase tracking-[0.3em] text-neutral-200">
+                <span className="inline-flex items-center rounded-full border border-white/15 px-3 py-2 text-[10px] md:text-xs font-sans uppercase tracking-[0.3em] text-neutral-200">
                   Premium Bar
                 </span>
               </div>
             </motion.div>
 
-            <div className="grid grid-cols-12 gap-4 md:gap-5 auto-rows-[130px] md:auto-rows-[160px] xl:auto-rows-[175px]">
+            <div className="grid grid-cols-12 gap-2 auto-rows-[120px] md:auto-rows-[170px] overflow-hidden rounded-[1.6rem] border border-white/50 shadow-[0_25px_70px_-28px_rgba(0,0,0,0.55)]">
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.7 }}
                 whileHover={{ y: -4 }}
-                className="col-span-12 sm:col-span-5 row-span-2 overflow-hidden rounded-[1.8rem] border border-white/70 shadow-[0_25px_70px_-28px_rgba(0,0,0,0.55)] bg-neutral-900"
+                className="col-span-12 sm:col-span-5 row-span-2 overflow-hidden bg-neutral-900"
               >
                 <img src={diningBarImage3} alt="Premium bar cabinet display" className="w-full h-full object-cover object-center" />
               </motion.div>
@@ -377,7 +377,7 @@ const About = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.7, delay: 0.06 }}
                 whileHover={{ y: -4 }}
-                className="col-span-12 sm:col-span-7 overflow-hidden rounded-[1.8rem] border border-white/70 shadow-[0_25px_70px_-28px_rgba(0,0,0,0.55)] bg-neutral-900"
+                className="col-span-12 sm:col-span-7 overflow-hidden bg-neutral-900"
               >
                 <img src={diningBarImage1} alt="Fine dining interior ambience" className="w-full h-full object-cover object-center" />
               </motion.div>
@@ -388,9 +388,9 @@ const About = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.7, delay: 0.12 }}
                 whileHover={{ y: -4 }}
-                className="col-span-12 sm:col-span-4 overflow-hidden rounded-[1.8rem] border border-white/70 shadow-[0_25px_70px_-28px_rgba(0,0,0,0.55)] bg-neutral-900"
+                className="col-span-12 sm:col-span-4 overflow-hidden bg-neutral-900"
               >
-                <img src={diningBarImage2} alt="Organic dishes served fresh" className="w-full h-full object-cover object-center" />
+                <img src={diningBarImage2} alt="Fresh gourmet food platter" className="w-full h-full object-cover object-center" />
               </motion.div>
 
               <motion.div
@@ -399,20 +399,16 @@ const About = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.7, delay: 0.18 }}
                 whileHover={{ y: -4 }}
-                className="col-span-12 sm:col-span-3 overflow-hidden rounded-[1.8rem] border border-white/70 shadow-[0_25px_70px_-28px_rgba(0,0,0,0.55)] bg-neutral-900"
+                className="col-span-12 sm:col-span-8 flex items-center justify-center border border-[#d8c7ac] bg-[#f8f3ee] px-4 py-4"
               >
-                <img src={diningBarImage5} alt="Bar arrangement detail" className="w-full h-full object-cover object-center" />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.7, delay: 0.24 }}
-                whileHover={{ y: -4 }}
-                className="col-span-12 sm:col-span-5 overflow-hidden rounded-[1.8rem] border border-white/70 shadow-[0_25px_70px_-28px_rgba(0,0,0,0.55)] bg-neutral-900"
-              >
-                <img src={diningBarImage4} alt="Chef-prepared plated delicacies" className="w-full h-full object-cover object-center" />
+                <div className="max-w-[220px] text-center">
+                  <p className="text-[9px] md:text-[10px] font-semibold tracking-[0.24em] text-gold uppercase block font-sans mb-2">
+                    Our Promise
+                  </p>
+                  <p className="font-serif text-base md:text-xl leading-tight text-neutral-900">
+                    “Fresh ingredients, warm hospitality.”
+                  </p>
+                </div>
               </motion.div>
             </div>
           </div>
@@ -470,10 +466,10 @@ const About = () => {
             className="text-center max-w-3xl mx-auto mb-16"
           >
             <span className="text-xs font-semibold tracking-[0.25em] text-gold uppercase block font-sans">
-              Places to Explore Around Hotel Shivaratna
+              Discover More
             </span>
             <h2 className="text-4xl md:text-6xl font-medium text-neutral-900 font-serif mt-3 leading-tight">
-              Explore Rinchenpong
+              Nearby Places to Explore
             </h2>
             <div className="w-16 h-[1.5px] bg-gold mx-auto mt-5" />
             <p className="text-neutral-600 font-sans font-light text-base mt-6 leading-relaxed text-justify max-w-2xl mx-auto">

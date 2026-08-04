@@ -1,8 +1,30 @@
 import React from 'react';
+import rinchenpongBg from '../assets/westSikkimPhoto/Rinchenpong.avif';
 
 const Terms = () => {
   return (
-    <div className="pt-28 pb-20 px-6 md:px-12 max-w-4xl mx-auto">
+    <div>
+      <div
+        className="relative h-[280px] md:h-[350px] bg-cover bg-center flex items-center justify-center pt-16 md:pt-20"
+        style={{ backgroundImage: `url("${rinchenpongBg}")` }}
+      >
+        <div className="absolute inset-0 bg-neutral-950/75" />
+        <div className="z-10 text-center space-y-3">
+          <span className="text-[10px] md:text-xs text-gold uppercase tracking-[0.3em] font-sans block">
+            Hotel Terms
+          </span>
+          <h1 className="text-3xl md:text-5xl text-white font-serif font-medium tracking-wider uppercase">
+            Terms &amp; Conditions
+          </h1>
+          <div className="flex justify-center items-center space-x-2 text-xs text-neutral-400 font-sans">
+            <a href="/" className="hover:text-gold transition-colors">Home</a>
+            <span>&gt;</span>
+            <span className="text-gold">Terms &amp; Conditions</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="pt-16 pb-20 px-6 md:px-12 max-w-4xl mx-auto">
       <div className="text-center mb-16">
         <h1 className="font-serif text-4xl md:text-5xl text-gold mb-6">Terms and Conditions</h1>
         <div className="w-16 h-[1.5px] bg-gold mx-auto mb-6" />
@@ -69,6 +91,7 @@ const Terms = () => {
           </p>
         </div>
       </div>
+    </div>
     </div>
   );
 };

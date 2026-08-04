@@ -28,7 +28,7 @@ export const RINCHENPONG_DESTINATIONS = [
   {
     id: 3,
     name: "Rinchenpong Monastery (Sang Ngag Yangtse Monastery)",
-    description: "Nestled amidst the serene, cloud-kissed ridges of West Sikkim, the historic Rinchenpong Monastery offers a profound escape into spiritual tranquility and natural beauty. Established in 1730, this revered Buddhist sanctuary—the third oldest in the region—is famously approached via a picturesque stone pathway cutting through vibrant green lawns, framed by a striking backdrop of towering pine forests. Beyond its traditional Sikkimese-Tibetan architecture and sacred white chortens, the monastery houses a globally rare, highly sacred statue of the Ati Buddha (Adi-Buddha) in a meditative Yab-Yum posture. Visitors flock to this peaceful ridge not only to immerse themselves in deep meditative silence and rich Himalayan heritage but also to witness breathtaking, unobstructed panoramic views of the majestic Mount Kanchenjunga range.",
+    description: "Nestled amid the serene ridges of West Sikkim, the historic Rinchenpong Monastery offers a peaceful escape into prayer, heritage, and mountain views. Established in 1730, it is one of the region's oldest Buddhist sanctuaries and is approached by a picturesque stone path through green lawns and pine forests. The monastery's traditional Sikkimese-Tibetan architecture, sacred chortens, and rare Ati Buddha statue make it a deeply spiritual stop with panoramic views of Kanchenjunga.",
     image: RinchenpongMonastery,
     distance: "1.8 km | 6 min drive, 30 min walk",
   },

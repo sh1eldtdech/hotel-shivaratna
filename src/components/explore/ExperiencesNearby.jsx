@@ -27,6 +27,7 @@ const panelVariants = {
 
 export default function ExperiencesNearby() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isContentActive, setIsContentActive] = useState(false);
   const sectionRefs = useRef([]);
   const totalItems = 1 + RINCHENPONG_DESTINATIONS.length;
 
@@ -64,7 +65,18 @@ export default function ExperiencesNearby() {
                   <AnimatePresence mode="wait">
 
                     {isIntro && (
-                      <motion.div key="intro" variants={panelVariants} initial="initial" animate="animate" exit="exit">
+                      <motion.div
+                        key="intro"
+                        variants={panelVariants}
+                        initial="initial"
+                        animate="animate"
+                        exit="exit"
+                        onMouseEnter={() => setIsContentActive(true)}
+                        onMouseLeave={() => setIsContentActive(false)}
+                        onTouchStart={() => setIsContentActive(true)}
+                        onTouchEnd={() => setIsContentActive(false)}
+                        className={`rounded-[28px] border p-7 xl:p-8 transition-all duration-300 ${isContentActive ? 'border-gold/60 bg-white/80 shadow-[0_18px_45px_-18px_rgba(197,168,128,0.55)]' : 'border-transparent bg-transparent'}`}
+                      >
                         <p className="text-[10px] font-sans font-bold tracking-[0.28em] text-gold uppercase mb-8">
                           West Sikkim
                         </p>
@@ -72,10 +84,10 @@ export default function ExperiencesNearby() {
                           A Sanctuary of <br />
                           <span className="italic text-gold">Peace &amp; Heritage</span>
                         </h2>
-                        <div className="space-y-4 font-sans font-light text-[15px] xl:text-[16px] leading-[1.75] text-neutral-600">
-                          <p>Nestled at an altitude of 5,576 feet, Rinchenpong is a pristine destination in West Sikkim. Known for its breathtaking views of the majestic Kanchenjunga range and its rich historical significance, it offers a serene escape from the bustling world.</p>
-                          <p>The region is a treasure trove of ancient monasteries, lush forests, and historical landmarks. Every step here tells a story of spirituality and natural splendor.</p>
-                          <p>Experience the authentic Sikkimese culture, explore the verdant landscapes, and find tranquility in the heart of the Himalayas.</p>
+                        <div className="space-y-4 font-sans font-medium text-[14px] xl:text-[15px] leading-[1.7] text-neutral-700 max-w-[540px]">
+                          <p>Nestled at an altitude of 5,576 feet, Rinchenpong is a peaceful mountain destination in West Sikkim, known for its dramatic views of Kanchenjunga and its calm, spiritual atmosphere.</p>
+                          <p>The region is filled with monasteries, forest trails, and heritage landmarks, offering a soothing mix of nature, culture, and quiet reflection.</p>
+                          <p>Experience authentic Sikkimese warmth, explore the surrounding landscapes, and slow down in the heart of the Himalayas.</p>
                         </div>
                         <p className="mt-10 text-[10px] font-sans font-bold tracking-[0.28em] text-gold/60 uppercase flex items-center gap-3">
                           <span className="h-px w-8 bg-gold/40 block" />
@@ -85,21 +97,32 @@ export default function ExperiencesNearby() {
                     )}
 
                     {!isIntro && activeDest && (
-                      <motion.div key={`dest-${destIdx}`} variants={panelVariants} initial="initial" animate="animate" exit="exit">
+                      <motion.div
+                        key={`dest-${destIdx}`}
+                        variants={panelVariants}
+                        initial="initial"
+                        animate="animate"
+                        exit="exit"
+                        onMouseEnter={() => setIsContentActive(true)}
+                        onMouseLeave={() => setIsContentActive(false)}
+                        onTouchStart={() => setIsContentActive(true)}
+                        onTouchEnd={() => setIsContentActive(false)}
+                        className={`rounded-[28px] border p-7 xl:p-8 transition-all duration-300 ${isContentActive ? 'border-gold/60 bg-white/80 shadow-[0_18px_45px_-18px_rgba(197,168,128,0.55)]' : 'border-transparent bg-transparent'}`}
+                      >
                         <p className="text-[10px] font-sans font-bold tracking-[0.28em] text-gold uppercase mb-7">
                           Experiences Nearby
                         </p>
                         <p className="text-[11px] font-sans font-semibold tracking-[0.22em] text-neutral-400 uppercase mb-3">
                           {CATEGORY_LABELS[destIdx]}
                         </p>
-                        <h2 className="font-serif text-[30px] xl:text-[44px] leading-[1.1] text-neutral-900 mb-4">
+                        <h2 className="font-serif text-[26px] xl:text-[38px] leading-[1.12] text-neutral-900 mb-3">
                           {activeDest.name}
                         </h2>
-                        <p className="inline-flex items-center gap-2 font-sans text-[11px] font-semibold uppercase tracking-[0.22em] text-gold mb-6">
+                        <p className="inline-flex items-center gap-2 font-sans text-[10px] font-semibold uppercase tracking-[0.22em] text-gold mb-5">
                           <span className="h-1.5 w-1.5 rounded-full bg-gold" />
                           {activeDest.distance}
                         </p>
-                        <p className="font-sans font-light text-[15px] xl:text-[16px] leading-[1.75] text-neutral-600">
+                        <p className="font-sans font-medium text-[14px] xl:text-[15px] leading-[1.7] text-neutral-700 max-w-[620px]">
                           {activeDest.description}
                         </p>
                         <div className="flex items-center gap-2 mt-10">

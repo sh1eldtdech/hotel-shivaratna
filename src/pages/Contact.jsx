@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import ContactForm from '../components/ContactForm';
+import kanchenjungaBg from '../assets/gallery/kanchenjunga view from Hotel.JPG (1).jpeg';
 
 const Contact = () => {
   const location = useLocation();
@@ -31,7 +32,7 @@ const Contact = () => {
       
       {/* Page Header (Parallax banner) */}
       <div className="relative h-[280px] md:h-[350px] bg-cover bg-center flex items-center justify-center pt-16 md:pt-20"
-           style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1920&q=80")' }}>
+           style={{ backgroundImage: `url("${kanchenjungaBg}")` }}>
         <div className="absolute inset-0 bg-neutral-950/75" />
         <div className="z-10 text-center space-y-3">
           <span className="text-[10px] md:text-xs text-gold uppercase tracking-[0.3em] font-sans block">

@@ -11,10 +11,28 @@
   body {
     @apply bg-luxury-cream text-neutral-800 font-sans;
     overflow-x: hidden;
+    text-align: justify;
+    text-wrap: pretty;
+    color: #1d1d1d;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  p, li, blockquote, span {
+    color: inherit;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif text-neutral-900 tracking-wide;
+  }
+
+  .font-light {
+    font-weight: 400 !important;
+  }
+
+  .font-medium {
+    font-weight: 500 !important;
   }
 }
 
