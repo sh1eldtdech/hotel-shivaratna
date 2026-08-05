@@ -1,4 +1,17 @@
-// High-quality data for Hotel Shivaratna
+import img1 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.11.00 AM.jpeg';
+import img2 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.13.03 AM.jpeg';
+import img3 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.13.07 AM.jpeg';
+import img4 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.13.12 AM.jpeg';
+import img5 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.13.15 AM.jpeg';
+import img6 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.13.17 AM.jpeg';
+import kanchenjungaImg from '../assets/gallery/kanchenjunga view from Hotel.JPG (1).jpeg';
+
+import slider1 from '../assets/homepage/slider1.png';
+import slider2 from '../assets/homepage/slider2.png';
+import slider3 from '../assets/homepage/slider3.png';
+import slider4 from '../assets/homepage/slider4.png';
+import slider5 from '../assets/homepage/slider5.png';
+import slider6 from '../assets/homepage/slider6.png';
 
 export const HERO_SLIDES = [
   {
@@ -6,21 +19,21 @@ export const HERO_SLIDES = [
     title: "Welcome to Hotel Shivaratna",
     tagline: "Live Your Paradise",
     subtitle: "Your peaceful mountain retreat in the heart of Rinchenpong, West Sikkim, surrounded by breathtaking Himalayan views and authentic Sikkimese hospitality.",
-    image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1920&q=80",
+    image: slider1,
   },
   {
     id: 2,
     title: "Where Himalayas Meet Hospitality",
     tagline: "",
     subtitle: "Wake up to the majestic Kanchenjunga, breathe the fresh mountain air, and experience the warmth of a team dedicated to making every stay unforgettable.",
-    image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1920&q=80",
+    image: slider2,
   },
   {
     id: 3,
     title: "Your Gateway to West Sikkim",
     tagline: "",
     subtitle: "Explore pristine forest trails, ancient monasteries, hidden lakes, and vibrant local culture — all from the perfect central base at Hotel Shivaratna.",
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=80",
+    image: slider3,
   }
 ];
 
@@ -186,8 +199,12 @@ export const ROOMS_DATA = [
 ];
 
 export const GALLERY_IMAGES = [
-  "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=900&q=80"
+  kanchenjungaImg,
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  slider1
 ];
