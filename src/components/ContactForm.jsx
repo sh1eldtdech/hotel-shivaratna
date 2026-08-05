@@ -44,19 +44,17 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
 
     // Web3Forms API Endpoint
     const url = 'https://api.web3forms.com/submit';
-    
-    // Read key from env or use standard fallback
-    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || 'YOUR_ACCESS_KEY_HERE';
 
-    if (accessKey === 'YOUR_ACCESS_KEY_HERE') {
-      // Simulate form submission for presentation if no key is provided yet
+    // Read key from env
+    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY;
+
+    if (!accessKey) {
       setTimeout(() => {
         setStatus({
           submitting: false,
           success: true,
           error: null,
         });
-        // Clear form
         setFormData({
           name: '',
           email: '',
@@ -255,16 +253,6 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
           {/* Right Column - Booking & Contact Form */}
           <div className="lg:col-span-7 bg-white/80 backdrop-blur-md border border-gold/15 p-8 md:p-10 shadow-gold-glow">
             
-            {/* Environment warning reminder if default key is used */}
-            {import.meta.env.VITE_WEB3FORMS_KEY ? null : (
-              <div className="mb-6 bg-gold/5 border border-gold/20 p-3 flex items-start space-x-2 text-left">
-                <AlertCircle className="w-4 h-4 text-gold shrink-0 mt-0.5" />
-                <span className="text-[10px] text-neutral-700 font-sans leading-normal">
-                  <span className="text-gold font-semibold">Demo Mode:</span> A Web3Forms access key is not set. Submissions will simulate successful requests locally. Set VITE_WEB3FORMS_KEY in your env to send real emails.
-                </span>
-              </div>
-            )}
-
             <h3 className="text-xl md:text-2xl font-serif text-neutral-900 font-medium text-left mb-6">
               Reservation &amp; Inquiry Form
             </h3>
