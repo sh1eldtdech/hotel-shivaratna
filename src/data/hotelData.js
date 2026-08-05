@@ -1,17 +1,4 @@
-import img1 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.11.00 AM.jpeg';
-import img2 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.13.03 AM.jpeg';
-import img3 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.13.07 AM.jpeg';
-import img4 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.13.12 AM.jpeg';
-import img5 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.13.15 AM.jpeg';
-import img6 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.13.17 AM.jpeg';
-import kanchenjungaImg from '../assets/gallery/kanchenjunga view from Hotel.JPG (1).jpeg';
-
-import slider1 from '../assets/homepage/slider1.png';
-import slider2 from '../assets/homepage/slider2.png';
-import slider3 from '../assets/homepage/slider3.png';
-import slider4 from '../assets/homepage/slider4.png';
-import slider5 from '../assets/homepage/slider5.png';
-import slider6 from '../assets/homepage/slider6.png';
+// High-quality data for Hotel Shivaratna
 
 export const HERO_SLIDES = [
   {
@@ -19,25 +6,25 @@ export const HERO_SLIDES = [
     title: "Welcome to Hotel Shivaratna",
     tagline: "Live Your Paradise",
     subtitle: "Your peaceful mountain retreat in the heart of Rinchenpong, West Sikkim, surrounded by breathtaking Himalayan views and authentic Sikkimese hospitality.",
-    image: slider1,
+    image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1920&q=80",
   },
   {
     id: 2,
     title: "Where Himalayas Meet Hospitality",
     tagline: "",
     subtitle: "Wake up to the majestic Kanchenjunga, breathe the fresh mountain air, and experience the warmth of a team dedicated to making every stay unforgettable.",
-    image: slider2,
+    image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1920&q=80",
   },
   {
     id: 3,
     title: "Your Gateway to West Sikkim",
     tagline: "",
     subtitle: "Explore pristine forest trails, ancient monasteries, hidden lakes, and vibrant local culture — all from the perfect central base at Hotel Shivaratna.",
-    image: slider3,
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=80",
   }
 ];
 
-// 12 + 2 premium amenities — logo emoji + name only (for home amenities strip)
+// 12 premium amenities — logo emoji + name only (for home amenities strip)
 export const AMENITIES_LIST = [
   { id: 1, emoji: "🏞️", name: "Gateway to Hidden Gems of West Sikkim" },
   { id: 2, emoji: "🛏️", name: "Comfortable Rooms & Premium Suites" },
@@ -51,53 +38,37 @@ export const AMENITIES_LIST = [
   { id: 10, emoji: "🏢", name: "Meeting, Conference & Event Hall" },
   { id: 11, emoji: "🚗", name: "Pick-up, Drop & Local Taxi Assistance" },
   { id: 12, emoji: "🅿️", name: "Free Private Parking" },
-  { id: 13, emoji: "🌄", name: "Panoramic Himalayan View Terrace" },
-  { id: 14, emoji: "🧘", name: "Peaceful Nature Walks & Trekking Trails" },
 ];
 
 // Core facilities with descriptions (for Our Facilities section)
 export const CORE_FACILITIES = [
   {
     id: "gateway",
-    title: "Gateway to West Sikkim",
+    title: "Gateway to Hidden Gems of West Sikkim",
     description: "Perfectly located to explore all of West Sikkim's hidden gems — from ancient monasteries to mysterious lakes — all accessible as comfortable day trips.",
     emoji: "🏞️",
     icon: "Dumbbell",
   },
   {
     id: "rooms",
-    title: "Comfortable Rooms & Suites",
-    description: "14 thoughtfully designed rooms offering mountain views, cozy bedding, clean interiors, and every comfort for a peaceful Himalayan retreat.",
+    title: "Comfortable Rooms & Premium Suites",
+    description: "14 thoughtfully designed rooms and premium suites offering mountain views, cozy bedding, clean interiors, and every comfort for a peaceful Himalayan retreat.",
     emoji: "🛏️",
     icon: "Shirt",
   },
   {
     id: "restaurant",
-    title: "Restaurant & Fully Stocked Bar",
-    description: "Savour fresh organic food, Sikkimese specialties, and multi-cuisine dishes at our restaurant, paired with your choice from our fully stocked bar.",
-    emoji: "🍽️",
+    title: "Fresh Organic Food & Refreshing Drinks",
+    description: "Savour freshly prepared organic meals, refreshing drinks, and healthy Himalayan flavours served with care in a warm mountain setting.",
+    emoji: "🥗",
     icon: "Utensils",
   },
   {
-    id: "wifi",
-    title: "Complimentary High-Speed Wi-Fi",
-    description: "Stay connected with complimentary high-speed Wi-Fi throughout the hotel — perfect for remote workers, digital nomads, and business travellers.",
-    emoji: "📶",
-    icon: "Waves",
-  },
-  {
-    id: "butterfly",
-    title: "Butterfly Stage – Entertainment",
-    description: "Unwind at our vibrant Butterfly Stage with karaoke, dancing, live performances, and memorable evenings with family and fellow travellers.",
-    emoji: "🎤",
-    icon: "Flower",
-  },
-  {
-    id: "conference",
-    title: "Meeting & Conference Hall",
-    description: "Host corporate events, family gatherings, or group meetings in our spacious and well-equipped meeting and conference hall.",
-    emoji: "🏢",
-    icon: "Briefcase",
+    id: "bar",
+    title: "Multi-Cuisine Restaurant & Fully Stocked Bar",
+    description: "Enjoy authentic Sikkimese, Indian, and continental dishes in our restaurant, paired with a thoughtfully curated bar experience.",
+    emoji: "🍽️",
+    icon: "Utensils",
   },
   {
     id: "hotwater",
@@ -114,8 +85,36 @@ export const CORE_FACILITIES = [
     icon: "Shirt",
   },
   {
+    id: "wifi",
+    title: "Complimentary High-Speed Wi-Fi",
+    description: "Stay connected with complimentary high-speed Wi-Fi throughout the hotel — perfect for remote workers, digital nomads, and business travellers.",
+    emoji: "📶",
+    icon: "Waves",
+  },
+  {
+    id: "butterfly",
+    title: "Butterfly Stage – Karaoke & Live Entertainment",
+    description: "Unwind at our vibrant Butterfly Stage with karaoke, dancing, live performances, and memorable evenings with family and fellow travellers.",
+    emoji: "🎤",
+    icon: "Flower",
+  },
+  {
+    id: "lounge",
+    title: "Comfortable Lounge & Relaxation Area",
+    description: "A comfortable lounge area where guests can relax, socialise, read, or simply enjoy the fresh mountain air and scenic surroundings.",
+    emoji: "🛋️",
+    icon: "Dumbbell",
+  },
+  {
+    id: "conference",
+    title: "Meeting, Conference & Event Hall",
+    description: "Host corporate events, family gatherings, or group meetings in our spacious and well-equipped meeting and conference hall.",
+    emoji: "🏢",
+    icon: "Briefcase",
+  },
+  {
     id: "taxi",
-    title: "Pick-up, Drop & Taxi Assistance",
+    title: "Pick-up, Drop & Local Taxi Assistance",
     description: "Hassle-free pick-up, drop, and local taxi arrangements to help you explore Rinchenpong and all of West Sikkim at your own pace.",
     emoji: "🚗",
     icon: "Briefcase",
@@ -126,20 +125,6 @@ export const CORE_FACILITIES = [
     description: "Complimentary dedicated parking space for all hotel guests, ensuring your vehicle is safe and secure throughout your stay.",
     emoji: "🅿️",
     icon: "Shirt",
-  },
-  {
-    id: "lounge",
-    title: "Lounge & Relaxation Area",
-    description: "A comfortable lounge area where guests can relax, socialise, read, or simply enjoy the fresh mountain air and scenic surroundings.",
-    emoji: "🛋️",
-    icon: "Dumbbell",
-  },
-  {
-    id: "trekking",
-    title: "Nature Walks & Trekking Trails",
-    description: "Scenic trekking trails begin right behind the hotel, weaving through pristine forests with stunning Himalayan views at every turn.",
-    emoji: "🌄",
-    icon: "Dumbbell",
   },
 ];
 
@@ -199,12 +184,8 @@ export const ROOMS_DATA = [
 ];
 
 export const GALLERY_IMAGES = [
-  kanchenjungaImg,
-  img1,
-  img2,
-  img3,
-  img4,
-  img5,
-  img6,
-  slider1
+  "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=80",
+  "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80",
+  "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80",
+  "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=900&q=80"
 ];

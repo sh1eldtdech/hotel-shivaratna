@@ -32,7 +32,7 @@ export default function NearbyPlaces() {
             transition={{ delay: 0.1 }}
             className="font-serif text-3xl md:text-5xl text-neutral-900 mb-6"
           >
-            Nearby Places to Explore
+            Explore Nearby Hidden Gems
           </motion.h2>
           
           <motion.p

@@ -48,8 +48,8 @@ export const RINCHENPONG_DESTINATIONS = [
   },
   {
     id: 6,
-    name: "Reshi / Reesum Monastery",
-    description: "Nestled amidst beautiful forests, Reshi Monastery is a peaceful spiritual destination known for its calm surroundings and natural beauty. The scenic route to the monastery allows visitors to experience fresh mountain air, greenery, and the tranquillity of the Himalayan landscape.",
+    name: "Reesum Monastery",
+    description: "Nestled amidst beautiful forests, Reesum Monastery is a peaceful spiritual destination known for its calm surroundings and natural beauty. The scenic route to the monastery allows visitors to experience fresh mountain air, greenery, and the tranquillity of the Himalayan landscape.",
     image: ReshiMonastery,
     distance: "4 km | 45–60 min walk (forest trail)",
   },
@@ -92,6 +92,13 @@ export const RINCHENPONG_DESTINATIONS = [
     id: 12,
     name: "Srijunga Statue",
     description: "The Mahatma Sirijunga Teyongsi Complex in West Sikkim features a 36-foot bronze statue honoring the 18th-century Limbu scholar, set within 7.7 hectares offering panoramic views of Mt. Kanchenjunga. Located near Chayatal Lake, the site acts as a cultural heritage hub and includes a study center dedicated to the Limbu script and tradition.",
+    image: ChaayatalLake,
+    distance: "30 km | 60–70 min drive",
+  },
+  {
+    id: 13,
+    name: "Singshore Bridge",
+    description: "Singshore Bridge is one of the highest suspension bridges in Sikkim, offering breathtaking panoramic views of lush valleys, waterfalls, and the surrounding Himalayan landscape. It is a popular destination for sightseeing, photography, and experiencing the region's natural beauty.",
     image: ChaayatalLake,
     distance: "30 km | 60–70 min drive",
   },
@@ -142,7 +149,7 @@ export const NEARBY_PLACES = [
   },
   {
     id: 6,
-    name: "Reshi / Reesum Monastery",
+    name: "Reesum Monastery",
     description: "Scenic forest trail leading to a tranquil mountain sanctuary.",
     image: ReshiMonastery,
     distance: "4 km",

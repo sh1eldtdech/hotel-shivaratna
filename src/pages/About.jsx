@@ -71,10 +71,10 @@ const exploreData = [
   },
   {
     id: 6,
-    name: "Reshi / Reesum Monastery",
+    name: "Reesum Monastery",
     distance: "4 km",
     time: "45–60 min walk (forest trail)",
-    description: "Nestled amidst beautiful forests, Reshi Monastery is a peaceful spiritual destination known for its calm surroundings and natural beauty. The scenic route to the monastery allows visitors to experience fresh mountain air, greenery, and the tranquillity of the Himalayan landscape.",
+    description: "Nestled amidst beautiful forests, Reesum Monastery is a peaceful spiritual destination known for its calm surroundings and natural beauty. The scenic route to the monastery allows visitors to experience fresh mountain air, greenery, and the tranquillity of the Himalayan landscape.",
     category: "Spiritual",
     image: reshiMonastery,
   },
@@ -132,12 +132,22 @@ const exploreData = [
     category: "Cultural",
     image: chaayatalLake,
   },
+  {
+    id: 13,
+    name: "Singshore Bridge",
+    distance: "30 km",
+    time: "60–70 min drive",
+    description: "Singshore Bridge is one of the highest suspension bridges in Sikkim, offering breathtaking panoramic views of lush valleys, waterfalls, and the surrounding Himalayan landscape. It is a popular destination for sightseeing, photography, and experiencing the region's natural beauty.",
+    category: "Adventure",
+    image: chaayatalLake,
+  },
 ];
 
 const categoryColors = {
   Spiritual: "bg-amber-50 text-amber-700 border-amber-200",
   Nature: "bg-emerald-50 text-emerald-700 border-emerald-200",
   Viewpoint: "bg-blue-50 text-blue-700 border-blue-200",
+  Viewpoints: "bg-blue-50 text-blue-700 border-blue-200",
   "Day Trip": "bg-purple-50 text-purple-700 border-purple-200",
   Adventure: "bg-red-50 text-red-700 border-red-200",
   Cultural: "bg-indigo-50 text-indigo-700 border-indigo-200",
@@ -276,7 +286,7 @@ const About = () => {
               Nearby Attractions
             </h3>
             <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
-              Rinchenpong Bazaar is only 1 kilometre away, providing convenient access to shops, local markets, and daily necessities. Nearby attractions include the historic Dak Bungalow, the serene Poison Lake, which can be reached via a beautiful forest trail, and the peaceful Reshi Monastery, accessible through a short forest hike.
+              Rinchenpong Bazaar is only 1 kilometre away, providing convenient access to shops, local markets, and daily necessities. Nearby attractions include the historic Dak Bungalow, the serene Poison Lake, which can be reached via a beautiful forest trail, and the peaceful Reesum Monastery, accessible through a short forest hike.
             </p>
             <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
               Wine lovers can explore Ajing Farm, located about 8 kilometres from the hotel, famous for its locally produced fruit wines and unique flavours. Nature enthusiasts can visit Sribadam, known for its stunning waterfall surrounded by beautiful pine forests, offering excellent opportunities for photography and relaxation.
@@ -469,7 +479,7 @@ const About = () => {
               Discover More
             </span>
             <h2 className="text-4xl md:text-6xl font-medium text-neutral-900 font-serif mt-3 leading-tight">
-              Nearby Places to Explore
+              Explore Nearby Hidden Gems
             </h2>
             <div className="w-16 h-[1.5px] bg-gold mx-auto mt-5" />
             <p className="text-neutral-600 font-sans font-light text-base mt-6 leading-relaxed text-justify max-w-2xl mx-auto">

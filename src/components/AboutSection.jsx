@@ -1,7 +1,8 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { Utensils, Waves, Dumbbell, Sparkles, Briefcase, Shirt, Star } from 'lucide-react';
 import { CORE_FACILITIES } from '../data/hotelData';
+import aboutHomeImg from '../assets/homepage/about_home.png';
 
 const iconMap = {
   Utensils: Utensils,
@@ -14,7 +15,7 @@ const iconMap = {
 
 const AboutSection = () => {
   return (
-    <section id="about" className="relative pt-28 pb-20 bg-white overflow-hidden">
+    <section id="about" className="relative pt-28 pb-20 overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(198,155,78,0.18),_transparent_30%),linear-gradient(135deg,_#fffdf8_0%,_#f8f4ec_42%,_#fffdf8_100%)]">
 
       {/* Introduction */}
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -27,13 +28,18 @@ const AboutSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.8 }}
-              className="w-full h-[400px] md:h-[550px] rounded-xl overflow-hidden shadow-2xl relative"
+              className="w-full aspect-[4/3] rounded-[1.5rem] overflow-hidden shadow-[0_25px_90px_-35px_rgba(0,0,0,0.55)] relative border border-gold/20"
             >
               <img
-                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
-                alt="Shivaratna Luxury"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                src={aboutHomeImg}
+                alt="Rinchenpong mountain landscape"
+                className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
               />
+              <div className="absolute inset-0 bg-gradient-to-tr from-neutral-950/25 via-transparent to-gold/10" />
+              <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/20 bg-white/12 backdrop-blur-md px-4 py-3 text-white">
+                <p className="text-[10px] md:text-[11px] uppercase tracking-[0.28em] text-gold">Scenic Escape</p>
+                <p className="mt-2 text-sm md:text-base font-serif">Where Himalayan peace meets graceful hospitality.</p>
+              </div>
             </motion.div>
           </div>
 
@@ -52,6 +58,7 @@ const AboutSection = () => {
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight text-neutral-900 font-serif">
                 About Hotel Shivaratna
               </h2>
+              <div className="w-16 h-[1.5px] bg-gold" />
             </motion.div>
 
             {/* Rating block */}
@@ -65,9 +72,9 @@ const AboutSection = () => {
               <span className="text-sm font-medium text-neutral-800 tracking-wide font-sans">
                 4.9 out of 5
               </span>
-              <div className="flex text-gold">
+              <div className="flex text-gold gap-1">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-current text-gold" />
+                  <Star key={i} className="w-4 h-4 fill-current text-gold drop-shadow-[0_0_8px_rgba(198,155,78,0.45)]" />
                 ))}
               </div>
               <span className="text-[10px] md:text-xs text-neutral-500 font-sans tracking-wide">
@@ -111,7 +118,7 @@ const AboutSection = () => {
                 <h3 className="text-lg md:text-[21px] font-medium tracking-wide text-neutral-900 font-serif mb-3">
                   {facility.title}
                 </h3>
-                <p className="text-neutral-950 text-medium font-normal text-xs md:text-[18px] leading-relaxed font-sans font-light">
+                <p className="text-neutral-950 text-medium text-xs md:text-[18px] leading-relaxed font-sans font-light">
                   {facility.description}
                 </p>
               </motion.div>
