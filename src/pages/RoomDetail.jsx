@@ -29,7 +29,15 @@ const RoomDetail = () => {
     );
   }
 
-  const otherRooms = ROOMS_DATA.filter((r) => r.id !== id);
+  const subsets = room?.id === 'standard-rooms' ? ROOMS_DATA.filter(r => r.category === 'Standard') : [];
+  let otherRooms = ROOMS_DATA.filter(r => r.id !== id && r.category !== 'StandardParent');
+  if (room?.id === 'standard-rooms') {
+    otherRooms = otherRooms.filter(r => r.category !== 'Standard');
+  } else if (room?.category === 'Standard') {
+    otherRooms = ROOMS_DATA.filter(r => r.id !== id && r.id !== 'standard-rooms');
+  } else {
+    otherRooms = ROOMS_DATA.filter(r => r.id !== id && r.category !== 'Standard');
+  }
 
   return (
     <div className="bg-luxury-cream min-h-screen">
@@ -173,6 +181,39 @@ const RoomDetail = () => {
                   ))}
                 </div>
               </motion.div>
+
+              {/* Subsets (If Standard-Rooms Parent) */}
+              {subsets.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="space-y-6 pt-8 border-t border-neutral-200"
+                >
+                  <h2 className="text-xl font-sans font-semibold text-gold uppercase tracking-widest">Select Your Configuration</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {subsets.map((subset) => (
+                      <div key={subset.id} className="bg-white border border-neutral-100 hover:border-gold/30 hover:shadow-premium transition-all duration-300 group cursor-pointer flex flex-col" onClick={() => navigate(`/rooms/${subset.id}`)}>
+                        <div className="relative overflow-hidden aspect-[4/3]">
+                          <img src={subset.image} alt={subset.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                          <div className="absolute bottom-0 left-0 right-0 bg-neutral-950/80 text-white text-[10px] font-sans px-3 py-1.5 uppercase tracking-widest text-center">
+                            From ₹{subset.price} / Night
+                          </div>
+                        </div>
+                        <div className="p-4 text-center flex-grow flex flex-col justify-between">
+                          <div>
+                            <h3 className="font-serif text-neutral-900 font-medium group-hover:text-gold transition-colors">{subset.title}</h3>
+                            <p className="text-neutral-500 text-[10px] uppercase font-sans mt-1">{subset.bed}</p>
+                          </div>
+                          <button className="mt-4 text-xs font-sans font-semibold text-gold uppercase tracking-wider group-hover:text-gold-dark transition-colors">
+                            View Details →
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
 
             </div>
 

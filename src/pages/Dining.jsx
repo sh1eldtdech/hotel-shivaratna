@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Utensils, Leaf, ArrowRight } from 'lucide-react';
+import { Utensils, Leaf, ArrowRight, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // Import local images from assets/diningbar
@@ -33,17 +33,17 @@ const Dining = () => {
   });
 
   const galleryImages = [
-    { src: rest1, alt: "Cozy Restaurant Seating" },
-    { src: rest2, alt: "Warm Table Setup" },
-    { src: rest3, alt: "Dining Ambience" },
-    { src: rest4, alt: "Chef Specialty Dish" },
-    { src: rest5, alt: "Local Sikkimese Meal" },
-    { src: rest6, alt: "Elegant Restaurant Interior" },
-    { src: rest7, alt: "Table Lighting Detail" },
-    { src: rest8, alt: "Premium Dining Setup" },
-    { src: rest9, alt: "Spacious Dining Area" },
-    { src: dishesImg, alt: "Fresh Organic Salad" },
-    { src: dishesImg2, alt: "Traditional Delicacies" }
+    { src: rest1, alt: "Classic Veg Meal" },
+    { src: rest2, alt: "Vegetable Pakora" },
+    { src: rest3, alt: "Sticky Honey Chilli Chicken Wings" },
+    { src: rest4, alt: "Bar Counter / Beverage Collection" },
+    { src: rest5, alt: "Grilled Veg Sandwich" },
+    { src: rest6, alt: "Chicken Burger with French Fries" },
+    { src: rest7, alt: "Steamed Chicken Momos" },
+    { src: rest8, alt: "Chilli Paneer & Vegetable Pakora" },
+    { src: rest9, alt: "Veg Rice Meal / Indian Lunch Thali" },
+    { src: dishesImg, alt: "Organic Cuisine" },
+    { src: dishesImg2, alt: "Veg Rice Meal / Indian Lunch Thali" }
   ];
 
   return (
@@ -60,6 +60,14 @@ const Dining = () => {
           style={{ backgroundImage: `url(${diningImg})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-neutral-950" />
+        {/* Back button */}
+        <Link
+          to="/"
+          className="absolute top-24 left-6 md:left-12 z-20 flex items-center gap-2 text-white/80 hover:text-gold text-xs font-sans uppercase tracking-widest transition-colors duration-300 group"
+        >
+          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-200" />
+          Back to Home
+        </Link>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6 mt-10">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
@@ -89,6 +97,7 @@ const Dining = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-white/85 font-serif text-lg md:text-2xl font-light italic max-w-2xl mx-auto"
           >
+            We serve freshly harvested organic food cooked. From farm to table.<br/><br/>
             "Experience Sikkim's Organic &amp; Authentic Flavours, Fresh from the Himalayas."
           </motion.p>
         </div>
@@ -101,10 +110,10 @@ const Dining = () => {
             {/* Left Column - Content */}
             <motion.div {...fadeInUp()} className="lg:col-span-7 space-y-6">
               <span className="text-xs font-semibold tracking-[0.25em] text-gold uppercase block font-sans">
-                Our Philosophy
+                Farm to Table
               </span>
               <h2 className="text-3xl md:text-5xl font-medium text-neutral-900 font-serif leading-tight">
-                From Farm to Table
+                Organic Farm Fresh Cuisine
               </h2>
               <div className="w-12 h-[1.5px] bg-gold" />
               
@@ -245,8 +254,9 @@ const Dining = () => {
                   alt={img.alt}
                   className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-neutral-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <p className="text-white text-xs font-serif font-light tracking-wide">{img.alt}</p>
+                {/* Always-visible label at the bottom */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-neutral-950/85 via-neutral-950/40 to-transparent px-4 pt-8 pb-3 pointer-events-none">
+                  <p className="text-white text-xs font-serif font-medium tracking-wide drop-shadow">{img.alt}</p>
                 </div>
               </motion.div>
             ))}

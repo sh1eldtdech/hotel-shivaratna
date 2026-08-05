@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence, useInView, useReducedMotion } from 'framer-motion';
 import { Star, ArrowRight, Play, X } from 'lucide-react';
 import Hero from '../components/Hero';
-import { ROOMS_DATA, GALLERY_IMAGES } from '../data/hotelData';
+import { ROOMS_DATA, GALLERY_IMAGES, CORE_FACILITIES } from '../data/hotelData';
 import hotelVideo from '../assets/homepage/hotel video.mp4';
 import aboutHome from '../assets/homepage/about_home.png';
 import sunriseImage from '../assets/homepage/sunrise.jpg';
@@ -41,7 +41,11 @@ const Home = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const shouldReduceMotion = useReducedMotion();
 
-  const featuredRooms = ROOMS_DATA.slice(0, 3);
+  const featuredRooms = [
+    { ...ROOMS_DATA.find(r => r.id === 'standard-rooms'), displayTitle: "Standard Room" },
+    { ...ROOMS_DATA.find(r => r.category === 'Deluxe'), displayTitle: "Deluxe Family Rooms" },
+    { ...ROOMS_DATA.find(r => r.category === 'Suite'), displayTitle: "Suite Rooms" }
+  ];
 
   const fadeUp = (delay = 0) => ({
     initial: { opacity: 0, y: shouldReduceMotion ? 0 : 40 },
@@ -172,6 +176,43 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Detailed Amenities Section — Text + Logo updated */}
+          <section className="py-24 bg-white border-t border-neutral-100">
+            <div className="max-w-7xl mx-auto px-6 md:px-12">
+              
+              <div className="text-center max-w-2xl mx-auto mb-16">
+                <span className="text-xs font-semibold tracking-[0.25em] text-gold uppercase block font-sans">
+                  Our Amenities
+                </span>
+                <h2 className="text-3xl md:text-4xl font-medium text-neutral-900 font-serif mt-2">
+                  Hotel Facilities
+                </h2>
+                <div className="w-16 h-[1.5px] bg-gold mx-auto mt-4" />
+              </div>
+    
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {CORE_FACILITIES.map((facility, index) => (
+                  <motion.div
+                    key={facility.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.05 }}
+                    className="bg-luxury-cream border border-neutral-100 hover:border-gold/30 p-8 text-left transition-all duration-300 shadow-premium flex flex-col items-start gap-4 group"
+                  >
+                    <span className="text-4xl group-hover:scale-110 transition-transform duration-300">{facility.emoji}</span>
+                    <h3 className="text-lg font-serif font-medium text-neutral-900 group-hover:text-gold transition-colors duration-300">
+                      {facility.title}
+                    </h3>
+                    <p className="text-neutral-600 text-xs md:text-sm font-sans font-light leading-relaxed text-justify">
+                      {facility.description}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+    
+            </div>
+          </section>
       {/* Quote Banner — "Every sunrise brings…" */}
       <div
         className="relative w-full h-[320px] md:h-[450px] flex items-center justify-center bg-fixed bg-cover bg-center overflow-hidden"
@@ -238,7 +279,7 @@ const Home = () => {
                     </span>
                   </div>
                 </div>
-                <h3 className="mt-5 text-xl font-serif text-neutral-950 font-medium group-hover:text-gold transition-colors duration-300">{room.title}</h3>
+                <h3 className="mt-5 text-xl font-serif text-neutral-950 font-medium group-hover:text-gold transition-colors duration-300">{room.displayTitle || room.title}</h3>
                 <p className="text-neutral-500 text-[11px] font-sans uppercase tracking-widest mt-1.5">
                   {room.size} | {room.guests} Guests | {room.bed}
                 </p>
@@ -309,10 +350,10 @@ const Home = () => {
               </motion.p>
               <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
                 <Link
-                  to="/contact"
+                  to="/dining"
                   className="inline-flex items-center bg-gold text-neutral-950 hover:bg-gold-dark text-xs uppercase tracking-widest font-sans font-semibold px-6 py-3 transition-all duration-300"
                 >
-                  Reserve Your Table
+                  Learn More
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </motion.div>
@@ -363,10 +404,10 @@ const Home = () => {
               </motion.p>
               <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
                 <Link
-                  to="/rooms"
+                  to="/workstation-lounge"
                   className="inline-flex items-center bg-gold text-neutral-950 hover:bg-gold-dark text-xs uppercase tracking-widest font-sans font-semibold px-6 py-3 transition-all duration-300"
                 >
-                  Book Your Work Stay
+                  Learn More
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </motion.div>
@@ -417,17 +458,11 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Instagram Gallery Grid Section (Original Design) */}
+      {/* Instagram Gallery Grid Section (Section 7 of Almaris Mockup) */}
       <section className="py-24 bg-luxury-cream border-t border-neutral-100">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-
-          <motion.div
-            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="text-center max-w-2xl mx-auto mb-12"
-          >
+          
+          <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-semibold tracking-[0.25em] text-gold uppercase block font-sans">
               Stories &amp; Moments
             </span>
@@ -435,49 +470,33 @@ const Home = () => {
               @shivaratna_hotel_theme
             </h2>
             <div className="w-12 h-[1px] bg-gold mx-auto mt-3" />
-          </motion.div>
+          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 auto-rows-[180px] md:auto-rows-[220px]">
-            {GALLERY_IMAGES.slice(0, 3).map((img, idx) => {
-              const isQuoteTile = idx === 1;
-
-              return (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40, scale: shouldReduceMotion ? 1 : 0.9 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: idx * 0.1 }}
-                  className={`relative overflow-hidden rounded-[30px] border border-gold/10 bg-neutral-950 shadow-[0_16px_45px_-24px_rgba(0,0,0,0.45)] group ${idx === 0 ? 'sm:row-span-2' : ''}`}
-                >
-                  {isQuoteTile ? (
-                    <div className="w-full h-full bg-neutral-950 text-white flex flex-col items-center justify-center px-6 sm:px-7 text-center">
-                      <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] text-gold font-sans mb-3">
-                        Our Promise
-                      </span>
-                      <p className="font-serif text-lg md:text-[1.6rem] leading-[1.35] tracking-[0.04em] max-w-[15ch]">
-                        “Warm stays, mountain views, and moments worth returning for.”
-                      </p>
-                    </div>
-                  ) : (
-                    <>
-                      <div className="absolute inset-0 bg-neutral-950/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center">
-                        <svg className="w-5 h-5 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                        </svg>
-                      </div>
-                      <img
-                        src={img}
-                        alt={`Gallery item ${idx + 1}`}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                    </>
-                  )}
-                </motion.div>
-              );
-            })}
+          {/* 8 Images Grid layout */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
+            {GALLERY_IMAGES.map((img, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: '-20px' }}
+                transition={{ duration: 0.5, delay: idx * 0.05 }}
+                className="relative overflow-hidden aspect-square border border-gold/10 group cursor-pointer"
+              >
+                <div className="absolute inset-0 bg-neutral-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </div>
+                <img
+                  src={img}
+                  alt={`Gallery item ${idx + 1}`}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+              </motion.div>
+            ))}
           </div>
 
         </div>

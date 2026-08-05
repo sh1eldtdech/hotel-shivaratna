@@ -14,6 +14,16 @@ import suite3 from '../assets/room/Suite_Room3.jpg';
 import suite4 from '../assets/room/Suite_Room4.jpg';
 import bathroom from '../assets/room/bathroom.jpg';
 
+// Gallery images
+import galImg1 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.11.00 AM.jpeg';
+import galImg2 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.13.03 AM.jpeg';
+import galImg3 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.13.07 AM.jpeg';
+import galImg4 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.13.12 AM.jpeg';
+import galImg5 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.13.15 AM.jpeg';
+import galImg6 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.13.17 AM.jpeg';
+import kanchenjungaImg from '../assets/gallery/kanchenjunga view from Hotel.JPG (1).jpeg';
+import viewFromHotelImg from '../assets/room/viewfromhotel.jpg';
+
 export const HERO_SLIDES = [
   {
     id: 1,
@@ -144,6 +154,22 @@ export const CORE_FACILITIES = [
 
 export const ROOMS_DATA = [
   {
+    id: "standard-rooms",
+    title: "Standard Rooms",
+    price: 999,
+    rating: 4.7,
+    guests: "1-3",
+    size: "12' x 8' to 12' x 10'",
+    bed: "Single / Double / Triple",
+    view: "Mountain View",
+    category: "StandardParent",
+    image: stdDouble,
+    images: [stdDouble, stdSingle1, stdTriple1, bathroom],
+    description: "Our Standard Rooms offer exceptional comfort and value with multiple configurations. Choose from Single, Double, or Triple bed setups to perfectly suit your needs. Each room features comfortable bedding, modern amenities, complimentary high-speed Wi-Fi, and 24×7 hot & cold water, ensuring a peaceful Himalayan stay.",
+    amenities: ["Free Wi-Fi", "LED Television", "24×7 Hot & Cold Water", "Electric Kettle", "Comfortable Seating", "Spacious Wardrobe", "Fresh Linen", "Daily Housekeeping", "Essential Toiletries"],
+    totalRooms: 9
+  },
+  {
     id: "standard-single",
     title: "Standard Single Bed Room",
     price: 999,
@@ -226,8 +252,12 @@ export const ROOMS_DATA = [
 ];
 
 export const GALLERY_IMAGES = [
-  "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=900&q=80"
+  kanchenjungaImg,
+  galImg1,
+  galImg2,
+  galImg3,
+  galImg4,
+  galImg5,
+  galImg6,
+  viewFromHotelImg
 ];

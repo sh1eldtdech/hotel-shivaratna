@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Wifi, Sofa, Coffee, ArrowRight, Laptop, Moon } from 'lucide-react';
+import { Wifi, Sofa, Coffee, ArrowRight, Laptop, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // Import local images from assets/homepage
@@ -34,6 +34,14 @@ const WorkstationLounge = () => {
           style={{ backgroundImage: `url(${workstationsImg})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-neutral-950" />
+        {/* Back button */}
+        <Link
+          to="/"
+          className="absolute top-24 left-6 md:left-12 z-20 flex items-center gap-2 text-white/80 hover:text-gold text-xs font-sans uppercase tracking-widest transition-colors duration-300 group"
+        >
+          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-200" />
+          Back to Home
+        </Link>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6 mt-10">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
@@ -75,10 +83,11 @@ const WorkstationLounge = () => {
             {/* Left Content Column */}
             <motion.div {...fadeInUp()} className="lg:col-span-7 space-y-6">
               <span className="text-xs font-semibold tracking-[0.25em] text-gold uppercase block font-sans">
-                Work &amp; Relax
+                Work &amp; Unwind
               </span>
               <h2 className="text-3xl md:text-5xl font-medium text-neutral-900 font-serif leading-tight">
-                Productivity Meets Comfort
+                Workstation &amp; Lounge
+                <span className="block text-xl md:text-2xl text-neutral-600 font-sans font-light mt-2">Where Productivity Meets Comfort</span>
               </h2>
               <div className="w-12 h-[1.5px] bg-gold" />
               

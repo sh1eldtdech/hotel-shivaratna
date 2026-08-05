@@ -12,8 +12,7 @@ const RoomsSection = ({ onSelectRoomForBooking }) => {
     navigate(`/contact?roomType=${roomId}`);
   };
 
-  // Group rooms by category
-  const standardRooms = ROOMS_DATA.filter(r => r.category === 'Standard');
+  const standardParent = ROOMS_DATA.find(r => r.category === 'StandardParent');
   const deluxeRoom = ROOMS_DATA.find(r => r.category === 'Deluxe');
   const suiteRoom = ROOMS_DATA.find(r => r.category === 'Suite');
 
@@ -53,88 +52,79 @@ const RoomsSection = ({ onSelectRoomForBooking }) => {
             <p className="text-xs text-neutral-500 font-sans tracking-wide mt-1">Excellent comfort and value, with 9 standard rooms available</p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {standardRooms.map((room) => (
-              <motion.div
-                key={room.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="bg-neutral-50 border border-neutral-100 hover:border-gold/30 hover:bg-white transition-all duration-500 shadow-premium group flex flex-col justify-between"
+          {standardParent && (
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="bg-neutral-50 border border-neutral-100 hover:border-gold/30 hover:bg-white transition-all duration-500 shadow-premium rounded-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 group"
+            >
+              {/* Image side */}
+              <div 
+                className="lg:col-span-7 relative overflow-hidden cursor-pointer h-[250px] sm:h-[350px] lg:h-auto min-h-[300px]"
+                onClick={() => navigate(`/rooms/${standardParent.id}`)}
               >
-                {/* Image */}
-                <div
-                  className="relative overflow-hidden cursor-pointer aspect-[4/3]"
-                  onClick={() => navigate(`/rooms/${room.id}`)}
-                >
-                  <div className="absolute inset-0 bg-neutral-950/20 group-hover:bg-neutral-950/40 transition-colors duration-500 z-10" />
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
-                    <div className="bg-white/90 text-neutral-950 px-4 py-2 text-xs font-sans font-semibold uppercase tracking-widest flex items-center gap-2">
-                      <Maximize className="w-4 h-4 text-gold" />
-                      View Details
-                    </div>
+                <div className="absolute inset-0 bg-neutral-950/20 group-hover:bg-neutral-950/40 transition-colors duration-500 z-10" />
+                <img
+                  src={standardParent.image}
+                  alt={standardParent.title}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute top-4 left-4 bg-neutral-950/80 backdrop-blur-md text-white font-sans text-xs font-semibold px-4 py-2 border border-gold/30 z-20">
+                  From ₹{standardParent.price.toLocaleString('en-IN')} <span className="text-neutral-400 font-light text-[10px]">/ Night</span>
+                </div>
+              </div>
+
+              {/* Info side */}
+              <div className="lg:col-span-5 p-8 flex flex-col justify-between space-y-6">
+                <div className="space-y-4">
+                  <span className="text-[10px] font-sans font-semibold tracking-widest text-gold uppercase block">Essential Comfort</span>
+                  <h4
+                    onClick={() => navigate(`/rooms/${standardParent.id}`)}
+                    className="text-2xl font-serif text-neutral-950 font-medium hover:text-gold cursor-pointer transition-colors duration-300"
+                  >
+                    {standardParent.title}
+                  </h4>
+
+                  {/* Specs Grid */}
+                  <div className="grid grid-cols-2 gap-3 text-neutral-600 text-xs font-sans">
+                    <span className="flex items-center gap-2">
+                      <Users className="w-4 h-4 text-gold" /> Capacity: {standardParent.guests} People
+                    </span>
+                    <span className="flex items-center gap-2">
+                      <Maximize className="w-4 h-4 text-gold" /> Size: {standardParent.size}
+                    </span>
+                    <span className="flex items-center gap-2">
+                      <BedDouble className="w-4 h-4 text-gold" /> {standardParent.bed}
+                    </span>
+                    <span className="flex items-center gap-2">
+                      <Eye className="w-4 h-4 text-gold" /> {standardParent.view}
+                    </span>
                   </div>
-                  <img
-                    src={room.image}
-                    alt={room.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute top-4 right-4 bg-neutral-950/80 backdrop-blur-md text-white font-sans text-xs font-semibold px-4 py-2 border border-gold/30 z-20">
-                    ₹{room.price.toLocaleString('en-IN')} <span className="text-neutral-400 font-light text-[10px]">/ Night</span>
-                  </div>
+
+                  <p className="text-neutral-700 text-sm font-sans font-light leading-relaxed text-justify">
+                    {standardParent.description}
+                  </p>
                 </div>
 
-                {/* Info */}
-                <div className="p-6 space-y-4 flex-grow flex flex-col justify-between">
-                  <div className="space-y-3">
-                    <h4
-                      onClick={() => navigate(`/rooms/${room.id}`)}
-                      className="text-lg font-serif text-neutral-950 font-medium hover:text-gold cursor-pointer transition-colors duration-300"
-                    >
-                      {room.title}
-                    </h4>
-
-                    {/* Specs */}
-                    <div className="grid grid-cols-2 gap-2 text-neutral-500 text-xs font-sans font-light">
-                      <span className="flex items-center gap-1.5">
-                        <Users className="w-3.5 h-3.5 text-gold" /> Capacity: {room.guests} {room.guests === 1 ? 'Person' : 'People'}
-                      </span>
-                      <span className="flex items-center gap-1.5">
-                        <Maximize className="w-3.5 h-3.5 text-gold" /> Size: {room.size}
-                      </span>
-                      <span className="flex items-center gap-1.5">
-                        <BedDouble className="w-3.5 h-3.5 text-gold" /> {room.bed}
-                      </span>
-                      <span className="flex items-center gap-1.5">
-                        <Eye className="w-3.5 h-3.5 text-gold" /> {room.view}
-                      </span>
-                    </div>
-
-                    <p className="text-neutral-600 text-xs font-sans font-light leading-relaxed text-justify line-clamp-3">
-                      {room.description}
-                    </p>
-                  </div>
-
-                  {/* Actions */}
-                  <div className="pt-4 border-t border-neutral-100 flex items-center justify-between gap-3">
-                    <button
-                      onClick={() => navigate(`/rooms/${room.id}`)}
-                      className="text-[10px] text-neutral-600 hover:text-gold uppercase tracking-widest font-sans font-semibold transition-colors"
-                    >
-                      Details →
-                    </button>
-                    <button
-                      onClick={() => handleBookNow(room.id)}
-                      className="bg-gold hover:bg-gold-dark text-neutral-950 text-[10px] font-sans font-semibold uppercase tracking-widest py-2 px-4 shadow-gold-glow transition-all duration-300"
-                    >
-                      Book Now
-                    </button>
-                  </div>
+                <div className="pt-6 border-t border-neutral-100 flex items-center justify-between">
+                  <button
+                    onClick={() => navigate(`/rooms/${standardParent.id}`)}
+                    className="text-xs text-neutral-600 hover:text-gold uppercase tracking-widest font-sans font-semibold transition-colors"
+                  >
+                    View Sub-Categories &amp; Details →
+                  </button>
+                  <button
+                    onClick={() => handleBookNow(standardParent.id)}
+                    className="bg-gold hover:bg-gold-dark text-neutral-950 text-xs font-sans font-semibold uppercase tracking-widest py-3 px-6 shadow-gold-glow transition-all duration-300"
+                  >
+                    Book Now
+                  </button>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </motion.div>
+          )}
         </div>
 
         {/* SECTION 2: DELUXE FAMILY ROOM */}

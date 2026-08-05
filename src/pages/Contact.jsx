@@ -9,7 +9,7 @@ const Contact = () => {
   // Extract booking details from query parameters
   const bookingInquiry = useMemo(() => {
     const searchParams = new URLSearchParams(location.search);
-    
+
     // Only return parsed values if they exist, to let form fall back to empty
     const checkIn = searchParams.get('checkIn');
     const checkOut = searchParams.get('checkOut');
@@ -29,10 +29,10 @@ const Contact = () => {
 
   return (
     <div>
-      
+
       {/* Page Header (Parallax banner) */}
       <div className="relative h-[280px] md:h-[350px] bg-cover bg-center flex items-center justify-center pt-16 md:pt-20"
-           style={{ backgroundImage: `url("${kanchenjungaBg}")` }}>
+        style={{ backgroundImage: `url("${kanchenjungaBg}")` }}>
         <div className="absolute inset-0 bg-neutral-950/75" />
         <div className="z-10 text-center space-y-3">
           <span className="text-[10px] md:text-xs text-gold uppercase tracking-[0.3em] font-sans block">

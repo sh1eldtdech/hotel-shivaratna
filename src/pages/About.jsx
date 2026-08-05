@@ -48,7 +48,7 @@ const exploreData = [
     name: "Rinchenpong Monastery (Sang Ngag Yangtse Monastery)",
     distance: "1.8 km",
     time: "6 min drive / 30 min walk",
-    description: "Nestled amidst the serene, cloud-kissed ridges of West Sikkim, the historic Rinchenpong Monastery offers a profound escape into spiritual tranquility and natural beauty. Established in 1730, this revered Buddhist sanctuary—the third oldest in the region—is famously approached via a picturesque stone pathway cutting through vibrant green lawns, framed by a striking backdrop of towering pine forests. Beyond its traditional Sikkimese-Tibetan architecture and sacred white chortens, the monastery houses a globally rare, highly sacred statue of the Ati Buddha (Adi-Buddha) in a meditative Yab-Yum posture. Visitors flock to this peaceful ridge not only to immerse themselves in deep meditative silence and rich Himalayan heritage but also to witness breathtaking, unobstructed panoramic views of the majestic Mount Kanchenjunga range.",
+    description: "Nestled in the serene hills of West Sikkim, Rinchenpong Monastery is one of the region's oldest and most revered Buddhist monasteries, established in 1730. Surrounded by lush greenery and towering pine forests, it features traditional Sikkimese-Tibetan architecture and houses the rare sacred Ati Buddha statue. Visitors come to experience its peaceful spiritual ambiance, rich cultural heritage, and breathtaking panoramic views of the majestic Kanchenjunga mountain range.",
     category: "Spiritual",
     image: rinchenpongMonastery,
   },
@@ -158,7 +158,7 @@ const categoryColors = {
 const About = () => {
   return (
     <div className="bg-luxury-cream min-h-screen">
-      
+
       {/* Page Header */}
       <div
         className="relative h-[300px] md:h-[400px] bg-cover bg-center flex items-center justify-center pt-16 md:pt-20"
@@ -181,21 +181,21 @@ const About = () => {
       </div>
 
       {/* Welcome Message & Host Section (Uncle Owner Card) */}
-      <section 
+      <section
         className="py-20 relative bg-cover bg-center overflow-hidden border-b border-gold/20"
         style={{ backgroundImage: `url("${kanchenjungaBg}")` }}
       >
-        <div className="absolute inset-0 bg-neutral-950/85 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-neutral-950/45 backdrop-blur-[1px]" />
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Owner Image */}
             <div className="lg:col-span-4 flex justify-center">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="relative rounded-xl overflow-hidden shadow-xl border-2 border-gold/20 max-w-[320px] aspect-[4/3]"
+                className="relative rounded-xl overflow-hidden shadow-xl border-2 border-gold/20 max-w-[367px] aspect-[4/3]"
               >
                 <img
                   src={ownerImg}
@@ -512,7 +512,7 @@ const About = () => {
             className="bg-neutral-950 text-white rounded-t-[2rem] p-10 md:p-14 border border-gold/20 border-b-0 shadow-[0_-10px_60px_-30px_rgba(0,0,0,0.5)] relative overflow-hidden"
           >
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(198,155,78,0.1),_transparent_60%)]" />
-            <div className="relative z-10 max-w-3xl">
+            <div className="relative z-10 max-w-3xl mx-auto h-full flex flex-col items-center justify-center text-center px-6">
               <span className="text-[10px] md:text-xs font-semibold tracking-[0.35em] text-gold uppercase block font-sans">
                 Restaurant · Fine Dining &amp; Bar
               </span>
@@ -610,7 +610,7 @@ const About = () => {
       {/* Detailed Amenities Section — Text + Logo updated */}
       <section className="py-24 bg-white border-t border-neutral-100">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          
+
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-xs font-semibold tracking-[0.25em] text-gold uppercase block font-sans">
               Our Amenities
