@@ -3,13 +3,9 @@ import { useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence, useInView, useReducedMotion } from 'framer-motion';
 import { Star, ArrowRight, Play, X } from 'lucide-react';
 import Hero from '../components/Hero';
-import { ROOMS_DATA, GALLERY_IMAGES } from '../data/hotelData';
-import hotelVideo from '../assets/homepage/hotel video.mp4';
-import aboutHome from '../assets/homepage/about_home.png';
-import sunriseImage from '../assets/homepage/sunrise.jpg';
-import organicCuisineImage from '../assets/homepage/organic_cuisine.jpg';
-import workstationsImage from '../assets/homepage/workstations.jpg';
-import previewImage from '../assets/homepage/slider3.png';
+import { ROOMS_DATA, GALLERY_IMAGES, AMENITIES_LIST, CORE_FACILITIES } from '../data/hotelData';
+import slider3 from '../assets/slider3.png';
+import hotelVideo from '../assets/hotel video.mp4';
 
 // Animated counter
 const AnimatedCounter = ({ value, duration = 1.5 }) => {
@@ -64,6 +60,7 @@ const Home = () => {
               { label: 'Room Categories', value: '3+' },
               { label: 'Dining Seats', value: '30+' },
               { label: 'Amenities', value: '10+' },
+              { label: 'Guest Reviews', value: '1200+' },
             ].map((stat, i) => (
               <div key={i} className="flex items-center gap-3">
                 {i > 0 && <div className="hidden md:block w-px h-8 bg-gold/20" />}
@@ -71,7 +68,7 @@ const Home = () => {
                   {stat.value ? (
                     <div className="text-xl md:text-2xl font-serif text-gold font-medium">{stat.value}</div>
                   ) : (
-                    <div className="text-xs font-sans text-gold uppercase tracking-widest font-semibold">üìç</div>
+                    <div className="text-xs font-sans text-gold uppercase tracking-widest font-semibold">=ÉÙÏ</div>
                   )}
                   <div className="text-[10px] md:text-xs text-neutral-400 font-sans tracking-wider mt-0.5">{stat.label}</div>
                 </div>
@@ -100,7 +97,7 @@ const Home = () => {
             >
               <div className="rounded-xl overflow-hidden shadow-2xl border border-gold/10">
                 <motion.img
-                  src={aboutHome}
+                  src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&q=80"
                   alt="Hotel Shivaratna"
                   className="w-full h-[350px] md:h-[500px] object-cover hover:scale-105 transition-transform duration-700"
                 />
@@ -169,13 +166,45 @@ const Home = () => {
             </motion.div>
           </motion.div>
 
+          {/* Amenities Strip G«ˆ Centered Flex wrap layout to eliminate empty grid space */}
+          <motion.div
+            {...fadeUp(0)}
+            className="mt-24"
+          >
+            <div className="text-center mb-10">
+              <span className="text-xs font-semibold tracking-[0.25em] text-gold uppercase block font-sans">What We Offer</span>
+              <h2 className="text-3xl md:text-4xl font-medium text-neutral-900 font-serif mt-2">Premium Amenities</h2>
+              <div className="w-16 h-[1.5px] bg-gold mx-auto mt-4" />
+            </div>
+            <div className="flex flex-wrap justify-center gap-4">
+              {AMENITIES_LIST.map((amenity, i) => (
+                <motion.div
+                  key={amenity.id}
+                  initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 35, scale: shouldReduceMotion ? 1 : 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, amount: 0.1 }}
+                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: (i % 5) * 0.06 }}
+                  whileHover={{ 
+                    y: -6, 
+                    borderColor: '#c5a880', 
+                    boxShadow: '0 12px 24px -10px rgba(197, 168, 128, 0.25)',
+                    transition: { duration: 0.2 } 
+                  }}
+                  className="bg-white border border-gold/10 p-5 flex flex-col items-center text-center gap-3 shadow-premium group transition-all duration-300 w-[calc(50%-8px)] sm:w-[calc(33.33%-11px)] md:w-[calc(25%-12px)] lg:w-[calc(14.28%-14px)] min-w-[140px] max-w-[200px]"
+                >
+                  <span className="text-2xl md:text-3xl group-hover:scale-110 transition-transform duration-300">{amenity.emoji}</span>
+                  <span className="text-xs md:text-sm font-sans font-medium text-neutral-800 leading-snug group-hover:text-gold transition-colors duration-300">{amenity.name}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Quote Banner ‚Äî "Every sunrise brings‚Ä¶" */}
+      {/* Quote Banner G«ˆ "Every sunrise bringsG«™" */}
       <div
         className="relative w-full h-[320px] md:h-[450px] flex items-center justify-center bg-fixed bg-cover bg-center overflow-hidden"
-        style={{ backgroundImage: `url("${sunriseImage}")` }}
+        style={{ backgroundImage: `url(${slider3})` }}
       >
         <div className="absolute inset-0 bg-neutral-950/70" />
         <div className="max-w-4xl mx-auto px-6 md:px-12 text-center z-10 space-y-6">
@@ -191,12 +220,12 @@ const Home = () => {
           </motion.h3>
           <div className="w-12 h-[1px] bg-gold mx-auto" />
           <span className="text-[10px] md:text-xs text-gold uppercase tracking-[0.3em] font-sans block">
-            Hotel Shivaratna ¬∑ Rinchenpong, West Sikkim
+            Hotel Shivaratna -+ Rinchenpong, West Sikkim
           </span>
         </div>
       </div>
 
-      {/* Accommodation ‚Äî Rectangle shape with hover video effect */}
+      {/* Accommodation G«ˆ Rectangle shape with hover video effect */}
       <section className="py-24 bg-luxury-cream">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
           <motion.div {...fadeUp()} className="max-w-2xl mx-auto mb-16">
@@ -227,12 +256,12 @@ const Home = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/70 via-transparent to-transparent transition-opacity duration-500 group-hover:opacity-0" />
                   {/* Price tag */}
                   <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-neutral-950/85 backdrop-blur-md text-white font-sans text-xs px-4 py-2 border border-gold/30 z-20 whitespace-nowrap tracking-wider transition-opacity duration-500 group-hover:opacity-0">
-                    ‚Çπ{room.price.toLocaleString('en-IN')} <span className="text-neutral-400 font-light text-[9.5px]">/ Night</span>
+                    GÈ¶{room.price.toLocaleString('en-IN')} <span className="text-neutral-400 font-light text-[9.5px]">/ Night</span>
                   </div>
-                  {/* Hover overlay ‚Äî slides up like a video reveal */}
+                  {/* Hover overlay G«ˆ slides up like a video reveal */}
                   <div className="absolute inset-0 bg-neutral-950/80 flex flex-col items-center justify-center translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] z-30">
                     <span className="text-white/80 text-sm font-sans font-light tracking-wider mb-2">From</span>
-                    <span className="text-gold text-4xl md:text-5xl font-serif font-normal tracking-wide mb-4">‚Çπ{room.price.toLocaleString('en-IN')}</span>
+                    <span className="text-gold text-4xl md:text-5xl font-serif font-normal tracking-wide mb-4">GÈ¶{room.price.toLocaleString('en-IN')}</span>
                     <span className="text-xs text-gold font-sans font-medium uppercase tracking-[0.25em] flex items-center gap-2">
                       <Play className="w-3 h-3 fill-current" /> View Room Details
                     </span>
@@ -257,7 +286,43 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Feature Section 1 ‚Äî Organic Farm Fresh Cuisine */}
+      {/* Our Facilities G«ˆ All 12 amenities with logo + text */}
+      <section className="py-24 bg-white border-t border-neutral-100">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <motion.div {...fadeUp()} className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-xs font-semibold tracking-[0.25em] text-gold uppercase block font-sans">Exclusive Services</span>
+            <h2 className="text-3xl md:text-4xl font-medium text-neutral-900 font-serif mt-2">Our Facilities</h2>
+            <div className="w-16 h-[1.5px] bg-gold mx-auto mt-4" />
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {CORE_FACILITIES.map((facility, index) => (
+              <motion.div
+                key={facility.id}
+                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40, scale: shouldReduceMotion ? 1 : 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: (index % 3) * 0.12 }}
+                whileHover={{ y: -8, boxShadow: '0 20px 40px -10px rgba(0,0,0,0.08)', transition: { duration: 0.3 } }}
+                className="bg-luxury-cream border border-gold/10 hover:border-gold/30 p-7 text-left transition-all duration-400 shadow-premium flex items-start gap-5 group"
+              >
+                <div className="text-3xl shrink-0 mt-1 group-hover:scale-110 transition-transform duration-300">
+                  {facility.emoji}
+                </div>
+                <div>
+                  <h3 className="text-base md:text-lg font-medium tracking-wide text-neutral-900 font-serif mb-2 group-hover:text-gold transition-colors duration-300">
+                    {facility.title}
+                  </h3>
+                  <p className="text-neutral-700 text-xs md:text-sm leading-relaxed font-sans font-light">
+                    {facility.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Feature Section 1 G«ˆ Organic Farm Fresh Cuisine */}
       <section className="py-24 bg-luxury-cream border-t border-neutral-100">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <motion.div
@@ -272,7 +337,7 @@ const Home = () => {
               className="rounded-xl overflow-hidden shadow-2xl border border-gold/10"
             >
               <img
-                src={organicCuisineImage}
+                src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80"
                 alt="Organic Farm Fresh Cuisine at Hotel Shivaratna"
                 className="w-full h-[350px] md:h-[500px] object-cover hover:scale-105 transition-transform duration-700"
               />
@@ -305,7 +370,7 @@ const Home = () => {
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
                 className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify"
               >
-                Our multi-cuisine restaurant serves authentic Sikkimese dishes, Indian comfort food, and continental favourites ‚Äî all prepared with love by our kitchen team. Pair your meal with refreshing drinks or explore our fully stocked bar for the perfect mountain dining experience.
+                Our multi-cuisine restaurant serves authentic Sikkimese dishes, Indian comfort food, and continental favourites G«ˆ all prepared with love by our kitchen team. Pair your meal with refreshing drinks or explore our fully stocked bar for the perfect mountain dining experience.
               </motion.p>
               <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
                 <Link
@@ -321,7 +386,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Feature Section 2 ‚Äî Workstation & Lounge */}
+      {/* Feature Section 2 G«ˆ Workstation & Lounge */}
       <section className="py-24 bg-white border-t border-neutral-100">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <motion.div
@@ -330,7 +395,7 @@ const Home = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
-            {/* Content ‚Äî Left */}
+            {/* Content G«ˆ Left */}
             <motion.div
               variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.3 } } }}
               className="text-left space-y-5 order-2 lg:order-1"
@@ -353,13 +418,13 @@ const Home = () => {
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
                 className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify"
               >
-                Whether you're a remote worker, digital nomad, or a business traveller on the move, Hotel Shivaratna's dedicated workstation and lounge provides everything you need to stay productive ‚Äî high-speed Wi-Fi, comfortable seating, and the inspiring backdrop of the Himalayas.
+                Whether you're a remote worker, digital nomad, or a business traveller on the move, Hotel Shivaratna's dedicated workstation and lounge provides everything you need to stay productive G«ˆ high-speed Wi-Fi, comfortable seating, and the inspiring backdrop of the Himalayas.
               </motion.p>
               <motion.p
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
                 className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify"
               >
-                When the workday is done, transition seamlessly to relaxation mode in our comfortable lounge ‚Äî a serene space to unwind, connect with fellow travellers, or simply soak in the peaceful mountain atmosphere.
+                When the workday is done, transition seamlessly to relaxation mode in our comfortable lounge G«ˆ a serene space to unwind, connect with fellow travellers, or simply soak in the peaceful mountain atmosphere.
               </motion.p>
               <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
                 <Link
@@ -371,13 +436,13 @@ const Home = () => {
                 </Link>
               </motion.div>
             </motion.div>
-            {/* Image ‚Äî Right */}
+            {/* Image G«ˆ Right */}
             <motion.div
               variants={{ hidden: { opacity: 0, x: 60 }, visible: { opacity: 1, x: 0, transition: { duration: 1, ease: [0.22, 1, 0.36, 1] } } }}
               className="rounded-xl overflow-hidden shadow-2xl border border-gold/10 order-1 lg:order-2"
             >
               <img
-                src={workstationsImage}
+                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80"
                 alt="Workstation and Lounge at Hotel Shivaratna"
                 className="w-full h-[350px] md:h-[500px] object-cover hover:scale-105 transition-transform duration-700"
               />
@@ -390,7 +455,7 @@ const Home = () => {
       <section className="relative w-full h-[400px] md:h-[550px] flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url("${previewImage}")` }}
+          style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1920&q=80")' }}
         />
         <div className="absolute inset-0 bg-neutral-950/65" />
         <div className="z-10 text-center space-y-6">
@@ -411,17 +476,17 @@ const Home = () => {
               A Glimpse of Shivaratna Grandeur
             </span>
             <span className="text-neutral-400 font-sans text-xs font-light block">
-              Rinchenpong, West Sikkim ¬∑ Landscape Experience
+              Rinchenpong, West Sikkim -+ Landscape Experience
             </span>
           </div>
         </div>
       </section>
 
-      {/* Instagram Gallery Grid Section (Original Design) */}
+      {/* Instagram Gallery Grid Section (Section 7 of Almaris Mockup) */}
       <section className="py-24 bg-luxury-cream border-t border-neutral-100">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-
-          <motion.div
+          
+          <motion.div 
             initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -429,7 +494,7 @@ const Home = () => {
             className="text-center max-w-2xl mx-auto mb-12"
           >
             <span className="text-xs font-semibold tracking-[0.25em] text-gold uppercase block font-sans">
-              Stories &amp; Moments
+              Stories & Moments
             </span>
             <h2 className="text-xl md:text-2xl font-medium text-neutral-950 font-serif mt-2 tracking-widest uppercase">
               @shivaratna_hotel_theme
@@ -437,6 +502,7 @@ const Home = () => {
             <div className="w-12 h-[1px] bg-gold mx-auto mt-3" />
           </motion.div>
 
+          {/* 3-image collage with quote accent */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 auto-rows-[180px] md:auto-rows-[220px]">
             {GALLERY_IMAGES.slice(0, 3).map((img, idx) => {
               const isQuoteTile = idx === 1;
@@ -456,7 +522,7 @@ const Home = () => {
                         Our Promise
                       </span>
                       <p className="font-serif text-lg md:text-2xl leading-tight tracking-wide max-w-[15ch]">
-                        ‚ÄúWarm stays, mountain views, and moments worth returning for.‚Äù
+                        G«£Warm stays, mountain views, and moments worth returning for.G«•
                       </p>
                     </div>
                   ) : (

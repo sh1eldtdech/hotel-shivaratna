@@ -3,12 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-import slider1 from '../assets/slider1.png';
-import slider2 from '../assets/slider2.png';
-import slider3 from '../assets/slider3.png';
-import slider4 from '../assets/slider4.png';
-import slider5 from '../assets/slider5.png';
-import slider6 from '../assets/slider6.png';
+import slider1 from '../assets/homepage/slider1.png';
+import slider2 from '../assets/homepage/slider2.png';
+import slider3 from '../assets/homepage/slider3.png';
+import slider4 from '../assets/homepage/slider4.png';
+import slider5 from '../assets/homepage/slider5.png';
+import slider6 from '../assets/homepage/slider6.png';
 
 const HERO_SLIDES = [
   { id: 1, name: 'Hotel Shivaratna – Mountain Retreat', image: slider1 },
@@ -93,17 +93,27 @@ const Hero = () => {
         >
           <motion.span
             variants={itemVariants}
-            className="text-gold uppercase tracking-[0.35em] text-xs md:text-sm font-semibold mb-4 block"
+            className="text-gold text-2xl md:text-4xl font-normal mb-2 block text-white"
+            style={{ fontFamily: '"Times New Roman", Times, serif' }}
           >
-            Welcome to Hotel Shivaratna
+            Welcome to
           </motion.span>
 
           <motion.h1
             variants={itemVariants}
-            className="text-4xl md:text-6xl lg:text-8xl font-serif text-white font-normal leading-tight tracking-[0.18em] mb-6 uppercase text-center"
+            className="text-5xl md:text-7xl lg:text-[6rem] font-normal leading-none text-white text-center mb-4"
+            style={{ fontFamily: '"Times New Roman", Times, serif' }}
+          >
+            Hotel Shivaratna
+          </motion.h1>
+
+          <motion.p
+            variants={itemVariants}
+            className="text-2xl md:text-4xl text-white/95 max-w-2xl mx-auto leading-relaxed font-normal mb-12"
+            style={{ fontFamily: '"Times New Roman", Times, serif' }}
           >
             Live Your Paradise
-          </motion.h1>
+          </motion.p>
 
           <motion.p
             variants={itemVariants}

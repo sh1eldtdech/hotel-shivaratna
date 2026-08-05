@@ -55,9 +55,9 @@ const Footer = () => {
               <Link to="/" className="hover:text-gold text-left transition-colors duration-300">Home</Link>
               <Link to="/about" className="hover:text-gold text-left transition-colors duration-300">About Us</Link>
               <Link to="/rooms" className="hover:text-gold text-left transition-colors duration-300">Rooms &amp; Suites</Link>
+              <Link to="/travel" className="hover:text-gold text-left transition-colors duration-300">Travel Guide</Link>
               <Link to="/gallery" className="hover:text-gold text-left transition-colors duration-300">Gallery</Link>
               <Link to="/explore-rinchenpong" className="hover:text-gold text-left transition-colors duration-300">Explore Rinchenpong</Link>
-              <Link to="/travel" className="hover:text-gold text-left transition-colors duration-300">Travel Guide</Link>
               <Link to="/contact" className="hover:text-gold text-left transition-colors duration-300">Contact</Link>
             </div>
           </div>

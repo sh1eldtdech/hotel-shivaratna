@@ -30,7 +30,7 @@ const AboutSection = () => {
               className="w-full h-[400px] md:h-[550px] rounded-xl overflow-hidden shadow-2xl relative"
             >
               <img
-                src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&q=80"
+                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
                 alt="Shivaratna Luxury"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
