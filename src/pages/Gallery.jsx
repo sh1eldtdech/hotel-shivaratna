@@ -24,26 +24,31 @@ import img4 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.13.12 AM.jpe
 import img5 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.13.15 AM.jpeg';
 import img6 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.13.17 AM.jpeg';
 import kanchenjungaImg from '../assets/gallery/kanchenjunga view from Hotel.JPG (1).jpeg';
+import viewFromHotelImg from '../assets/room/viewfromhotel.jpg';
 
 const LOCAL_VIDEOS = [
-  { id: 'v1', type: 'video', title: 'Hotel Shivaratna Entrance & Ambience', src: vid1, category: 'Hotel' },
-  { id: 'v2', type: 'video', title: 'Panoramic Mountain View', src: vid2, category: 'Views' },
-  { id: 'v3', type: 'video', title: 'Room & Balcony Experience', src: vid3, category: 'Rooms' },
-  { id: 'v4', type: 'video', title: 'Dining & Restaurant Atmosphere', src: vid4, category: 'Dining' },
-  { id: 'v5', type: 'video', title: 'Butterfly Stage & Evening Leisure', src: vid5, category: 'Hotel' },
-  { id: 'v6', type: 'video', title: 'Sikkimese Nature & Trail View', src: vid6, category: 'Views' },
-  { id: 'v7', type: 'video', title: 'Morning Sunrise over Rinchenpong', src: vid7, category: 'Views' },
-  { id: 'v8', type: 'video', title: 'Hotel Shivaratna Outer Premises', src: vid8, category: 'Hotel' },
-  { id: 'v9', type: 'video', title: 'Lounge & Relaxing Area', src: vid9, category: 'Hotel' },
-  { id: 'v10', type: 'video', title: 'Fresh Mountain Breeze Experience', src: vid10, category: 'Views' },
-  { id: 'v11', type: 'video', title: 'Sunset Views from Terrace', src: vid11, category: 'Views' },
+  { id: 'v1', type: 'video', title: '20260712_132922', src: vid1, category: 'Hotel' },
+  { id: 'v2', type: 'video', title: '20260712_133035', src: vid2, category: 'Views' },
+  { id: 'v3', type: 'video', title: '20260712_133325', src: vid3, category: 'Rooms' },
+  { id: 'v4', type: 'video', title: '20260712_133510', src: vid4, category: 'Dining' },
+  { id: 'v5', type: 'video', title: '20260712_134025', src: vid5, category: 'Hotel' },
+  { id: 'v6', type: 'video', title: '20260712_134356', src: vid6, category: 'Views' },
+  { id: 'v7', type: 'video', title: '20260712_134440', src: vid7, category: 'Views' },
+  { id: 'v8', type: 'video', title: '20260712_135048', src: vid8, category: 'Hotel' },
+  { id: 'v9', type: 'video', title: '20260712_151521', src: vid9, category: 'Hotel' },
+  { id: 'v10', type: 'video', title: '20260712_151822', src: vid10, category: 'Views' },
+  { id: 'v11', type: 'video', title: '20260712_151838', src: vid11, category: 'Views' },
 ];
 
 const LOCAL_PHOTOS = [
-  { id: 'p1', type: 'photo', title: 'Kanchenjunga Peak View from Hotel', src: kanchenjungaImg, category: 'Views' },
-  { id: 'p2', type: 'photo', title: 'Hotel Interior & Guest Comfort', src: img1, category: 'Hotel' },
-  { id: 'p3', type: 'photo', title: 'Dining & Fresh Cuisine', src: img4, category: 'Dining' },
-  { id: 'p4', type: 'photo', title: 'Hotel Shivaratna Gardens', src: img6, category: 'Hotel' }
+  { id: 'p1', type: 'photo', title: 'kanchenjunga view from Hotel.JPG (1)', src: kanchenjungaImg, category: 'Views' },
+  { id: 'p2', type: 'photo', title: 'WhatsApp Image 2026-08-01 at 11.11.00 AM', src: img1, category: 'Hotel' },
+  { id: 'p3', type: 'photo', title: 'WhatsApp Image 2026-08-01 at 11.13.03 AM', src: img2, category: 'Hotel' },
+  { id: 'p4', type: 'photo', title: 'WhatsApp Image 2026-08-01 at 11.13.07 AM', src: img3, category: 'Hotel' },
+  { id: 'p5', type: 'photo', title: 'WhatsApp Image 2026-08-01 at 11.13.12 AM', src: img4, category: 'Dining' },
+  { id: 'p6', type: 'photo', title: 'WhatsApp Image 2026-08-01 at 11.13.15 AM', src: img5, category: 'Hotel' },
+  { id: 'p7', type: 'photo', title: 'WhatsApp Image 2026-08-01 at 11.13.17 AM', src: img6, category: 'Hotel' },
+  { id: 'p8', type: 'photo', title: 'viewfromhotel', src: viewFromHotelImg, category: 'Views' }
 ];
 
 const ALL_MEDIA = [...LOCAL_VIDEOS, ...LOCAL_PHOTOS];

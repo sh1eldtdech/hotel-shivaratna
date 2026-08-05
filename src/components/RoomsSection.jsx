@@ -1,31 +1,28 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Maximize, Users, BedDouble, Eye } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Maximize, Users, BedDouble, Eye, Check } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { ROOMS_DATA } from '../data/hotelData';
 
 const RoomsSection = ({ onSelectRoomForBooking }) => {
-  const [filter, setFilter] = useState('all');
   const navigate = useNavigate();
 
-  const filteredRooms = ROOMS_DATA.filter((room) => {
-    if (filter === 'all') return true;
-    if (filter === 'rooms') return !room.title.toLowerCase().includes('suite');
-    if (filter === 'suites') return room.title.toLowerCase().includes('suite');
-    return true;
-  });
-
-  const handleBookNow = (room) => {
-    if (onSelectRoomForBooking) onSelectRoomForBooking(room.id);
-    navigate(`/contact?roomType=${room.id}`);
+  const handleBookNow = (roomId) => {
+    if (onSelectRoomForBooking) onSelectRoomForBooking(roomId);
+    navigate(`/contact?roomType=${roomId}`);
   };
+
+  // Group rooms by category
+  const standardRooms = ROOMS_DATA.filter(r => r.category === 'Standard');
+  const deluxeRoom = ROOMS_DATA.find(r => r.category === 'Deluxe');
+  const suiteRoom = ROOMS_DATA.find(r => r.category === 'Suite');
 
   return (
     <section id="rooms" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-24">
 
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        {/* Introduction */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-semibold tracking-[0.25em] text-gold uppercase block font-sans">
             Accommodations
           </span>
@@ -33,108 +30,103 @@ const RoomsSection = ({ onSelectRoomForBooking }) => {
             Rooms &amp; Suites
           </h2>
           <div className="w-16 h-[1.5px] bg-gold mx-auto mt-4" />
-          <p className="text-neutral-700 text-xs md:text-base font-sans font-light mt-5 leading-relaxed text-justify">
+          <p className="text-neutral-700 text-sm md:text-base font-sans font-light mt-6 leading-relaxed text-justify">
             Experience comfort, warmth, and tranquillity in our thoughtfully designed rooms at Hotel Shivaratna. Whether you're travelling with family, friends, your partner, or on a business trip, our spacious and well-maintained accommodations provide the perfect place to relax after a day of exploring West Sikkim.
           </p>
-          <p className="text-neutral-700 text-xs md:text-base font-sans font-light mt-3 leading-relaxed text-justify">
-            Each room is designed to offer a peaceful stay with comfortable bedding, modern amenities, clean interiors, free high-speed Wi-Fi, and beautiful views of the surrounding mountains and greenery.
+          <p className="text-neutral-700 text-sm md:text-base font-sans font-light mt-3 leading-relaxed text-justify">
+            Each room is designed to offer a peaceful stay with comfortable bedding, modern amenities, clean interiors, free high-speed Wi-Fi, and beautiful views of the surrounding mountains and greenery. Wake up to the fresh Himalayan breeze, enjoy the serenity of nature, and unwind in a cosy atmosphere that feels just like home.
           </p>
         </div>
 
-        {/* Filters */}
-        <div className="flex justify-center items-center space-x-6 mb-12">
-          {['all', 'rooms', 'suites'].map((type) => (
-            <button
-              key={type}
-              onClick={() => setFilter(type)}
-              className={`font-sans text-xs uppercase tracking-widest pb-2 border-b-2 transition-all duration-300 font-medium ${
-                filter === type
-                  ? 'border-gold text-gold font-semibold'
-                  : 'border-transparent text-neutral-400 hover:text-neutral-950'
-              }`}
-            >
-              {type === 'all' ? 'All Accommodations' : type === 'rooms' ? 'Rooms' : 'Suites'}
-            </button>
-          ))}
+        {/* General Amenities Note */}
+        <div className="bg-neutral-50 border border-gold/15 p-6 rounded-lg max-w-4xl mx-auto">
+          <p className="text-xs md:text-sm font-sans font-light text-neutral-700 leading-relaxed text-center">
+            <span className="text-gold font-semibold uppercase tracking-wider block mb-2">Standard In-Room Amenities</span>
+            Each room is thoughtfully equipped with an LED Television, complimentary high-speed Wi-Fi, 24×7 hot & cold water, an electric kettle, comfortable seating, a spacious wardrobe, fresh linen, daily housekeeping, and essential guest amenities to ensure a relaxing and enjoyable stay.
+          </p>
         </div>
 
-        {/* Rooms Grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatePresence mode="popLayout">
-            {filteredRooms.map((room) => (
+        {/* SECTION 1: STANDARD ROOMS */}
+        <div className="space-y-8">
+          <div className="border-b border-neutral-100 pb-4">
+            <h3 className="text-xl md:text-2xl font-serif text-neutral-900 font-medium">1. Standard Rooms</h3>
+            <p className="text-xs text-neutral-500 font-sans tracking-wide mt-1">Excellent comfort and value, with 9 standard rooms available</p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {standardRooms.map((room) => (
               <motion.div
-                layout
                 key={room.id}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
                 className="bg-neutral-50 border border-neutral-100 hover:border-gold/30 hover:bg-white transition-all duration-500 shadow-premium group flex flex-col justify-between"
               >
                 {/* Image */}
                 <div
-                  className="relative overflow-hidden cursor-pointer"
+                  className="relative overflow-hidden cursor-pointer aspect-[4/3]"
                   onClick={() => navigate(`/rooms/${room.id}`)}
                 >
                   <div className="absolute inset-0 bg-neutral-950/20 group-hover:bg-neutral-950/40 transition-colors duration-500 z-10" />
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
                     <div className="bg-white/90 text-neutral-950 px-4 py-2 text-xs font-sans font-semibold uppercase tracking-widest flex items-center gap-2">
                       <Maximize className="w-4 h-4 text-gold" />
-                      View Full Details
+                      View Details
                     </div>
                   </div>
                   <img
                     src={room.image}
                     alt={room.title}
-                    className="w-full h-[250px] md:h-[280px] object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  {/* Price Tag */}
                   <div className="absolute top-4 right-4 bg-neutral-950/80 backdrop-blur-md text-white font-sans text-xs font-semibold px-4 py-2 border border-gold/30 z-20">
                     ₹{room.price.toLocaleString('en-IN')} <span className="text-neutral-400 font-light text-[10px]">/ Night</span>
                   </div>
                 </div>
 
                 {/* Info */}
-                <div className="p-6 md:p-8 space-y-4 text-center md:text-left flex-grow flex flex-col justify-between">
-                  <div>
-                    <h3
+                <div className="p-6 space-y-4 flex-grow flex flex-col justify-between">
+                  <div className="space-y-3">
+                    <h4
                       onClick={() => navigate(`/rooms/${room.id}`)}
-                      className="text-lg md:text-xl font-serif text-neutral-950 font-medium hover:text-gold cursor-pointer transition-colors duration-300"
+                      className="text-lg font-serif text-neutral-950 font-medium hover:text-gold cursor-pointer transition-colors duration-300"
                     >
                       {room.title}
-                    </h3>
+                    </h4>
 
                     {/* Specs */}
-                    <div className="flex flex-wrap justify-center md:justify-start items-center gap-3 text-neutral-500 text-xs font-sans font-light mt-3">
-                      <span className="flex items-center gap-1">
-                        <Users className="w-3.5 h-3.5 text-gold" /> {room.guests} Guests
+                    <div className="grid grid-cols-2 gap-2 text-neutral-500 text-xs font-sans font-light">
+                      <span className="flex items-center gap-1.5">
+                        <Users className="w-3.5 h-3.5 text-gold" /> Capacity: {room.guests} {room.guests === 1 ? 'Person' : 'People'}
                       </span>
-                      <span className="text-neutral-300">|</span>
-                      <span className="flex items-center gap-1">
-                        <Maximize className="w-3.5 h-3.5 text-gold" /> {room.size}
+                      <span className="flex items-center gap-1.5">
+                        <Maximize className="w-3.5 h-3.5 text-gold" /> Size: {room.size}
                       </span>
-                      <span className="text-neutral-300">|</span>
-                      <span className="flex items-center gap-1">
+                      <span className="flex items-center gap-1.5">
                         <BedDouble className="w-3.5 h-3.5 text-gold" /> {room.bed}
                       </span>
-                      <span className="text-neutral-300">|</span>
-                      <span className="flex items-center gap-1">
+                      <span className="flex items-center gap-1.5">
                         <Eye className="w-3.5 h-3.5 text-gold" /> {room.view}
                       </span>
                     </div>
+
+                    <p className="text-neutral-600 text-xs font-sans font-light leading-relaxed text-justify line-clamp-3">
+                      {room.description}
+                    </p>
                   </div>
 
                   {/* Actions */}
-                  <div className="pt-4 border-t border-neutral-100 flex flex-col sm:flex-row justify-between items-center gap-3">
+                  <div className="pt-4 border-t border-neutral-100 flex items-center justify-between gap-3">
                     <button
                       onClick={() => navigate(`/rooms/${room.id}`)}
-                      className="w-full sm:w-auto text-center text-[10px] text-neutral-600 hover:text-gold uppercase tracking-widest font-sans font-medium transition-colors"
+                      className="text-[10px] text-neutral-600 hover:text-gold uppercase tracking-widest font-sans font-semibold transition-colors"
                     >
-                      View Details →
+                      Details →
                     </button>
                     <button
-                      onClick={() => handleBookNow(room)}
-                      className="w-full sm:w-auto text-center bg-gold hover:bg-gold-dark text-neutral-950 text-[10px] font-sans font-semibold uppercase tracking-widest py-2.5 px-5 shadow-gold-glow transition-all duration-300"
+                      onClick={() => handleBookNow(room.id)}
+                      className="bg-gold hover:bg-gold-dark text-neutral-950 text-[10px] font-sans font-semibold uppercase tracking-widest py-2 px-4 shadow-gold-glow transition-all duration-300"
                     >
                       Book Now
                     </button>
@@ -142,8 +134,172 @@ const RoomsSection = ({ onSelectRoomForBooking }) => {
                 </div>
               </motion.div>
             ))}
-          </AnimatePresence>
-        </motion.div>
+          </div>
+        </div>
+
+        {/* SECTION 2: DELUXE FAMILY ROOM */}
+        {deluxeRoom && (
+          <div className="space-y-8">
+            <div className="border-b border-neutral-100 pb-4">
+              <h3 className="text-xl md:text-2xl font-serif text-neutral-900 font-medium">2. Deluxe Family Rooms</h3>
+              <p className="text-xs text-neutral-500 font-sans tracking-wide mt-1">Extra space for larger families and groups</p>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="bg-neutral-50 border border-neutral-100 hover:border-gold/30 hover:bg-white transition-all duration-500 shadow-premium rounded-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 group"
+            >
+              {/* Image side */}
+              <div 
+                className="lg:col-span-7 relative overflow-hidden cursor-pointer h-[250px] sm:h-[350px] lg:h-auto min-h-[300px]"
+                onClick={() => navigate(`/rooms/${deluxeRoom.id}`)}
+              >
+                <div className="absolute inset-0 bg-neutral-950/20 group-hover:bg-neutral-950/40 transition-colors duration-500 z-10" />
+                <img
+                  src={deluxeRoom.image}
+                  alt={deluxeRoom.title}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute top-4 left-4 bg-neutral-950/80 backdrop-blur-md text-white font-sans text-xs font-semibold px-4 py-2 border border-gold/30 z-20">
+                  ₹{deluxeRoom.price.toLocaleString('en-IN')} <span className="text-neutral-400 font-light text-[10px]">/ Night</span>
+                </div>
+              </div>
+
+              {/* Info side */}
+              <div className="lg:col-span-5 p-8 flex flex-col justify-between space-y-6">
+                <div className="space-y-4">
+                  <span className="text-[10px] font-sans font-semibold tracking-widest text-gold uppercase block">Premium Comfort</span>
+                  <h4
+                    onClick={() => navigate(`/rooms/${deluxeRoom.id}`)}
+                    className="text-2xl font-serif text-neutral-950 font-medium hover:text-gold cursor-pointer transition-colors duration-300"
+                  >
+                    {deluxeRoom.title}
+                  </h4>
+
+                  {/* Specs Grid */}
+                  <div className="grid grid-cols-2 gap-3 text-neutral-600 text-xs font-sans">
+                    <span className="flex items-center gap-2">
+                      <Users className="w-4 h-4 text-gold" /> Capacity: {deluxeRoom.guests} People
+                    </span>
+                    <span className="flex items-center gap-2">
+                      <Maximize className="w-4 h-4 text-gold" /> Size: {deluxeRoom.size}
+                    </span>
+                    <span className="flex items-center gap-2">
+                      <BedDouble className="w-4 h-4 text-gold" /> {deluxeRoom.bed}
+                    </span>
+                    <span className="flex items-center gap-2">
+                      <Eye className="w-4 h-4 text-gold" /> {deluxeRoom.view}
+                    </span>
+                  </div>
+
+                  <p className="text-neutral-700 text-sm font-sans font-light leading-relaxed text-justify">
+                    {deluxeRoom.description}
+                  </p>
+                </div>
+
+                <div className="pt-6 border-t border-neutral-100 flex items-center justify-between">
+                  <button
+                    onClick={() => navigate(`/rooms/${deluxeRoom.id}`)}
+                    className="text-xs text-neutral-600 hover:text-gold uppercase tracking-widest font-sans font-semibold transition-colors"
+                  >
+                    View Gallery &amp; Details →
+                  </button>
+                  <button
+                    onClick={() => handleBookNow(deluxeRoom.id)}
+                    className="bg-gold hover:bg-gold-dark text-neutral-950 text-xs font-sans font-semibold uppercase tracking-widest py-3 px-6 shadow-gold-glow transition-all duration-300"
+                  >
+                    Book Now
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+
+        {/* SECTION 3: SUITE ROOMS */}
+        {suiteRoom && (
+          <div className="space-y-8">
+            <div className="border-b border-neutral-100 pb-4">
+              <h3 className="text-xl md:text-2xl font-serif text-neutral-900 font-medium">3. Suite Rooms</h3>
+              <p className="text-xs text-neutral-500 font-sans tracking-wide mt-1">Our ultimate luxury experience with premium wood furnishings and sofa seating</p>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="bg-neutral-50 border border-neutral-100 hover:border-gold/30 hover:bg-white transition-all duration-500 shadow-premium rounded-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 group"
+            >
+              {/* Info side (left side for Suite Room to alternate visually) */}
+              <div className="lg:col-span-5 p-8 flex flex-col justify-between space-y-6 order-2 lg:order-1">
+                <div className="space-y-4">
+                  <span className="text-[10px] font-sans font-semibold tracking-widest text-gold uppercase block">Luxury Suite</span>
+                  <h4
+                    onClick={() => navigate(`/rooms/${suiteRoom.id}`)}
+                    className="text-2xl font-serif text-neutral-900 font-medium hover:text-gold cursor-pointer transition-colors duration-300"
+                  >
+                    {suiteRoom.title}
+                  </h4>
+
+                  {/* Specs Grid */}
+                  <div className="grid grid-cols-2 gap-3 text-neutral-600 text-xs font-sans">
+                    <span className="flex items-center gap-2">
+                      <Users className="w-4 h-4 text-gold" /> Capacity: {suiteRoom.guests} People
+                    </span>
+                    <span className="flex items-center gap-2">
+                      <Maximize className="w-4 h-4 text-gold" /> Size: {suiteRoom.size}
+                    </span>
+                    <span className="flex items-center gap-2">
+                      <BedDouble className="w-4 h-4 text-gold" /> {suiteRoom.bed}
+                    </span>
+                    <span className="flex items-center gap-2">
+                      <Eye className="w-4 h-4 text-gold" /> {suiteRoom.view}
+                    </span>
+                  </div>
+
+                  <p className="text-neutral-700 text-sm font-sans font-light leading-relaxed text-justify">
+                    {suiteRoom.description}
+                  </p>
+                </div>
+
+                <div className="pt-6 border-t border-neutral-100 flex items-center justify-between">
+                  <button
+                    onClick={() => navigate(`/rooms/${suiteRoom.id}`)}
+                    className="text-xs text-neutral-600 hover:text-gold uppercase tracking-widest font-sans font-semibold transition-colors"
+                  >
+                    View Gallery &amp; Details →
+                  </button>
+                  <button
+                    onClick={() => handleBookNow(suiteRoom.id)}
+                    className="bg-gold hover:bg-gold-dark text-neutral-950 text-xs font-sans font-semibold uppercase tracking-widest py-3 px-6 shadow-gold-glow transition-all duration-300"
+                  >
+                    Book Now
+                  </button>
+                </div>
+              </div>
+
+              {/* Image side */}
+              <div 
+                className="lg:col-span-7 relative overflow-hidden cursor-pointer h-[250px] sm:h-[350px] lg:h-auto min-h-[300px] order-1 lg:order-2"
+                onClick={() => navigate(`/rooms/${suiteRoom.id}`)}
+              >
+                <div className="absolute inset-0 bg-neutral-950/20 group-hover:bg-neutral-950/40 transition-colors duration-500 z-10" />
+                <img
+                  src={suiteRoom.image}
+                  alt={suiteRoom.title}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute top-4 right-4 bg-neutral-950/80 backdrop-blur-md text-white font-sans text-xs font-semibold px-4 py-2 border border-gold/30 z-20">
+                  ₹{suiteRoom.price.toLocaleString('en-IN')} <span className="text-neutral-400 font-light text-[10px]">/ Night</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
 
       </div>
     </section>

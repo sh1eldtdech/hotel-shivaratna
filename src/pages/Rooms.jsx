@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import RoomsSection from '../components/RoomsSection';
 import rinchenpongBg from '../assets/westSikkimPhoto/Rinchenpong.avif';
+import viewfromhotel from '../assets/room/viewfromhotel.jpg';
 
 const Rooms = () => {
   const navigate = useNavigate();
@@ -35,6 +36,25 @@ const Rooms = () => {
 
       {/* Main Rooms Showcase (Includes filters and detail modals) */}
       <RoomsSection onSelectRoomForBooking={handleSelectRoomForBooking} />
+
+      {/* View from Hotel / Starlit nights banner */}
+      <section className="relative py-24 bg-neutral-950 text-white overflow-hidden border-t border-gold/20">
+        <div className="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-luminosity"
+             style={{ backgroundImage: `url("${viewfromhotel}")` }} />
+        <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/60 to-transparent" />
+        <div className="max-w-5xl mx-auto px-6 md:px-12 relative z-10 text-center space-y-6">
+          <span className="text-gold text-xs uppercase tracking-[0.3em] font-sans font-semibold block">
+            View from Hotel
+          </span>
+          <h3 className="text-xl md:text-3xl font-serif leading-relaxed italic text-neutral-200">
+            “On clear, starlit nights, the majestic Kanchenjunga mountain range glows brilliantly beneath the open sky, creating a breathtaking spectacle that leaves every visitor in awe.”
+          </h3>
+          <div className="w-16 h-[1px] bg-gold mx-auto" />
+          <span className="text-[10px] md:text-xs text-gold uppercase tracking-[0.25em] font-sans block">
+            Hotel Shivaratna · Rinchenpong
+          </span>
+        </div>
+      </section>
 
     </div>
   );

@@ -10,6 +10,13 @@ const RoomDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const room = ROOMS_DATA.find((r) => r.id === id);
+  const [activeImg, setActiveImg] = React.useState(room?.image);
+
+  React.useEffect(() => {
+    if (room) {
+      setActiveImg(room.image);
+    }
+  }, [room]);
 
   if (!room) {
     return (
@@ -30,7 +37,7 @@ const RoomDetail = () => {
       {/* Hero Banner */}
       <div className="relative h-[60vh] md:h-[75vh] overflow-hidden">
         <img
-          src={room.image}
+          src={activeImg}
           alt={room.title}
           className="w-full h-full object-cover scale-105 hover:scale-100 transition-transform duration-1000"
         />
@@ -111,6 +118,35 @@ const RoomDetail = () => {
                   {room.description}
                 </p>
               </motion.div>
+
+              {/* Room Gallery */}
+              {room.images && room.images.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.15 }}
+                  className="space-y-4"
+                >
+                  <h2 className="text-xl font-sans font-semibold text-gold uppercase tracking-widest">Room Gallery</h2>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    {room.images.map((imgUrl, index) => (
+                      <div
+                        key={index}
+                        onClick={() => setActiveImg(imgUrl)}
+                        className={`cursor-pointer overflow-hidden border-2 aspect-[4/3] relative rounded-md transition-all duration-300 ${
+                          activeImg === imgUrl ? 'border-gold shadow-md scale-[1.02]' : 'border-neutral-200 hover:border-gold/55'
+                        }`}
+                      >
+                        <img
+                          src={imgUrl}
+                          alt={`${room.title} gallery ${index + 1}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
 
               {/* Amenities */}
               <motion.div

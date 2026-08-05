@@ -1,5 +1,19 @@
 // High-quality data for Hotel Shivaratna
 
+import stdSingle1 from '../assets/room/Standard_SingleBed.jpg';
+import stdSingle2 from '../assets/room/Standard_SingleBed2.jpg';
+import stdDouble from '../assets/room/Standard_DoubleBed.jpg';
+import stdTriple1 from '../assets/room/Standard_TripleBed.jpg';
+import stdTriple2 from '../assets/room/Standard_TripleBed2.jpg';
+import deluxeQuad1 from '../assets/room/deluxe_fourbed.jpg';
+import deluxeQuad2 from '../assets/room/deluxe_fourbed2.jpg';
+import deluxeQuad3 from '../assets/room/deluxe_fourbed3.jpg';
+import suite1 from '../assets/room/Suite_Room.png';
+import suite2 from '../assets/room/SuiteRoom2.jpg';
+import suite3 from '../assets/room/Suite_Room3.jpg';
+import suite4 from '../assets/room/Suite_Room4.jpg';
+import bathroom from '../assets/room/bathroom.jpg';
+
 export const HERO_SLIDES = [
   {
     id: 1,
@@ -130,56 +144,84 @@ export const CORE_FACILITIES = [
 
 export const ROOMS_DATA = [
   {
-    id: "standard-room",
-    title: "Standard Room",
+    id: "standard-single",
+    title: "Standard Single Bed Room",
     price: 999,
     rating: 4.6,
-    guests: 2,
-    size: "250 sq ft",
-    bed: "Double Bed",
+    guests: 1,
+    size: "12' x 8'",
+    bed: "Single Bed",
     view: "Mountain View",
-    image: "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/room-imgs/201806211726437264-2312-0def80540b4e11ecb14a0a58a9feac02.jpg",
-    description: "Our Standard Room offers the perfect balance of comfort and value. Thoughtfully designed with cozy bedding, clean interiors, free high-speed Wi-Fi, and beautiful views of the surrounding mountains and greenery — everything you need for a peaceful Himalayan retreat.",
-    amenities: ["Free Wi-Fi", "Mountain View", "Comfortable Bedding", "Clean Interiors", "Daily Housekeeping", "24×7 Hot Water", "In-Room Power Backup", "Tea/Coffee Maker"]
+    category: "Standard",
+    image: stdSingle1,
+    images: [stdSingle1, stdSingle2, bathroom],
+    description: "Perfect for solo travellers, pilgrims, and business guests, our Standard Single Bed Room offers a peaceful and comfortable retreat. The room features a cosy single bed, bedside table, television, large window, hot water kettle, complimentary high-speed Wi-Fi, and 24×7 hot & cold water, providing everything you need for a relaxing Himalayan stay.",
+    amenities: ["Free Wi-Fi", "LED Television", "24×7 Hot & Cold Water", "Electric Kettle", "Comfortable Seating", "Spacious Wardrobe", "Fresh Linen", "Daily Housekeeping", "Essential Toiletries"],
+    totalRooms: 2
   },
   {
-    id: "deluxe-room",
-    title: "Deluxe Room",
-    price: 1499,
+    id: "standard-double",
+    title: "Standard Double Bed Room",
+    price: 1399,
     rating: 4.8,
     guests: 2,
-    size: "320 sq ft",
-    bed: "King Bed",
-    view: "Himalayan View",
-    image: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80",
-    description: "Elevate your stay in our Deluxe Room with a spacious layout, premium bedding, and stunning Himalayan views. Wake up to the fresh mountain breeze and enjoy modern amenities that make your stay both comfortable and memorable.",
-    amenities: ["Free Wi-Fi", "Himalayan View", "King Bed", "Modern Amenities", "Daily Housekeeping", "24×7 Hot Water", "Room Service", "Sitting Area", "Tea/Coffee Maker"]
+    size: "12' x 10'",
+    bed: "Double Bed",
+    view: "Mountain View",
+    category: "Standard",
+    image: stdDouble,
+    images: [stdDouble, bathroom],
+    description: "Designed for couples and two guests, our Standard Double Bed Room combines comfort with convenience. Featuring a comfortable double bed, work desk with chair, television, large window, hot water kettle, complimentary high-speed Wi-Fi, and 24×7 hot & cold water, the room offers a warm and inviting atmosphere for your mountain getaway.",
+    amenities: ["Free Wi-Fi", "LED Television", "24×7 Hot & Cold Water", "Electric Kettle", "Work Desk & Chair", "Spacious Wardrobe", "Fresh Linen", "Daily Housekeeping", "Essential Toiletries"],
+    totalRooms: 2
   },
   {
-    id: "super-deluxe-room",
-    title: "Super Deluxe Room",
-    price: 1999,
-    rating: 4.9,
+    id: "standard-triple",
+    title: "Standard Triple Bed Room",
+    price: 1799,
+    rating: 4.8,
     guests: 3,
-    size: "420 sq ft",
-    bed: "King Bed + Sofa",
-    view: "Panoramic Kanchenjunga View",
-    image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80",
-    description: "Our Super Deluxe Room offers a premium mountain retreat experience with panoramic views of Kanchenjunga, superior furnishings, and extra space for a truly indulgent stay. The perfect choice for those who want a little more luxury amidst the Himalayan beauty.",
-    amenities: ["Free Wi-Fi", "Panoramic Kanchenjunga View", "Premium Bedding", "Superior Furnishings", "Daily Housekeeping", "24×7 Hot Water", "Room Service", "Sitting Area", "Mini Fridge", "Tea/Coffee Maker"]
+    size: "12' x 10'",
+    bed: "1 Double + 1 Single Bed",
+    view: "Scenic Mountain View",
+    category: "Standard",
+    image: stdTriple1,
+    images: [stdTriple1, stdTriple2, bathroom],
+    description: "Ideal for families and small groups, our Standard Triple Bed Room offers spacious accommodation with modern comforts. Featuring one double bed and one single bed, a work desk with chair, television, private balcony, hot water kettle, complimentary high-speed Wi-Fi, and 24×7 hot & cold water, it ensures a relaxing stay with scenic mountain views.",
+    amenities: ["Free Wi-Fi", "Private Balcony", "LED Television", "24×7 Hot & Cold Water", "Electric Kettle", "Work Desk & Chair", "Spacious Wardrobe", "Fresh Linen", "Daily Housekeeping", "Essential Toiletries"],
+    totalRooms: 5
   },
   {
-    id: "suite",
-    title: "Suite",
-    price: 2999,
-    rating: 5.0,
+    id: "deluxe-quadruple",
+    title: "Deluxe Family Quadruple Four Bed Room",
+    price: 2499,
+    rating: 4.9,
     guests: 4,
-    size: "600 sq ft",
-    bed: "2 King Beds",
-    view: "360° Kanchenjunga & Valley View",
-    image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80",
-    description: "The crown jewel of Hotel Shivaratna. Our Suite offers a spacious, luxurious experience with breathtaking 360° Kanchenjunga and valley views, a separate living area, premium amenities, and personalised service — perfect for families, couples, and special occasions.",
-    amenities: ["Free Wi-Fi", "360° Kanchenjunga View", "Separate Living Area", "2 King Beds", "Premium Bedding", "Daily Housekeeping", "24×7 Hot Water", "Priority Room Service", "Complimentary Breakfast", "Mini Fridge", "Premium Toiletries", "Tea/Coffee Maker"]
+    size: "12' x 22'",
+    bed: "Four Beds",
+    view: "Scenic Mountain View",
+    category: "Deluxe",
+    image: deluxeQuad1,
+    images: [deluxeQuad1, deluxeQuad2, deluxeQuad3, bathroom],
+    description: "Perfect for larger families and groups, our Family Deluxe Quadruple Room offers generous space, comfort, and breathtaking mountain views. The room features four comfortable beds, a work desk with chair, television, private balcony, scenic view windows, hot water kettle, complimentary high-speed Wi-Fi, and 24×7 hot & cold water for a memorable family holiday.",
+    amenities: ["Free Wi-Fi", "Private Balcony", "LED Television", "24×7 Hot & Cold Water", "Electric Kettle", "Scenic View Windows", "Work Desk & Chair", "Spacious Wardrobe", "Fresh Linen", "Daily Housekeeping", "Essential Toiletries"],
+    totalRooms: 1
+  },
+  {
+    id: "suite-room",
+    title: "Suite Room",
+    price: 3499,
+    rating: 5.0,
+    guests: 2,
+    size: "12' x 12'",
+    bed: "King Bed + Sofa & Table",
+    view: "Himalayan View",
+    category: "Suite",
+    image: suite1,
+    images: [suite1, suite2, suite3, suite4, bathroom],
+    description: "Experience luxury and elegance in our Premium Suite Room, thoughtfully designed with premium wooden furnishings and sophisticated interiors. Featuring artistic wall décor, modern lighting, large sliding windows, a spacious wardrobe, comfortable seating area (with sofa and table), work desk, television, hot water kettle, complimentary high-speed Wi-Fi, and 24×7 hot & cold water, the suite offers the perfect blend of comfort, style, and Himalayan charm.",
+    amenities: ["Free Wi-Fi", "Sofa & Table Seating", "Premium Wooden Furnishings", "Artistic Wall Décor", "Large Sliding Windows", "LED Television", "24×7 Hot & Cold Water", "Electric Kettle", "Spacious Wardrobe", "Fresh Linen", "Daily Housekeeping", "Essential Toiletries"],
+    totalRooms: 4
   }
 ];
 

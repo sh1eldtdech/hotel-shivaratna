@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Clock, Star } from 'lucide-react';
+import { MapPin, Clock, Star, Hotel, Mountain, TreePine, Eye, Compass, Music, Heart } from 'lucide-react';
 import { CORE_FACILITIES } from '../data/hotelData';
 import ownerImg from '../assets/owner.png';
 import kanchenjungaBg from '../assets/gallery/kanchenjunga view from Hotel.JPG (1).jpeg';
@@ -16,12 +16,13 @@ import rabindranath from '../assets/aroundhotel/Rabindranath.jpg';
 import rinchenpongMonastery from '../assets/aroundhotel/Rinchenpong_Monastery.jpg';
 import poisonLake from '../assets/aroundhotel/Poison_Lake.jpg';
 import dakBungalow from '../assets/aroundhotel/Dak_Bungalow.jpg';
-import reshiMonastery from '../assets/aroundhotel/Reshi_Monastery.jpg';
+import reesumMonastery from '../assets/aroundhotel/Reshi_Monastery.jpg';
 import ajingFarm from '../assets/aroundhotel/Ajing_Farm.jpg';
 import sribadamWaterfall from '../assets/aroundhotel/Sribadam_Waterfall.jpg';
 import bombhir from '../assets/aroundhotel/Bombhir.jpg';
 import chaayatalLake from '../assets/aroundhotel/Chaayatal_Lake.jpg';
 import bermiokShiva from '../assets/aroundhotel/Bermiok_Shiva.jpg';
+import singshoreBridge from '../assets/aroundhotel/Singshore Bridge.png';
 
 const exploreData = [
   {
@@ -76,7 +77,7 @@ const exploreData = [
     time: "45–60 min walk (forest trail)",
     description: "Nestled amidst beautiful forests, Reesum Monastery is a peaceful spiritual destination known for its calm surroundings and natural beauty. The scenic route to the monastery allows visitors to experience fresh mountain air, greenery, and the tranquillity of the Himalayan landscape.",
     category: "Spiritual",
-    image: reshiMonastery,
+    image: reesumMonastery,
   },
   {
     id: 7,
@@ -137,9 +138,9 @@ const exploreData = [
     name: "Singshore Bridge",
     distance: "30 km",
     time: "60–70 min drive",
-    description: "Singshore Bridge is one of the highest suspension bridges in Sikkim, offering breathtaking panoramic views of lush valleys, waterfalls, and the surrounding Himalayan landscape. It is a popular destination for sightseeing, photography, and experiencing the region's natural beauty.",
+    description: "Singshore Bridge is one of the highest suspension bridges in Sikkim, offering breathtaking panoramic views of lush valleys, waterfalls, and the surrounding Himalayan landscape. Currently under renovation and undergoing the installation of a glass skywalk bridge, it remains a popular destination for sightseeing, photography, and experiencing the region's natural beauty.",
     category: "Adventure",
-    image: chaayatalLake,
+    image: singshoreBridge,
   },
 ];
 
@@ -194,7 +195,7 @@ const About = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="relative rounded-xl overflow-hidden shadow-xl border-2 border-gold/20 max-w-[320px] aspect-[3/4]"
+                className="relative rounded-xl overflow-hidden shadow-xl border-2 border-gold/20 max-w-[320px] aspect-[4/3]"
               >
                 <img
                   src={ownerImg}
@@ -227,139 +228,305 @@ const About = () => {
       </section>
 
       {/* Main Hotel Story Sections */}
-      <section className="py-20 bg-luxury-cream">
-        <div className="max-w-5xl mx-auto px-6 md:px-12 space-y-16">
-          
-          {/* Section: Welcome */}
-          <div className="space-y-4">
-            <h3 className="text-2xl font-serif font-medium text-neutral-900 border-b border-gold/20 pb-2">
-              Welcome to Hotel Shivaratna
-            </h3>
-            <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
-              Welcome to Hotel Shivaratna, your peaceful mountain retreat in the heart of Rinchenpong, West Sikkim. Surrounded by lush forests, cool mountain air, and breathtaking Himalayan views, our hotel offers the perfect blend of comfort, nature, and authentic Sikkimese hospitality. Whether you're a pilgrim, nature lover, adventure seeker, remote worker, or simply looking to escape the rush of city life, Hotel Shivaratna is your ideal base to experience the hidden treasures of West Sikkim.
-            </p>
-          </div>
+      <section className="py-24 relative overflow-hidden">
+        {/* Rich decorative background */}
+        <div className="absolute inset-0" style={{
+          background: 'linear-gradient(135deg, #fffdf8 0%, #f5f0e8 25%, #fffdf8 50%, #f8f3eb 75%, #fffdf8 100%)'
+        }} />
 
-          {/* Section: Accommodation & Facilities */}
-          <div className="space-y-4">
-            <h3 className="text-2xl font-serif font-medium text-neutral-900 border-b border-gold/20 pb-2">
-              Comfortable Accommodation &amp; Facilities
-            </h3>
-            <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
-              Our hotel features 14 well-appointed rooms with quality accommodation at affordable rates, ensuring a comfortable stay for every guest. We offer delicious home-style food at our restaurant, a fully stocked bar, a spacious meeting and conference room for gatherings and corporate events, free high-speed Wi-Fi, and complete fooding and lodging facilities. Our friendly and dedicated team takes pride in being the perfect hosts, ensuring every guest feels at home.
-            </p>
-          </div>
+        {/* Floating animated decorative orbs */}
+        <motion.div
+          animate={{ y: [0, -25, 0], opacity: [0.3, 0.6, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute top-32 right-10 w-80 h-80 bg-gradient-to-br from-gold/10 to-amber-200/5 rounded-full blur-3xl pointer-events-none"
+        />
+        <motion.div
+          animate={{ y: [0, 20, 0], opacity: [0.2, 0.5, 0.2] }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 3 }}
+          className="absolute bottom-48 -left-20 w-96 h-96 bg-gradient-to-tr from-amber-100/10 to-gold/5 rounded-full blur-3xl pointer-events-none"
+        />
+        <motion.div
+          animate={{ x: [0, 15, 0], opacity: [0.15, 0.35, 0.15] }}
+          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 5 }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-radial from-gold/5 to-transparent rounded-full blur-3xl pointer-events-none"
+        />
 
-          {/* Section: Prime Location */}
-          <div className="space-y-4">
-            <h3 className="text-2xl font-serif font-medium text-neutral-900 border-b border-gold/20 pb-2">
-              Prime Location
-            </h3>
-            <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
-              One of Hotel Shivaratna's greatest advantages is its strategic location. Situated opposite the historic Rinchen Cholang Monastery, guests can witness one of the oldest Buddhist monasteries in the region, rich in spiritual heritage and local history. Just across the road is the beautiful Rabindranath Van, where the statue of Nobel Laureate Rabindranath Tagore is nearing completion, creating another landmark for visitors.
-            </p>
-          </div>
+        <div className="max-w-5xl mx-auto px-6 md:px-12 relative z-10">
 
-          {/* Section: Nature & Scenic Surroundings */}
-          <div className="space-y-4">
-            <h3 className="text-2xl font-serif font-medium text-neutral-900 border-b border-gold/20 pb-2">
-              Nature &amp; Scenic Surroundings
-            </h3>
-            <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
-              Behind the hotel lies a scenic trekking trail through pristine forests, while the peaceful ambience, cool climate, and chirping birds create the perfect environment to relax and reconnect with nature. During spring (March to May), the hills become vibrant with blooming rhododendrons and pleasant winds, making it one of the best times to visit. Summer offers clear skies and magnificent views of Mount Kanchenjunga, while the monsoon (June to September) transforms the landscape into a lush green paradise with refreshing rainfall. Autumn and winter (October to February) are equally rewarding with crisp mountain air and spectacular Himalayan panoramas, making October to May the peak tourism season.
-            </p>
-          </div>
+          {/* Section header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="text-center mb-16"
+          >
+            <span className="text-xs font-semibold tracking-[0.25em] text-gold uppercase block font-sans">Our Story</span>
+            <h2 className="text-3xl md:text-4xl font-medium text-neutral-900 font-serif mt-3">Discover Hotel Shivaratna</h2>
+            <div className="w-16 h-[1.5px] bg-gold mx-auto mt-4" />
+          </motion.div>
 
-          {/* Section: Spectacular Himalayan Views */}
-          <div className="space-y-4">
-            <h3 className="text-2xl font-serif font-medium text-neutral-900 border-b border-gold/20 pb-2">
-              Spectacular Himalayan Views
-            </h3>
-            <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
-              From the hotel, guests can enjoy panoramic views stretching across the valleys. On clear days, you can witness the majestic Kanchenjunga, the bustling Geyzing Bazaar below, Pelling's Chenrezig Statue, Ravangla, and even the magnificent 108-foot Statue of Lord Shiva at Namchi, making Hotel Shivaratna one of the finest viewpoints in the region.
-            </p>
-          </div>
+          <div className="space-y-8">
 
-          {/* Section: Nearby Attractions */}
-          <div className="space-y-4">
-            <h3 className="text-2xl font-serif font-medium text-neutral-900 border-b border-gold/20 pb-2">
-              Nearby Attractions
-            </h3>
-            <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
-              Rinchenpong Bazaar is only 1 kilometre away, providing convenient access to shops, local markets, and daily necessities. Nearby attractions include the historic Dak Bungalow, the serene Poison Lake, which can be reached via a beautiful forest trail, and the peaceful Reesum Monastery, accessible through a short forest hike.
-            </p>
-            <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
-              Wine lovers can explore Ajing Farm, located about 8 kilometres from the hotel, famous for its locally produced fruit wines and unique flavours. Nature enthusiasts can visit Sribadam, known for its stunning waterfall surrounded by beautiful pine forests, offering excellent opportunities for photography and relaxation.
-            </p>
-            <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
-              Adventure seekers should not miss the iconic Singshore Bridge, one of the highest suspension bridges in Asia, located within comfortable driving distance from the hotel. Guests can also explore Chaayatal, associated with the legendary Subba King, or visit the sacred Shiva Cave at Bermiok, an important pilgrimage destination with immense spiritual significance.
-            </p>
-            <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
-              A unique attraction nearby is Bombhir, where natural mineral-rich spring water flows directly from the mountains. Visitors often stop here to wash their vehicles with the continuously flowing water, creating a natural "free car wash." The fresh spring water is safe to drink, rich in natural minerals, and has long been appreciated by locals for helping travellers feel refreshed and reducing dizziness or motion sickness after winding mountain journeys.
-            </p>
-          </div>
+            {/* Card: Welcome */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="group bg-white/90 backdrop-blur-sm border border-gold/10 hover:border-gold/30 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 relative overflow-hidden"
+            >
+              <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-gold via-amber-400 to-gold/30 rounded-l-2xl" />
+              <div className="absolute -top-10 -right-10 w-32 h-32 bg-gold/5 rounded-full blur-2xl group-hover:bg-gold/10 transition-colors duration-700" />
+              <div className="pl-5 relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2.5 rounded-xl bg-gold/10 text-gold"><Hotel className="w-5 h-5" /></div>
+                  <h3 className="text-xl md:text-2xl font-serif font-medium text-neutral-900 group-hover:text-gold transition-colors duration-300">
+                    Welcome to Hotel Shivaratna
+                  </h3>
+                </div>
+                <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
+                  Welcome to Hotel Shivaratna, your peaceful mountain retreat in the heart of Rinchenpong, West Sikkim. Surrounded by lush forests, cool mountain air, and breathtaking Himalayan views, our hotel offers the perfect blend of comfort, nature, and authentic Sikkimese hospitality. Whether you're a pilgrim, nature lover, adventure seeker, remote worker, or simply looking to escape the rush of city life, Hotel Shivaratna is your ideal base to experience the hidden treasures of West Sikkim.
+                </p>
+              </div>
+            </motion.div>
 
-          {/* Section: Your Gateway to West Sikkim */}
-          <div className="space-y-4">
-            <h3 className="text-2xl font-serif font-medium text-neutral-900 border-b border-gold/20 pb-2">
-              Your Gateway to West Sikkim
-            </h3>
-            <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
-              Hotel Shivaratna serves as the perfect central hub for exploring the many attractions of West Sikkim. Most destinations can be comfortably visited on day trips, allowing guests to return to the comfort of the hotel each evening. Whether your journey is for pilgrimage tourism, sightseeing, trekking, photography, family holidays, business travel, or a peaceful work-from-home getaway, our location makes every experience convenient and memorable.
-            </p>
-          </div>
+            {/* Card: Accommodation & Facilities */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="group bg-white/90 backdrop-blur-sm border border-gold/10 hover:border-gold/30 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 relative overflow-hidden"
+            >
+              <div className="absolute right-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-gold via-amber-400 to-gold/30 rounded-r-2xl" />
+              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-amber-100/10 rounded-full blur-2xl group-hover:bg-gold/10 transition-colors duration-700" />
+              <div className="pr-5 relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2.5 rounded-xl bg-gold/10 text-gold"><Star className="w-5 h-5" /></div>
+                  <h3 className="text-xl md:text-2xl font-serif font-medium text-neutral-900 group-hover:text-gold transition-colors duration-300">
+                    Comfortable Accommodation &amp; Facilities
+                  </h3>
+                </div>
+                <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
+                  Our hotel features 14 well-appointed rooms with quality accommodation at affordable rates, ensuring a comfortable stay for every guest. We offer delicious home-style food at our restaurant, a fully stocked bar, a spacious meeting and conference room for gatherings and corporate events, free high-speed Wi-Fi, and complete fooding and lodging facilities. Our friendly and dedicated team takes pride in being the perfect hosts, ensuring every guest feels at home.
+                </p>
+              </div>
+            </motion.div>
 
-          {/* Section: Entertainment & Leisure */}
-          <div className="space-y-4">
-            <h3 className="text-2xl font-serif font-medium text-neutral-900 border-b border-gold/20 pb-2">
-              Entertainment &amp; Leisure
-            </h3>
-            <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
-              As the day comes to an end, unwind at our lively Butterfly Stage, where guests are warmly invited to enjoy karaoke singing, dancing, live performances, and memorable evenings with family and friends. It's the perfect place to celebrate, connect with fellow travellers, and create lasting memories.
-            </p>
-          </div>
+            {/* Card: Prime Location */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="group bg-white/90 backdrop-blur-sm border border-gold/10 hover:border-gold/30 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 relative overflow-hidden"
+            >
+              <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-gold via-amber-400 to-gold/30 rounded-l-2xl" />
+              <div className="absolute -top-10 -right-10 w-32 h-32 bg-gold/5 rounded-full blur-2xl group-hover:bg-gold/10 transition-colors duration-700" />
+              <div className="pl-5 relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2.5 rounded-xl bg-gold/10 text-gold"><MapPin className="w-5 h-5" /></div>
+                  <h3 className="text-xl md:text-2xl font-serif font-medium text-neutral-900 group-hover:text-gold transition-colors duration-300">
+                    Prime Location
+                  </h3>
+                </div>
+                <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
+                  One of Hotel Shivaratna's greatest advantages is its strategic location. Situated opposite the historic Rinchen Cholang Monastery, guests can witness one of the oldest Buddhist monasteries in the region, rich in spiritual heritage and local history. Just across the road is the beautiful Rabindranath Van, where the statue of Nobel Laureate Rabindranath Tagore is nearing completion, creating another landmark for visitors.
+                </p>
+              </div>
+            </motion.div>
 
-          {/* Section: Experience the Hospitality */}
-          <div className="space-y-4">
-            <h3 className="text-2xl font-serif font-medium text-neutral-900 border-b border-gold/20 pb-2">
-              Experience the Hospitality of Hotel Shivaratna
-            </h3>
-            <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify border-l-4 border-gold pl-4 italic">
-              "At Hotel Shivaratna, every sunrise brings Himalayan beauty, every breeze carries the freshness of the mountains, and every stay becomes a cherished memory. We warmly invite you to experience the hospitality, serenity, and natural splendour of Rinchenpong with us."
-            </p>
-          </div>
+            {/* Card: Nature & Scenic Surroundings */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="group bg-white/90 backdrop-blur-sm border border-gold/10 hover:border-gold/30 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 relative overflow-hidden"
+            >
+              <div className="absolute right-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-gold via-amber-400 to-gold/30 rounded-r-2xl" />
+              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-emerald-50/20 rounded-full blur-2xl group-hover:bg-gold/10 transition-colors duration-700" />
+              <div className="pr-5 relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2.5 rounded-xl bg-emerald-50 text-emerald-600"><TreePine className="w-5 h-5" /></div>
+                  <h3 className="text-xl md:text-2xl font-serif font-medium text-neutral-900 group-hover:text-gold transition-colors duration-300">
+                    Nature &amp; Scenic Surroundings
+                  </h3>
+                </div>
+                <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
+                  Behind the hotel lies a scenic trekking trail through pristine forests, while the peaceful ambience, cool climate, and chirping birds create the perfect environment to relax and reconnect with nature. During spring (March to May), the hills become vibrant with blooming rhododendrons and pleasant winds, making it one of the best times to visit. Summer offers clear skies and magnificent views of Mount Kanchenjunga, while the monsoon (June to September) transforms the landscape into a lush green paradise with refreshing rainfall. Autumn and winter (October to February) are equally rewarding with crisp mountain air and spectacular Himalayan panoramas, making October to May the peak tourism season.
+                </p>
+              </div>
+            </motion.div>
 
+            {/* Card: Spectacular Himalayan Views */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="group bg-white/90 backdrop-blur-sm border border-gold/10 hover:border-gold/30 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 relative overflow-hidden"
+            >
+              <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-gold via-amber-400 to-gold/30 rounded-l-2xl" />
+              <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-50/20 rounded-full blur-2xl group-hover:bg-gold/10 transition-colors duration-700" />
+              <div className="pl-5 relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2.5 rounded-xl bg-blue-50 text-blue-600"><Eye className="w-5 h-5" /></div>
+                  <h3 className="text-xl md:text-2xl font-serif font-medium text-neutral-900 group-hover:text-gold transition-colors duration-300">
+                    Spectacular Himalayan Views
+                  </h3>
+                </div>
+                <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
+                  From the hotel, guests can enjoy panoramic views stretching across the valleys. On clear days, you can witness the majestic Kanchenjunga, the bustling Geyzing Bazaar below, Pelling's Chenrezig Statue, Ravangla, and even the magnificent 108-foot Statue of Lord Shiva at Namchi, making Hotel Shivaratna one of the finest viewpoints in the region.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Card: Nearby Attractions */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="group bg-white/90 backdrop-blur-sm border border-gold/10 hover:border-gold/30 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 relative overflow-hidden"
+            >
+              <div className="absolute right-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-gold via-amber-400 to-gold/30 rounded-r-2xl" />
+              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-amber-100/10 rounded-full blur-2xl group-hover:bg-gold/10 transition-colors duration-700" />
+              <div className="pr-5 relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2.5 rounded-xl bg-gold/10 text-gold"><Compass className="w-5 h-5" /></div>
+                  <h3 className="text-xl md:text-2xl font-serif font-medium text-neutral-900 group-hover:text-gold transition-colors duration-300">
+                    Nearby Attractions
+                  </h3>
+                </div>
+                <div className="space-y-4">
+                  <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
+                    Rinchenpong Bazaar is only 1 kilometre away, providing convenient access to shops, local markets, and daily necessities. Nearby attractions include the historic Dak Bungalow, the serene Poison Lake, which can be reached via a beautiful forest trail, and the peaceful Reesum Monastery, accessible through a short forest hike.
+                  </p>
+                  <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
+                    Wine lovers can explore Ajing Farm, located about 8 kilometres from the hotel, famous for its locally produced fruit wines and unique flavours. Nature enthusiasts can visit Sribadam, known for its stunning waterfall surrounded by beautiful pine forests, offering excellent opportunities for photography and relaxation.
+                  </p>
+                  <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
+                    Adventure seekers should not miss the iconic Singshore Bridge, one of the highest suspension bridges in Asia, located within comfortable driving distance from the hotel. Guests can also explore Chaayatal, associated with the legendary Subba King, or visit the sacred Shiva Cave at Bermiok, an important pilgrimage destination with immense spiritual significance.
+                  </p>
+                  <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
+                    A unique attraction nearby is Bombhir, where natural mineral-rich spring water flows directly from the mountains. Visitors often stop here to wash their vehicles with the continuously flowing water, creating a natural "free car wash." The fresh spring water is safe to drink, rich in natural minerals, and has long been appreciated by locals for helping travellers feel refreshed and reducing dizziness or motion sickness after winding mountain journeys.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Card: Your Gateway to West Sikkim */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="group bg-white/90 backdrop-blur-sm border border-gold/10 hover:border-gold/30 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 relative overflow-hidden"
+            >
+              <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-gold via-amber-400 to-gold/30 rounded-l-2xl" />
+              <div className="absolute -top-10 -right-10 w-32 h-32 bg-gold/5 rounded-full blur-2xl group-hover:bg-gold/10 transition-colors duration-700" />
+              <div className="pl-5 relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2.5 rounded-xl bg-gold/10 text-gold"><Mountain className="w-5 h-5" /></div>
+                  <h3 className="text-xl md:text-2xl font-serif font-medium text-neutral-900 group-hover:text-gold transition-colors duration-300">
+                    Your Gateway to West Sikkim
+                  </h3>
+                </div>
+                <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
+                  Hotel Shivaratna serves as the perfect central hub for exploring the many attractions of West Sikkim. Most destinations can be comfortably visited on day trips, allowing guests to return to the comfort of the hotel each evening. Whether your journey is for pilgrimage tourism, sightseeing, trekking, photography, family holidays, business travel, or a peaceful work-from-home getaway, our location makes every experience convenient and memorable.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Card: Entertainment & Leisure */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="group bg-white/90 backdrop-blur-sm border border-gold/10 hover:border-gold/30 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 relative overflow-hidden"
+            >
+              <div className="absolute right-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-gold via-amber-400 to-gold/30 rounded-r-2xl" />
+              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-purple-50/15 rounded-full blur-2xl group-hover:bg-gold/10 transition-colors duration-700" />
+              <div className="pr-5 relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2.5 rounded-xl bg-purple-50 text-purple-600"><Music className="w-5 h-5" /></div>
+                  <h3 className="text-xl md:text-2xl font-serif font-medium text-neutral-900 group-hover:text-gold transition-colors duration-300">
+                    Entertainment &amp; Leisure
+                  </h3>
+                </div>
+                <p className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
+                  As the day comes to an end, unwind at our lively Butterfly Stage, where guests are warmly invited to enjoy karaoke singing, dancing, live performances, and memorable evenings with family and friends. It's the perfect place to celebrate, connect with fellow travellers, and create lasting memories.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Card: Experience the Hospitality — special highlight style */}
+            <motion.div
+              initial={{ opacity: 0, y: 40, scale: 0.97 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative rounded-2xl overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(198,155,78,0.15),_transparent_60%)]" />
+              <motion.div
+                animate={{ opacity: [0.3, 0.6, 0.3] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                className="absolute top-0 right-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl pointer-events-none"
+              />
+              <div className="relative z-10 p-10 md:p-14 text-center">
+                <div className="flex justify-center mb-6">
+                  <div className="p-3 rounded-full bg-gold/15 text-gold border border-gold/20">
+                    <Heart className="w-6 h-6" />
+                  </div>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-serif font-medium text-white mb-6">
+                  Experience the Hospitality of Hotel Shivaratna
+                </h3>
+                <div className="w-12 h-[1px] bg-gold mx-auto mb-6" />
+                <p className="text-neutral-200 text-sm md:text-lg font-sans font-light leading-relaxed italic max-w-3xl mx-auto">
+                  "At Hotel Shivaratna, every sunrise brings Himalayan beauty, every breeze carries the freshness of the mountains, and every stay becomes a cherished memory. We warmly invite you to experience the hospitality, serenity, and natural splendour of Rinchenpong with us."
+                </p>
+                <p className="text-gold text-[10px] md:text-xs font-sans tracking-[0.3em] uppercase mt-6">Hotel Shivaratna · Rinchenpong</p>
+              </div>
+            </motion.div>
+
+          </div>
         </div>
       </section>
 
       {/* Restaurant & Bar Showcase Section */}
-      <section id="restaurant" className="py-16 bg-white border-t border-neutral-100">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 xl:grid-cols-[0.9fr_1.1fr] gap-6 items-stretch">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.7 }}
-              className="bg-neutral-950 text-white rounded-[2rem] p-6 md:p-8 flex flex-col justify-between border border-gold/20 shadow-[0_30px_80px_-45px_rgba(0,0,0,0.85)]"
-            >
-              <div className="space-y-5">
-                <span className="text-[10px] md:text-xs font-semibold tracking-[0.35em] text-gold uppercase block font-sans">
-                  Restaurant · Fine Dining &amp; Bar
-                </span>
-                <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-medium leading-[0.9] text-white font-serif">
-                  From farm to table.
-                </h2>
-                <div className="w-16 h-[1.5px] bg-gold" />
-                <p className="text-neutral-300 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
-                  We serve freshly harvested organic food cooked with care. Every meal begins at its source, bringing the freshest produce and authentic Himalayan flavours to your table.
-                </p>
-                <p className="text-neutral-300 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
-                  From crisp vegetables and aromatic herbs to seasonal produce, each ingredient is handpicked for purity, freshness, and quality. Our farm-to-table philosophy preserves the natural taste of Sikkim and pairs beautifully with a premium bar experience.
-                </p>
-              </div>
+      <section id="restaurant" className="py-20 bg-white border-t border-neutral-100">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
 
-              <div className="mt-6 flex flex-wrap items-center gap-3">
+          {/* Text Panel — full width dark banner */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7 }}
+            className="bg-neutral-950 text-white rounded-t-[2rem] p-10 md:p-14 border border-gold/20 border-b-0 shadow-[0_-10px_60px_-30px_rgba(0,0,0,0.5)] relative overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(198,155,78,0.1),_transparent_60%)]" />
+            <div className="relative z-10 max-w-3xl">
+              <span className="text-[10px] md:text-xs font-semibold tracking-[0.35em] text-gold uppercase block font-sans">
+                Restaurant · Fine Dining &amp; Bar
+              </span>
+              <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-medium leading-[0.9] text-white font-serif mt-5">
+                From farm to table.
+              </h2>
+              <div className="w-16 h-[1.5px] bg-gold mt-6" />
+              <p className="text-neutral-300 text-sm md:text-base font-sans font-light leading-relaxed text-justify mt-6">
+                We serve freshly harvested organic food cooked with care. Every meal begins at its source, bringing the freshest produce and authentic Himalayan flavours to your table.
+              </p>
+              <p className="text-neutral-300 text-sm md:text-base font-sans font-light leading-relaxed text-justify mt-4">
+                From crisp vegetables and aromatic herbs to seasonal produce, each ingredient is handpicked for purity, freshness, and quality. Our farm-to-table philosophy preserves the natural taste of Sikkim and pairs beautifully with a premium bar experience.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
                 <span className="inline-flex items-center rounded-full border border-gold/30 bg-gold/10 px-3 py-2 text-[10px] md:text-xs font-sans uppercase tracking-[0.3em] text-gold">
                   Organic Cuisine
                 </span>
@@ -367,61 +534,76 @@ const About = () => {
                   Premium Bar
                 </span>
               </div>
+            </div>
+          </motion.div>
+
+          {/* Image Mosaic — asymmetric bento grid */}
+          <div className="grid grid-cols-12 grid-rows-[200px_200px_200px] md:grid-rows-[220px_220px] gap-2 rounded-b-[2rem] overflow-hidden border border-gold/10 border-t-0 shadow-[0_30px_80px_-35px_rgba(0,0,0,0.45)]">
+            {/* Large hero image — left tall */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.7 }}
+              className="col-span-12 md:col-span-5 row-span-2 md:row-span-2 overflow-hidden bg-neutral-900 group"
+            >
+              <img src={diningBarImage3} alt="Premium bar cabinet display" className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
             </motion.div>
 
-            <div className="grid grid-cols-12 gap-2 auto-rows-[120px] md:auto-rows-[170px] overflow-hidden rounded-[1.6rem] border border-white/50 shadow-[0_25px_70px_-28px_rgba(0,0,0,0.55)]">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.96 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.7 }}
-                whileHover={{ y: -4 }}
-                className="col-span-12 sm:col-span-5 row-span-2 overflow-hidden bg-neutral-900"
-              >
-                <img src={diningBarImage3} alt="Premium bar cabinet display" className="w-full h-full object-cover object-center" />
-              </motion.div>
+            {/* Top right — wide */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.6, delay: 0.08 }}
+              className="col-span-6 md:col-span-4 overflow-hidden bg-neutral-900 group"
+            >
+              <img src={diningBarImage1} alt="Fine dining interior ambience" className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+            </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.7, delay: 0.06 }}
-                whileHover={{ y: -4 }}
-                className="col-span-12 sm:col-span-7 overflow-hidden bg-neutral-900"
-              >
-                <img src={diningBarImage1} alt="Fine dining interior ambience" className="w-full h-full object-cover object-center" />
-              </motion.div>
+            {/* Top far-right — square accent */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.6, delay: 0.14 }}
+              className="col-span-6 md:col-span-3 overflow-hidden bg-neutral-900 group"
+            >
+              <img src={diningBarImage4} alt="Gourmet dishes presentation" className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+            </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.7, delay: 0.12 }}
-                whileHover={{ y: -4 }}
-                className="col-span-12 sm:col-span-4 overflow-hidden bg-neutral-900"
-              >
-                <img src={diningBarImage2} alt="Fresh gourmet food platter" className="w-full h-full object-cover object-center" />
-              </motion.div>
+            {/* Bottom middle — food */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="col-span-7 md:col-span-3 overflow-hidden bg-neutral-900 group"
+            >
+              <img src={diningBarImage2} alt="Fresh gourmet food platter" className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+            </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.7, delay: 0.18 }}
-                whileHover={{ y: -4 }}
-                className="col-span-12 sm:col-span-8 flex items-center justify-center border border-[#d8c7ac] bg-[#f8f3ee] px-4 py-4"
-              >
-                <div className="max-w-[220px] text-center">
-                  <p className="text-[9px] md:text-[10px] font-semibold tracking-[0.24em] text-gold uppercase block font-sans mb-2">
-                    Our Promise
-                  </p>
-                  <p className="font-serif text-base md:text-xl leading-tight text-neutral-900">
-                    “Fresh ingredients, warm hospitality.”
-                  </p>
-                </div>
-              </motion.div>
-            </div>
+            {/* Bottom right — quote card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.6, delay: 0.26 }}
+              className="col-span-5 md:col-span-4 flex items-center justify-center bg-[#f8f3ee] border-l border-[#d8c7ac] relative overflow-hidden group"
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(198,155,78,0.08),_transparent_70%)]" />
+              <div className="relative z-10 max-w-[220px] text-center px-4">
+                <p className="text-[9px] md:text-[10px] font-semibold tracking-[0.24em] text-gold uppercase block font-sans mb-3">
+                  Our Promise
+                </p>
+                <p className="font-serif text-base md:text-xl leading-tight text-neutral-900">
+                  "Fresh ingredients, warm hospitality."
+                </p>
+                <div className="w-8 h-[1px] bg-gold/40 mx-auto mt-3" />
+              </div>
+            </motion.div>
           </div>
+
         </div>
       </section>
 

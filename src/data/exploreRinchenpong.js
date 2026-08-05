@@ -9,6 +9,7 @@ import SribadamWaterfall from '../assets/aroundhotel/Sribadam_Waterfall.jpg';
 import Bombhir from '../assets/aroundhotel/Bombhir.jpg';
 import ChaayatalLake from '../assets/aroundhotel/Chaayatal_Lake.jpg';
 import BermiokShiva from '../assets/aroundhotel/Bermiok_Shiva.jpg';
+import SingshoreBridge from '../assets/aroundhotel/Singshore Bridge.png';
 
 export const RINCHENPONG_DESTINATIONS = [
   {
@@ -98,13 +99,13 @@ export const RINCHENPONG_DESTINATIONS = [
   {
     id: 13,
     name: "Singshore Bridge",
-    description: "Singshore Bridge is one of the highest suspension bridges in Sikkim, offering breathtaking panoramic views of lush valleys, waterfalls, and the surrounding Himalayan landscape. It is a popular destination for sightseeing, photography, and experiencing the region's natural beauty.",
-    image: ChaayatalLake,
+    description: "Singshore Bridge is one of the highest suspension bridges in Sikkim, offering breathtaking panoramic views of lush valleys, waterfalls, and the surrounding Himalayan landscape. Currently under renovation and undergoing the installation of a glass skywalk bridge, it remains a popular destination for sightseeing, photography, and experiencing the region's natural beauty.",
+    image: SingshoreBridge,
     distance: "30 km | 60–70 min drive",
   },
 ];
 
-export const NEARBY_PLACES_CATEGORIES = ["All", "Spiritual", "Nature", "Viewpoints", "Adventure", "Cultural"];
+export const NEARBY_PLACES_CATEGORIES = ["All", "Spiritual", "Nature", "Viewpoints", "Day Trip", "Adventure", "Cultural"];
 
 export const NEARBY_PLACES = [
   {
@@ -161,7 +162,7 @@ export const NEARBY_PLACES = [
     description: "Discover local winemaking methods and tasting countryside fruit wines.",
     image: AjingFarm,
     distance: "8 km",
-    category: "Adventure"
+    category: "Day Trip"
   },
   {
     id: 8,
@@ -202,5 +203,13 @@ export const NEARBY_PLACES = [
     image: ChaayatalLake,
     distance: "30 km",
     category: "Cultural"
+  },
+  {
+    id: 13,
+    name: "Singshore Bridge",
+    description: "One of the highest suspension bridges in Sikkim with panoramic valley views.",
+    image: SingshoreBridge,
+    distance: "30 km",
+    category: "Adventure"
   },
 ];
