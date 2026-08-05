@@ -4,12 +4,13 @@ import { motion, AnimatePresence, useInView, useReducedMotion } from 'framer-mot
 import { Star, ArrowRight, Play, X } from 'lucide-react';
 import Hero from '../components/Hero';
 import { ROOMS_DATA, GALLERY_IMAGES, CORE_FACILITIES } from '../data/hotelData';
-import hotelVideo from '../assets/homepage/hotel video.mp4';
 import aboutHome from '../assets/homepage/about_home.png';
 import sunriseImage from '../assets/homepage/sunrise.jpg';
 import organicCuisineImage from '../assets/homepage/organic_cuisine.jpg';
 import workstationsImage from '../assets/homepage/workstations.jpg';
 import previewImage from '../assets/homepage/slider3.png';
+
+const hotelVideo = 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4';
 
 // Animated counter
 const AnimatedCounter = ({ value, duration = 1.5 }) => {

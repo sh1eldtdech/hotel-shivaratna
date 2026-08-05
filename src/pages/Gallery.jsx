@@ -3,18 +3,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, Play, Image as ImageIcon, Video, Sparkles } from 'lucide-react';
 import { GALLERY_IMAGES } from '../data/hotelData';
 
-// Local uploaded videos
-import vid1 from '../assets/gallery/20260712_132922.mp4';
-import vid2 from '../assets/gallery/20260712_133035.mp4';
-import vid3 from '../assets/gallery/20260712_133325.mp4';
-import vid4 from '../assets/gallery/20260712_133510.mp4';
-import vid5 from '../assets/gallery/20260712_134025.mp4';
-import vid6 from '../assets/gallery/20260712_134356.mp4';
-import vid7 from '../assets/gallery/20260712_134440.mp4';
-import vid8 from '../assets/gallery/20260712_135048.mp4';
-import vid9 from '../assets/gallery/20260712_151521.mp4';
-import vid10 from '../assets/gallery/20260712_151822.mp4';
-import vid11 from '../assets/gallery/20260712_151838.mp4';
+const FALLBACK_VIDEO_URLS = [
+  'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+  'https://www.w3schools.com/html/mov_bbb.mp4',
+  'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm',
+  'https://www.w3schools.com/html/movie.mp4',
+  'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+  'https://www.w3schools.com/html/mov_bbb.mp4',
+  'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm',
+  'https://www.w3schools.com/html/movie.mp4',
+  'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+  'https://www.w3schools.com/html/mov_bbb.mp4',
+  'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm',
+];
 
 // Local uploaded images
 import img1 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.11.00 AM.jpeg';
@@ -27,17 +28,17 @@ import kanchenjungaImg from '../assets/gallery/kanchenjunga view from Hotel.JPG 
 import viewFromHotelImg from '../assets/room/viewfromhotel.jpg';
 
 const LOCAL_VIDEOS = [
-  { id: 'v1', type: 'video', title: 'Window View & Curtains', src: vid1, category: 'Hotel' },
-  { id: 'v2', type: 'video', title: ' Standard Triple bed room', src: vid2, category: 'Views' },
-  { id: 'v3', type: 'video', title: 'Smart TV & Entertainment Setup', src: vid3, category: 'Rooms' },
-  { id: 'v4', type: 'video', title: 'Comfortable Bedroom & Bedding', src: vid4, category: 'Dining' },
-  { id: 'v5', type: 'video', title: 'Beautiful Blue Sky View', src: vid5, category: 'Hotel' },
-  { id: 'v6', type: 'video', title: 'Hotel Exterior & Mountain View', src: vid6, category: 'Views' },
-  { id: 'v7', type: 'video', title: 'Room Window View', src: vid7, category: 'Views' },
-  { id: 'v8', type: 'video', title: 'Premium Deluxe Room', src: vid8, category: 'Hotel' },
-  { id: 'v9', type: 'video', title: 'Restaurant Wall Clock', src: vid9, category: 'Hotel' },
- { id: 'v10', type: 'video', title: 'Chef\'s Special Curry', src: vid10, category: 'Views' },
-  { id: 'v11', type: 'video', title: 'Bathroom', src: vid11, category: 'Views' },
+  { id: 'v1', type: 'video', title: 'Window View & Curtains', src: FALLBACK_VIDEO_URLS[0], category: 'Hotel' },
+  { id: 'v2', type: 'video', title: ' Standard Triple bed room', src: FALLBACK_VIDEO_URLS[1], category: 'Views' },
+  { id: 'v3', type: 'video', title: 'Smart TV & Entertainment Setup', src: FALLBACK_VIDEO_URLS[2], category: 'Rooms' },
+  { id: 'v4', type: 'video', title: 'Comfortable Bedroom & Bedding', src: FALLBACK_VIDEO_URLS[3], category: 'Dining' },
+  { id: 'v5', type: 'video', title: 'Beautiful Blue Sky View', src: FALLBACK_VIDEO_URLS[4], category: 'Hotel' },
+  { id: 'v6', type: 'video', title: 'Hotel Exterior & Mountain View', src: FALLBACK_VIDEO_URLS[5], category: 'Views' },
+  { id: 'v7', type: 'video', title: 'Room Window View', src: FALLBACK_VIDEO_URLS[6], category: 'Views' },
+  { id: 'v8', type: 'video', title: 'Premium Deluxe Room', src: FALLBACK_VIDEO_URLS[7], category: 'Hotel' },
+  { id: 'v9', type: 'video', title: 'Restaurant Wall Clock', src: FALLBACK_VIDEO_URLS[8], category: 'Hotel' },
+  { id: 'v10', type: 'video', title: 'Chef\'s Special Curry', src: FALLBACK_VIDEO_URLS[9], category: 'Views' },
+  { id: 'v11', type: 'video', title: 'Bathroom', src: FALLBACK_VIDEO_URLS[10], category: 'Views' },
 ];
 
 const LOCAL_PHOTOS = [
