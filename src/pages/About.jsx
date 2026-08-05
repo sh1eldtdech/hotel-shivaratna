@@ -323,7 +323,7 @@ const About = () => {
       </section>
 
       {/* Restaurant & Bar Showcase Section */}
-      <section className="py-16 bg-white border-t border-neutral-100">
+      <section id="restaurant" className="py-16 bg-white border-t border-neutral-100">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 xl:grid-cols-[0.9fr_1.1fr] gap-6 items-stretch">
             <motion.div

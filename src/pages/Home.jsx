@@ -309,10 +309,10 @@ const Home = () => {
               </motion.p>
               <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
                 <Link
-                  to="/contact"
+                  to="/about#restaurant"
                   className="inline-flex items-center bg-gold text-neutral-950 hover:bg-gold-dark text-xs uppercase tracking-widest font-sans font-semibold px-6 py-3 transition-all duration-300"
                 >
-                  Reserve Your Table
+                  Learn More
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </motion.div>
