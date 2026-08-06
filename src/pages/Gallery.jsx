@@ -14,7 +14,6 @@ import vid7 from '../assets/gallery/20260712_134440.mp4';
 import vid8 from '../assets/gallery/20260712_135048.mp4';
 import vid9 from '../assets/gallery/20260712_151521.mp4';
 import vid10 from '../assets/gallery/20260712_151822.mp4';
-import vid11 from '../assets/gallery/20260712_151838.mp4';
 
 // Local uploaded images
 import img1 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.11.00 AM.jpeg';
@@ -36,7 +35,6 @@ const LOCAL_VIDEOS = [
   { id: 'v8', type: 'video', title: 'Hotel Shivaratna Outer Premises', src: vid8, category: 'Hotel' },
   { id: 'v9', type: 'video', title: 'Lounge & Relaxing Area', src: vid9, category: 'Hotel' },
   { id: 'v10', type: 'video', title: 'Fresh Mountain Breeze Experience', src: vid10, category: 'Views' },
-  { id: 'v11', type: 'video', title: 'Sunset Views from Terrace', src: vid11, category: 'Views' },
 ];
 
 const LOCAL_PHOTOS = [
