@@ -167,12 +167,12 @@ const Gallery = () => {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
 
           {/* Category Tabs */}
-          <div className="flex flex-wrap justify-center gap-3 mb-14">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-14">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`font-sans text-xs uppercase tracking-widest px-6 py-2.5 border transition-all duration-300 font-medium rounded-full ${
+                className={`font-sans text-[10px] sm:text-xs uppercase tracking-widest px-4 sm:px-5 py-2 border transition-all duration-300 font-medium rounded-full ${
                   activeCategory === cat
                     ? 'bg-gold text-neutral-950 border-gold shadow-gold-glow'
                     : 'bg-white border-neutral-200 text-neutral-600 hover:border-gold hover:text-gold'
@@ -188,7 +188,7 @@ const Gallery = () => {
           {/* 3D Animated Card Grid */}
           <motion.div
             layout
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 [perspective:1000px]"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6 [perspective:1000px]"
           >
             <AnimatePresence mode="popLayout">
               {filteredMedia.map((item, idx) => (
@@ -208,7 +208,7 @@ const Gallery = () => {
                     transition: { duration: 0.25 }
                   }}
                   onClick={() => openLightbox(idx)}
-                  className="relative overflow-hidden rounded-lg bg-white border border-gold/15 shadow-premium group cursor-pointer aspect-[4/3] flex flex-col justify-end [transform-style:preserve-3d]"
+                  className="relative overflow-hidden rounded-lg bg-white border border-gold/15 shadow-premium group cursor-pointer aspect-[4/3] sm:aspect-[16/11] md:aspect-[4/3] flex flex-col justify-end [transform-style:preserve-3d]"
                 >
                   {/* Media Rendering */}
                   {item.type === 'video' ? (
@@ -238,8 +238,8 @@ const Gallery = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/20 to-transparent group-hover:from-neutral-950/90 transition-all duration-300" />
 
                   {/* Media Type Badge */}
-                  <div className="absolute top-3 left-3 z-10">
-                    <span className="bg-neutral-950/75 backdrop-blur-md text-gold text-[9px] font-sans font-semibold uppercase tracking-widest px-2.5 py-1 border border-gold/30 rounded flex items-center gap-1.5">
+                  <div className="absolute top-2 left-2 z-10">
+                    <span className="bg-neutral-950/75 backdrop-blur-md text-gold text-[8px] sm:text-[9px] font-sans font-semibold uppercase tracking-widest px-2 py-1 border border-gold/30 rounded flex items-center gap-1.5">
                       {item.type !== 'photo' ? (
                         <>
                           <Video className="w-3 h-3 text-gold" /> Video Clip
@@ -253,9 +253,9 @@ const Gallery = () => {
                   </div>
 
                   {/* Hover Action & Title */}
-                  <div className="relative z-10 p-4 space-y-1">
-                    <div className="flex items-center justify-between">
-                      <h4 className="text-white text-xs font-serif font-medium tracking-wide group-hover:text-gold transition-colors duration-300 truncate">
+                  <div className="relative z-10 p-3 sm:p-4 space-y-1">
+                    <div className="flex items-center justify-between gap-2">
+                      <h4 className="text-white text-[11px] sm:text-xs font-serif font-medium tracking-wide group-hover:text-gold transition-colors duration-300 truncate">
                         {item.title}
                       </h4>
                       {item.type !== 'photo' && (
