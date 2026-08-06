@@ -56,7 +56,7 @@ const Hero = () => {
   return (
     <div
       id="home"
-      className="relative h-screen w-full overflow-hidden bg-neutral-950 select-none font-sans"
+      className="relative min-h-screen w-full overflow-hidden bg-neutral-950 select-none font-sans"
       onMouseEnter={() => setIsPlaying(false)}
       onMouseLeave={() => setIsPlaying(true)}
     >
@@ -101,7 +101,7 @@ const Hero = () => {
 
           <motion.h1
             variants={itemVariants}
-            className="text-5xl md:text-7xl lg:text-[6rem] font-normal leading-none text-white text-center mb-4"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] font-normal leading-tight sm:leading-tight md:leading-none text-white text-center mb-4"
             style={{ fontFamily: '"Times New Roman", Times, serif' }}
           >
             Hotel Shivaratna
@@ -109,7 +109,7 @@ const Hero = () => {
 
           <motion.p
             variants={itemVariants}
-            className="text-2xl md:text-4xl text-white/95 max-w-2xl mx-auto leading-relaxed font-normal mb-12"
+            className="text-xl sm:text-2xl md:text-3xl text-white/95 max-w-2xl mx-auto leading-relaxed font-normal mb-8"
             style={{ fontFamily: '"Times New Roman", Times, serif' }}
           >
             Live Your Paradise
@@ -117,24 +117,24 @@ const Hero = () => {
 
           <motion.p
             variants={itemVariants}
-            className="text-xs md:text-sm lg:text-base text-white/90 tracking-widest max-w-2xl mx-auto leading-relaxed font-light mb-12"
+            className="text-[10px] sm:text-xs md:text-sm lg:text-base text-white/90 tracking-widest max-w-2xl mx-auto leading-relaxed font-light mb-10"
           >
             Your peaceful mountain retreat in the heart of Rinchenpong, West Sikkim, surrounded by breathtaking Himalayan views and authentic Sikkimese hospitality.
           </motion.p>
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center w-full sm:w-auto"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-5 justify-center items-center w-full sm:w-auto"
           >
             <Link
               to="/explore-rinchenpong"
-              className="px-8 py-4 border border-gold/50 text-white bg-black/45 backdrop-blur-md text-xs uppercase tracking-[0.2em] hover:bg-gold hover:text-neutral-950 hover:border-gold transition-all duration-500 rounded-sm font-medium w-full sm:w-[230px] text-center"
+              className="px-6 py-3 border border-gold/50 text-white bg-black/45 backdrop-blur-md text-[10px] sm:text-xs uppercase tracking-[0.2em] hover:bg-gold hover:text-neutral-950 hover:border-gold transition-all duration-500 rounded-sm font-medium w-full sm:w-[230px] text-center"
             >
               Discover Rinchenpong
             </Link>
             <Link
               to="/rooms"
-              className="px-8 py-4 bg-gold text-neutral-950 hover:bg-gold-light hover:shadow-[0_0_25px_rgba(197,168,128,0.5)] text-xs uppercase tracking-[0.2em] transition-all duration-500 rounded-sm font-medium w-full sm:w-[230px] text-center"
+              className="px-6 py-3 bg-gold text-neutral-950 hover:bg-gold-light hover:shadow-[0_0_25px_rgba(197,168,128,0.5)] text-[10px] sm:text-xs uppercase tracking-[0.2em] transition-all duration-500 rounded-sm font-medium w-full sm:w-[230px] text-center"
             >
               Discover Rooms
             </Link>
@@ -146,20 +146,20 @@ const Hero = () => {
       <button
         onClick={() => handleInteraction(prevSlide)}
         aria-label="Previous Slide"
-        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:text-gold-light hover:border-gold hover:bg-gold/5 transition-all duration-300"
+        className="absolute left-2 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:text-gold-light hover:border-gold hover:bg-gold/5 transition-all duration-300"
       >
         <ChevronLeft className="w-5 h-5 stroke-[1.5px]" />
       </button>
       <button
         onClick={() => handleInteraction(nextSlide)}
         aria-label="Next Slide"
-        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:text-gold-light hover:border-gold hover:bg-gold/5 transition-all duration-300"
+        className="absolute right-2 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:text-gold-light hover:border-gold hover:bg-gold/5 transition-all duration-300"
       >
         <ChevronRight className="w-5 h-5 stroke-[1.5px]" />
       </button>
 
       {/* EXPLORE element */}
-      <div className="absolute bottom-8 left-8 md:left-12 z-30 hidden md:flex flex-col items-center gap-4">
+      <div className="absolute bottom-8 left-4 md:left-12 z-30 hidden md:flex flex-col items-center gap-4">
         <span className="text-[9px] uppercase tracking-[0.4em] text-gold select-none [writing-mode:vertical-lr] rotate-180">
           EXPLORE
         </span>
@@ -167,7 +167,7 @@ const Hero = () => {
       </div>
 
       {/* Pagination Indicators */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex items-center gap-4">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex items-center gap-3 sm:gap-4">
         {HERO_SLIDES.map((_, index) => (
           <button
             key={index}
@@ -188,7 +188,7 @@ const Hero = () => {
       </div>
 
       {/* Slide Counter */}
-      <div className="absolute bottom-10 right-8 md:right-12 z-30 flex items-center text-xs md:text-sm tracking-[0.25em] text-white/50">
+      <div className="absolute bottom-10 right-4 sm:right-6 md:right-8 lg:right-12 z-30 flex items-center text-[10px] sm:text-xs md:text-sm tracking-[0.25em] text-white/50">
         <span className="font-semibold text-gold">
           {String(currentSlide + 1).padStart(2, '0')}
         </span>
