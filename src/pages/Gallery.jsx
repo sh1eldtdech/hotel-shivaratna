@@ -3,19 +3,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, Play, Image as ImageIcon, Video, Sparkles } from 'lucide-react';
 import { GALLERY_IMAGES } from '../data/hotelData';
 
-const FALLBACK_VIDEO_URLS = [
-  'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
-  'https://www.w3schools.com/html/mov_bbb.mp4',
-  'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm',
-  'https://www.w3schools.com/html/movie.mp4',
-  'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
-  'https://www.w3schools.com/html/mov_bbb.mp4',
-  'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm',
-  'https://www.w3schools.com/html/movie.mp4',
-  'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
-  'https://www.w3schools.com/html/mov_bbb.mp4',
-  'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm',
-];
+const CLOUDINARY_VIDEO_EMBED_URL = 'https://player.cloudinary.com/embed/?cloud_name=sbmngyjf&public_id=20260712_133325_dizrkx';
+const CLOUDINARY_VIDEO_THUMB_URL = 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_133325_dizrkx.jpg';
+const CLOUDINARY_VIDEO_EMBED_URL_ADDITIONAL = 'https://player.cloudinary.com/embed/?cloud_name=sbmngyjf&public_id=20260712_133510_fs8flc';
+const CLOUDINARY_VIDEO_THUMB_URL_ADDITIONAL = 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_133510_fs8flc.jpg';
+const CLOUDINARY_VIDEO_EMBED_URL_BEDROOM = 'https://player.cloudinary.com/embed/?cloud_name=sbmngyjf&public_id=20260712_134440_frmbvo';
+const CLOUDINARY_VIDEO_THUMB_URL_BEDROOM = 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_134440_frmbvo.jpg';
+const CLOUDINARY_VIDEO_EMBED_URL_CHEF = 'https://player.cloudinary.com/embed/?cloud_name=sbmngyjf&public_id=20260712_151822_fphscz';
+const CLOUDINARY_VIDEO_THUMB_URL_CHEF = 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_151822_fphscz.jpg';
+const CLOUDINARY_VIDEO_EMBED_URL_BONUS = 'https://player.cloudinary.com/embed/?cloud_name=sbmngyjf&public_id=20260712_134025_mzzfka';
+const CLOUDINARY_VIDEO_THUMB_URL_BONUS = 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_134025_mzzfka.jpg';
 
 // Local uploaded images
 import img1 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.11.00 AM.jpeg';
@@ -28,19 +25,88 @@ import kanchenjungaImg from '../assets/gallery/kanchenjunga view from Hotel.JPG 
 import viewFromHotelImg from '../assets/room/viewfromhotel.jpg';
 
 const LOCAL_VIDEOS = [
-  { id: 'v1', type: 'video', title: 'Window View & Curtains', src: FALLBACK_VIDEO_URLS[0], category: 'Hotel' },
-  { id: 'v2', type: 'video', title: ' Standard Triple bed room', src: FALLBACK_VIDEO_URLS[1], category: 'Views' },
-  { id: 'v3', type: 'video', title: 'Smart TV & Entertainment Setup', src: FALLBACK_VIDEO_URLS[2], category: 'Rooms' },
-  { id: 'v4', type: 'video', title: 'Comfortable Bedroom & Bedding', src: FALLBACK_VIDEO_URLS[3], category: 'Dining' },
-  { id: 'v5', type: 'video', title: 'Beautiful Blue Sky View', src: FALLBACK_VIDEO_URLS[4], category: 'Hotel' },
-  { id: 'v6', type: 'video', title: 'Hotel Exterior & Mountain View', src: FALLBACK_VIDEO_URLS[5], category: 'Views' },
-  { id: 'v7', type: 'video', title: 'Room Window View', src: FALLBACK_VIDEO_URLS[6], category: 'Views' },
-  { id: 'v8', type: 'video', title: 'Premium Deluxe Room', src: FALLBACK_VIDEO_URLS[7], category: 'Hotel' },
-  { id: 'v9', type: 'video', title: 'Restaurant Wall Clock', src: FALLBACK_VIDEO_URLS[8], category: 'Hotel' },
-  { id: 'v10', type: 'video', title: 'Chef\'s Special Curry', src: FALLBACK_VIDEO_URLS[9], category: 'Views' },
-  { id: 'v11', type: 'video', title: 'Bathroom', src: FALLBACK_VIDEO_URLS[10], category: 'Views' },
+  {
+    id: 'v1',
+    type: 'embed',
+    title: 'Hotel Shivaratna Overview',
+    src: CLOUDINARY_VIDEO_EMBED_URL,
+    poster: CLOUDINARY_VIDEO_THUMB_URL,
+    previewSrc: 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_133325_dizrkx.mp4',
+    category: 'Hotel'
+  },
+  {
+    id: 'v3',
+    type: 'embed',
+    title: 'window view',
+    src: CLOUDINARY_VIDEO_EMBED_URL_ADDITIONAL,
+    poster: CLOUDINARY_VIDEO_THUMB_URL_ADDITIONAL,
+    previewSrc: 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_133510_fs8flc.mp4',
+    category: 'Rooms'
+  },
+  {
+    id: 'v4',
+    type: 'embed',
+    title: 'Cozy Bedroom & Comfortable Bedding',
+    src: CLOUDINARY_VIDEO_EMBED_URL_BEDROOM,
+    poster: CLOUDINARY_VIDEO_THUMB_URL_BEDROOM,
+    previewSrc: 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_134440_frmbvo.mp4',
+    category: 'Rooms'
+  },
+  {
+    id: 'v5',
+    type: 'embed',
+    title: 'Scenic Blue Sky & Mountain View',
+    src: 'https://player.cloudinary.com/embed/?cloud_name=sbmngyjf&public_id=20260712_135048_msu521',
+    poster: 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_135048_msu521.jpg',
+    previewSrc: 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_135048_msu521.mp4',
+    category: 'Views'
+  },
+  {
+    id: 'v6',
+    type: 'embed',
+    title: 'Hotel Exterior & Surrounding Landscape',
+    src: 'https://player.cloudinary.com/embed/?cloud_name=sbmngyjf&public_id=20260712_134356_v7envj',
+    poster: 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_134356_v7envj.jpg',
+    previewSrc: 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_134356_v7envj.mp4',
+    category: 'Hotel'
+  },
+  {
+    id: 'v8',
+    type: 'embed',
+    title: 'window blue sky view',
+    src: CLOUDINARY_VIDEO_EMBED_URL_BONUS,
+    poster: CLOUDINARY_VIDEO_THUMB_URL_BONUS,
+    previewSrc: 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_134025_mzzfka.mp4',
+    category: 'Rooms'
+  },
+  {
+    id: 'v9',
+    type: 'embed',
+    title: 'Restaurant Interior & Dining Ambience',
+    src: 'https://player.cloudinary.com/embed/?cloud_name=sbmngyjf&public_id=20260712_151521_vcua1d',
+    poster: 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_151521_vcua1d.jpg',
+    previewSrc: 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_151521_vcua1d.mp4',
+    category: 'Dining'
+  },
+  {
+    id: 'v10',
+    type: 'embed',
+    title: "veg rice meal",
+    src: CLOUDINARY_VIDEO_EMBED_URL_CHEF,
+    poster: CLOUDINARY_VIDEO_THUMB_URL_CHEF,
+    previewSrc: 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_151822_fphscz.mp4',
+    category: 'Dining'
+  },
+  {
+    id: 'v11',
+    type: 'embed',
+    title: 'Hotel Kitchen Tour',
+    src: 'https://player.cloudinary.com/embed/?cloud_name=sbmngyjf&public_id=20260712_151838_kqvhjp',
+    poster: 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_151838_kqvhjp.jpg',
+    previewSrc: 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_151838_kqvhjp.mp4',
+    category: 'Hotel'
+  },
 ];
-
 const LOCAL_PHOTOS = [
   { id: 'p1', type: 'photo', title: 'Kanchenjunga Mountain View', src: kanchenjungaImg, category: 'Views' },
   { id: 'p2', type: 'photo', title: 'Deluxe Room Interior', src: img1, category: 'Hotel' },
@@ -62,32 +128,10 @@ const Gallery = () => {
   const [playingCoverId, setPlayingCoverId] = useState(null);
   const coverVideoRefs = useRef({});
 
-  const handleCoverClick = useCallback((idx, itemId) => {
-    if (coverflowIndex !== idx) {
-      // Pause any currently playing video
-      if (playingCoverId && coverVideoRefs.current[playingCoverId]) {
-        coverVideoRefs.current[playingCoverId].pause();
-      }
-      setCoverflowIndex(idx);
-      setPlayingCoverId(null);
-      return;
-    }
-    // Toggle play/pause on the active card
-    const videoEl = coverVideoRefs.current[itemId];
-    if (!videoEl) return;
-    if (videoEl.paused) {
-      videoEl.play();
-      setPlayingCoverId(itemId);
-    } else {
-      videoEl.pause();
-      setPlayingCoverId(null);
-    }
-  }, [coverflowIndex, playingCoverId]);
-
   const filteredMedia = ALL_MEDIA.filter((item) => {
     if (activeCategory === 'All') return true;
     if (activeCategory === 'Photos') return item.type === 'photo';
-    if (activeCategory === 'Videos') return item.type === 'video';
+    if (activeCategory === 'Videos') return item.type === 'video' || item.type === 'embed';
     return item.category === activeCategory;
   });
 
@@ -96,8 +140,6 @@ const Gallery = () => {
   
   const prevMedia = () => setLightboxIndex((prev) => (prev === 0 ? filteredMedia.length - 1 : prev - 1));
   const nextMedia = () => setLightboxIndex((prev) => (prev === filteredMedia.length - 1 ? 0 : prev + 1));
-
-  const coverflowItems = LOCAL_VIDEOS.slice(0, 5);
 
   return (
     <div className="bg-luxury-cream min-h-screen">
@@ -109,9 +151,6 @@ const Gallery = () => {
       >
         <div className="absolute inset-0 bg-neutral-950/75" />
         <div className="z-10 text-center space-y-3 px-4">
-          <span className="text-[10px] md:text-xs text-gold uppercase tracking-[0.3em] font-sans block flex items-center justify-center gap-2">
-            <Sparkles className="w-3.5 h-3.5" /> 3D Interactive Media Experience
-          </span>
           <h1 className="text-3xl md:text-5xl text-white font-serif font-medium tracking-wider uppercase">
             Photo &amp; Video Gallery
           </h1>
@@ -122,107 +161,6 @@ const Gallery = () => {
           </div>
         </div>
       </div>
-
-      {/* 3D Showcase Coverflow Banner */}
-      <section className="py-12 bg-neutral-950 text-white overflow-hidden relative border-b border-gold/10">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <span className="text-[10px] font-sans font-semibold tracking-[0.3em] text-gold uppercase block mb-2">
-            Featured Video Highlights
-          </span>
-          <h2 className="text-xl md:text-2xl font-serif font-medium text-white mb-8">
-            Experience Hotel Shivaratna in Motion
-          </h2>
-
-          {/* 3D Carousel Slider */}
-          <div className="relative h-[250px] sm:h-[320px] md:h-[380px] flex items-center justify-center [perspective:1200px]">
-            {coverflowItems.map((item, idx) => {
-              const offset = idx - coverflowIndex;
-              const isActive = offset === 0;
-              const isPlaying = playingCoverId === item.id;
-
-              return (
-                <motion.div
-                  key={item.id}
-                  animate={{
-                    rotateY: offset * -25,
-                    scale: isActive ? 1 : 0.82,
-                    x: offset * 240,
-                    zIndex: 10 - Math.abs(offset),
-                    opacity: Math.abs(offset) > 2 ? 0 : 1 - Math.abs(offset) * 0.25,
-                  }}
-                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  onClick={() => handleCoverClick(idx, item.id)}
-                  className={`absolute w-[260px] sm:w-[380px] md:w-[480px] aspect-video rounded-xl overflow-hidden border border-gold/30 shadow-2xl cursor-pointer bg-neutral-900 [transform-style:preserve-3d] ${
-                    isActive ? 'ring-2 ring-gold shadow-[0_0_30px_rgba(197,168,128,0.4)]' : ''
-                  }`}
-                >
-                  <video
-                    ref={(el) => { if (el) coverVideoRefs.current[item.id] = el; }}
-                    src={item.src}
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-full object-cover"
-                  />
-
-                  {/* Play / Pause Overlay */}
-                  {isActive && (
-                    <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-                      <motion.div
-                        key={isPlaying ? 'pause' : 'play'}
-                        initial={{ scale: 0.6, opacity: 0 }}
-                        animate={{ scale: 1, opacity: isPlaying ? 0 : 1 }}
-                        transition={{ duration: 0.3 }}
-                        className="w-16 h-16 rounded-full bg-neutral-950/70 backdrop-blur-sm border-2 border-gold/60 flex items-center justify-center shadow-2xl"
-                      >
-                        {isPlaying ? (
-                          <svg className="w-7 h-7 text-gold" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" /><rect x="14" y="4" width="4" height="16" /></svg>
-                        ) : (
-                          <Play className="w-7 h-7 text-gold fill-current translate-x-0.5" />
-                        )}
-                      </motion.div>
-                    </div>
-                  )}
-
-                  <div className={`absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-transparent to-transparent p-4 flex flex-col justify-end text-left transition-opacity duration-300 ${isPlaying ? 'opacity-0 hover:opacity-100' : 'opacity-100'}`}>
-                    <span className="text-gold text-[10px] uppercase tracking-widest font-sans font-semibold flex items-center gap-1.5">
-                      <Play className="w-3 h-3 fill-current" /> {isPlaying ? 'Now Playing' : 'Click to Play'}
-                    </span>
-                    <h4 className="text-white text-xs sm:text-sm font-serif font-medium truncate">{item.title}</h4>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          {/* Coverflow Navigation Controls */}
-          <div className="flex justify-center gap-4 mt-6 z-20 relative">
-            <button
-              onClick={() => setCoverflowIndex((prev) => (prev === 0 ? coverflowItems.length - 1 : prev - 1))}
-              className="w-9 h-9 rounded-full border border-gold/40 text-gold flex items-center justify-center hover:bg-gold hover:text-neutral-950 transition-all duration-300"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <div className="flex items-center gap-2">
-              {coverflowItems.map((_, i) => (
-                <div
-                  key={i}
-                  onClick={() => setCoverflowIndex(i)}
-                  className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                    i === coverflowIndex ? 'w-6 bg-gold' : 'w-2 bg-neutral-700'
-                  }`}
-                />
-              ))}
-            </div>
-            <button
-              onClick={() => setCoverflowIndex((prev) => (prev === coverflowItems.length - 1 ? 0 : prev + 1))}
-              className="w-9 h-9 rounded-full border border-gold/40 text-gold flex items-center justify-center hover:bg-gold hover:text-neutral-950 transition-all duration-300"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
-      </section>
 
       {/* Main Filterable 3D Grid */}
       <section className="py-16 md:py-24">
@@ -282,6 +220,12 @@ const Gallery = () => {
                       onMouseLeave={(e) => { e.target.pause(); e.target.currentTime = 0; }}
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
+                  ) : item.type === 'embed' ? (
+                    <img
+                      src={item.poster}
+                      alt={item.title}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
                   ) : (
                     <img
                       src={item.src}
@@ -296,7 +240,7 @@ const Gallery = () => {
                   {/* Media Type Badge */}
                   <div className="absolute top-3 left-3 z-10">
                     <span className="bg-neutral-950/75 backdrop-blur-md text-gold text-[9px] font-sans font-semibold uppercase tracking-widest px-2.5 py-1 border border-gold/30 rounded flex items-center gap-1.5">
-                      {item.type === 'video' ? (
+                      {item.type !== 'photo' ? (
                         <>
                           <Video className="w-3 h-3 text-gold" /> Video Clip
                         </>
@@ -314,7 +258,7 @@ const Gallery = () => {
                       <h4 className="text-white text-xs font-serif font-medium tracking-wide group-hover:text-gold transition-colors duration-300 truncate">
                         {item.title}
                       </h4>
-                      {item.type === 'video' && (
+                      {item.type !== 'photo' && (
                         <div className="w-7 h-7 bg-gold text-neutral-950 rounded-full flex items-center justify-center shrink-0 shadow-gold-glow">
                           <Play className="w-3.5 h-3.5 fill-current translate-x-0.5" />
                         </div>
@@ -363,6 +307,16 @@ const Gallery = () => {
                     controls
                     autoPlay
                     className="w-full h-full object-contain"
+                  />
+                </div>
+              ) : filteredMedia[lightboxIndex].type === 'embed' ? (
+                <div className="w-full aspect-video border border-gold/30 shadow-2xl bg-black rounded-lg overflow-hidden">
+                  <iframe
+                    src={filteredMedia[lightboxIndex].src}
+                    title={filteredMedia[lightboxIndex].title}
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
                   />
                 </div>
               ) : (

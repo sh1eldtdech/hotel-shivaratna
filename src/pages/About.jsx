@@ -195,7 +195,7 @@ const About = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="relative rounded-xl overflow-hidden shadow-xl border-2 border-gold/20 max-w-[367px] aspect-[4/3]"
+                className="relative w-full max-w-[367px] rounded-xl overflow-hidden shadow-xl border-2 border-gold/20 aspect-[4/3]"
               >
                 <img
                   src={ownerImg}
@@ -204,16 +204,16 @@ const About = () => {
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-center">
                   <h4 className="text-white font-serif text-lg font-medium">Welcome to Rinchenpong</h4>
-                  <p className="text-gold text-xs font-sans tracking-wide">Hotel Shivaratna Host Team</p>
+                  {/* <p className="text-gold text-xs font-sans tracking-wide">Hotel Shivaratna Host Team</p> */}
                 </div>
               </motion.div>
             </div>
 
             {/* Welcome Text */}
             <div className="lg:col-span-8 space-y-6">
-              <span className="text-xs md:text-sm font-semibold tracking-[0.25em] text-gold uppercase block font-sans">
+              {/* <span className="text-xs md:text-sm font-semibold tracking-[0.25em] text-gold uppercase block font-sans">
                 A Message From Our Family
-              </span>
+              </span> */}
               <h2 className="text-3xl md:text-4xl font-serif text-white font-medium">
                 Welcome to Hotel Shivaratna!
               </h2>
@@ -248,7 +248,7 @@ const About = () => {
         <motion.div
           animate={{ x: [0, 15, 0], opacity: [0.15, 0.35, 0.15] }}
           transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 5 }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-radial from-gold/5 to-transparent rounded-full blur-3xl pointer-events-none"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] sm:w-[420px] sm:h-[420px] bg-gradient-radial from-gold/5 to-transparent rounded-full blur-3xl pointer-events-none"
         />
 
         <div className="max-w-5xl mx-auto px-6 md:px-12 relative z-10">

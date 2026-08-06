@@ -54,7 +54,7 @@ const Dining = () => {
       className="bg-luxury-cream min-h-screen pt-24 font-sans text-neutral-800"
     >
       {/* Hero Banner Section */}
-      <section className="relative h-[65vh] min-h-[450px] w-full overflow-hidden flex items-center justify-center bg-neutral-950">
+      <section className="relative h-[55vh] sm:h-[60vh] min-h-[320px] sm:min-h-[450px] w-full overflow-hidden flex items-center justify-center bg-neutral-950">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-fade-in"
           style={{ backgroundImage: `url(${diningImg})` }}

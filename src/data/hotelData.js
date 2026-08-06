@@ -156,7 +156,6 @@ export const ROOMS_DATA = [
   {
     id: "standard-rooms",
     title: "Standard Rooms",
-    price: 999,
     rating: 4.7,
     guests: "1-3",
     size: "12' x 8' to 12' x 10'",
@@ -172,7 +171,6 @@ export const ROOMS_DATA = [
   {
     id: "standard-single",
     title: "Standard Single Bed Room",
-    price: 999,
     rating: 4.6,
     guests: 1,
     size: "12' x 8'",
@@ -188,7 +186,6 @@ export const ROOMS_DATA = [
   {
     id: "standard-double",
     title: "Standard Double Bed Room",
-    price: 1399,
     rating: 4.8,
     guests: 2,
     size: "12' x 10'",
@@ -204,7 +201,6 @@ export const ROOMS_DATA = [
   {
     id: "standard-triple",
     title: "Standard Triple Bed Room",
-    price: 1799,
     rating: 4.8,
     guests: 3,
     size: "12' x 10'",
@@ -220,7 +216,6 @@ export const ROOMS_DATA = [
   {
     id: "deluxe-quadruple",
     title: "Deluxe Family Quadruple Four Bed Room",
-    price: 2499,
     rating: 4.9,
     guests: 4,
     size: "12' x 22'",
@@ -236,7 +231,6 @@ export const ROOMS_DATA = [
   {
     id: "suite-room",
     title: "Suite Room",
-    price: 3499,
     rating: 5.0,
     guests: 2,
     size: "12' x 12'",

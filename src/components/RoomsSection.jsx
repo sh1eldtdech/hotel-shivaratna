@@ -71,9 +71,7 @@ const RoomsSection = ({ onSelectRoomForBooking }) => {
                   alt={standardParent.title}
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute top-4 left-4 bg-neutral-950/80 backdrop-blur-md text-white font-sans text-xs font-semibold px-4 py-2 border border-gold/30 z-20">
-                  From ₹{standardParent.price.toLocaleString('en-IN')} <span className="text-neutral-400 font-light text-[10px]">/ Night</span>
-                </div>
+
               </div>
 
               {/* Info side */}
@@ -153,9 +151,7 @@ const RoomsSection = ({ onSelectRoomForBooking }) => {
                   alt={deluxeRoom.title}
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute top-4 left-4 bg-neutral-950/80 backdrop-blur-md text-white font-sans text-xs font-semibold px-4 py-2 border border-gold/30 z-20">
-                  ₹{deluxeRoom.price.toLocaleString('en-IN')} <span className="text-neutral-400 font-light text-[10px]">/ Night</span>
-                </div>
+
               </div>
 
               {/* Info side */}
@@ -283,9 +279,7 @@ const RoomsSection = ({ onSelectRoomForBooking }) => {
                   alt={suiteRoom.title}
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute top-4 right-4 bg-neutral-950/80 backdrop-blur-md text-white font-sans text-xs font-semibold px-4 py-2 border border-gold/30 z-20">
-                  ₹{suiteRoom.price.toLocaleString('en-IN')} <span className="text-neutral-400 font-light text-[10px]">/ Night</span>
-                </div>
+
               </div>
             </motion.div>
           </div>

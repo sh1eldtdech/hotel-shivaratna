@@ -10,7 +10,7 @@ import organicCuisineImage from '../assets/homepage/organic_cuisine.jpg';
 import workstationsImage from '../assets/homepage/workstations.jpg';
 import previewImage from '../assets/homepage/slider3.png';
 
-const hotelVideo = 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4';
+const CLOUDINARY_PREVIEW_EMBED_URL = 'https://player.cloudinary.com/embed/?cloud_name=sbmngyjf&public_id=hotel_video_vnoqpl';
 
 // Animated counter
 const AnimatedCounter = ({ value, duration = 1.5 }) => {
@@ -216,7 +216,7 @@ const Home = () => {
           </section>
       {/* Quote Banner — "Every sunrise brings…" */}
       <div
-        className="relative w-full h-[320px] md:h-[450px] flex items-center justify-center bg-fixed bg-cover bg-center overflow-hidden"
+        className="relative w-full h-[320px] md:h-[450px] flex items-center justify-center bg-cover bg-center overflow-hidden md:bg-fixed"
         style={{ backgroundImage: `url("${sunriseImage}")` }}
       >
         <div className="absolute inset-0 bg-neutral-950/70" />
@@ -267,14 +267,14 @@ const Home = () => {
                   />
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/70 via-transparent to-transparent transition-opacity duration-500 group-hover:opacity-0" />
-                  {/* Price tag */}
+                  {/* Room details tag */}
                   <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-neutral-950/85 backdrop-blur-md text-white font-sans text-xs px-4 py-2 border border-gold/30 z-20 whitespace-nowrap tracking-wider transition-opacity duration-500 group-hover:opacity-0">
-                    ₹{room.price.toLocaleString('en-IN')} <span className="text-neutral-400 font-light text-[9.5px]">/ Night</span>
+                    View room details
                   </div>
                   {/* Hover overlay — slides up like a video reveal */}
                   <div className="absolute inset-0 bg-neutral-950/80 flex flex-col items-center justify-center translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] z-30">
-                    <span className="text-white/80 text-sm font-sans font-light tracking-wider mb-2">From</span>
-                    <span className="text-gold text-4xl md:text-5xl font-serif font-normal tracking-wide mb-4">₹{room.price.toLocaleString('en-IN')}</span>
+                    <span className="text-white/80 text-sm font-sans font-light tracking-wider mb-2">Explore</span>
+                    <span className="text-gold text-4xl md:text-5xl font-serif font-normal tracking-wide mb-4">Room details</span>
                     <span className="text-xs text-gold font-sans font-medium uppercase tracking-[0.25em] flex items-center gap-2">
                       <Play className="w-3 h-3 fill-current" /> View Room Details
                     </span>
@@ -524,11 +524,12 @@ const Home = () => {
               >
                 Close <X className="w-4 h-4 ml-1.5" />
               </button>
-              <video
-                src={hotelVideo}
-                controls
-                autoPlay
-                className="w-full h-full object-contain"
+              <iframe
+                src={CLOUDINARY_PREVIEW_EMBED_URL}
+                allow="autoplay; fullscreen; encrypted-media"
+                allowFullScreen
+                className="w-full h-full"
+                title="Shivaratna Hotel Preview Video"
               />
             </motion.div>
           </motion.div>

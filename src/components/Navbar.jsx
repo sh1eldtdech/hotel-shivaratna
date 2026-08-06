@@ -88,8 +88,8 @@ const Navbar = () => {
 
                 {/* Travel Mega Menu */}
                 {link.name === 'Travel' && (
-                  <div className="absolute top-[100%] left-1/2 -translate-x-1/2 w-[700px] bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-2xl border-t-2 border-gold p-8 flex gap-8 z-50 cursor-default">
-                    <div className="w-1/3 flex flex-col space-y-4 border-r border-neutral-100 pr-4">
+                  <div className="absolute top-[100%] left-1/2 -translate-x-1/2 w-full max-w-[700px] bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-2xl border-t-2 border-gold p-6 lg:p-8 flex flex-col lg:flex-row gap-6 lg:gap-8 z-50 cursor-default">
+                    <div className="w-full lg:w-1/3 flex flex-col space-y-4 border-b border-neutral-100 pb-4 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-4">
                       <h4 className="font-serif text-2xl text-neutral-900 mb-2">Districts</h4>
                       <Link 
                         to="/explore-rinchenpong" 
@@ -103,7 +103,7 @@ const Navbar = () => {
                         </Link>
                       ))}
                     </div>
-                    <div className="w-2/3 grid grid-cols-2 gap-4">
+                    <div className="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {districtLinks.slice(0, 4).map((dLink, idx) => {
                         const district = districtsData[dLink.id];
                         const cardImage = district.topAttractions?.[0]?.img || district.heroImage;

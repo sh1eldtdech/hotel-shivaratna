@@ -197,7 +197,7 @@ const RoomDetail = () => {
                         <div className="relative overflow-hidden aspect-[4/3]">
                           <img src={subset.image} alt={subset.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                           <div className="absolute bottom-0 left-0 right-0 bg-neutral-950/80 text-white text-[10px] font-sans px-3 py-1.5 uppercase tracking-widest text-center">
-                            From ₹{subset.price} / Night
+                            Room option
                           </div>
                         </div>
                         <div className="p-4 text-center flex-grow flex flex-col justify-between">
@@ -222,19 +222,13 @@ const RoomDetail = () => {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:col-span-4 sticky top-24 space-y-6"
+              className="lg:col-span-4 lg:sticky lg:top-24 space-y-6"
             >
-              {/* Price Card */}
+              {/* Booking Help Card */}
               <div className="bg-white border border-gold/20 p-7 shadow-gold-glow">
-                <span className="text-[10px] text-neutral-400 uppercase tracking-wider font-sans block mb-2">Starting From</span>
-                <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-4xl font-semibold font-serif text-gold">
-                    ₹{room.price.toLocaleString('en-IN')}
-                  </span>
-                  <span className="text-sm text-neutral-400 font-light font-sans">/ Night</span>
-                </div>
+                <span className="text-[10px] text-neutral-400 uppercase tracking-wider font-sans block mb-2">Need help with booking?</span>
                 <p className="text-neutral-500 text-[11px] font-sans leading-relaxed mb-6">
-                  *Taxes and service fees included. Cancellation terms apply.
+                  For current availability and rates, please contact us directly.
                 </p>
 
                 <Link
@@ -304,7 +298,7 @@ const RoomDetail = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/70 via-transparent to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4">
                     <h3 className="text-white font-serif font-medium text-lg">{otherRoom.title}</h3>
-                    <p className="text-gold text-xs font-sans mt-1">From ₹{otherRoom.price.toLocaleString('en-IN')} / Night</p>
+                    <p className="text-gold text-xs font-sans mt-1">View Room Details</p>
                   </div>
                 </div>
               </motion.div>

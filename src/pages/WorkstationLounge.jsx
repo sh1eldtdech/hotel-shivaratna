@@ -28,7 +28,7 @@ const WorkstationLounge = () => {
       className="bg-luxury-cream min-h-screen pt-24 font-sans text-neutral-800"
     >
       {/* Hero Banner Section */}
-      <section className="relative h-[55vh] min-h-[400px] w-full overflow-hidden flex items-center justify-center bg-neutral-950">
+      <section className="relative h-[50vh] sm:h-[55vh] min-h-[280px] sm:min-h-[400px] w-full overflow-hidden flex items-center justify-center bg-neutral-950">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${workstationsImg})` }}

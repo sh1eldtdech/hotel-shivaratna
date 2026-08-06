@@ -5,7 +5,6 @@ import { Star, ArrowRight, Play, X } from 'lucide-react';
 import Hero from '../components/Hero';
 import { ROOMS_DATA, GALLERY_IMAGES, AMENITIES_LIST, CORE_FACILITIES } from '../data/hotelData';
 import slider3 from '../assets/slider3.png';
-import hotelVideo from '../assets/hotel video.mp4';
 
 // Animated counter
 const AnimatedCounter = ({ value, duration = 1.5 }) => {
@@ -68,7 +67,7 @@ const Home = () => {
                   {stat.value ? (
                     <div className="text-xl md:text-2xl font-serif text-gold font-medium">{stat.value}</div>
                   ) : (
-                    <div className="text-xs font-sans text-gold uppercase tracking-widest font-semibold">=ƒôì</div>
+                    <div className="text-xs font-sans text-gold uppercase tracking-widest font-semibold">=ï¿½ï¿½ï¿½</div>
                   )}
                   <div className="text-[10px] md:text-xs text-neutral-400 font-sans tracking-wider mt-0.5">{stat.label}</div>
                 </div>
@@ -166,7 +165,7 @@ const Home = () => {
             </motion.div>
           </motion.div>
 
-          {/* Amenities Strip GÇö Centered Flex wrap layout to eliminate empty grid space */}
+          {/* Amenities Strip Gï¿½ï¿½ Centered Flex wrap layout to eliminate empty grid space */}
           <motion.div
             {...fadeUp(0)}
             className="mt-24"
@@ -201,7 +200,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Quote Banner GÇö "Every sunrise bringsGÇª" */}
+      {/* Quote Banner Gï¿½ï¿½ "Every sunrise bringsGÇª" */}
       <div
         className="relative w-full h-[320px] md:h-[450px] flex items-center justify-center bg-fixed bg-cover bg-center overflow-hidden"
         style={{ backgroundImage: `url(${slider3})` }}
@@ -225,7 +224,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Accommodation GÇö Rectangle shape with hover video effect */}
+      {/* Accommodation Gï¿½ï¿½ Rectangle shape with hover video effect */}
       <section className="py-24 bg-luxury-cream">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
           <motion.div {...fadeUp()} className="max-w-2xl mx-auto mb-16">
@@ -256,12 +255,12 @@ const Home = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/70 via-transparent to-transparent transition-opacity duration-500 group-hover:opacity-0" />
                   {/* Price tag */}
                   <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-neutral-950/85 backdrop-blur-md text-white font-sans text-xs px-4 py-2 border border-gold/30 z-20 whitespace-nowrap tracking-wider transition-opacity duration-500 group-hover:opacity-0">
-                    Gé¦{room.price.toLocaleString('en-IN')} <span className="text-neutral-400 font-light text-[9.5px]">/ Night</span>
+                    Gï¿½{room.price.toLocaleString('en-IN')} <span className="text-neutral-400 font-light text-[9.5px]">/ Night</span>
                   </div>
-                  {/* Hover overlay GÇö slides up like a video reveal */}
+                  {/* Hover overlay Gï¿½ï¿½ slides up like a video reveal */}
                   <div className="absolute inset-0 bg-neutral-950/80 flex flex-col items-center justify-center translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] z-30">
                     <span className="text-white/80 text-sm font-sans font-light tracking-wider mb-2">From</span>
-                    <span className="text-gold text-4xl md:text-5xl font-serif font-normal tracking-wide mb-4">Gé¦{room.price.toLocaleString('en-IN')}</span>
+                    <span className="text-gold text-4xl md:text-5xl font-serif font-normal tracking-wide mb-4">Gï¿½{room.price.toLocaleString('en-IN')}</span>
                     <span className="text-xs text-gold font-sans font-medium uppercase tracking-[0.25em] flex items-center gap-2">
                       <Play className="w-3 h-3 fill-current" /> View Room Details
                     </span>
@@ -286,7 +285,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Our Facilities GÇö All 12 amenities with logo + text */}
+      {/* Our Facilities Gï¿½ï¿½ All 12 amenities with logo + text */}
       <section className="py-24 bg-white border-t border-neutral-100">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <motion.div {...fadeUp()} className="text-center max-w-2xl mx-auto mb-16">
@@ -322,7 +321,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Feature Section 1 GÇö Organic Farm Fresh Cuisine */}
+      {/* Feature Section 1 Gï¿½ï¿½ Organic Farm Fresh Cuisine */}
       <section className="py-24 bg-luxury-cream border-t border-neutral-100">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <motion.div
@@ -370,7 +369,7 @@ const Home = () => {
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
                 className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify"
               >
-                Our multi-cuisine restaurant serves authentic Sikkimese dishes, Indian comfort food, and continental favourites GÇö all prepared with love by our kitchen team. Pair your meal with refreshing drinks or explore our fully stocked bar for the perfect mountain dining experience.
+                Our multi-cuisine restaurant serves authentic Sikkimese dishes, Indian comfort food, and continental favourites Gï¿½ï¿½ all prepared with love by our kitchen team. Pair your meal with refreshing drinks or explore our fully stocked bar for the perfect mountain dining experience.
               </motion.p>
               <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
                 <Link
@@ -386,7 +385,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Feature Section 2 GÇö Workstation & Lounge */}
+      {/* Feature Section 2 Gï¿½ï¿½ Workstation & Lounge */}
       <section className="py-24 bg-white border-t border-neutral-100">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <motion.div
@@ -395,7 +394,7 @@ const Home = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
-            {/* Content GÇö Left */}
+            {/* Content Gï¿½ï¿½ Left */}
             <motion.div
               variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.3 } } }}
               className="text-left space-y-5 order-2 lg:order-1"
@@ -418,13 +417,13 @@ const Home = () => {
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
                 className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify"
               >
-                Whether you're a remote worker, digital nomad, or a business traveller on the move, Hotel Shivaratna's dedicated workstation and lounge provides everything you need to stay productive GÇö high-speed Wi-Fi, comfortable seating, and the inspiring backdrop of the Himalayas.
+                Whether you're a remote worker, digital nomad, or a business traveller on the move, Hotel Shivaratna's dedicated workstation and lounge provides everything you need to stay productive Gï¿½ï¿½ high-speed Wi-Fi, comfortable seating, and the inspiring backdrop of the Himalayas.
               </motion.p>
               <motion.p
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
                 className="text-neutral-700 text-sm md:text-base font-sans font-light leading-relaxed text-justify"
               >
-                When the workday is done, transition seamlessly to relaxation mode in our comfortable lounge GÇö a serene space to unwind, connect with fellow travellers, or simply soak in the peaceful mountain atmosphere.
+                When the workday is done, transition seamlessly to relaxation mode in our comfortable lounge Gï¿½ï¿½ a serene space to unwind, connect with fellow travellers, or simply soak in the peaceful mountain atmosphere.
               </motion.p>
               <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
                 <Link
@@ -436,7 +435,7 @@ const Home = () => {
                 </Link>
               </motion.div>
             </motion.div>
-            {/* Image GÇö Right */}
+            {/* Image Gï¿½ï¿½ Right */}
             <motion.div
               variants={{ hidden: { opacity: 0, x: 60 }, visible: { opacity: 1, x: 0, transition: { duration: 1, ease: [0.22, 1, 0.36, 1] } } }}
               className="rounded-xl overflow-hidden shadow-2xl border border-gold/10 order-1 lg:order-2"
@@ -570,11 +569,12 @@ const Home = () => {
               >
                 Close <X className="w-4 h-4 ml-1.5" />
               </button>
-              <video
-                src={hotelVideo}
-                controls
-                autoPlay
-                className="w-full h-full object-contain"
+              <iframe
+                src="https://player.cloudinary.com/embed/?cloud_name=sbmngyjf&public_id=hotel_video_vnoqpl"
+                allow="autoplay; fullscreen; encrypted-media"
+                allowFullScreen
+                className="w-full h-full"
+                title="Shivaratna Hotel Preview Video"
               />
             </motion.div>
           </motion.div>

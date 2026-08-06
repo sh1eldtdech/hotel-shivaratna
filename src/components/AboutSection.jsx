@@ -128,7 +128,7 @@ const AboutSection = () => {
       </div>
 
       {/* Parallax Quote Banner (Middle Section) */}
-      <div className="relative w-full h-[320px] md:h-[450px] mt-28 flex items-center justify-center bg-fixed bg-cover bg-center overflow-hidden"
+      <div className="relative w-full h-[320px] md:h-[450px] mt-28 flex items-center justify-center md:bg-fixed bg-cover bg-center overflow-hidden"
         style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1920&q=80")' }}>
 
         {/* Banner Overlay */}
