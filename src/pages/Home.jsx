@@ -114,7 +114,7 @@ const Home = () => {
 
             {/* Content Right */}
             <motion.div
-              className="lg:col-span-6 text-left space-y-4 md:space-y-5"
+              className="lg:col-span-6 text-center lg:text-left space-y-4 md:space-y-5"
               variants={{
                 hidden: { opacity: 0 },
                 visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.3 } }
@@ -161,11 +161,11 @@ const Home = () => {
 
               <motion.div
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7 } } }}
-                className="flex flex-wrap gap-4 pt-1"
+                className="flex flex-wrap gap-4 pt-1 justify-center lg:justify-start"
               >
                 <Link
                   to="/about"
-                  className="inline-flex items-center text-xs text-gold hover:text-gold-dark uppercase tracking-widest font-sans font-semibold border border-gold/30 hover:border-gold px-5 py-3 transition-all duration-300"
+                  className="inline-flex items-center justify-center w-full sm:w-auto text-xs text-gold hover:text-gold-dark uppercase tracking-widest font-sans font-semibold border border-gold/30 hover:border-gold px-5 py-3 transition-all duration-300"
                 >
                   Learn More
                   <ArrowRight className="w-4 h-4 ml-2" />
@@ -322,7 +322,7 @@ const Home = () => {
             {/* Content */}
             <motion.div
               variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.3 } } }}
-              className="text-left space-y-4 md:space-y-5"
+              className="text-center lg:text-left space-y-4 md:space-y-5"
             >
               <motion.span
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
@@ -375,7 +375,7 @@ const Home = () => {
             {/* Content — Left (shows below image on mobile) */}
             <motion.div
               variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.3 } } }}
-              className="text-left space-y-4 md:space-y-5 order-2 lg:order-1"
+              className="text-center lg:text-left space-y-4 md:space-y-5 order-2 lg:order-1"
             >
               <motion.span
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
@@ -474,7 +474,7 @@ const Home = () => {
           </div>
 
           {/* Responsive Gallery Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-8 gap-2 sm:gap-3 md:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-2 sm:gap-3 md:gap-4">
             {GALLERY_IMAGES.map((img, idx) => (
               <motion.div
                 key={idx}
@@ -516,7 +516,7 @@ const Home = () => {
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.9 }}
-              className="bg-black max-w-5xl w-full aspect-video border border-gold/30 relative flex items-center justify-center"
+              className="bg-black max-w-5xl w-full max-h-[90vh] aspect-video border border-gold/30 relative flex items-center justify-center"
             >
               <button
                 onClick={() => setIsVideoOpen(false)}
