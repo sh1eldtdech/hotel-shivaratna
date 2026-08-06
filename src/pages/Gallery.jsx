@@ -146,12 +146,12 @@ const Gallery = () => {
 
       {/* Page Header */}
       <div
-        className="relative h-[300px] md:h-[400px] bg-cover bg-center flex items-center justify-center pt-16 md:pt-20"
+        className="relative min-h-[260px] h-auto sm:h-[300px] md:h-[400px] bg-cover bg-center flex items-center justify-center pt-16 md:pt-20"
         style={{ backgroundImage: `url("${kanchenjungaImg}")` }}
       >
         <div className="absolute inset-0 bg-neutral-950/75" />
         <div className="z-10 text-center space-y-3 px-4">
-          <h1 className="text-3xl md:text-5xl text-white font-serif font-medium tracking-wider uppercase">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl text-white font-serif font-medium tracking-wider uppercase">
             Photo &amp; Video Gallery
           </h1>
           <div className="flex justify-center items-center space-x-2 text-xs text-neutral-400 font-sans">
@@ -163,11 +163,11 @@ const Gallery = () => {
       </div>
 
       {/* Main Filterable 3D Grid */}
-      <section className="py-16 md:py-24">
+      <section className="py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
 
           {/* Category Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-14">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
@@ -255,7 +255,7 @@ const Gallery = () => {
                   {/* Hover Action & Title */}
                   <div className="relative z-10 p-3 sm:p-4 space-y-1">
                     <div className="flex items-center justify-between gap-2">
-                      <h4 className="text-white text-[11px] sm:text-xs font-serif font-medium tracking-wide group-hover:text-gold transition-colors duration-300 truncate">
+                      <h4 className="text-white text-[11px] sm:text-[12px] md:text-xs font-serif font-medium tracking-wide group-hover:text-gold transition-colors duration-300 truncate">
                         {item.title}
                       </h4>
                       {item.type !== 'photo' && (
@@ -288,13 +288,13 @@ const Gallery = () => {
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 20 }}
-              className="relative max-w-5xl w-full max-h-[85vh] flex flex-col items-center justify-center"
+              className="relative max-w-full sm:max-w-5xl w-full max-h-[90vh] flex flex-col items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
               <button
                 onClick={closeLightbox}
-                className="absolute -top-12 right-0 text-white hover:text-gold flex items-center gap-1.5 text-xs tracking-wider uppercase font-sans font-medium"
+                className="absolute top-4 right-4 sm:top-4 sm:right-4 md:-top-12 md:right-0 text-white hover:text-gold flex items-center gap-1.5 text-xs tracking-wider uppercase font-sans font-medium"
               >
                 Close <X className="w-4 h-4" />
               </button>
@@ -340,7 +340,7 @@ const Gallery = () => {
               {/* Prev Button */}
               <button
                 onClick={prevMedia}
-                className="absolute left-2 md:-left-12 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full border border-gold/40 bg-neutral-900/80 text-gold flex items-center justify-center hover:bg-gold hover:text-neutral-950 transition-all duration-300"
+                className="absolute left-2 md:-left-12 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-gold/40 bg-neutral-900/80 text-gold flex items-center justify-center hover:bg-gold hover:text-neutral-950 transition-all duration-300"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
@@ -348,7 +348,7 @@ const Gallery = () => {
               {/* Next Button */}
               <button
                 onClick={nextMedia}
-                className="absolute right-2 md:-right-12 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full border border-gold/40 bg-neutral-900/80 text-gold flex items-center justify-center hover:bg-gold hover:text-neutral-950 transition-all duration-300"
+                className="absolute right-2 md:-right-12 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-gold/40 bg-neutral-900/80 text-gold flex items-center justify-center hover:bg-gold hover:text-neutral-950 transition-all duration-300"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
