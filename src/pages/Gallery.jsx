@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, Play, Image as ImageIcon, Video, Sparkles } from 'lucide-react';
 import { GALLERY_IMAGES } from '../data/hotelData';
 
-const CLOUDINARY_VIDEO_EMBED_URL = 'https://player.cloudinary.com/embed/?cloud_name=sbmngyjf&public_id=20260712_133325_dizrkx';
-const CLOUDINARY_VIDEO_THUMB_URL = 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_133325_dizrkx.jpg';
+const CLOUDINARY_VIDEO_EMBED_URL = 'https://player.cloudinary.com/embed/?cloud_name=sbmngyjf&public_id=20260712_133035_mlggcx';
+const CLOUDINARY_VIDEO_THUMB_URL = 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_133035_mlggcx.jpg';
 const CLOUDINARY_VIDEO_EMBED_URL_ADDITIONAL = 'https://player.cloudinary.com/embed/?cloud_name=sbmngyjf&public_id=20260712_133510_fs8flc';
 const CLOUDINARY_VIDEO_THUMB_URL_ADDITIONAL = 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_133510_fs8flc.jpg';
 const CLOUDINARY_VIDEO_EMBED_URL_BEDROOM = 'https://player.cloudinary.com/embed/?cloud_name=sbmngyjf&public_id=20260712_134440_frmbvo';
@@ -28,10 +28,10 @@ const LOCAL_VIDEOS = [
   {
     id: 'v1',
     type: 'embed',
-    title: 'Hotel Shivaratna Overview',
+    title: 'Triple Bed Room with Monastery View',
     src: CLOUDINARY_VIDEO_EMBED_URL,
     poster: CLOUDINARY_VIDEO_THUMB_URL,
-    previewSrc: 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_133325_dizrkx.mp4',
+    previewSrc: 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_133035_mlggcx.mp4',
     category: 'Hotel'
   },
   {
@@ -109,7 +109,7 @@ const LOCAL_VIDEOS = [
 ];
 const LOCAL_PHOTOS = [
   { id: 'p1', type: 'photo', title: 'Kanchenjunga Mountain View', src: kanchenjungaImg, category: 'Views' },
-  { id: 'p2', type: 'photo', title: 'Deluxe Room Interior', src: img1, category: 'Hotel' },
+  { id: 'p2', type: 'photo', title: 'Corridor', src: img1, category: 'Hotel' },
   { id: 'p3', type: 'photo', title: 'Hotel Exterior View', src: img2, category: 'Hotel' },
   { id: 'p4', type: 'photo', title: 'Modern Attached Bathroom', src: img3, category: 'Hotel' },
   { id: 'p5', type: 'photo', title: 'Marble Staircase', src: img4, category: 'Dining' },

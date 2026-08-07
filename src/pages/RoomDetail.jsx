@@ -51,17 +51,17 @@ const RoomDetail = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/90 via-neutral-950/30 to-neutral-950/50" />
 
-        {/* Back button */}
-        <button
-          onClick={() => navigate(-1)}
-          className="absolute top-24 left-6 md:left-12 z-20 flex items-center gap-2 text-white/80 hover:text-gold text-xs font-sans uppercase tracking-widest transition-colors duration-300 group"
-        >
-          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-200" />
-          Back to Rooms
-        </button>
-
         {/* Room title overlay */}
         <div className="absolute bottom-8 left-6 md:left-12 right-6 md:right-12 z-20">
+          <div className="mb-4">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 text-white/90 hover:text-gold text-xs font-sans uppercase tracking-widest"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Home
+            </Link>
+          </div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
