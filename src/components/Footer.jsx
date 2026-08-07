@@ -71,9 +71,9 @@ const Footer = () => {
                 West Sikkim — 737121, India
               </p>
               <p>
-                T. <a href="tel:+919733092426" className="hover:text-gold transition-colors">+91 97330 92426</a><br />
-                T. <a href="tel:+917300643227" className="hover:text-gold transition-colors">+91 73006 43227</a><br />
-                M. <a href="mailto:hotelshivaratna@gmail.com" className="hover:text-gold transition-colors">hotelshivaratna@gmail.com</a>
+                <a href="tel:+919733092426" className="hover:text-gold transition-colors">+91 97330 92426</a><br />
+                <a href="tel:+917300643227" className="hover:text-gold transition-colors">+91 73006 43227</a><br />
+                <a href="mailto:hotelshivaratna@gmail.com" className="hover:text-gold transition-colors">hotelshivaratna@gmail.com</a>
               </p>
               <p>
                 <a href="https://wa.me/919733092426" target="_blank" rel="noreferrer" className="hover:text-gold transition-colors inline-flex items-center gap-1.5">
