@@ -113,7 +113,7 @@ const LOCAL_PHOTOS = [
   { id: 'p3', type: 'photo', title: 'Hotel Exterior View', src: img2, category: 'Hotel' },
   { id: 'p4', type: 'photo', title: 'Modern Attached Bathroom', src: img3, category: 'Hotel' },
   { id: 'p5', type: 'photo', title: 'Marble Staircase', src: img4, category: 'Dining' },
-  { id: 'p6', type: 'photo', title: 'Hotel Front View', src: img5, category: 'Hotel' },
+  { id: 'p6', type: 'photo', title: 'Hotel Back View', src: img5, category: 'Hotel' },
   { id: 'p7', type: 'photo', title: 'Hotel Corridor', src: img6, category: 'Hotel' },
   { id: 'p8', type: 'photo', title: 'Sunrise View of Kanchenjunga', src: viewFromHotelImg, category: 'Views' }
 ];

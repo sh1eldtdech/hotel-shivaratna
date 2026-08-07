@@ -88,7 +88,7 @@ const Footer = () => {
           <div className="lg:col-span-2 text-left space-y-4">
             <h4 className="font-serif text-sm font-semibold tracking-wider text-white">Our Motto</h4>
             <p className="text-xs font-light leading-relaxed text-neutral-300 italic">
-              "Every guest arrives as a visitor and leaves as a part of our family."
+              "Live your Paradise"
             </p>
             <div className="w-10 h-[1.5px] bg-gold" />
           </div>
