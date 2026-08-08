@@ -240,7 +240,7 @@ const RoomDetail = () => {
                 </Link>
 
                 <a
-                  href="tel:+919999999999"
+                  href="tel:+919733092426"
                   className="w-full border border-neutral-300 hover:border-gold text-neutral-700 hover:text-gold font-sans font-medium text-xs uppercase tracking-widest py-4 flex items-center justify-center transition-all duration-300 block text-center"
                 >
                   <Phone className="w-4 h-4 mr-2 inline" />

@@ -72,7 +72,6 @@ const Footer = () => {
               </p>
               <p>
                 <a href="tel:+919733092426" className="hover:text-gold transition-colors">+91 97330 92426</a><br />
-                <a href="tel:+917300643227" className="hover:text-gold transition-colors">+91 73006 43227</a><br />
                 <a href="mailto:hotelshivaratna@gmail.com" className="hover:text-gold transition-colors">hotelshivaratna@gmail.com</a>
               </p>
               <p>

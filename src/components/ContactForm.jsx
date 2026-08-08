@@ -156,8 +156,7 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
                 <div>
                   <h4 className="font-serif text-sm font-semibold tracking-wider text-gold">Reservations</h4>
                   <p className="text-neutral-700 text-sm font-sans font-light mt-1">
-                    <a href="tel:+919733092426" className="hover:text-gold transition-colors">+91 97330 92426</a><br />
-                    <a href="tel:+917300643227" className="hover:text-gold transition-colors">+91 73006 43227</a>
+                    <a href="tel:+919733092426" className="hover:text-gold transition-colors">+91 97330 92426</a>
                   </p>
                 </div>
               </div>

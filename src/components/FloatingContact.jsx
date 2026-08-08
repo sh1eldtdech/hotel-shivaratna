@@ -3,7 +3,7 @@ import { Phone } from 'lucide-react';
 
 const FloatingContact = () => {
   // Replace with the actual phone number for the call link
-  const phoneNumber = "+919876543210"; 
+  const phoneNumber = "+919733092426"; 
 
   return (
     <div className="fixed bottom-[10.5rem] right-8 z-50">
