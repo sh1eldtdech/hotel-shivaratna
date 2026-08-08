@@ -68,7 +68,7 @@ const Footer = () => {
             <div className="space-y-3 text-xs font-light text-neutral-300">
               <p className="leading-relaxed">
                 Hotel Shivaratna, Rinchenpong,<br />
-                West Sikkim — 737121, India
+                West Sikkim — 737111, India
               </p>
               <p>
                 <a href="tel:+919733092426" className="hover:text-gold transition-colors">+91 97330 92426</a><br />
