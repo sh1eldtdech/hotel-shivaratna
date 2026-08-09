@@ -29,8 +29,8 @@ const exploreData = [
     id: 1,
     name: "Ngagyur Rinchen Chholing Monastery",
     distance: "50–100 m",
-    time: "1-min walk",
-    description: "One of the most significant landmarks of Rinchenpong, Rinchen Cholang Monastery reflects the rich Buddhist heritage and spiritual traditions of West Sikkim. Located just opposite Hotel Shivaratna, the monastery welcomes visitors with its traditional Himalayan architecture, colourful prayer flags, peaceful surroundings, and serene atmosphere. It is an ideal place to experience local culture, spirituality, and the timeless beauty of Buddhist tradition.",
+    time: "1-minute walk",
+    description: "One of the most significant landmarks of Rinchenpong, Rinchen Cholang Monastery reflects the rich Buddhist heritage and spiritual traditions of West Sikkim. Located just opposite Hotel Shivaratna, the monastery welcomes visitors with its traditional Himalayan architecture, colourful prayer flags, peaceful surroundings, and serene atmosphere. It is an ideal place to experience local culture, spirituality, and the timeless beauty of Buddhist tradition",
     category: "Spiritual",
     image: ngagyur,
   },
@@ -38,7 +38,7 @@ const exploreData = [
     id: 2,
     name: "Rabindranath Van (Opposite Hotel Shivaratna)",
     distance: "50 m",
-    time: "1-min walk",
+    time: "1-minute walk",
     description: "Located directly opposite Hotel Shivaratna, Rabindranath Van is a peaceful natural retreat dedicated to Nobel Laureate Rabindranath Tagore. Surrounded by greenery and beautiful mountain views, the park offers a relaxing environment for visitors to enjoy nature, capture photographs, and spend peaceful moments away from the busy world.",
     category: "Nature",
     image: rabindranath,
@@ -47,8 +47,8 @@ const exploreData = [
     id: 3,
     name: "Rinchenpong Monastery (Sang Ngag Yangtse Monastery)",
     distance: "1.8 km",
-    time: "6 min drive / 30 min walk",
-    description: "Nestled in the serene hills of West Sikkim, Rinchenpong Monastery is one of the region's oldest and most revered Buddhist monasteries, established in 1730. Surrounded by lush greenery and towering pine forests, it features traditional Sikkimese-Tibetan architecture and houses the rare sacred Ati Buddha statue. Visitors come to experience its peaceful spiritual ambiance, rich cultural heritage, and breathtaking panoramic views of the majestic Kanchenjunga mountain range.",
+    time: "6 minutes driving, 30 minutes walk",
+    description: "Nestled amidst the serene hills of West Sikkim, **Rinchenpong Monastery** is a historic Buddhist sanctuary established in 1730 and regarded as the third oldest monastery in the region. Surrounded by lush green lawns and towering pine forests, it is home to a rare and sacred statue of the Ati Buddha (Adi-Buddha) in the meditative Yab-Yum posture. Visitors come to experience its peaceful atmosphere, rich Himalayan heritage, and breathtaking panoramic views of the majestic Mount Kanchenjunga.",
     category: "Spiritual",
     image: rinchenpongMonastery,
   },
@@ -56,7 +56,7 @@ const exploreData = [
     id: 4,
     name: "Poison Lake (Bikh Pokhri)",
     distance: "2 km",
-    time: "25–30 min walk",
+    time: "25–30 minutes walk",
     description: "Hidden within the peaceful forests of Rinchenpong, Poison Lake, locally known as Bikh Pokhri, is one of the region's most mysterious and fascinating attractions. According to local folklore, the lake was once used to poison invading armies by preventing them from accessing its water during ancient conflicts. Today, a beautiful forest trail leads visitors to this quiet natural wonder, where the mystery of its legend blends with the untouched beauty of the surrounding wilderness.",
     category: "Nature",
     image: poisonLake,
@@ -65,7 +65,7 @@ const exploreData = [
     id: 5,
     name: "Dak Bungalow",
     distance: "1 km",
-    time: "12–15 min walk",
+    time: "12–15 minutes walk",
     description: "A historic heritage site of Rinchenpong, Dak Bungalow offers spectacular views of the Himalayan ranges, surrounding valleys, and lush green landscapes. Its peaceful atmosphere and old-world charm make it a favourite destination for visitors looking to enjoy sunrise, sunset, and breathtaking mountain views.",
     category: "Viewpoint",
     image: dakBungalow,
@@ -74,8 +74,8 @@ const exploreData = [
     id: 6,
     name: "Reesum Monastery",
     distance: "4 km",
-    time: "45–60 min walk (forest trail)",
-    description: "Nestled amidst beautiful forests, Reesum Monastery is a peaceful spiritual destination known for its calm surroundings and natural beauty. The scenic route to the monastery allows visitors to experience fresh mountain air, greenery, and the tranquillity of the Himalayan landscape.",
+    time: "45–60 minutes walk (forest trail)",
+    description: "Nestled amidst beautiful forests, Reshi Monastery is a peaceful spiritual destination known for its calm surroundings and natural beauty. The scenic route to the monastery allows visitors to experience fresh mountain air, greenery, and the tranquillity of the Himalayan landscape.",
     category: "Spiritual",
     image: reesumMonastery,
   },
@@ -83,8 +83,8 @@ const exploreData = [
     id: 7,
     name: "Azing Farm & Winery",
     distance: "8 km",
-    time: "20–25 min drive",
-    description: "Ajing Farm is a unique attraction in West Sikkim, famous for its locally produced fruit wines and traditional winemaking practices. Visitors can explore the farm, discover local flavours, and enjoy scenic countryside views surrounded by the natural beauty of the hills.",
+    time: "20–25 minutes drive",
+    description: "Ajing Farm is a unique attraction in West Sikkim, famous for its locally produced fruit wines and traditional winemaking practices. Visitors can Explore the farm, discover local flavours, and enjoy scenic countryside views surrounded by the natural beauty of the hills.",
     category: "Day Trip",
     image: ajingFarm,
   },
@@ -92,7 +92,7 @@ const exploreData = [
     id: 8,
     name: "Sribadam Waterfall",
     distance: "12 km",
-    time: "25–30 min drive",
+    time: "25–30 minutes drive",
     description: "Surrounded by pine forests and lush greenery, Sribadam Waterfall is a hidden gem offering a refreshing escape into nature. The peaceful environment, flowing waters, and scenic surroundings make it perfect for photography, relaxation, and spending quality time with loved ones.",
     category: "Nature",
     image: sribadamWaterfall,
@@ -101,8 +101,8 @@ const exploreData = [
     id: 9,
     name: "Bombhir Natural Mineral Spring",
     distance: "18 km",
-    time: "35–40 min drive",
-    description: "Bombhir is famous for its naturally flowing mineral-rich spring water emerging directly from the mountains. Travellers often stop here to drink the fresh spring water, refill bottles, and experience this unique natural attraction. The continuously flowing stream has also become popular as a natural 'free car wash' for passing vehicles.",
+    time: "35–40 minutes drive",
+    description: "Bombhir is famous for its naturally flowing mineral-rich spring water emerging directly from the mountains. Travellers often stop here to drink the fresh spring water, refill bottles, and experience this unique natural attraction. The continuously flowing stream has also become popular as a natural \"free car wash\" for passing vehicles.",
     category: "Nature",
     image: bombhir,
   },
@@ -110,7 +110,7 @@ const exploreData = [
     id: 10,
     name: "Chaayatal Lake",
     distance: "30 km",
-    time: "60–70 min drive",
+    time: "60–70 minutes drive",
     description: "A beautiful high-altitude lake surrounded by forests and mountains, Chaayatal is a peaceful destination connected with local legends of the Subba King. Visitors can enjoy nature walks, photography, birdwatching, and the untouched beauty of the Himalayan surroundings.",
     category: "Adventure",
     image: chaayatalLake,
@@ -119,17 +119,17 @@ const exploreData = [
     id: 11,
     name: "Bermiok Shiva Cave",
     distance: "30 km",
-    time: "60–70 min drive",
+    time: "60–70 minutes drive",
     description: "A sacred pilgrimage destination dedicated to Lord Shiva, Bermiok Shiva Cave attracts devotees and travellers seeking spiritual experiences. Surrounded by peaceful forests and mountain landscapes, the cave offers a unique blend of faith, nature, and local traditions.",
     category: "Spiritual",
     image: bermiokShiva,
   },
   {
     id: 12,
-    name: "Srijunga Statue (Mahatma Sirijunga Teyongsi Complex)",
+    name: "Srijunga Statue",
     distance: "30 km",
-    time: "60–70 min drive",
-    description: "The Mahatma Sirijunga Teyongsi Complex in West Sikkim features a magnificent 36-foot bronze statue honouring the 18th-century Limbu scholar, set within 7.7 hectares offering panoramic views of Mt. Kanchenjunga. Located near Chaayatal Lake, the site acts as a cultural heritage hub and includes a study centre dedicated to the Limbu script and tradition.",
+    time: "60–70 minutes drive",
+    description: "The Mahatma Sirijunga Teyongsi Complex in West Sikkim features a 36-foot bronze statue honoring the 18th-century Limbu scholar, set within 7.7 hectares offering panoramic views of Mt. Kanchenjunga. Located near Chayatal Lake, the site acts as a cultural heritage hub and includes a study center dedicated to the Limbu script and tradition.",
     category: "Cultural",
     image: chaayatalLake,
   },
@@ -137,8 +137,8 @@ const exploreData = [
     id: 13,
     name: "Singshore Bridge",
     distance: "30 km",
-    time: "60–70 min drive",
-    description: "Singshore Bridge is one of the highest suspension bridges in Sikkim, offering breathtaking panoramic views of lush valleys, waterfalls, and the surrounding Himalayan landscape. Currently under renovation and undergoing the installation of a glass skywalk bridge, it remains a popular destination for sightseeing, photography, and experiencing the region's natural beauty.",
+    time: "60–70 minutes drive",
+    description: "Singshore Bridge is one of the highest suspension bridges in Sikkim, offering breathtaking panoramic views of lush valleys, waterfalls, and the surrounding Himalayan landscape. Currently under renovation and undergoing the installation of a glass skywalk bridge, it is a popular destination for sightseeing, photography, and experiencing the region's natural beauty.",
     category: "Adventure",
     image: singshoreBridge,
   },
@@ -538,7 +538,7 @@ const About = () => {
           </motion.div>
 
           {/* Image Mosaic — asymmetric bento grid */}
-          <div className="grid grid-cols-12 grid-rows-[200px_200px_200px] md:grid-rows-[220px_220px] gap-2 rounded-b-[2rem] overflow-hidden border border-gold/10 border-t-0 shadow-[0_30px_80px_-35px_rgba(0,0,0,0.45)]">
+          <div className="grid grid-cols-12 grid-rows-[180px_180px_180px] md:grid-rows-[220px_220px] gap-2 rounded-b-[2rem] overflow-hidden border border-gold/10 border-t-0 shadow-[0_30px_80px_-35px_rgba(0,0,0,0.45)]">
             {/* Large hero image — left tall */}
             <motion.div
               initial={{ opacity: 0, scale: 0.96 }}
@@ -660,7 +660,7 @@ const About = () => {
             <span className="text-xs font-semibold tracking-[0.25em] text-gold uppercase block font-sans">
               Discover More
             </span>
-            <h2 className="text-4xl md:text-6xl font-medium text-neutral-900 font-serif mt-3 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-medium text-neutral-900 font-serif mt-3 leading-tight">
               Explore Nearby Hidden Gems
             </h2>
             <div className="w-16 h-[1.5px] bg-gold mx-auto mt-5" />

@@ -118,7 +118,7 @@ const AboutSection = () => {
                 <h3 className="text-lg md:text-[21px] font-medium tracking-wide text-neutral-900 font-serif mb-3">
                   {facility.title}
                 </h3>
-                <p className="text-neutral-950 text-medium text-xs md:text-[18px] leading-relaxed font-sans font-light">
+                <p className="text-neutral-950 text-xs md:text-sm leading-relaxed font-sans font-light">
                   {facility.description}
                 </p>
               </motion.div>

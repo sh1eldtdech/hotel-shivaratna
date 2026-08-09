@@ -250,7 +250,7 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
           </div>
 
           {/* Right Column - Booking & Contact Form */}
-          <div className="lg:col-span-7 bg-white/80 backdrop-blur-md border border-gold/15 p-8 md:p-10 shadow-gold-glow">
+          <div className="lg:col-span-7 bg-white/80 backdrop-blur-md border border-gold/15 p-5 sm:p-8 md:p-10 shadow-gold-glow">
             
             <h3 className="text-xl md:text-2xl font-serif text-neutral-900 font-medium text-left mb-6">
               Reservation &amp; Inquiry Form

@@ -8,12 +8,12 @@ const FloatingWhatsApp = () => {
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
 
   return (
-    <div className="fixed bottom-24 right-8 z-50">
+    <div className="fixed bottom-24 right-4 sm:right-6 z-50">
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center w-14 h-14 bg-[#25D366] hover:bg-[#1EBE57] text-white rounded-full shadow-lg transition-transform hover:-translate-y-1 hover:scale-110"
+        className="flex items-center justify-center w-11 h-11 sm:w-14 sm:h-14 bg-[#25D366] hover:bg-[#1EBE57] text-white rounded-full shadow-lg transition-transform hover:-translate-y-1 hover:scale-110"
         aria-label="Chat with us on WhatsApp"
       >
         <svg 

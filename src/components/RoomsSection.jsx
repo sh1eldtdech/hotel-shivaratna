@@ -106,7 +106,7 @@ const RoomsSection = ({ onSelectRoomForBooking }) => {
                   </p>
                 </div>
 
-                <div className="pt-6 border-t border-neutral-100 flex items-center justify-between">
+                <div className="pt-6 border-t border-neutral-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                   <button
                     onClick={() => navigate(`/rooms/${standardParent.id}`)}
                     className="text-xs text-neutral-600 hover:text-gold uppercase tracking-widest font-sans font-semibold transition-colors"
@@ -186,7 +186,7 @@ const RoomsSection = ({ onSelectRoomForBooking }) => {
                   </p>
                 </div>
 
-                <div className="pt-6 border-t border-neutral-100 flex items-center justify-between">
+                <div className="pt-6 border-t border-neutral-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                   <button
                     onClick={() => navigate(`/rooms/${deluxeRoom.id}`)}
                     className="text-xs text-neutral-600 hover:text-gold uppercase tracking-widest font-sans font-semibold transition-colors"
@@ -252,7 +252,7 @@ const RoomsSection = ({ onSelectRoomForBooking }) => {
                   </p>
                 </div>
 
-                <div className="pt-6 border-t border-neutral-100 flex items-center justify-between">
+                <div className="pt-6 border-t border-neutral-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                   <button
                     onClick={() => navigate(`/rooms/${suiteRoom.id}`)}
                     className="text-xs text-neutral-600 hover:text-gold uppercase tracking-widest font-sans font-semibold transition-colors"
