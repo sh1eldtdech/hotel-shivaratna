@@ -1,18 +1,18 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  MapPin, 
-  Compass, 
-  Calendar, 
-  ChevronDown, 
-  ArrowLeft, 
-  CheckCircle, 
-  Car, 
-  Hotel, 
-  AlertCircle, 
-  Sparkles, 
-  Clock, 
+import {
+  MapPin,
+  Compass,
+  Calendar,
+  ChevronDown,
+  ArrowLeft,
+  CheckCircle,
+  Car,
+  Hotel,
+  AlertCircle,
+  Sparkles,
+  Clock,
   Mountain,
   Map
 } from 'lucide-react';
@@ -57,7 +57,7 @@ const Travel = () => {
     return (
       <div>
         {/* Header Banner */}
-        <div 
+        <div
           className="relative h-[300px] md:h-[400px] bg-cover bg-center flex items-center justify-center pt-16 md:pt-20"
           style={{ backgroundImage: `url(${attractions[0]?.img || '/assets/east-sikkim.jpg'})` }}
         >
@@ -70,18 +70,18 @@ const Travel = () => {
               <span>&gt;</span>
               <span className="text-gold">{currentDistrict.name}</span>
             </div>
-            
+
             <h1 className="text-4xl md:text-6xl text-white font-serif font-medium tracking-wider uppercase">
               {currentDistrict.name} District
             </h1>
-            
+
             <p className="text-neutral-300 text-sm md:text-base font-sans font-light leading-relaxed max-w-2xl mx-auto">
               {currentDistrict.description}
             </p>
 
             <div className="pt-2">
-              <Link 
-                to="/travel" 
+              <Link
+                to="/travel"
                 className="inline-flex items-center text-xs uppercase tracking-widest text-gold hover:text-gold-light transition-colors font-sans"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" /> Back to Districts
@@ -95,15 +95,15 @@ const Travel = () => {
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               {currentDistrict.info?.map((item, index) => (
-                <div 
+                <div
                   key={index}
                   className="flex items-center bg-neutral-50 border border-gold-200 p-6 rounded-lg shadow-premium hover:border-gold/30 transition-all duration-300"
                 >
                   <div className="text-3xl mr-5 p-3 rounded-full bg-gold/5 border border-gold/10">
-                    {item.icon === '🏙️' ? <MapPin className="w-7 h-7 text-gold" /> : 
-                     item.icon === '⛰️' ? <Mountain className="w-7 h-7 text-gold" /> : 
-                     item.icon === '📅' ? <Calendar className="w-7 h-7 text-gold" /> : 
-                     <Compass className="w-7 h-7 text-gold" />}
+                    {item.icon === '🏙️' ? <MapPin className="w-7 h-7 text-gold" /> :
+                      item.icon === '⛰️' ? <Mountain className="w-7 h-7 text-gold" /> :
+                        item.icon === '📅' ? <Calendar className="w-7 h-7 text-gold" /> :
+                          <Compass className="w-7 h-7 text-gold" />}
                   </div>
                   <div>
                     <span className="text-xs uppercase tracking-wider text-neutral-400 font-sans block">
@@ -134,14 +134,16 @@ const Travel = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {displayedAttractions.map((attraction, idx) => (
-                <div 
+                <div
                   key={idx}
                   className="bg-white border border-neutral-100 rounded-lg overflow-hidden shadow-premium group hover:border-gold/30 transition-all duration-300 flex flex-col h-full"
                 >
                   <div className="relative overflow-hidden aspect-[4/3] bg-neutral-900">
-                    <img 
-                      src={attraction.img} 
+                    <img
+                      src={attraction.img}
                       alt={attraction.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-95"
                     />
                     <span className="absolute top-4 left-4 bg-gold text-neutral-950 text-[9px] uppercase tracking-widest px-3 py-1 font-sans font-semibold shadow-md">
@@ -189,7 +191,7 @@ const Travel = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
               {currentExtras.festivals?.map((fest, idx) => (
-                <div 
+                <div
                   key={idx}
                   className="bg-neutral-50 border border-gold-200 p-8 shadow-premium rounded-lg flex flex-col justify-between hover:border-gold-200 transition-all duration-300"
                 >
@@ -315,7 +317,7 @@ const Travel = () => {
               {currentExtras.faqs?.map((faq, idx) => {
                 const isOpen = openFaqIndex === idx;
                 return (
-                  <div 
+                  <div
                     key={idx}
                     className="bg-white border border-neutral-100 rounded-lg shadow-sm overflow-hidden transition-all duration-300"
                   >
@@ -326,13 +328,12 @@ const Travel = () => {
                       <span className="font-serif text-sm md:text-base font-medium text-neutral-950 pr-4">
                         {faq.q}
                       </span>
-                      <ChevronDown 
-                        className={`w-5 h-5 text-gold shrink-0 transition-transform duration-300 ${
-                          isOpen ? 'rotate-180' : ''
-                        }`}
+                      <ChevronDown
+                        className={`w-5 h-5 text-gold shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''
+                          }`}
                       />
                     </button>
-                    
+
                     <AnimatePresence initial={false}>
                       {isOpen && (
                         <motion.div
@@ -372,7 +373,7 @@ const Travel = () => {
   return (
     <div>
       {/* Page Header */}
-      <div 
+      <div
         className="relative h-[280px] md:h-[350px] bg-cover bg-center flex items-center justify-center pt-16 md:pt-20"
         style={{ backgroundImage: `url(${north_sikkim_assets.gurudongmar_lake})` }}
       >
@@ -415,22 +416,24 @@ const Travel = () => {
             {districtList.map((district) => {
               const firstAttraction = district.topAttractions?.[0];
               const cardImage = firstAttraction?.img || '/assets/east-sikkim.jpg';
-              
+
               return (
-                <Link 
+                <Link
                   key={district.id}
                   to={`/travel/${district.slug}`}
                   className="bg-white border border-neutral-100 rounded-lg overflow-hidden shadow-premium hover:border-gold/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col group block"
                 >
                   {/* Image Container */}
                   <div className="relative aspect-[4/3] overflow-hidden bg-neutral-950">
-                    <img 
-                      src={cardImage} 
+                    <img
+                      src={cardImage}
                       alt={district.name}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-90"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/60 to-transparent" />
-                    
+
                     <span className="absolute top-4 right-4 bg-neutral-950/85 backdrop-blur-md border border-gold/20 text-gold text-[9px] uppercase tracking-widest px-3 py-1 font-sans font-medium">
                       {district.topAttractions?.length || 0} Attractions
                     </span>
@@ -441,7 +444,7 @@ const Travel = () => {
                     <h3 className="text-2xl font-serif font-medium text-neutral-950 tracking-wide">
                       {district.name}
                     </h3>
-                    
+
                     <p className="text-neutral-700 text-xs md:text-sm font-sans font-light leading-relaxed flex-grow">
                       {district.description}
                     </p>
@@ -455,8 +458,8 @@ const Travel = () => {
                           {district.info?.[0]?.value}
                         </span>
                       </div>
-                      
-                      <span 
+
+                      <span
                         className="inline-flex items-center text-xs uppercase tracking-widest font-sans font-medium text-gold transition-colors group-hover:text-gold-light"
                       >
                         Explore <ArrowLeft className="w-3.5 h-3.5 ml-1.5 rotate-180 transition-transform group-hover:translate-x-2" />

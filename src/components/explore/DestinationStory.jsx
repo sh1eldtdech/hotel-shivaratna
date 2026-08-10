@@ -53,6 +53,7 @@ export default function DestinationStory({ destinations }) {
                     key={activeDestination.image}
                     src={activeDestination.image}
                     alt={activeDestination.name}
+                    decoding="async"
                     initial={{
                       opacity: 0,
                       scale: 1.08,
@@ -179,6 +180,8 @@ export default function DestinationStory({ destinations }) {
               <img
                 src={destination.image}
                 alt={destination.name}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
 

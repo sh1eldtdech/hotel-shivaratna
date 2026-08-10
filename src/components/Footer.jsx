@@ -16,6 +16,8 @@ const Footer = () => {
               <img
                 src={logo}
                 alt="Hotel Shivaratna Logo"
+                loading="lazy"
+                decoding="async"
                 className="h-16 md:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
             </Link>

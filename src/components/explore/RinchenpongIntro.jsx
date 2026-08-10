@@ -20,6 +20,8 @@ export default function RinchenpongIntro() {
             <img
               src="https://images.unsplash.com/photo-1544258888-2fc838ee8278?auto=format&fit=crop&q=80"
               alt="Mist over Rinchenpong"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-transparent to-transparent" />

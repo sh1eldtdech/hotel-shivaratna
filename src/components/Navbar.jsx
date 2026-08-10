@@ -51,10 +51,11 @@ const Navbar = () => {
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center group">
+          <Link to="/" className="flex items-center cursor-pointer group">
             <img
               src={logo}
               alt="Hotel Shivaratna Logo"
+              decoding="async"
               className="h-14 md:h-16 lg:h-20 w-auto object-contain transition-all duration-300 group-hover:scale-105"
             />
           </Link>
@@ -114,7 +115,7 @@ const Navbar = () => {
                         return (
                           <Link key={dLink.id} to={dLink.to} className="relative group/card overflow-hidden rounded bg-neutral-50 block shadow-sm hover:shadow-md transition-shadow">
                             {cardImage && (
-                              <img src={cardImage} alt={district?.name} className="w-full h-28 object-cover group-hover/card:scale-105 transition-transform duration-500" />
+                              <img src={cardImage} alt={district?.name} loading="lazy" decoding="async" className="w-full h-28 object-cover group-hover/card:scale-105 transition-transform duration-500" />
                             )}
                             <div className="absolute top-2 left-2 bg-gold/90 text-neutral-950 text-[10px] uppercase font-bold px-2 py-1">
                               {idx < 2 ? 'Popular' : 'Explore'}

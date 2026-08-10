@@ -1,7 +1,46 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, Play, Image as ImageIcon, Video, Sparkles } from 'lucide-react';
 import { GALLERY_IMAGES } from '../data/hotelData';
+
+const LazyGridVideo = ({ src, poster, className, onMouseEnter, onMouseLeave }) => {
+  const videoRef = useRef(null);
+  const [isIntersecting, setIsIntersecting] = useState(false);
+
+  useEffect(() => {
+    const videoEl = videoRef.current;
+    if (!videoEl) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsIntersecting(entry.isIntersecting);
+        if (!entry.isIntersecting) {
+          videoEl.pause();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(videoEl);
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  return (
+    <video
+      ref={videoRef}
+      src={isIntersecting ? src : ''}
+      poster={poster}
+      preload="none"
+      muted
+      loop
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      className={className}
+    />
+  );
+};
 
 const CLOUDINARY_VIDEO_EMBED_URL = 'https://player.cloudinary.com/embed/?cloud_name=sbmngyjf&public_id=20260712_133035_mlggcx';
 const CLOUDINARY_VIDEO_THUMB_URL = 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_133035_mlggcx.jpg';
@@ -128,7 +167,7 @@ const Gallery = () => {
 
   const openLightbox = (index) => setLightboxIndex(index);
   const closeLightbox = () => setLightboxIndex(null);
-  
+
   const prevMedia = () => setLightboxIndex((prev) => (prev === 0 ? filteredMedia.length - 1 : prev - 1));
   const nextMedia = () => setLightboxIndex((prev) => (prev === filteredMedia.length - 1 ? 0 : prev + 1));
 
@@ -163,11 +202,10 @@ const Gallery = () => {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`font-sans text-[10px] sm:text-xs uppercase tracking-widest px-4 sm:px-5 py-2 border transition-all duration-300 font-medium rounded-full ${
-                  activeCategory === cat
+                className={`font-sans text-[10px] sm:text-xs uppercase tracking-widest px-4 sm:px-5 py-2 border transition-all duration-300 font-medium rounded-full ${activeCategory === cat
                     ? 'bg-gold text-neutral-950 border-gold shadow-gold-glow'
                     : 'bg-white border-neutral-200 text-neutral-600 hover:border-gold hover:text-gold'
-                }`}
+                  }`}
               >
                 {cat === 'Photos' && <ImageIcon className="w-3.5 h-3.5 inline mr-1.5 stroke-[2]" />}
                 {cat === 'Videos' && <Video className="w-3.5 h-3.5 inline mr-1.5 stroke-[2]" />}
@@ -203,10 +241,9 @@ const Gallery = () => {
                 >
                   {/* Media Rendering */}
                   {item.type === 'video' ? (
-                    <video
+                    <LazyGridVideo
                       src={item.src}
-                      muted
-                      loop
+                      poster={item.poster}
                       onMouseEnter={(e) => e.target.play()}
                       onMouseLeave={(e) => { e.target.pause(); e.target.currentTime = 0; }}
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -215,12 +252,16 @@ const Gallery = () => {
                     <img
                       src={item.poster}
                       alt={item.title}
+                      loading="lazy"
+                      decoding="async"
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                   ) : (
                     <img
                       src={item.src}
                       alt={item.title}
+                      loading="lazy"
+                      decoding="async"
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                   )}
@@ -297,6 +338,7 @@ const Gallery = () => {
                     src={filteredMedia[lightboxIndex].src}
                     controls
                     autoPlay
+                    preload="none"
                     className="w-full h-full object-contain"
                   />
                 </div>
@@ -314,6 +356,7 @@ const Gallery = () => {
                 <img
                   src={filteredMedia[lightboxIndex].src}
                   alt={filteredMedia[lightboxIndex].title}
+                  decoding="async"
                   className="max-w-full max-h-[75vh] object-contain border border-gold/20 shadow-2xl rounded-sm"
                 />
               )}

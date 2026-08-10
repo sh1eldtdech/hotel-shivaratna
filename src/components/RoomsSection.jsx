@@ -61,7 +61,7 @@ const RoomsSection = ({ onSelectRoomForBooking }) => {
               className="bg-neutral-50 border border-neutral-100 hover:border-gold/30 hover:bg-white transition-all duration-500 shadow-premium rounded-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 group"
             >
               {/* Image side */}
-              <div 
+              <div
                 className="lg:col-span-7 relative overflow-hidden cursor-pointer h-[250px] sm:h-[350px] lg:h-auto min-h-[300px]"
                 onClick={() => navigate(`/rooms/${standardParent.id}`)}
               >
@@ -69,6 +69,8 @@ const RoomsSection = ({ onSelectRoomForBooking }) => {
                 <img
                   src={standardParent.image}
                   alt={standardParent.title}
+                  loading="lazy"
+                  decoding="async"
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
 
@@ -141,7 +143,7 @@ const RoomsSection = ({ onSelectRoomForBooking }) => {
               className="bg-neutral-50 border border-neutral-100 hover:border-gold/30 hover:bg-white transition-all duration-500 shadow-premium rounded-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 group"
             >
               {/* Image side */}
-              <div 
+              <div
                 className="lg:col-span-7 relative overflow-hidden cursor-pointer h-[250px] sm:h-[350px] lg:h-auto min-h-[300px]"
                 onClick={() => navigate(`/rooms/${deluxeRoom.id}`)}
               >
@@ -149,6 +151,8 @@ const RoomsSection = ({ onSelectRoomForBooking }) => {
                 <img
                   src={deluxeRoom.image}
                   alt={deluxeRoom.title}
+                  loading="lazy"
+                  decoding="async"
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
 
@@ -269,7 +273,7 @@ const RoomsSection = ({ onSelectRoomForBooking }) => {
               </div>
 
               {/* Image side */}
-              <div 
+              <div
                 className="lg:col-span-7 relative overflow-hidden cursor-pointer h-[250px] sm:h-[350px] lg:h-auto min-h-[300px] order-1 lg:order-2"
                 onClick={() => navigate(`/rooms/${suiteRoom.id}`)}
               >
@@ -277,6 +281,8 @@ const RoomsSection = ({ onSelectRoomForBooking }) => {
                 <img
                   src={suiteRoom.image}
                   alt={suiteRoom.title}
+                  loading="lazy"
+                  decoding="async"
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
 

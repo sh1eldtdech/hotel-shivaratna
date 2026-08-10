@@ -97,7 +97,7 @@ const Dining = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-white/85 font-serif text-lg md:text-2xl font-light italic max-w-2xl mx-auto"
           >
-            We serve freshly harvested organic food cooked. From farm to table.<br/><br/>
+            We serve freshly harvested organic food cooked. From farm to table.<br /><br />
             "Experience Sikkim's Organic &amp; Authentic Flavours, Fresh from the Himalayas."
           </motion.p>
         </div>
@@ -116,7 +116,7 @@ const Dining = () => {
                 Organic Farm Fresh Cuisine
               </h2>
               <div className="w-12 h-[1.5px] bg-gold" />
-              
+
               <div className="space-y-5 text-neutral-700 font-sans font-light text-sm md:text-base leading-relaxed text-justify">
                 <p>
                   At Hotel Shivaratna, every meal begins at its source. We proudly embrace Sikkim's rich organic heritage by serving dishes prepared with freshly harvested, locally grown ingredients sourced directly from nearby farms. From crisp vegetables and aromatic herbs to seasonal produce, every ingredient is handpicked for its freshness, purity, and exceptional quality.
@@ -158,6 +158,8 @@ const Dining = () => {
                 <img
                   src={dishesImg2}
                   alt="Delicious organic Sikkimese food platter"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-neutral-950/20" />
@@ -178,7 +180,7 @@ const Dining = () => {
       <section className="py-24 bg-neutral-950 text-white relative overflow-hidden">
         {/* Subtle Background Pattern */}
         <div className="absolute inset-0 opacity-10 bg-cover bg-center pointer-events-none" style={{ backgroundImage: `url(${barImg2})` }} />
-        
+
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
             {/* Left Column - Large Image */}
@@ -188,6 +190,8 @@ const Dining = () => {
                   <img
                     src={barImg}
                     alt="Premium bar cabinet display"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   />
                 </div>
@@ -195,6 +199,8 @@ const Dining = () => {
                   <img
                     src={barImg2}
                     alt="Bar seating area"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   />
                 </div>
@@ -213,7 +219,7 @@ const Dining = () => {
               <p className="text-neutral-300 text-sm md:text-base font-sans font-light leading-relaxed text-justify">
                 Our fully stocked bar features a wide selection of premium alcoholic beverages, including beer, whisky, rum, vodka, scotch, brandy, wine, gin, and other popular spirits, offering the perfect place to relax and unwind after a memorable day in the Himalayas.
               </p>
-              
+
               <div className="pt-4">
                 <h4 className="text-gold font-serif text-sm uppercase tracking-wider mb-3">Featuring Selection of:</h4>
                 <div className="flex flex-wrap gap-2 text-xs font-sans">
@@ -252,6 +258,8 @@ const Dining = () => {
                 <img
                   src={img.src}
                   alt={img.alt}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 {/* Always-visible label at the bottom */}

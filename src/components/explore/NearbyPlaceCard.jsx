@@ -16,6 +16,8 @@ export default function NearbyPlaceCard({ place }) {
         <img
           src={place.image}
           alt={place.name}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/90 via-neutral-950/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />

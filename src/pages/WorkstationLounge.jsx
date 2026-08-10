@@ -90,7 +90,7 @@ const WorkstationLounge = () => {
                 <span className="block text-xl md:text-2xl text-neutral-600 font-sans font-light mt-2">Where Productivity Meets Comfort</span>
               </h2>
               <div className="w-12 h-[1.5px] bg-gold" />
-              
+
               <div className="space-y-5 text-neutral-700 font-sans font-light text-sm md:text-base leading-relaxed text-justify">
                 <p>
                   Whether you're working remotely, attending virtual meetings, or simply catching up on emails while travelling, our Workstation &amp; Lounge offers the perfect balance of productivity and relaxation. Designed with comfort and convenience in mind, the space provides a peaceful atmosphere where you can focus without distractions.
@@ -150,6 +150,8 @@ const WorkstationLounge = () => {
                 <img
                   src={workstationsImg}
                   alt="Workstations lounge"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-neutral-950/10" />
@@ -158,6 +160,8 @@ const WorkstationLounge = () => {
                 <img
                   src={workstationImg2}
                   alt="Comfortable work stay seating"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-neutral-950/10" />

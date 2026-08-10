@@ -200,6 +200,8 @@ const About = () => {
                 <img
                   src={ownerImg}
                   alt="Hotel Owner & Founder"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-center">
@@ -547,7 +549,7 @@ const About = () => {
               transition={{ duration: 0.7 }}
               className="col-span-12 md:col-span-5 row-span-2 md:row-span-2 overflow-hidden bg-neutral-900 group"
             >
-              <img src={diningBarImage3} alt="Premium bar cabinet display" className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+              <img src={diningBarImage3} alt="Premium bar cabinet display" loading="lazy" decoding="async" className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
             </motion.div>
 
             {/* Top right — wide */}
@@ -558,7 +560,7 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.08 }}
               className="col-span-6 md:col-span-4 overflow-hidden bg-neutral-900 group"
             >
-              <img src={diningBarImage1} alt="Fine dining interior ambience" className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+              <img src={diningBarImage1} alt="Fine dining interior ambience" loading="lazy" decoding="async" className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
             </motion.div>
 
             {/* Top far-right — square accent */}
@@ -569,7 +571,7 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.14 }}
               className="col-span-6 md:col-span-3 overflow-hidden bg-neutral-900 group"
             >
-              <img src={diningBarImage4} alt="Gourmet dishes presentation" className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+              <img src={diningBarImage4} alt="Gourmet dishes presentation" loading="lazy" decoding="async" className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
             </motion.div>
 
             {/* Bottom middle — food */}
@@ -580,7 +582,7 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="col-span-7 md:col-span-3 overflow-hidden bg-neutral-900 group"
             >
-              <img src={diningBarImage2} alt="Fresh gourmet food platter" className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+              <img src={diningBarImage2} alt="Fresh gourmet food platter" loading="lazy" decoding="async" className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
             </motion.div>
 
             {/* Bottom right — quote card */}
@@ -685,6 +687,8 @@ const About = () => {
                   <img
                     src={place.image}
                     alt={place.name}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/50 to-transparent" />

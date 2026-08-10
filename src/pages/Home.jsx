@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useMemo, memo } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence, useInView, useReducedMotion } from 'framer-motion';
 import { Star, ArrowRight, Play, X } from 'lucide-react';
@@ -12,8 +12,8 @@ import previewImage from '../assets/homepage/slider3.png';
 
 const CLOUDINARY_PREVIEW_EMBED_URL = 'https://player.cloudinary.com/embed/?cloud_name=sbmngyjf&public_id=hotel_video_vnoqpl';
 
-// Animated counter
-const AnimatedCounter = ({ value, duration = 1.5 }) => {
+// Animated counter — memoized to avoid re-renders
+const AnimatedCounter = memo(({ value, duration = 1.5 }) => {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
@@ -35,18 +35,18 @@ const AnimatedCounter = ({ value, duration = 1.5 }) => {
   }, [isInView, value, duration]);
 
   return <span ref={ref}>{count}</span>;
-};
+});
 
 const Home = () => {
   const navigate = useNavigate();
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const shouldReduceMotion = useReducedMotion();
 
-  const featuredRooms = [
+  const featuredRooms = useMemo(() => [
     { ...ROOMS_DATA.find(r => r.id === 'standard-rooms'), displayTitle: "Standard Room" },
     { ...ROOMS_DATA.find(r => r.category === 'Deluxe'), displayTitle: "Deluxe Family Rooms" },
     { ...ROOMS_DATA.find(r => r.category === 'Suite'), displayTitle: "Suite Rooms" }
-  ];
+  ], []);
 
   const fadeUp = (delay = 0) => ({
     initial: { opacity: 0, y: shouldReduceMotion ? 0 : 40 },
@@ -107,6 +107,8 @@ const Home = () => {
                 <motion.img
                   src={aboutHome}
                   alt="Hotel Shivaratna"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-[240px] sm:h-[320px] md:h-[420px] lg:h-[500px] object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -263,6 +265,8 @@ const Home = () => {
                   <img
                     src={room.image}
                     alt={room.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
                   {/* Gradient overlay */}
@@ -316,6 +320,8 @@ const Home = () => {
               <img
                 src={organicCuisineImage}
                 alt="Organic Farm Fresh Cuisine at Hotel Shivaratna"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-[220px] sm:h-[300px] md:h-[420px] lg:h-[500px] object-cover hover:scale-105 transition-transform duration-700"
               />
             </motion.div>
@@ -421,6 +427,8 @@ const Home = () => {
               <img
                 src={workstationsImage}
                 alt="Workstation and Lounge at Hotel Shivaratna"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-[220px] sm:h-[300px] md:h-[420px] lg:h-[500px] object-cover hover:scale-105 transition-transform duration-700"
               />
             </motion.div>
@@ -494,6 +502,8 @@ const Home = () => {
                 <img
                   src={img}
                   alt={`Gallery item ${idx + 1}`}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
               </motion.div>

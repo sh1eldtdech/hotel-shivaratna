@@ -141,13 +141,14 @@ const RoomDetail = () => {
                       <div
                         key={index}
                         onClick={() => setActiveImg(imgUrl)}
-                        className={`cursor-pointer overflow-hidden border-2 aspect-[4/3] relative rounded-md transition-all duration-300 ${
-                          activeImg === imgUrl ? 'border-gold shadow-md scale-[1.02]' : 'border-neutral-200 hover:border-gold/55'
-                        }`}
+                        className={`cursor-pointer overflow-hidden border-2 aspect-[4/3] relative rounded-md transition-all duration-300 ${activeImg === imgUrl ? 'border-gold shadow-md scale-[1.02]' : 'border-neutral-200 hover:border-gold/55'
+                          }`}
                       >
                         <img
                           src={imgUrl}
                           alt={`${room.title} gallery ${index + 1}`}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover"
                         />
                       </div>
@@ -195,7 +196,7 @@ const RoomDetail = () => {
                     {subsets.map((subset) => (
                       <div key={subset.id} className="bg-white border border-neutral-100 hover:border-gold/30 hover:shadow-premium transition-all duration-300 group cursor-pointer flex flex-col" onClick={() => navigate(`/rooms/${subset.id}`)}>
                         <div className="relative overflow-hidden aspect-[4/3]">
-                          <img src={subset.image} alt={subset.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                          <img src={subset.image} alt={subset.title} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                           <div className="absolute bottom-0 left-0 right-0 bg-neutral-950/80 text-white text-[10px] font-sans px-3 py-1.5 uppercase tracking-widest text-center">
                             Room option
                           </div>
@@ -293,6 +294,8 @@ const RoomDetail = () => {
                   <img
                     src={otherRoom.image}
                     alt={otherRoom.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/70 via-transparent to-transparent" />

@@ -10,6 +10,8 @@ export default function ExploreCTA() {
         <img
           src={CtaBg}
           alt="Experience Rinchenpong at Hotel Shivaratna"
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-neutral-950/75" />

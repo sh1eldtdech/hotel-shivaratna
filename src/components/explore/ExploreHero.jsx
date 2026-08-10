@@ -11,6 +11,9 @@ export default function ExploreHero() {
         <img
           src={RinchenpongBg}
           alt="Rinchenpong Landscape"
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
           className="h-full w-full object-cover object-center"
         />
         {/* Dark overlay */}
