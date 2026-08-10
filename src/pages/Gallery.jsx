@@ -80,15 +80,6 @@ const LOCAL_VIDEOS = [
     category: 'Rooms'
   },
   {
-    id: 'v9',
-    type: 'embed',
-    title: 'Restaurant Interior & Dining Ambience',
-    src: 'https://player.cloudinary.com/embed/?cloud_name=sbmngyjf&public_id=20260712_151521_vcua1d',
-    poster: 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_151521_vcua1d.jpg',
-    previewSrc: 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_151521_vcua1d.mp4',
-    category: 'Dining'
-  },
-  {
     id: 'v10',
     type: 'embed',
     title: "veg rice meal",

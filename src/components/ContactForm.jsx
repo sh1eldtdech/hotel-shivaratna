@@ -2,6 +2,26 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, AlertCircle, MessageCircle } from 'lucide-react';
 
+// Returns today's date in YYYY-MM-DD format (local time)
+const getTodayString = () => {
+  const now = new Date();
+  const yyyy = now.getFullYear();
+  const mm = String(now.getMonth() + 1).padStart(2, '0');
+  const dd = String(now.getDate()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}`;
+};
+
+// Returns the next day of a given YYYY-MM-DD string
+const getNextDay = (dateStr) => {
+  if (!dateStr) return getTodayString();
+  const d = new Date(dateStr);
+  d.setDate(d.getDate() + 1);
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}`;
+};
+
 const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -10,7 +30,7 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
     checkIn: '',
     checkOut: '',
     guests: '1',
-    roomType: 'standard-room',
+    roomType: '',
     message: '',
   });
 
@@ -35,7 +55,14 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) => {
+      const updated = { ...prev, [name]: value };
+      // If check-in changes and check-out is now before or equal to new check-in, clear check-out
+      if (name === 'checkIn' && updated.checkOut && updated.checkOut <= value) {
+        updated.checkOut = '';
+      }
+      return updated;
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -62,7 +89,7 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
           checkIn: '',
           checkOut: '',
           guests: '1',
-          roomType: 'standard-room',
+          roomType: '',
           message: '',
         });
         if (setBookingInquiry) setBookingInquiry(null);
@@ -95,7 +122,7 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
           checkIn: '',
           checkOut: '',
           guests: '1',
-          roomType: 'standard-room',
+          roomType: '',
           message: '',
         });
         if (setBookingInquiry) setBookingInquiry(null);
@@ -244,7 +271,7 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
+                className="w-full h-full"
               />
             </div>
           </div>
@@ -310,12 +337,18 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
                     onChange={handleChange}
                     className="w-full bg-white border border-neutral-200 text-neutral-800 text-xs px-4 py-3 outline-none focus:border-gold transition-colors font-sans cursor-pointer"
                   >
-                    <option value="standard-room">Standard Room</option>
-                    <option value="deluxe-room">Deluxe Room</option>
-                    <option value="premier-room">Premier Room</option>
-                    <option value="family-suite">Family Suite</option>
-                    <option value="luxury-suite">Luxury Suite</option>
-                    <option value="presidential-suite">Presidential Suite</option>
+                    <option value="" disabled>Choose room type</option>
+                    <optgroup label="STANDARD">
+                      <option value="standard-single">1A. Standard Single Bed Room – Max 2 Guests</option>
+                      <option value="standard-double">1B. Standard Double Bed Room – Max 2 Guests</option>
+                      <option value="standard-triple">1C. Standard Triple Bed Room – Max 5 Guests</option>
+                    </optgroup>
+                    <optgroup label="DELUXE">
+                      <option value="deluxe-family-quadruple">Deluxe Family Quadruple (4 Bed) – Max 4 Guests</option>
+                    </optgroup>
+                    <optgroup label="SUITE">
+                      <option value="suite-room">Suite Room – Max 4 Guests (with Sofa &amp; Table)</option>
+                    </optgroup>
                   </select>
                 </div>
 
@@ -326,6 +359,7 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
                     type="date"
                     name="checkIn"
                     value={formData.checkIn}
+                    min={getTodayString()}
                     onChange={handleChange}
                     className="w-full bg-white border border-neutral-200 text-neutral-800 text-xs px-4 py-3 outline-none focus:border-gold transition-colors font-sans cursor-pointer"
                   />
@@ -338,6 +372,7 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
                     type="date"
                     name="checkOut"
                     value={formData.checkOut}
+                    min={getNextDay(formData.checkIn || getTodayString())}
                     onChange={handleChange}
                     className="w-full bg-white border border-neutral-200 text-neutral-800 text-xs px-4 py-3 outline-none focus:border-gold transition-colors font-sans cursor-pointer"
                   />
