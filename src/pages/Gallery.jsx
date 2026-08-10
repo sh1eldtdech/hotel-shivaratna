@@ -41,7 +41,7 @@ const LOCAL_VIDEOS = [
     src: CLOUDINARY_VIDEO_EMBED_URL_ADDITIONAL,
     poster: CLOUDINARY_VIDEO_THUMB_URL_ADDITIONAL,
     previewSrc: 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_133510_fs8flc.mp4',
-    category: 'Rooms'
+    category: 'Views'
   },
   {
     id: 'v4',
@@ -77,7 +77,7 @@ const LOCAL_VIDEOS = [
     src: CLOUDINARY_VIDEO_EMBED_URL_BONUS,
     poster: CLOUDINARY_VIDEO_THUMB_URL_BONUS,
     previewSrc: 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_134025_mzzfka.mp4',
-    category: 'Rooms'
+    category: 'Views'
   },
   {
     id: 'v10',
@@ -103,7 +103,7 @@ const LOCAL_PHOTOS = [
   { id: 'p2', type: 'photo', title: 'Corridor', src: img1, category: 'Hotel' },
   { id: 'p3', type: 'photo', title: 'Hotel Exterior View', src: img2, category: 'Hotel' },
   { id: 'p4', type: 'photo', title: 'Modern Attached Bathroom', src: img3, category: 'Hotel' },
-  { id: 'p5', type: 'photo', title: 'Marble Staircase', src: img4, category: 'Dining' },
+  { id: 'p5', type: 'photo', title: 'Marble Staircase', src: img4, category: 'Hotel' },
   { id: 'p6', type: 'photo', title: 'Hotel Back View', src: img5, category: 'Hotel' },
   { id: 'p7', type: 'photo', title: 'Hotel Corridor', src: img6, category: 'Hotel' },
   { id: 'p8', type: 'photo', title: 'Sunrise View of Kanchenjunga', src: viewFromHotelImg, category: 'Views' }
