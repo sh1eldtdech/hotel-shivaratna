@@ -136,14 +136,14 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
 
   return (
     <section id="contact" className="py-24 bg-luxury-cream text-neutral-900 relative overflow-hidden">
-      
+
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-gold/5 rounded-full filter blur-3xl -z-10" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold/5 rounded-full filter blur-3xl -z-10" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-          
+
           {/* Left Column - Contact Info */}
           <div className="lg:col-span-5 space-y-10 text-left">
             <div className="space-y-4">
@@ -278,14 +278,14 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
 
           {/* Right Column - Booking & Contact Form */}
           <div className="lg:col-span-7 bg-white/80 backdrop-blur-md border border-gold/15 p-5 sm:p-8 md:p-10 shadow-gold-glow">
-            
+
             <h3 className="text-xl md:text-2xl font-serif text-neutral-900 font-medium text-left mb-6">
               Reservation &amp; Inquiry Form
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-5 text-left">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                
+
                 {/* Name */}
                 <div className="space-y-1.5">
                   <label className="text-[10px] text-neutral-600 uppercase tracking-widest font-sans font-semibold">Full Name</label>
@@ -339,15 +339,15 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
                   >
                     <option value="" disabled>Choose room type</option>
                     <optgroup label="STANDARD">
-                      <option value="standard-single">1A. Standard Single Bed Room – Max 2 Guests</option>
-                      <option value="standard-double">1B. Standard Double Bed Room – Max 2 Guests</option>
-                      <option value="standard-triple">1C. Standard Triple Bed Room – Max 5 Guests</option>
+                      <option value="standard-single">Standard Single Bed Room</option>
+                      <option value="standard-double">Standard Double Bed Room</option>
+                      <option value="standard-triple">Standard Triple Bed Room</option>
                     </optgroup>
                     <optgroup label="DELUXE">
-                      <option value="deluxe-family-quadruple">Deluxe Family Quadruple (4 Bed) – Max 4 Guests</option>
+                      <option value="deluxe-family-quadruple">Deluxe Family Quadruple</option>
                     </optgroup>
                     <optgroup label="SUITE">
-                      <option value="suite-room">Suite Room – Max 4 Guests (with Sofa &amp; Table)</option>
+                      <option value="suite-room">Suite Room</option>
                     </optgroup>
                   </select>
                 </div>
@@ -414,9 +414,8 @@ const ContactForm = ({ bookingInquiry, setBookingInquiry }) => {
               <button
                 type="submit"
                 disabled={status.submitting}
-                className={`w-full bg-gold hover:bg-gold-light text-neutral-950 font-sans font-semibold text-xs uppercase tracking-widest py-4 px-6 flex items-center justify-center transition-all duration-300 shadow-gold-glow ${
-                  status.submitting ? 'opacity-70 cursor-not-allowed' : ''
-                }`}
+                className={`w-full bg-gold hover:bg-gold-light text-neutral-950 font-sans font-semibold text-xs uppercase tracking-widest py-4 px-6 flex items-center justify-center transition-all duration-300 shadow-gold-glow ${status.submitting ? 'opacity-70 cursor-not-allowed' : ''
+                  }`}
               >
                 {status.submitting ? (
                   <div className="w-5 h-5 border-2 border-neutral-950 border-t-transparent rounded-full animate-spin mr-2" />

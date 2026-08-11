@@ -52,6 +52,8 @@ const CLOUDINARY_VIDEO_EMBED_URL_CHEF = 'https://player.cloudinary.com/embed/?cl
 const CLOUDINARY_VIDEO_THUMB_URL_CHEF = 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_151822_fphscz.jpg';
 const CLOUDINARY_VIDEO_EMBED_URL_BONUS = 'https://player.cloudinary.com/embed/?cloud_name=sbmngyjf&public_id=20260712_134025_mzzfka';
 const CLOUDINARY_VIDEO_THUMB_URL_BONUS = 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_134025_mzzfka.jpg';
+const CLOUDINARY_VIDEO_EMBED_URL_RESTAURANT = 'https://player.cloudinary.com/embed/?cloud_name=sbmngyjf&public_id=WhatsApp_Video_2026-08-11_at_17.10.27_sdasgg&muted=true';
+const CLOUDINARY_VIDEO_THUMB_URL_RESTAURANT = 'https://res.cloudinary.com/sbmngyjf/video/upload/WhatsApp_Video_2026-08-11_at_17.10.27_sdasgg.jpg';
 
 // Local uploaded images
 import img1 from '../assets/gallery/WhatsApp Image 2026-08-01 at 11.11.00 AM.jpeg';
@@ -135,6 +137,15 @@ const LOCAL_VIDEOS = [
     poster: 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_151838_kqvhjp.jpg',
     previewSrc: 'https://res.cloudinary.com/sbmngyjf/video/upload/20260712_151838_kqvhjp.mp4',
     category: 'Hotel'
+  },
+  {
+    id: 'v12',
+    type: 'embed',
+    title: 'Restaurant Interior & Dining',
+    src: CLOUDINARY_VIDEO_EMBED_URL_RESTAURANT,
+    poster: CLOUDINARY_VIDEO_THUMB_URL_RESTAURANT,
+    previewSrc: 'https://res.cloudinary.com/sbmngyjf/video/upload/WhatsApp_Video_2026-08-11_at_17.10.27_sdasgg.mp4',
+    category: 'Dining'
   },
 ];
 const LOCAL_PHOTOS = [
