@@ -10,7 +10,7 @@ import organicCuisineImage from '../assets/homepage/organic_cuisine.jpg';
 import workstationsImage from '../assets/homepage/workstations.jpg';
 import previewImage from '../assets/homepage/slider3.png';
 
-const CLOUDINARY_PREVIEW_EMBED_URL = 'https://player.cloudinary.com/embed/?cloud_name=sbmngyjf&public_id=hotel_video_vnoqpl';
+const CLOUDINARY_PREVIEW_EMBED_URL = 'https://player.cloudinary.com/embed/?cloud_name=sbmngyjf&public_id=WhatsApp_Video_2026-08-11_at_03.02.46_cnsk2n';
 
 // Animated counter — memoized to avoid re-renders
 const AnimatedCounter = memo(({ value, duration = 1.5 }) => {
